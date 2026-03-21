@@ -1,0 +1,331 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const title = "What Buyers Actually Compare When Choosing an LMS";
+const description = "Most LMS comparisons miss what matters. Here's the 9-pillar framework real buyers use to evaluate learning platforms — from use-case fit to AI capability.";
+
+const faqItems = [
+  {
+    question: "How many LMS platforms should I shortlist?",
+    answer: "Three to four is the sweet spot. Fewer than three and you lack negotiation leverage and perspective. More than four and you burn weeks on demos that blur together. Use the 9-pillar framework to narrow from a long list to a shortlist before scheduling any vendor calls."
+  },
+  {
+    question: "Which evaluation pillar matters most?",
+    answer: "Primary use-case fit. Every other pillar is secondary if the platform wasn't designed for your core scenario. An enterprise compliance training buyer and a creator selling courses online have fundamentally different needs — no amount of feature overlap changes that. Start there, then weight the remaining pillars based on your buyer type."
+  },
+  {
+    question: "Should I use a scoring spreadsheet to compare LMS platforms?",
+    answer: "A weighted scorecard helps, but only if you customize the weights. The default trap is giving every criterion equal importance, which favors platforms with the longest feature lists rather than the best fit. Assign weights based on your buyer type first, then score. A platform that scores 9/10 on your top three pillars and 5/10 on the rest is usually a better pick than one scoring 7/10 across the board."
+  },
+  {
+    question: "How important is AI capability in an LMS right now?",
+    answer: "It depends on your operational reality. If you have a small team managing thousands of learners, AI-driven admin automation (auto-tagging, smart recommendations, content generation) can be transformative. If you have 200 learners and a dedicated instructional designer, AI is a nice-to-have. Evaluate AI on what it actually automates for <em>your</em> workflow, not on how impressive the demo looks."
+  },
+  {
+    question: "What's the biggest mistake buyers make when comparing LMS platforms?",
+    answer: "Treating every platform as interchangeable and comparing them on a flat feature list. LMS platforms are built around different operating models — some are SaaS marketplaces, some are enterprise suites, some are open-source frameworks. Comparing Thinkific to Docebo on the same checklist is like comparing Shopify to Salesforce. Start with <em>what kind</em> of platform you need, then compare within that category."
+  },
+  {
+    question: "How long should an LMS evaluation take?",
+    answer: "Four to eight weeks from kickoff to decision, assuming you have stakeholder alignment on requirements. Most delays come from unclear internal priorities, not from the vendor evaluation itself. Spend the first week aligning on your buyer type and pillar weights. That clarity cuts weeks off the rest of the process."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "dateModified": "2025-03-21",
+    "datePublished": "2025-03-21",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide",
+      "url": "https://lmsguide.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'What Buyers Compare' }]}
+  lastUpdated="2025-03-21"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">{title}</h1>
+
+  <p class="text-lg text-slate-600 mb-4 leading-relaxed">
+    Most LMS comparison pages hand you a feature matrix and call it a day. That's not how real buyers make decisions. After analyzing how teams actually evaluate learning platforms, we've identified nine pillars that consistently separate a confident purchase from an expensive regret. This framework gives you a structured way to compare platforms based on what actually drives long-term success — not just what looks good in a demo.
+  </p>
+
+  <p class="text-slate-600 mb-8">
+    <strong>Who this is for:</strong> L&D leaders, training managers, course business owners, and anyone responsible for selecting an LMS who wants to move beyond surface-level feature comparisons and evaluate platforms on the dimensions that actually matter for their specific situation.
+  </p>
+
+  <KeyTakeaways items={[
+    "There are 9 evaluation pillars that matter — feature lists alone miss at least half of them.",
+    "Use-case fit is the single most important pillar. A platform built for your scenario beats a platform with more features every time.",
+    "Different buyer types should weight the pillars differently — an enterprise compliance buyer and a course creator have almost opposite priorities.",
+    "Commerce, branding, and community capabilities are dealbreakers for education businesses but irrelevant for internal training teams.",
+    "AI capability matters most when it automates your actual bottleneck, not when it checks a trend box.",
+    "The biggest mistake is comparing platforms on a flat checklist instead of first identifying what kind of platform you need."
+  ]} />
+
+  <h2 class="text-2xl font-bold text-navy mt-12 mb-4">The 9 Evaluation Pillars</h2>
+
+  <p class="text-slate-600 mb-8">
+    These nine pillars cover the full decision surface for an LMS purchase. Not every pillar carries equal weight for every buyer — that's the point. The framework helps you figure out which pillars are critical for your situation and which ones you can deprioritize.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="use-case-fit">1. Primary Use-Case Fit</h2>
+  <p class="text-slate-600 mb-4">
+    This is the pillar that filters out 60% of options before you open a single feature page. LMS platforms are designed around a primary use case — customer education, employee compliance training, course commerce, or academic instruction. A platform optimized for enterprise onboarding has fundamentally different architecture than one built for selling courses to the public.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Ask the vendor what their top three customer segments are. If your use case isn't in that list, the platform will work against you in subtle ways — missing workflows, awkward pricing tiers, a roadmap that never addresses your needs. Thinkific, for example, is purpose-built for learning commerce and customer academies. Docebo targets enterprise training breadth. That distinction matters more than any feature comparison.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="commerce">2. Commerce and Monetization</h2>
+  <p class="text-slate-600 mb-4">
+    If you're selling courses, memberships, or certifications, commerce isn't a nice-to-have — it's core infrastructure. You need native payment processing, flexible pricing models (one-time, subscription, bundles, seat-based), coupon and affiliate systems, and tax handling. Bolting commerce onto a platform that wasn't designed for it creates friction at every step.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Native checkout versus third-party integrations, revenue reporting depth, support for multiple pricing models in a single storefront, and transaction fees. Platforms like Thinkific and LearnWorlds handle commerce natively. Enterprise platforms like Docebo and Absorb treat commerce as a secondary module, which works fine if selling content isn't your primary model.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="branding">3. Branding and Ownership</h2>
+  <p class="text-slate-600 mb-4">
+    How much does the platform look and feel like <em>your</em> brand versus theirs? This pillar covers white-labeling depth, custom domain support, design flexibility, and data ownership. For businesses selling education, your learning site <em>is</em> your product — it needs to reflect your brand completely. For internal training teams, branding still matters for learner trust and engagement, but it's rarely a dealbreaker.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Full white-label capability (removing vendor branding), custom CSS/HTML access, custom domain support, and whether you own your content and learner data. LearnWorlds stands out for white-label depth. LearnDash gives full code-level control through WordPress. SaaS platforms vary widely — some let you customize colors; others let you rebuild the entire front end.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="learning-experience">4. Learning and Engagement Experience</h2>
+  <p class="text-slate-600 mb-4">
+    This is what most comparison sites focus on exclusively — and it <em>does</em> matter, it's just not the whole picture. The learning experience covers content types supported (video, SCORM, interactive), course builder usability, assessment tools, gamification, community features, and mobile experience. The question isn't just "what content can I deliver?" but "will my specific learners actually complete it?"
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Content type support matched to your actual content strategy, not hypothetical future needs. Builder UX for your team's technical level. Completion and engagement data. Social learning or community features if peer interaction drives your outcomes. LearnWorlds excels at interactive content. Docebo offers the broadest content type support. Thinkific nails the creator-friendly builder experience.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="admin">5. Administration and Operations</h2>
+  <p class="text-slate-600 mb-4">
+    The admin experience determines how much of your team's time gets consumed by platform management versus actual program strategy. This pillar covers user management, enrollment automation, reporting and analytics, compliance tracking, role-based access, and integration with your existing systems (HRIS, CRM, SSO). The gap between platforms here is enormous and often invisible until you're three months into implementation.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Automation capabilities for enrollment, notifications, and reporting. API quality and existing integrations with your tech stack. Reporting granularity — can you get the specific data your stakeholders actually ask for? Absorb is notably strong on admin efficiency and operational automation. Docebo offers deep enterprise admin controls. Creator-focused platforms tend to be simpler here, which is a feature, not a bug, if you don't need enterprise admin complexity.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="ai">6. AI Capability</h2>
+  <p class="text-slate-600 mb-4">
+    AI in LMS platforms ranges from genuinely useful to pure marketing. The meaningful applications today are content generation assistance, personalized learning paths, intelligent content recommendations, automated tagging and organization, and admin task automation. The key question isn't "does it have AI?" but "does its AI solve a problem I currently spend significant time on?"
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Specific AI use cases with measurable outcomes, not vague "AI-powered" labels. Does the AI reduce admin workload? Does it improve learner completion rates? Can you see it working in a trial? Absorb has invested heavily in AI for operational efficiency. Docebo offers AI-driven recommendations. But for many buyers, especially smaller teams, robust manual tools still outperform immature AI features.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="scalability">7. Scalability and Organizational Fit</h2>
+  <p class="text-slate-600 mb-4">
+    Scale isn't just about handling more users — it's about whether the platform grows with your organizational complexity. Multi-tenancy for different business units, sub-accounts for franchise or partner networks, content libraries shared across divisions, and user hierarchy management. A platform that works perfectly for 500 learners might become unmanageable at 5,000 — not because it can't handle the load, but because the admin model doesn't support your organizational structure.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Multi-tenant architecture if you serve distinct audiences. Sub-account or branch support. Content sharing across organizational units. User import and sync capabilities. Pricing models that scale linearly, not exponentially. Docebo and Absorb lead in enterprise-scale organizational features. Thinkific supports multi-site through its Plus tier. LearnDash scales through WordPress's inherent flexibility but requires more technical management.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="cost">8. Cost and Implementation Reality</h2>
+  <p class="text-slate-600 mb-4">
+    The sticker price of an LMS is rarely the actual cost. Implementation effort, migration complexity, staff training, ongoing customization, and integration maintenance all contribute to total cost of ownership. A platform that costs 40% less per month but requires a dedicated admin and a $30K implementation project isn't actually cheaper.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Total cost of ownership over 3 years, not just monthly pricing. Implementation timeline and required resources. Whether you need external consultants or agencies. Hidden costs like per-user overages, premium support tiers, or required add-on modules. Creator platforms like Thinkific and LearnWorlds are transparent on pricing but cap features by tier. Enterprise platforms like Docebo and Absorb require sales conversations and often have implementation fees.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-10 mb-3" id="trust">9. Trust and Proof</h2>
+  <p class="text-slate-600 mb-4">
+    Vendor viability, customer references, and ecosystem maturity reduce your risk. This pillar covers things that don't show up in feature comparisons but heavily influence whether a platform actually delivers: uptime track record, customer support quality, community size, third-party integrations ecosystem, and case studies from organizations similar to yours.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>What to look for:</strong> Case studies from your industry or use case. G2 and Capterra reviews filtered to your company size. Support response time guarantees (SLA). Community forums or user groups. Vendor funding and growth trajectory — you want a platform that will exist and improve in three years. Ask for references you can actually call, not just logos on a website.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-12 mb-4">How Weighting Changes by Buyer Type</h2>
+  <p class="text-slate-600 mb-6">
+    The 9 pillars are universal, but their relative importance shifts dramatically depending on who you are and what you're building. Here's how four common buyer types typically prioritize:
+  </p>
+
+  <div class="overflow-x-auto mb-8">
+    <table class="w-full text-sm border border-slate-200 rounded-lg">
+      <thead>
+        <tr class="bg-slate-50">
+          <th class="text-left py-3 px-4 font-semibold text-navy border-b border-slate-200">Pillar</th>
+          <th class="text-center py-3 px-4 font-semibold text-navy border-b border-slate-200">Customer Education</th>
+          <th class="text-center py-3 px-4 font-semibold text-navy border-b border-slate-200">Enterprise Internal</th>
+          <th class="text-center py-3 px-4 font-semibold text-navy border-b border-slate-200">Membership / Community</th>
+          <th class="text-center py-3 px-4 font-semibold text-navy border-b border-slate-200">Open / Flexible Stack</th>
+        </tr>
+      </thead>
+      <tbody class="text-slate-600">
+        <tr class="border-b border-slate-100">
+          <td class="py-2.5 px-4 font-medium">Use-Case Fit</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+        </tr>
+        <tr class="border-b border-slate-100 bg-slate-50/50">
+          <td class="py-2.5 px-4 font-medium">Commerce</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Low</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+        </tr>
+        <tr class="border-b border-slate-100">
+          <td class="py-2.5 px-4 font-medium">Branding</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+        </tr>
+        <tr class="border-b border-slate-100 bg-slate-50/50">
+          <td class="py-2.5 px-4 font-medium">Learning Experience</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+        </tr>
+        <tr class="border-b border-slate-100">
+          <td class="py-2.5 px-4 font-medium">Admin / Ops</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+        </tr>
+        <tr class="border-b border-slate-100 bg-slate-50/50">
+          <td class="py-2.5 px-4 font-medium">AI Capability</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">Low</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+        </tr>
+        <tr class="border-b border-slate-100">
+          <td class="py-2.5 px-4 font-medium">Scalability</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+        </tr>
+        <tr class="border-b border-slate-100 bg-slate-50/50">
+          <td class="py-2.5 px-4 font-medium">Cost Reality</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">Critical</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+        </tr>
+        <tr>
+          <td class="py-2.5 px-4 font-medium">Trust / Proof</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">High</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+          <td class="py-2.5 px-4 text-center">Medium</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-slate-600 mb-4">
+    <strong>Customer education buyers</strong> (SaaS companies, professional training providers, academy builders) should prioritize use-case fit, commerce, and branding. Platforms like Thinkific are built for this exact scenario. Admin complexity matters less because the team is usually small and the workflows are straightforward.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>Enterprise internal buyers</strong> (L&D teams, HR, compliance) need scalability, admin depth, and integration breadth above everything else. Docebo and Absorb are designed for this world. Commerce is irrelevant, and branding is a secondary concern.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>Membership and community businesses</strong> (coaches, creators, associations) care most about cost predictability, commerce flexibility, and learning experience. They need a platform that handles payments, delivers content engagingly, and doesn't eat their margins with per-user fees.
+  </p>
+  <p class="text-slate-600 mb-4">
+    <strong>Open/flexible-stack buyers</strong> (developers, agencies, WordPress-native teams) prioritize branding control and scalability because they want to build exactly the experience they envision. LearnDash fits this profile — full control at the cost of more technical management.
+  </p>
+
+  <h2 class="text-2xl font-bold text-navy mt-12 mb-4">Common Mistakes to Avoid</h2>
+
+  <div class="space-y-4 mb-8">
+    <div class="border-l-4 border-amber-400 pl-4 py-1">
+      <p class="font-semibold text-navy mb-1">1. Comparing everything as "just LMS features"</p>
+      <p class="text-slate-600 text-sm">LMS platforms have different operating models, not just different feature sets. Thinkific is a learning commerce platform. Docebo is an enterprise training suite. LearnDash is a WordPress plugin. Comparing them on a flat feature list is misleading because it ignores the architectural decisions that shape every aspect of the experience.</p>
+    </div>
+    <div class="border-l-4 border-amber-400 pl-4 py-1">
+      <p class="font-semibold text-navy mb-1">2. Overvaluing feature breadth</p>
+      <p class="text-slate-600 text-sm">The platform with the most features rarely wins in practice. What wins is the platform where the features you actually use work well together. A 200-feature enterprise LMS creates overhead for a 10-person training business. A streamlined creator platform frustrates an L&D team managing 15,000 learners across 8 business units. Breadth without relevance is noise.</p>
+    </div>
+    <div class="border-l-4 border-amber-400 pl-4 py-1">
+      <p class="font-semibold text-navy mb-1">3. Ignoring operating model differences</p>
+      <p class="text-slate-600 text-sm">Self-hosted vs. SaaS. Marketplace-integrated vs. standalone. Per-user pricing vs. flat-rate. These structural differences affect your total cost, your team's workload, and your ability to customize — and they're almost impossible to change after you've committed. Evaluate operating models before evaluating features.</p>
+    </div>
+    <div class="border-l-4 border-amber-400 pl-4 py-1">
+      <p class="font-semibold text-navy mb-1">4. Treating AI as a checkbox</p>
+      <p class="text-slate-600 text-sm">"Does it have AI?" is the wrong question. "What does AI automate that currently costs me time or quality?" is the right one. Some platforms use AI to meaningfully reduce admin burden or improve learner outcomes. Others slap an AI label on a basic recommendation engine. Evaluate the specific workflow impact, not the marketing claim.</p>
+    </div>
+    <div class="border-l-4 border-amber-400 pl-4 py-1">
+      <p class="font-semibold text-navy mb-1">5. Ignoring commerce and community needs</p>
+      <p class="text-slate-600 text-sm">If your business model involves selling learning content, commerce capability isn't a "nice to have" — it's infrastructure. The same applies to community features if peer interaction drives your learner outcomes. Enterprise-focused comparison guides often overlook these pillars entirely, which leaves education businesses evaluating platforms on criteria that don't match their reality.</p>
+    </div>
+  </div>
+
+  <CTA
+    variant="subtle"
+    title="Not sure which pillar weights fit your situation?"
+    description="Use our comparison tool to see how platforms stack up based on the pillars that matter most for your use case."
+    buttonText="Compare Platforms"
+    buttonHref="/"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={[
+    {
+      title: "Thinkific vs Docebo",
+      href: "/compare/thinkific-vs-docebo",
+      description: "A head-to-head comparison for buyers choosing between learning commerce and enterprise training breadth."
+    },
+    {
+      title: "Thinkific vs LearnWorlds",
+      href: "/compare/thinkific-vs-learnworlds",
+      description: "Two creator-focused platforms compared on commerce, branding, interactivity, and pricing."
+    },
+    {
+      title: "Absorb LMS Review",
+      href: "/reviews/absorb-lms",
+      description: "Deep dive into Absorb's admin automation, AI capabilities, and enterprise fit."
+    },
+    {
+      title: "LearnDash Review",
+      href: "/reviews/learndash",
+      description: "Full review of LearnDash for WordPress-native buyers who want code-level control."
+    }
+  ]} />
+
+</GuideLayout>

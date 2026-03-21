@@ -1,0 +1,61 @@
+---
+const navItems = [
+  { label: 'Buyer Guides', href: '/guides/what-buyers-compare' },
+  { label: 'Reviews', href: '/reviews/thinkific' },
+  { label: 'Comparisons', href: '/compare/thinkific-vs-learnworlds' },
+  { label: 'Best LMS', href: '/guides/best-lms-customer-training' },
+];
+---
+
+<header class="bg-navy text-white sticky top-0 z-50">
+  <div class="bg-teal-dark/90 text-white text-xs text-center py-1.5 px-4">
+    <p>Disclosure: This site has a partnership with Thinkific. Our comparisons remain editorially independent. <a href="/about" class="underline text-white hover:text-slate-200">Learn more</a></p>
+  </div>
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="text-xl font-bold text-white hover:text-teal-light">
+        LMS Guide
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <a href={item.href} class="text-slate-300 hover:text-white text-sm font-medium transition-colors">
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-slate-300 hover:text-white"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      {navItems.map(item => (
+        <a href={item.href} class="block py-2 text-slate-300 hover:text-white text-sm font-medium">
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string;
+  bestFor: string;
+  strengths: string[];
+  considerations: string;
+  recommended?: boolean;
+}
+
+const { name, bestFor, strengths, considerations, recommended = false } = Astro.props;
+---
+
+<div class:list={[
+  "border rounded-lg p-6 transition-shadow hover:shadow-md",
+  recommended ? "border-teal bg-teal/5 ring-1 ring-teal/20" : "border-slate-200 bg-white"
+]}>
+  <div class="flex items-start justify-between mb-3">
+    <h3 class="text-lg font-bold text-navy">{name}</h3>
+    {recommended && (
+      <span class="text-xs font-semibold bg-teal text-white px-2.5 py-1 rounded-full">Top Pick</span>
+    )}
+  </div>
+  <p class="text-teal-dark font-medium text-sm mb-3">{bestFor}</p>
+  <ul class="space-y-1.5 mb-4">
+    {strengths.map(s => (
+      <li class="flex items-start gap-2 text-sm text-slate-600">
+        <span class="text-teal mt-1">+</span>
+        <span>{s}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="text-sm text-slate-500 italic">{considerations}</p>
+</div>

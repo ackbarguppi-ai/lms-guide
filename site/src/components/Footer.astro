@@ -1,0 +1,53 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: 'Guides',
+    links: [
+      { label: 'What Buyers Compare', href: '/guides/what-buyers-compare' },
+      { label: 'Best LMS for Customer Training', href: '/guides/best-lms-customer-training' },
+    ],
+  },
+  {
+    title: 'Reviews',
+    links: [
+      { label: 'Thinkific Review', href: '/reviews/thinkific' },
+    ],
+  },
+  {
+    title: 'Comparisons',
+    links: [
+      { label: 'Thinkific vs LearnWorlds', href: '/compare/thinkific-vs-learnworlds' },
+      { label: 'Thinkific vs Docebo', href: '/compare/thinkific-vs-docebo' },
+    ],
+  },
+];
+---
+
+<footer class="bg-navy-dark text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <a href="/" class="text-xl font-bold text-white hover:text-teal-light">LMS Guide</a>
+        <p class="mt-3 text-sm leading-relaxed">Independent, buyer-focused LMS comparisons and reviews to help you choose the right learning platform.</p>
+        <p class="mt-4 text-xs text-slate-500">This site has a partnership with Thinkific. All comparisons are editorially independent.</p>
+      </div>
+      {footerLinks.map(group => (
+        <div>
+          <h4 class="text-white font-semibold text-sm mb-3">{group.title}</h4>
+          <ul class="space-y-2">
+            {group.links.map(link => (
+              <li>
+                <a href={link.href} class="text-sm text-slate-400 hover:text-teal-light transition-colors">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="border-t border-slate-700 mt-10 pt-6 text-center text-xs text-slate-500">
+      <p>&copy; {currentYear} LMS Guide. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

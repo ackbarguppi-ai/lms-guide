@@ -1,0 +1,399 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Thinkific an LMS?",
+    answer: "Thinkific includes LMS functionality, but it positions itself more broadly as a learning commerce platform. It combines course creation and delivery with built-in commerce, community, and membership features. If you need a traditional corporate LMS for internal compliance training, Thinkific probably is not the right fit. But if you need to create, sell, and deliver learning experiences to external audiences, it covers that ground well."
+  },
+  {
+    question: "Is Thinkific good for customer training?",
+    answer: "Yes. Customer education is one of Thinkific's strongest use cases, especially through its Plus plan. You can build branded customer academies, create onboarding flows, track learner progress, and integrate with CRM and support tools. Many SaaS companies and service businesses use Thinkific to reduce churn, improve product adoption, and generate leads through education."
+  },
+  {
+    question: "What is Thinkific's AI assistant?",
+    answer: "Thinker is Thinkific's AI teaching assistant. It can help learners get answers, navigate course content, and stay engaged. On the creator side, Thinkific also offers AI-powered tools for content creation, course outlining, and workflow automation. These features are relatively new and continuing to evolve."
+  },
+  {
+    question: "How much does Thinkific cost?",
+    answer: "Thinkific offers a free plan with limited features, a Basic plan for getting started, a Start plan for growing businesses, a Grow plan for established learning businesses, and a Plus plan for larger organizations and customer education teams. Pricing scales with features, commerce capabilities, and advanced functionality. Check Thinkific's website for current pricing, as it changes periodically."
+  },
+  {
+    question: "Can I white-label Thinkific?",
+    answer: "Yes. Thinkific supports custom domains, branded academy experiences, and white-label options, particularly on higher-tier plans. You can make your learning site look and feel like a seamless extension of your brand rather than a third-party platform. The level of branding control increases with higher plans."
+  },
+  {
+    question: "How does Thinkific compare to LearnWorlds?",
+    answer: "Both platforms operate in similar learning commerce territory. Thinkific tends to be stronger in community and membership features, while LearnWorlds may offer more granular site-building and white-label control. The right choice depends on whether you prioritize community-driven engagement or detailed design customization. See our <a href='/compare/thinkific-vs-learnworlds' class='text-teal-dark hover:underline'>full Thinkific vs LearnWorlds comparison</a> for a detailed breakdown."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Thinkific",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2025-03-21",
+    "description": "An honest, in-depth review of Thinkific for customer training, branded academies, memberships, and course businesses."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Thinkific Review 2025: Learning Commerce Platform for Customer Education"
+  description="An honest, in-depth review of Thinkific for customer training, branded academies, memberships, and course businesses. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Thinkific"
+  rating={4.5}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Thinkific' }]}
+  lastUpdated="2025-03-21"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Thinkific Review 2025: Learning Commerce Platform for Customer Education</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.5 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (half-filled) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="half-star">
+            <stop offset="50%" stop-color="#fbbf24" />
+            <stop offset="50%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#half-star)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.5 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Thinkific is one of the strongest platforms available for organizations that want to build branded learning experiences tied to revenue, customer success, or community. It sits at a useful intersection of learning commerce, customer education, and membership-driven engagement. If your goal is to create, sell, and deliver learning to external audiences rather than run an internal corporate training program, Thinkific deserves serious consideration.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for learning leaders, customer education managers, training business owners, and anyone evaluating Thinkific as a platform for creating and monetizing learning experiences. If you are comparing Thinkific against enterprise LMS platforms or course creator tools and trying to figure out where it actually fits, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Thinkific is best understood as a learning commerce platform, not a traditional corporate LMS. It is built around selling, delivering, and growing education-driven businesses.",
+    "Customer education is a standout use case. Thinkific supports branded academies, onboarding flows, and integrations with CRM and support tools.",
+    "Built-in community and membership features set Thinkific apart from many competitors, supporting recurring revenue and ongoing learner engagement.",
+    "The platform is accessible to non-technical users, with a drag-and-drop course builder and managed hosting that keeps setup fast.",
+    "AI features, including the Thinker AI assistant, are actively developing and add value for both creators and learners.",
+    "Thinkific is not ideal for heavy internal compliance training or organizations that need deep enterprise LMS functionality. Know where it fits before you commit."
+  ]} />
+
+  <!-- What is Thinkific? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Thinkific?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thinkific is a platform for creating, selling, and delivering online learning experiences. But calling it "just an LMS" misses the point. Thinkific has deliberately positioned itself at the intersection of learning commerce, customer education, branded academies, communities, and memberships.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      In practice, that means Thinkific is built for organizations and individuals who see learning as a business outcome, not just a cost center. Whether you are a SaaS company building a customer academy, a training business selling professional certifications, or an expert monetizing deep knowledge, Thinkific provides the tools to create courses, process payments, build community, and manage the entire learner lifecycle in one platform.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Thinkific also invests heavily in AI, most notably through its Thinker AI assistant, which supports both learners and creators. The platform is cloud-hosted, which means no server management, no plugin conflicts, and a faster path from idea to launch compared to self-hosted alternatives.
+    </p>
+  </section>
+
+  <!-- Who is Thinkific Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Thinkific Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Thinkific works across several buyer profiles, but it is not a one-size-fits-all solution. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Customer Education Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          SaaS companies and service businesses that need to onboard customers, reduce churn, improve product adoption, and build branded customer academies. Thinkific's Plus plan is particularly well-suited here, with CRM integrations and engagement analytics.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Learning Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that sell courses, programs, or memberships as a primary or supplementary revenue stream. Thinkific's commerce features, subscription models, and bundling options make it a natural fit for monetizing education at scale.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Academies and Training Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Professional training providers, certification programs, and branded education businesses that need a polished, externally-facing academy experience with structured learning paths, assessments, and certificates.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Experts and Thought Leaders</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Subject matter experts, consultants, and creators who want to turn their knowledge into a revenue-generating learning business. Thinkific handles the infrastructure so you can focus on content and community rather than technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thinkific offers a drag-and-drop course builder that supports video, text, downloads, quizzes, and assessments. You can create structured learning paths, issue completion certificates, and run live sessions or webinars alongside pre-recorded content. The builder is intuitive enough for non-technical users while still offering enough depth for serious course creators.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Commerce and Monetization</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      This is where Thinkific distinguishes itself from traditional LMS platforms. Built-in payment processing, course sales, subscription models, membership pricing, bundles, upsells, coupons, and promotional tools are all part of the platform. You can sell B2B and B2C without needing third-party plugins or workarounds.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Branding and White-Label</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thinkific supports custom domains, a built-in site builder, and white-label options so your academy looks like your brand, not a generic course platform. Mobile-responsive design comes standard. The level of branding control deepens as you move to higher-tier plans, with Plus offering the most customization.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Communities and Memberships</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike many platforms that treat community as an afterthought, Thinkific builds it into the core experience. Community spaces, discussion forums, Q&A, and social learning features help you keep learners engaged beyond individual courses. Membership models support recurring revenue and long-term retention.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Customer Education Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      For customer training specifically, Thinkific provides onboarding flows, progress tracking, engagement analytics, and integrations with CRM and customer support tools. These features make it possible to tie learning directly to customer success metrics like adoption, retention, and lifetime value.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Features (Thinker AI Assistant)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thinkific is investing in AI across the platform. The Thinker AI assistant helps learners navigate content, find answers, and stay engaged. On the creator side, AI tools assist with content creation, course outlining, and workflow automation. These capabilities are still maturing, but they signal Thinkific's direction and add practical value today.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Commerce Focus</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Thinkific treats learning as a business, not just content delivery. Commerce features are woven into the platform at every level, from payment processing and subscription billing to promotional tools and revenue analytics. You do not need to bolt on a separate e-commerce layer.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Branded Academy Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform gives you strong control over branding, custom domains, and the overall presentation of your learning site. For organizations that care about looking professional and owning the learner relationship, this matters significantly.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Built-In Community and Membership</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Community and membership are treated as core features rather than add-ons. This supports recurring revenue models, deeper learner engagement, and more durable learning businesses. Many competitors require third-party tools to achieve the same thing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Strong Customer Education Fit</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Thinkific is well-positioned for customer training use cases. The combination of branded academies, onboarding flows, progress tracking, and CRM integrations makes it a credible option for customer education teams without requiring an enterprise-grade LMS budget.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">AI Investment</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Thinker AI assistant and broader AI tooling show that Thinkific is not standing still. While AI features are still evolving, the investment signals a platform that is thinking about the future of learning, not just maintaining the status quo.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ease of Use</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Thinkific is accessible to people without technical backgrounds. Setup is quick, course building is intuitive, and managed hosting eliminates the operational overhead of running your own infrastructure. This translates to faster time-to-value compared to self-hosted alternatives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Thinkific May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Thinkific May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      No platform is right for everyone, and being honest about limitations is more useful than pretending they do not exist. Here is where Thinkific may fall short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Internal Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          If your primary need is managing internal compliance training, complex enterprise learning operations, or multi-department training programs for thousands of employees, Thinkific will feel lighter than dedicated enterprise platforms like Docebo or Absorb. It is built for external audiences first.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Maximum Technical Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations that want full control over their infrastructure, deep code-level customization, or self-hosting should look at WordPress-based solutions like LearnDash or open-source platforms like Moodle. Thinkific is a managed platform, which means convenience at the cost of some flexibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ultra-Low-Cost Needs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Thinkific offers a free plan, it is limited. To access the features that make Thinkific compelling, including commerce tools, branding options, and community features, you will need a paid plan. If budget is the primary constraint and you are willing to trade ease of use for cost savings, other options may serve you better.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thinkific's pricing is structured across five tiers. Each tier unlocks additional features, commerce capabilities, and advanced functionality:
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Free</td>
+            <td class="py-3 px-4 text-slate-600">Testing the platform, exploring the course builder, validating your idea</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Basic</td>
+            <td class="py-3 px-4 text-slate-600">New learning businesses getting started with core features</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Start</td>
+            <td class="py-3 px-4 text-slate-600">Growing businesses that need more commerce and engagement tools</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Grow</td>
+            <td class="py-3 px-4 text-slate-600">Established learning businesses scaling operations and revenue</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Plus</td>
+            <td class="py-3 px-4 text-slate-600">Large organizations, customer education teams, and enterprise academies</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500">
+      Pricing changes periodically. Visit Thinkific's website for current plan pricing and feature breakdowns.
+    </p>
+  </section>
+
+  <!-- How Thinkific Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Thinkific Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how Thinkific stacks up against other platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Thinkific", "LearnWorlds", "Docebo", "Absorb", "LearnDash"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Learning commerce & customer education", "Learning commerce & site building", "Enterprise multi-audience training", "Enterprise internal & external training", "WordPress-based course delivery"] },
+        { feature: "Commerce Built-In", values: ["Strong", "Strong", "Limited", "Limited", "Via plugins"] },
+        { feature: "Community & Membership", values: ["Built-in", "Available", "Limited", "Not core", "Via plugins"] },
+        { feature: "White-Label / Branding", values: ["Strong", "Very strong", "Available", "Available", "Full control (WordPress)"] },
+        { feature: "Customer Education", values: ["Strong (Plus plan)", "Available", "Strong", "Strong", "Possible but manual"] },
+        { feature: "AI Features", values: ["Thinker AI assistant", "AI tools available", "AI features", "AI features", "Limited"] },
+        { feature: "Ease of Setup", values: ["Fast, managed hosting", "Fast, managed hosting", "Implementation required", "Implementation required", "Requires WordPress setup"] },
+        { feature: "Best For", values: ["Academies, customer ed, learning businesses", "Branded learning sites", "Enterprise learning ops", "Enterprise training programs", "WordPress-native course creators"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    variant="subtle"
+    title="Comparing Thinkific to another platform?"
+    description="See our detailed head-to-head comparisons to understand exactly where Thinkific fits in your shortlist."
+    buttonText="View Thinkific Comparisons"
+    buttonHref="/compare"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs LearnWorlds", href: "/compare/thinkific-vs-learnworlds", description: "Detailed comparison of two leading learning commerce platforms." },
+    { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "Learning commerce vs enterprise LMS: which approach fits your needs?" },
+    { title: "Thinkific vs Absorb LMS", href: "/compare/thinkific-vs-absorb", description: "How Thinkific compares to Absorb for customer training and beyond." },
+    { title: "Thinkific vs LearnDash", href: "/compare/thinkific-vs-learndash", description: "Managed platform vs WordPress-based LMS: trade-offs explained." }
+  ]} />
+
+</ReviewLayout>

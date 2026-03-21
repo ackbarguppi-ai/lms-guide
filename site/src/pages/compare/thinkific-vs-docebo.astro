@@ -1,0 +1,320 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Thinkific vs Docebo (2025): Learning Commerce vs Enterprise LMS",
+    "description": "Thinkific and Docebo serve different buyers. This comparison breaks down which platform fits customer education, branded academies, enterprise training, and multi-audience learning.",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2025-03-21",
+    "dateModified": "2025-03-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lmsguide.com/compare/thinkific-vs-docebo"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Thinkific or Docebo better for customer education?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your model. Thinkific is stronger when customer education is tied to revenue generation, branded academies, and community-driven growth. Docebo is better when customer education is part of a broader enterprise training operation that also includes internal teams, partners, or multi-audience enablement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Docebo replace Thinkific for selling courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo supports e-commerce, but it is not built around learning commerce the way Thinkific is. Thinkific offers native storefronts, flexible pricing models, memberships, and community features designed for monetization. Docebo's commerce capabilities exist but are secondary to its enterprise learning infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Docebo too complex for small teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo is designed for mid-market and enterprise organizations. Smaller teams may find the implementation timeline, admin complexity, and pricing structure harder to justify compared to Thinkific, which is built for faster time-to-value and leaner operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Thinkific have enterprise-grade features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkific Plus offers enterprise features including SSO, custom branding, dedicated support, and API access. However, it does not match Docebo's depth in areas like multi-tenant administration, advanced compliance tracking, or headless LMS architecture."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both platforms invest in AI, but they apply it differently. Docebo offers AI-powered content recommendations, virtual coaching, and its Harmony suite for personalized learning paths. Thinkific applies AI to business and content workflows, helping creators build and optimize learning products more efficiently."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Thinkific and Docebo together?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some organizations do use both, running Thinkific for externally monetized academies and Docebo for internal or partner training. This adds integration complexity but can make sense when the use cases are genuinely distinct."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Platform type", values: ["Learning commerce / academy platform", "Enterprise learning platform"] },
+  { feature: "Best for", values: ["Branded academies, course monetization, customer education tied to growth", "Multi-audience enterprise training, partner enablement, compliance"] },
+  { feature: "Customer education approach", values: ["Academy-driven, revenue-oriented, community-integrated", "Enterprise training program, part of broader learning operations"] },
+  { feature: "Commerce / monetization", values: ["Native storefronts, flexible pricing, memberships, bundles", "E-commerce available but secondary to enterprise LMS capabilities"] },
+  { feature: "Communities / memberships", values: ["Built-in communities, membership tiers, ongoing engagement tools", "Limited native community features; focused on structured training"] },
+  { feature: "Enterprise features", values: ["SSO, API access, custom branding via Thinkific Plus", "Multi-tenant admin, headless architecture, advanced compliance, deep RBAC"] },
+  { feature: "AI capabilities", values: ["AI-assisted content and business workflows", "AI recommendations, virtual coaching, Harmony personalization suite"] },
+  { feature: "Implementation", values: ["Fast setup, self-serve onboarding, days to weeks", "Structured implementation, typically weeks to months"] },
+  { feature: "Pricing model", values: ["Transparent tiers starting free; Plus for enterprise", "Custom enterprise pricing; higher entry point"] },
+  { feature: "Ideal buyer", values: ["Academy builders, educators, companies monetizing knowledge", "L&D teams, training operations, multi-audience enterprise orgs"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Thinkific or Docebo better for customer education?",
+    answer: "It depends on your model. Thinkific is stronger when customer education is tied to revenue generation, branded academies, and community-driven growth. Docebo is better when customer education is part of a broader enterprise training operation that also includes internal teams, partners, or multi-audience enablement."
+  },
+  {
+    question: "Can Docebo replace Thinkific for selling courses?",
+    answer: "Docebo supports e-commerce, but it is not built around learning commerce the way Thinkific is. Thinkific offers native storefronts, flexible pricing models, memberships, and community features designed for monetization. Docebo's commerce capabilities exist but are secondary to its enterprise learning infrastructure."
+  },
+  {
+    question: "Is Docebo too complex for small teams?",
+    answer: "Docebo is designed for mid-market and enterprise organizations. Smaller teams may find the implementation timeline, admin complexity, and pricing structure harder to justify compared to Thinkific, which is built for faster time-to-value and leaner operations."
+  },
+  {
+    question: "Does Thinkific have enterprise-grade features?",
+    answer: "Thinkific Plus offers enterprise features including SSO, custom branding, dedicated support, and API access. However, it does not match Docebo's depth in areas like multi-tenant administration, advanced compliance tracking, or headless LMS architecture."
+  },
+  {
+    question: "Which platform has better AI features?",
+    answer: "Both platforms invest in AI, but they apply it differently. Docebo offers AI-powered content recommendations, virtual coaching, and its Harmony suite for personalized learning paths. Thinkific applies AI to business and content workflows, helping creators build and optimize learning products more efficiently."
+  },
+  {
+    question: "Can I use Thinkific and Docebo together?",
+    answer: "Some organizations do use both — running Thinkific for externally monetized academies and Docebo for internal or partner training. This adds integration complexity but can make sense when the use cases are genuinely distinct."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Absorb LMS", href: "/compare/thinkific-vs-absorb", description: "How Thinkific compares to Absorb for customer training and enterprise learning." },
+  { title: "Thinkific vs LearnDash", href: "/compare/thinkific-vs-learndash", description: "Hosted platform vs WordPress plugin — which approach fits your course business." },
+  { title: "Thinkific vs LearnWorlds", href: "/compare/thinkific-vs-learnworlds", description: "Two learning commerce platforms compared on features, pricing, and ideal use cases." },
+  { title: "Best LMS for Customer Training", href: "/guides/best-lms-customer-training", description: "Our guide to the top platforms for customer education and external training." },
+];
+---
+
+<ComparisonLayout
+  title="Thinkific vs Docebo (2025): Learning Commerce vs Enterprise LMS"
+  description="Thinkific and Docebo serve different buyers. This comparison breaks down which platform fits customer education, branded academies, enterprise training, and multi-audience learning."
+  platform1="Thinkific"
+  platform2="Docebo"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Thinkific vs Docebo' }]}
+  lastUpdated="2025-03-21"
+  jsonLd={jsonLd}
+>
+
+  <h1>Thinkific vs Docebo: Learning Commerce vs Enterprise LMS</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Thinkific and Docebo both appear on shortlists for customer education and external training, but they represent fundamentally different platform models. Thinkific is a learning commerce platform built around branded academies, course monetization, memberships, and community-driven growth. Docebo is an enterprise learning platform designed for multi-audience training operations — customer education, partner enablement, internal L&D, and compliance — at organizational scale. The right choice depends less on feature checklists and more on which model matches your business.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for teams evaluating platforms for customer education, branded learning academies, or external training — and trying to decide whether they need a commerce-oriented learning platform or a broader enterprise LMS. If you are building a revenue-generating academy, launching a customer education program, or weighing whether your training needs require enterprise-scale infrastructure, this breakdown will help you make the right call.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "This is a model comparison, not just a feature comparison — learning commerce vs enterprise LMS.",
+    "Thinkific is strongest for branded academies, course monetization, memberships, and community-integrated customer education.",
+    "Docebo is strongest for multi-audience enterprise training, partner enablement, and organizations that need deep admin controls and compliance.",
+    "Both platforms are relevant for customer education, but Thinkific treats it as a growth engine while Docebo treats it as part of enterprise training operations.",
+    "Thinkific offers faster time-to-value with transparent pricing; Docebo requires more structured implementation and custom contracts.",
+    "Some organizations use both — Thinkific for externally monetized learning, Docebo for internal and partner training."
+  ]} />
+
+  <section class="my-10">
+    <h2>Why This Comparison Matters</h2>
+    <p>
+      Thinkific and Docebo land on the same shortlists more often than you would expect given how different they are. Both serve customer education. Both support branded learning experiences. Both invest in AI. But they come at these problems from opposite directions.
+    </p>
+    <p class="mt-3">
+      Thinkific starts from commerce. Its architecture is designed around selling learning — courses, memberships, bundles, communities — and connecting education directly to revenue. The platform's DNA is academy-building.
+    </p>
+    <p class="mt-3">
+      Docebo starts from enterprise learning infrastructure. Its architecture is designed around managing training at scale across multiple audiences — customers, partners, employees, members — with deep administrative controls, compliance features, and flexible deployment options including headless LMS.
+    </p>
+    <p class="mt-3">
+      Neither platform is objectively better. They solve different problems. The risk is choosing the wrong model for your use case: picking a commerce platform when you need enterprise training breadth, or paying for enterprise complexity when you need a fast, focused academy system.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Thinkific", "Docebo"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Thinkific Wins</h2>
+
+    <h3 class="mt-6">Learning Commerce and Monetization</h3>
+    <p>
+      Thinkific is built for selling learning. Native storefronts, flexible pricing (one-time, subscription, payment plans, bundles), and integrated checkout create a direct path from content to revenue. Docebo has e-commerce capabilities, but they are secondary to its enterprise training focus. If monetization is central to your strategy, Thinkific's commerce infrastructure is meaningfully stronger.
+    </p>
+
+    <h3 class="mt-6">Branded Academies</h3>
+    <p>
+      Thinkific treats the academy as a first-class product. The platform is optimized for creating polished, branded learning destinations that feel like your product — not a training portal. While Docebo supports white-labeling, Thinkific's academy-first approach makes it faster and more natural to build customer-facing learning experiences that represent your brand.
+    </p>
+
+    <h3 class="mt-6">Communities and Memberships</h3>
+    <p>
+      Built-in community features and membership tiers give Thinkific a native path to ongoing learner engagement and recurring revenue. Communities integrate directly with courses and content, creating a unified learning-and-community experience. Docebo's strength is structured training delivery, not community-driven engagement.
+    </p>
+
+    <h3 class="mt-6">Speed to Value</h3>
+    <p>
+      Thinkific's self-serve onboarding means teams can go from signup to live academy in days, not months. The learning curve is manageable without dedicated LMS administrators. For organizations that need to launch quickly or operate with lean teams, this speed advantage is substantial.
+    </p>
+
+    <h3 class="mt-6">Revenue-Driven Education</h3>
+    <p>
+      Thinkific's entire platform orientation connects education to business outcomes through revenue. Analytics, commerce features, and growth tools are designed to help you understand not just learning metrics but business impact — enrollment rates, revenue per learner, conversion funnels. This is native to the platform, not bolted on.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Docebo Wins</h2>
+
+    <h3 class="mt-6">Enterprise Breadth and Multi-Audience Training</h3>
+    <p>
+      Docebo is genuinely built for organizations that train across multiple audiences. Customer education, partner enablement, employee onboarding, compliance training — Docebo handles all of these within a single platform with audience-specific configurations. This is not something Thinkific is designed to do. If you need one platform for internal and external training, Docebo is the more natural fit.
+    </p>
+
+    <h3 class="mt-6">Advanced Administration and Analytics</h3>
+    <p>
+      Docebo's administrative depth is significantly greater than Thinkific's. Multi-tenant management, advanced role-based access controls, granular reporting, and compliance tracking give enterprise L&D teams the control they need at scale. Organizations with complex training hierarchies and reporting requirements will find Docebo's admin capabilities essential.
+    </p>
+
+    <h3 class="mt-6">Partner Enablement</h3>
+    <p>
+      For companies that need to train channel partners, resellers, or distributors alongside customers, Docebo provides purpose-built workflows. Partner training programs, certification paths, and audience segmentation are core capabilities — not workarounds.
+    </p>
+
+    <h3 class="mt-6">AI-Powered Learning Personalization</h3>
+    <p>
+      Docebo's AI investment — including its Harmony suite, virtual coaching, and intelligent content recommendations — is aimed at personalizing learning paths at enterprise scale. These are sophisticated AI features designed for organizations managing thousands of learners across different roles and objectives. Thinkific's AI focuses more on creator and business workflows.
+    </p>
+
+    <h3 class="mt-6">Headless Architecture and Integration Depth</h3>
+    <p>
+      Docebo offers headless LMS capabilities that let organizations embed learning experiences into existing products, portals, or ecosystems. Combined with deeper API infrastructure and enterprise integration options, Docebo provides more architectural flexibility for complex technology environments.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>The Decision Framework</h2>
+    <p class="mb-6">
+      Rather than comparing features line by line, use these three buyer forks to clarify which platform model fits your situation.
+    </p>
+
+    <div class="space-y-6">
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 1: Learning Commerce / Academy System</h3>
+        <p class="text-slate-600 mb-3">
+          If your primary goal is building a branded academy that generates revenue through course sales, memberships, or community access, <strong>choose Thinkific</strong>. The platform is purpose-built for connecting education to commerce, and its speed-to-value makes it practical for lean teams.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 2: Enterprise Learning Platform</h3>
+        <p class="text-slate-600 mb-3">
+          If you need to manage training across multiple audiences — employees, customers, partners, members — with enterprise-grade admin controls, compliance, and reporting, <strong>choose Docebo</strong>. Its breadth and depth are designed for organizations where training is an operational function, not just a product.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 3: Customer Education — Growth vs Enterprise</h3>
+        <p class="text-slate-600 mb-3">
+          Both platforms serve customer education, but with different orientations. If customer education is your <em>growth engine</em> — driving adoption, expansion revenue, and community engagement — <strong>Thinkific</strong> aligns more naturally. If customer education is part of a <em>broader enterprise training program</em> alongside internal L&D and partner enablement, <strong>Docebo</strong> is the stronger fit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Thinkific if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Want to build a branded, revenue-generating learning academy</li>
+          <li>Need commerce, memberships, and community in one platform</li>
+          <li>Are focused on customer education as a growth channel</li>
+          <li>Want fast setup without a complex implementation process</li>
+          <li>Operate with a lean team and need transparent, predictable pricing</li>
+          <li>See education as a product and revenue stream, not just a training function</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Docebo if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Need to train customers, partners, and employees on one platform</li>
+          <li>Require enterprise-grade admin controls, compliance, and reporting</li>
+          <li>Want AI-powered learning personalization at scale</li>
+          <li>Need headless LMS or deep integration with existing enterprise systems</li>
+          <li>Have dedicated L&D or training operations staff</li>
+          <li>View training as an enterprise operational function across audiences</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Not sure which model fits your business?"
+    description="Tell us about your use case, team size, and training goals — we'll help you determine whether a learning commerce platform or enterprise LMS is the right fit."
+    buttonText="Get a Recommendation"
+    buttonHref="#"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

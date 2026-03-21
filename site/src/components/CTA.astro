@@ -1,0 +1,35 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  variant?: 'default' | 'subtle';
+}
+
+const {
+  title = 'Need help choosing a platform?',
+  description = 'Get a personalized recommendation based on your use case, team size, and budget.',
+  buttonText = 'Get a Recommendation',
+  buttonHref = '#',
+  variant = 'default',
+} = Astro.props;
+---
+
+{variant === 'default' ? (
+  <section class="my-12 bg-navy rounded-xl p-8 md:p-10 text-center">
+    <h3 class="text-white text-2xl mb-3">{title}</h3>
+    <p class="text-slate-300 mb-6 max-w-2xl mx-auto">{description}</p>
+    <a href={buttonHref} class="inline-block bg-teal hover:bg-teal-light text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+      {buttonText}
+    </a>
+  </section>
+) : (
+  <aside class="my-8 bg-slate-50 border border-slate-200 rounded-lg p-6">
+    <p class="font-semibold text-navy mb-2">{title}</p>
+    <p class="text-slate-600 text-sm mb-4">{description}</p>
+    <a href={buttonHref} class="text-teal-dark hover:text-teal font-medium text-sm">
+      {buttonText} &rarr;
+    </a>
+  </aside>
+)}

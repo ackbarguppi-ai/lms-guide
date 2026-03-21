@@ -1,0 +1,19 @@
+---
+interface Props {
+  pages: { title: string; href: string; description: string }[];
+}
+
+const { pages } = Astro.props;
+---
+
+<section class="my-12 border-t border-slate-200 pt-8">
+  <h2 class="text-xl font-bold text-navy mb-4">Related Pages</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {pages.map(page => (
+      <a href={page.href} class="group block border border-slate-200 rounded-lg p-5 hover:border-teal hover:shadow-sm transition-all">
+        <h3 class="font-semibold text-navy group-hover:text-teal-dark text-base mb-1">{page.title}</h3>
+        <p class="text-sm text-slate-500">{page.description}</p>
+      </a>
+    ))}
+  </div>
+</section>

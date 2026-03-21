@@ -1,0 +1,37 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  platformName: string;
+  rating: number;
+  breadcrumbs: { label: string; href?: string }[];
+  lastUpdated: string;
+  jsonLd?: object | object[];
+}
+
+const { title, description, platformName, rating, breadcrumbs, lastUpdated, jsonLd } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12" itemscope itemtype="https://schema.org/Review">
+    <Breadcrumbs items={breadcrumbs} />
+    <meta itemprop="dateModified" content={lastUpdated} />
+    <meta itemprop="author" content="LMS Guide Editorial Team" />
+    <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">
+      <meta itemprop="name" content={platformName} />
+      <meta itemprop="applicationCategory" content="Learning Management System" />
+    </div>
+    <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+      <meta itemprop="ratingValue" content={String(rating)} />
+      <meta itemprop="bestRating" content="5" />
+    </div>
+    <slot />
+    <div class="mt-8 pt-6 border-t border-slate-200 text-sm text-slate-500">
+      <p>Last updated: <time datetime={lastUpdated}>{new Date(lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time></p>
+      <p class="mt-1">By the LMS Guide editorial team</p>
+    </div>
+  </article>
+</BaseLayout>

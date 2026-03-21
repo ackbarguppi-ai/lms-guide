@@ -1,0 +1,36 @@
+---
+interface Props {
+  headers: string[];
+  rows: { feature: string; values: string[] }[];
+  highlight?: number; // column index to highlight (0-based, not counting feature column)
+}
+
+const { headers, rows, highlight } = Astro.props;
+---
+
+<div class="overflow-x-auto my-8 rounded-lg border border-slate-200">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="bg-navy text-white">
+        <th class="text-left py-3 px-4 font-semibold">Feature</th>
+        {headers.map((header, i) => (
+          <th class:list={["text-left py-3 px-4 font-semibold", highlight === i && "bg-teal-dark"]}>
+            {header}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, rowIndex) => (
+        <tr class:list={["border-t border-slate-200", rowIndex % 2 === 0 ? "bg-white" : "bg-slate-50"]}>
+          <td class="py-3 px-4 font-medium text-navy">{row.feature}</td>
+          {row.values.map((value, i) => (
+            <td class:list={["py-3 px-4", highlight === i && "bg-teal/5"]}>
+              {value}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
