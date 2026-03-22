@@ -1,0 +1,244 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Docebo vs Skilljar (2026): Enterprise LMS vs Purpose-Built Customer Education",
+    "description": "Docebo is a full-spectrum enterprise LMS for employees, customers, and partners. Skilljar is laser-focused on customer education. Compare features, pricing, and which fits your training strategy.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/docebo-vs-skilljar" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should I choose Docebo or Skilljar for customer education?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If customer education is your only training initiative, choose Skilljar — it's purpose-built for the use case with best-in-class Salesforce integration and faster time-to-value. If customer education is one of several initiatives alongside employee and partner training, choose Docebo for its multi-audience architecture."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Docebo and Skilljar compare on pricing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo's average contract value is approximately $40,000/year. Skilljar starts at approximately $30,000/year for the Essential tier. For a 1,000-user external training deployment, expect $30,000-$50,000/year for either platform after negotiation. Docebo may be more cost-effective if you're adding customer education to an existing employee training platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Docebo have good customer support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo's support quality is controversial. While the overall G2 rating is 4.3/5, TrustRadius Customer Service scores just 1.9/10 — a dramatic gap. Enterprise customers report dependency on customer success managers for basic admin tasks. Skilljar's narrower focus means support teams are more aligned with customer education needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo has significantly more advanced AI capabilities, including Harmony AI for content recommendations, AI Virtual Coaching, AI Video Presenter, and AI-assisted course creation. Skilljar offers basic AI through LearnExpert integration. However, Docebo's AI features run on a credit system that adds cost unpredictability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Skilljar handle employee training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Skilljar is designed exclusively for external training — customer education, partner certification, and training monetization. If you need employee training, you'll need a separate platform alongside Skilljar, or choose Docebo which handles all audiences from one platform."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Best for", values: ["Enterprise multi-audience training", "Customer & partner education"] },
+  { feature: "Avg contract value", values: ["$40,288/year (Vendr, 79 deals)", "~$30,000–$85,000/year"] },
+  { feature: "Employee training", values: ["✅ Core strength", "❌ Not designed for it"] },
+  { feature: "Customer training", values: ["✅ Supported (add-on)", "✅ Core strength"] },
+  { feature: "AI features", values: ["Deep (Harmony AI, virtual coaching, video presenter)", "Basic (LearnExpert integration)"] },
+  { feature: "CRM integration", values: ["Salesforce, generic CRM", "Salesforce-native, deep CRM/CS tooling"] },
+  { feature: "Mobile app", values: ["Branded app (Enterprise only)", "Responsive web (no native app)"] },
+  { feature: "Content authoring", values: ["Built-in AI-powered authoring", "Basic; relies on third-party tools"] },
+  { feature: "Implementation", values: ["8+ weeks structured onboarding", "3–8 weeks"] },
+  { feature: "eCommerce", values: ["Add-on (both tiers)", "Built-in (subscriptions, bundles, credits)"] },
+];
+
+const faqItems = [
+  {
+    question: "Should I choose Docebo or Skilljar for customer education?",
+    answer: "If customer education is your only training initiative, choose Skilljar — it's purpose-built with best-in-class Salesforce integration. If customer education is one of several initiatives alongside employee and partner training, choose Docebo for its multi-audience architecture."
+  },
+  {
+    question: "How do Docebo and Skilljar compare on pricing?",
+    answer: "Docebo's average contract value is approximately $40,000/year. Skilljar starts at approximately $30,000/year for the Essential tier. For a 1,000-user external training deployment, expect $30,000–$50,000/year for either platform after negotiation."
+  },
+  {
+    question: "Does Docebo have good customer support?",
+    answer: "Docebo's support is controversial. While the G2 rating is 4.3/5, TrustRadius Customer Service scores just 1.9/10. Enterprise customers report dependency on CSMs for basic admin tasks. Skilljar's narrower focus means support teams are more aligned with customer education needs."
+  },
+  {
+    question: "Which platform has better AI features?",
+    answer: "Docebo has significantly more advanced AI, including Harmony AI, AI Virtual Coaching, AI Video Presenter, and AI-assisted course creation. Skilljar offers basic AI through LearnExpert integration. Docebo's AI features run on a credit system that adds cost variability."
+  },
+  {
+    question: "Can Skilljar handle employee training?",
+    answer: "No. Skilljar is designed exclusively for external training. If you need employee training, you'll need a separate platform alongside Skilljar, or choose Docebo which handles all audiences from one platform."
+  }
+];
+
+const relatedPages = [
+  { title: "Absorb vs Skilljar", href: "/compare/absorb-vs-skilljar", description: "Corporate training powerhouse vs customer education specialist." },
+  { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "Learning commerce vs enterprise LMS — which model fits your needs." },
+  { title: "TalentLMS vs Docebo", href: "/compare/talentlms-vs-docebo", description: "Affordable cloud LMS vs enterprise AI powerhouse." },
+  { title: "Thinkific vs Skilljar", href: "/compare/thinkific-vs-skilljar", description: "Two customer education platforms compared on integrations and enterprise readiness." },
+];
+---
+
+<ComparisonLayout
+  title="Docebo vs Skilljar (2026): Enterprise LMS vs Purpose-Built Customer Education"
+  description="Docebo is a full-spectrum enterprise LMS for employees, customers, and partners. Skilljar is laser-focused on customer education. Compare features, pricing, and which fits your training strategy."
+  platform1="Docebo"
+  platform2="Skilljar"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Docebo vs Skilljar' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Docebo vs Skilljar: Enterprise LMS vs Purpose-Built Customer Education</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Docebo and Skilljar both help companies train customers and partners — but they come at the problem from opposite directions. Docebo is a full-spectrum enterprise LMS that handles employee training, customer education, and partner enablement from one platform. Skilljar (now a Gainsight product) is laser-focused on external training: customer onboarding, product adoption, and partner certification. The deciding question: is customer education your only training initiative, or one of several?
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for companies evaluating platforms for customer education and trying to decide whether they need a specialist tool (Skilljar) or a multi-purpose enterprise platform that also handles customer training (Docebo). Whether you're building a customer academy, launching partner certification, or need to train all audiences from one system, this guide helps you match the platform to your strategy.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Skilljar is the specialist — purpose-built for customer education with best-in-class Salesforce integration.",
+    "Docebo is the generalist powerhouse — train employees, customers, and partners from one platform.",
+    "Skilljar implements faster (3–8 weeks vs. 8+ weeks for Docebo) with less admin complexity.",
+    "Docebo's AI features are significantly more advanced but run on a credit system that adds cost unpredictability.",
+    "Docebo's support quality is a documented concern; Skilljar's narrower focus results in more aligned support.",
+    "For a 1,000-user deployment, expect $30,000–$50,000/year for either platform after negotiation."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Docebo", "Skilljar"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Skilljar Wins</h2>
+
+    <h3 class="mt-6">Purpose-Built Customer Education</h3>
+    <p>
+      Skilljar treats customer education as a first-class citizen. Deep Salesforce integration maps training directly to customer health scores, renewal rates, and expansion revenue. Built-in eCommerce supports subscriptions, bundles, and training credits. Content syndication delivers courses into customers' existing LMS platforms. The 2025 Gainsight acquisition further tightens integration with customer success workflows.
+    </p>
+
+    <h3 class="mt-6">Simpler Administration</h3>
+    <p>
+      Skilljar's admin interface is simpler because it does less — and for customer education, that simplicity is a feature. Docebo's admin complexity is a consistent criticism, with users reporting the need for "very deliberate upfront design work" and often premium partner support for setup. Skilljar implements in 3–8 weeks vs. Docebo's 8+ weeks.
+    </p>
+
+    <h3 class="mt-6">Support Quality</h3>
+    <p>
+      Skilljar's support is more consistently praised. Docebo's support is its most controversial area — the 5.4-point gap between overall TrustRadius satisfaction (7.3/10) and Customer Service (1.9/10) is a red flag for enterprise buyers. Skilljar's narrower focus means support teams understand customer education deeply.
+    </p>
+
+    <h3 class="mt-6">Training Monetization</h3>
+    <p>
+      Skilljar's eCommerce is built-in with subscriptions, bundles, training credits, and multiple currencies. Docebo offers eCommerce as an add-on. For organizations whose business model includes selling training, Skilljar's native monetization is more mature.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Docebo Wins</h2>
+
+    <h3 class="mt-6">Multi-Audience Training</h3>
+    <p>
+      If you need one platform for employees, customers, and partners — each with distinct branded experiences — Docebo's multi-audience architecture is unmatched. The Extended Enterprise module, white-labeling, and multi-portal capabilities are built for exactly this scenario. Skilljar doesn't do employee training at all.
+    </p>
+
+    <h3 class="mt-6">AI-Powered Content Creation</h3>
+    <p>
+      Docebo's AI capabilities are significantly more advanced: AI-assisted course creation, AI Video Presenter for avatar videos, AI Virtual Coaching for interactive skills practice, and text refinement and translation tools. Skilljar relies on third-party authoring tools for content creation.
+    </p>
+
+    <h3 class="mt-6">Global Scalability</h3>
+    <p>
+      Docebo serves 17,000+ organizations worldwide with multilingual support, AI-powered translation, and enterprise-grade security. Its infrastructure handles tens of thousands of concurrent users across regions. Skilljar scales well for customer education but its architecture is designed for mid-market deployments.
+    </p>
+
+    <h3 class="mt-6">Mobile and Analytics</h3>
+    <p>
+      Docebo offers a branded mobile app on the Enterprise tier with offline access. Its Advanced Analytics provides executive-grade dashboards and custom reporting. Skilljar has no native mobile app and simpler (though customer-education-focused) analytics.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Skilljar if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Customer education is your primary training use case</li>
+          <li>You're a SaaS company tying training to product adoption</li>
+          <li>Salesforce is your CRM and you need native integration</li>
+          <li>Want faster time-to-value with less admin overhead</li>
+          <li>Don't need employee training from this platform</li>
+          <li>Want built-in monetization for training programs</li>
+          <li>Your team is lean and doesn't have dedicated LMS admins</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Docebo if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Need one platform for employees, customers, and partners</li>
+          <li>AI-powered content creation is a priority</li>
+          <li>You're a large enterprise with complex, multi-audience needs</li>
+          <li>Global deployment with multilingual support is critical</li>
+          <li>You have dedicated LMS admin resources</li>
+          <li>Need advanced analytics for executive reporting</li>
+          <li>Want a branded mobile app for learners</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Docebo and Skilljar?"
+    ctaDescription="Tell us about your training strategy — who you're training, your CRM stack, and your timeline — and we'll recommend the right platform."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

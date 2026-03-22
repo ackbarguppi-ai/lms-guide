@@ -1,0 +1,242 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Kajabi vs LearnWorlds (2026): Which Platform Actually Fits Your Business?",
+    "description": "Kajabi is an all-in-one business platform with built-in marketing. LearnWorlds is a learning-first platform with interactive video and SCORM support. Compare pricing, features, and ideal use cases.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/kajabi-vs-learnworlds" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Kajabi or LearnWorlds better for course creators?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your priorities. Kajabi is better for experts who want built-in marketing, email, funnels, and community in one platform. LearnWorlds is better for training businesses that prioritize the learning experience — interactive video, SCORM support, graded assessments, and detailed learner analytics."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Kajabi and LearnWorlds compare on price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnWorlds starts at $29/month (Starter). Kajabi starts at $89/month (Kickstarter). However, once you add email marketing and funnel tools to LearnWorlds, the effective cost is nearly identical to Kajabi at around $195-$199/month. The real question is whether you want one dashboard or three."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Kajabi support SCORM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Kajabi does not support SCORM or xAPI content packages. If your training content is in SCORM format — common in corporate training, healthcare, and regulated industries — Kajabi cannot import or track it. LearnWorlds supports SCORM starting at the Pro Trainer plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better interactive video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnWorlds has significantly better interactive video capabilities. Its interactive video editor supports in-video quizzes, clickable hotspots, chapter markers, and annotations. Kajabi offers basic video hosting without interactive overlays."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform is better for marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kajabi wins decisively on marketing. It includes email marketing with campaigns, broadcasts, drip sequences, A/B testing, visual funnel builder, CRM with contact tagging, abandoned cart emails, and AI-powered marketing copy generation — all built in. LearnWorlds requires third-party tools for email marketing and sales funnels."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Starting price", values: ["$89/month (Kickstarter)", "$29/month (Starter)"] },
+  { feature: "Transaction fees", values: ["None on any plan", "$5/sale on Starter only"] },
+  { feature: "Email marketing", values: ["Built-in (campaigns, sequences, A/B testing)", "Requires third-party integration"] },
+  { feature: "Sales funnels", values: ["Built-in visual pipeline builder", "Basic; needs external tools"] },
+  { feature: "Interactive video", values: ["Basic video hosting", "In-video quizzes, hotspots, chapters"] },
+  { feature: "SCORM/xAPI", values: ["No", "Yes (Pro Trainer+)"] },
+  { feature: "Certificates", values: ["Basic", "Advanced (Credly/Accredible integration)"] },
+  { feature: "Community", values: ["Built-in, well-integrated", "Available but basic"] },
+  { feature: "Gamification", values: ["Limited", "Points, badges, leaderboards"] },
+  { feature: "Best for", values: ["Marketing-driven expert businesses", "Training businesses needing deep LMS features"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Kajabi or LearnWorlds better for course experts?",
+    answer: "Kajabi is better for experts who want built-in marketing, email, funnels, and community in one platform. LearnWorlds is better for training businesses that prioritize the learning experience — interactive video, SCORM support, graded assessments, and detailed learner analytics."
+  },
+  {
+    question: "How do Kajabi and LearnWorlds compare on price?",
+    answer: "LearnWorlds starts at $29/month (Starter). Kajabi starts at $89/month (Kickstarter). But once you add email marketing and funnel tools to LearnWorlds, the effective cost is nearly identical at around $195–$199/month. The question is whether you want one dashboard or three."
+  },
+  {
+    question: "Does Kajabi support SCORM?",
+    answer: "No. Kajabi does not support SCORM or xAPI. If your training content is in SCORM format, Kajabi cannot import or track it. LearnWorlds supports SCORM starting at the Pro Trainer plan."
+  },
+  {
+    question: "Which platform has better interactive video?",
+    answer: "LearnWorlds has significantly better interactive video. Its editor supports in-video quizzes, clickable hotspots, chapter markers, and annotations. Kajabi offers basic video hosting without interactive overlays."
+  },
+  {
+    question: "Which platform is better for marketing?",
+    answer: "Kajabi wins decisively on marketing with built-in email, funnels, CRM, A/B testing, abandoned cart emails, and AI-powered copy generation. LearnWorlds requires third-party tools for email marketing and sales funnels."
+  }
+];
+
+const relatedPages = [
+  { title: "Kajabi vs Teachable", href: "/compare/kajabi-vs-teachable", description: "All-in-one business platform vs dedicated course platform." },
+  { title: "Kajabi vs LearnDash", href: "/compare/kajabi-vs-learndash", description: "All-in-one platform vs WordPress LMS plugin." },
+  { title: "Thinkific vs LearnWorlds", href: "/compare/thinkific-vs-learnworlds", description: "Two learning commerce platforms compared on features and pricing." },
+  { title: "Teachable vs LearnWorlds", href: "/compare/teachable-vs-learnworlds", description: "Streamlined course platform vs interactive learning environment." },
+];
+---
+
+<ComparisonLayout
+  title="Kajabi vs LearnWorlds (2026): Which Platform Actually Fits Your Business?"
+  description="Kajabi is an all-in-one business platform with built-in marketing. LearnWorlds is a learning-first platform with interactive video and SCORM support. Compare pricing, features, and ideal use cases."
+  platform1="Kajabi"
+  platform2="LearnWorlds"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Kajabi vs LearnWorlds' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Kajabi vs LearnWorlds: Which Platform Actually Fits Your Business?</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Kajabi is an all-in-one business platform with built-in marketing, email, and sales funnels — best for experts who want everything under one roof. LearnWorlds is a learning-first platform with interactive video, SCORM support, and advanced assessments — best for training businesses that prioritize the student experience. The right choice depends on whether marketing or pedagogy drives your business.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for experts and training businesses choosing between a marketing-first all-in-one platform and a learning-first course platform. Whether you're selling courses as part of a personal brand or running a training academy with compliance requirements, this guide helps you match the platform to your actual priorities.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Kajabi is a marketing platform that hosts courses; LearnWorlds is an LMS with built-in sales tools.",
+    "Kajabi includes email marketing, funnels, and CRM on every plan. LearnWorlds requires third-party marketing tools.",
+    "LearnWorlds' interactive video editor (in-video quizzes, hotspots, chapters) is unmatched at this price point.",
+    "Once you add marketing tools to LearnWorlds, the effective monthly cost is nearly identical to Kajabi (~$199/mo).",
+    "LearnWorlds supports SCORM/xAPI for corporate and compliance training. Kajabi does not.",
+    "Kajabi excels at community engagement; LearnWorlds excels at learning analytics."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Kajabi", "LearnWorlds"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Kajabi Wins</h2>
+
+    <h3 class="mt-6">Marketing, Email, and Sales Funnels</h3>
+    <p>
+      Marketing is Kajabi's strongest suit. The platform includes email marketing with campaigns, broadcasts, drip sequences, A/B subject testing, and embedded video. The visual funnel builder automates workflows from opt-in to sale. Unlimited landing pages and opt-in forms come standard. The CRM tracks contact journeys with behavioral automations. LearnWorlds handles checkout natively but has no built-in email marketing, funnel builder, or CRM.
+    </p>
+
+    <h3 class="mt-6">Community and Engagement</h3>
+    <p>
+      Kajabi's community features function like a private social network with posts, topics, challenges, member groups, and gamification. Communities integrate directly with courses and email automations. LearnWorlds offers discussion boards and a community add-on, but it's more basic.
+    </p>
+
+    <h3 class="mt-6">All-in-One Convenience</h3>
+    <p>
+      Kajabi eliminates the need for separate email, funnel, landing page, and CRM tools. One login, one bill, one dashboard. For experts tired of managing multiple subscriptions and integrations, this consolidation saves time and reduces complexity.
+    </p>
+
+    <h3 class="mt-6">Support</h3>
+    <p>
+      Kajabi offers 24/7 live chat support on Growth and Pro plans, plus Kajabi University and structured onboarding. LearnWorlds provides email support (24/5 on lower plans, 24/7 on higher) with priority support reserved for Learning Center and above.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where LearnWorlds Wins</h2>
+
+    <h3 class="mt-6">Interactive Video and Course Delivery</h3>
+    <p>
+      LearnWorlds' interactive video editor is a genuine differentiator — embed quizzes, clickable hotspots, chapter markers, and annotations directly inside video timelines. No other platform in this price range offers anything comparable. LearnWorlds also supports SCORM/xAPI packages, multimedia e-books, and graded assessments with Credly/Accredible certification integration.
+    </p>
+
+    <h3 class="mt-6">Learning Analytics</h3>
+    <p>
+      LearnWorlds provides detailed content-level analytics: learner engagement, completion rates, time-on-task, assessment scores, and behavioral metrics. This is essential for training businesses that need to demonstrate learning outcomes or optimize curriculum. Kajabi's analytics focus on business performance — revenue, funnel conversion rates, and email metrics.
+    </p>
+
+    <h3 class="mt-6">SCORM and Compliance</h3>
+    <p>
+      LearnWorlds supports SCORM 1.2, SCORM 2004, and xAPI starting at the Pro Trainer plan. Certificate integrations with Credly and Accredible enable verifiable credentials. Kajabi has no SCORM support at all. For corporate training, healthcare, or regulated industries, this is a dealbreaker.
+    </p>
+
+    <h3 class="mt-6">Lower Entry Price</h3>
+    <p>
+      LearnWorlds' Pro Trainer plan at $79/month (annual) delivers serious LMS capabilities — interactive video, SCORM, certificates, zero transaction fees — at less than half Kajabi's comparable Growth plan ($199/month). The realistic entry point for LearnWorlds is Pro Trainer, not Starter (the $5/sale fee on Starter adds up fast).
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Kajabi if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are an expert selling courses, coaching, and digital products</li>
+          <li>Want marketing, email, funnels, and community in one platform</li>
+          <li>Prioritize marketing sophistication over learning depth</li>
+          <li>Run coaching programs and want native scheduling tools</li>
+          <li>Prefer one dashboard over managing multiple tools</li>
+          <li>Value 24/7 live chat support</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose LearnWorlds if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Run a training academy where learning outcomes are competitive advantage</li>
+          <li>Need interactive video, SCORM compliance, or advanced assessments</li>
+          <li>Want to issue verifiable certificates (Credly/Accredible)</li>
+          <li>Are a company adding customer or employee training</li>
+          <li>Need detailed learner analytics beyond revenue metrics</li>
+          <li>Are budget-conscious and can bring your own marketing stack</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Kajabi and LearnWorlds?"
+    ctaDescription="Tell us about your business — marketing-driven expert brand or learning-focused training academy — and we'll recommend the right platform."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

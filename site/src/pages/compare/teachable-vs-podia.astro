@@ -1,0 +1,252 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Teachable vs Podia (2026): Dedicated Course Platform or Multi-Product Storefront?",
+    "description": "Teachable is a dedicated course platform with robust analytics, certificates, and SEO. Podia is an affordable all-in-one storefront for courses, downloads, webinars, and community. Compare features, pricing, and which fits your business.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/teachable-vs-podia" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Teachable or Podia better for selling online courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable is better if courses are your primary product and you need robust course-specific tools — graded quizzes, certificates, student analytics, and a native mobile app. Podia is better if you sell courses alongside digital downloads, webinars, coaching, and community — it's a multi-product storefront rather than a dedicated course platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper — Teachable or Podia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podia is cheaper at comparable feature levels. Podia's Mover plan ($39/month) gives you unlimited products, webinars, and a custom domain. At the same price, Teachable's Starter limits you to one published product with a 7.5% transaction fee. Both platforms eliminate transaction fees at $89/month (Teachable's Builder, Podia's Shaker)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Podia have certificates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Podia does not have built-in certificates. You'd need to use third-party tools via Zapier or Google Docs to generate certificates. Teachable includes built-in, customizable certificate templates — a significant advantage for academies and compliance training."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I sell webinars on Teachable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not natively. Teachable does not include webinar functionality — you'd need to integrate with third-party tools. Podia integrates natively with Zoom and YouTube Live, letting you sell access to live webinars, workshops, and classes, plus replay access after the event."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Teachable have a mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Teachable includes a native iOS student app on all plans at no extra cost. Podia does not have a native mobile app — students access content through mobile-responsive web pages."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Starting price (annual)", values: ["$29/mo (Starter)", "$4/mo (Starter)"] },
+  { feature: "Transaction fees", values: ["7.5% on Starter; 0% on Builder+ ($89/mo)", "8% on Starter; 0% on Shaker ($89/mo)"] },
+  { feature: "Course builder", values: ["Advanced (quizzes, certificates, compliance)", "Solid (quizzes, drip, clean player)"] },
+  { feature: "Digital downloads", values: ["Limited", "Full support (ebooks, files, templates)"] },
+  { feature: "Webinars", values: ["Not native (integrations only)", "Native (Zoom/YouTube Live integration)"] },
+  { feature: "Certificates", values: ["Built-in, customizable", "Third-party only (Zapier/Google Docs)"] },
+  { feature: "Analytics", values: ["Built-in (completion rates, quiz stats)", "Third-party (Google Analytics, Facebook Pixel)"] },
+  { feature: "Mobile app", values: ["iOS student app included", "No native app"] },
+  { feature: "Email marketing", values: ["Basic (via integrations)", "Built-in add-on (scales by subscribers)"] },
+  { feature: "Best for", values: ["Dedicated course businesses, academies", "Multi-product experts, lean online businesses"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Teachable or Podia better for selling online courses?",
+    answer: "Teachable is better if courses are your primary product with graded quizzes, certificates, and analytics needs. Podia is better if you sell courses alongside downloads, webinars, coaching, and community."
+  },
+  {
+    question: "Which is cheaper — Teachable or Podia?",
+    answer: "Podia is cheaper at comparable feature levels. Podia's Mover ($39/month) gives unlimited products and webinars. Teachable's Starter at $39/month limits you to one product with 7.5% transaction fees. Both eliminate fees at $89/month."
+  },
+  {
+    question: "Does Podia have certificates?",
+    answer: "No. Podia requires third-party tools for certificates. Teachable includes built-in, customizable certificate templates — a significant advantage for academies and compliance training."
+  },
+  {
+    question: "Can I sell webinars on Teachable?",
+    answer: "Not natively. Teachable requires third-party integrations for webinars. Podia integrates natively with Zoom and YouTube Live for selling live webinars, workshops, and replay access."
+  },
+  {
+    question: "Does Teachable have a mobile app?",
+    answer: "Yes. Teachable includes a native iOS student app on all plans. Podia has no native app — students use mobile-responsive web pages."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Teachable", href: "/compare/thinkific-vs-teachable", description: "Two leading learning commerce platforms compared on features and pricing." },
+  { title: "Thinkific vs Podia", href: "/compare/thinkific-vs-podia", description: "Dedicated learning platform vs simple all-in-one." },
+  { title: "Kajabi vs Teachable", href: "/compare/kajabi-vs-teachable", description: "All-in-one business platform vs dedicated course platform." },
+  { title: "Teachable vs LearnDash", href: "/compare/teachable-vs-learndash", description: "Hosted simplicity vs WordPress power for course businesses." },
+];
+---
+
+<ComparisonLayout
+  title="Teachable vs Podia (2026): Dedicated Course Platform or Multi-Product Storefront?"
+  description="Teachable is a dedicated course platform with robust analytics, certificates, and SEO. Podia is an affordable all-in-one storefront for courses, downloads, webinars, and community. Compare features, pricing, and which fits your business."
+  platform1="Teachable"
+  platform2="Podia"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Teachable vs Podia' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Teachable vs Podia: Dedicated Course Platform or Multi-Product Storefront?</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Teachable is a course platform. Podia is a product platform. That distinction drives every meaningful difference between them. Teachable excels at course-specific tools — graded quizzes, completion certificates, student analytics, and SEO-optimized pages. Podia excels at selling multiple product types — courses, downloads, webinars, coaching, and community — from one affordable storefront.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for experts deciding between a dedicated course platform and a multi-product storefront. If you're building a business around courses specifically, or building a business where courses are one of several products, this guide helps you choose the platform that matches your product mix.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Teachable is a course platform; Podia is a product platform. Choose based on your product mix.",
+    "Podia's Mover plan ($39/mo) offers far more than Teachable's Starter ($39/mo): unlimited products, webinars, lower fees.",
+    "Teachable has built-in certificates, graded quizzes, and student analytics. Podia relies on third-party tools for all three.",
+    "Podia sells courses, downloads, webinars, coaching, and community in one store. Teachable focuses on courses and coaching.",
+    "Teachable includes a native iOS app. Podia has no mobile app.",
+    "Both eliminate transaction fees at $89/month — but the feature sets at that tier differ significantly."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Teachable", "Podia"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Teachable Wins</h2>
+
+    <h3 class="mt-6">Course-Specific Tools</h3>
+    <p>
+      Teachable was built as a course platform first, and it shows. Graded quizzes can enforce minimum pass marks and limit retakes — useful for compliance and certification programs. Built-in completion certificates with customizable templates eliminate third-party workarounds. The course builder supports SEO-optimized pages out of the box.
+    </p>
+
+    <h3 class="mt-6">Built-in Analytics</h3>
+    <p>
+      Teachable provides course completion rates, video engagement and play rates, quiz score statistics, and a student leaderboard — all within the platform. Podia depends entirely on third-party analytics (Google Analytics, Facebook Pixel) and provides no course-specific engagement data natively.
+    </p>
+
+    <h3 class="mt-6">Payment Processing and Checkout</h3>
+    <p>
+      Teachable supports Stripe Express, PayPal, Apple Pay, and Google Pay with a streamlined single-page checkout. Global tax handling covers 200+ countries automatically. Podia integrates with Stripe and PayPal but has a simpler checkout experience with fewer payment methods.
+    </p>
+
+    <h3 class="mt-6">Mobile App</h3>
+    <p>
+      Every Teachable plan includes a native iOS student app at no extra cost. Podia has no native mobile app. A native app improves student engagement and completion rates — this gap matters for course-focused businesses.
+    </p>
+
+    <h3 class="mt-6">Academy Scaling</h3>
+    <p>
+      Teachable's Growth ($189/mo) and Advanced ($399/mo) plans offer team management with custom admin permissions, white-label branding, and support for 25–100 published products. Podia has no enterprise or team management tier.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Podia Wins</h2>
+
+    <h3 class="mt-6">Multi-Product Storefront</h3>
+    <p>
+      Podia was designed to sell everything: courses, digital downloads (ebooks, templates, audio files), coaching sessions, webinars, and community access — all from one store. Teachable focuses primarily on courses and coaching. If you sell anything beyond courses, Podia handles it natively.
+    </p>
+
+    <h3 class="mt-6">Native Webinars</h3>
+    <p>
+      Podia integrates natively with Zoom and YouTube Live, letting you sell access to live webinars, workshops, and classes — plus replay access after the event. Available on the Mover plan ($39/mo). Teachable has no native webinar functionality and requires third-party tools.
+    </p>
+
+    <h3 class="mt-6">Better Value at $39/month</h3>
+    <p>
+      Podia's Mover plan at $39/month gives you unlimited products, custom domain, webinars, drip courses, payment plans, and 5% transaction fees. Teachable's Starter at $39/month limits you to one published product with 7.5% transaction fees. The value gap at this tier is significant.
+    </p>
+
+    <h3 class="mt-6">Built-in Email Marketing</h3>
+    <p>
+      Podia offers email marketing as a built-in add-on with broadcasts, subscriber segmentation, and scalable pricing. Teachable relies on integrations with third-party email providers. Having email in-platform reduces tool sprawl for lean businesses.
+    </p>
+
+    <h3 class="mt-6">Unlimited Memberships</h3>
+    <p>
+      Podia offers unlimited members and unlimited membership plans with no caps. Teachable supports memberships with tiered access but has more structured limits.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Teachable if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are building a business where courses are the primary product</li>
+          <li>Need graded quizzes, certificates, and student analytics</li>
+          <li>Want a native mobile app for students at no extra cost</li>
+          <li>Are an academy scaling with team management and white-label needs</li>
+          <li>Need automated global tax handling</li>
+          <li>Run compliance or credentialing programs</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Podia if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Sell courses alongside ebooks, templates, webinars, and coaching</li>
+          <li>Are a solo expert who wants simplicity and low cost</li>
+          <li>Teach live and want native webinar selling</li>
+          <li>Want built-in email marketing without third-party tools</li>
+          <li>Need unlimited membership plans and products</li>
+          <li>Prefer the best value at the $39/month tier</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Teachable and Podia?"
+    ctaDescription="Tell us about your product mix — courses only or a broader digital product business — and we'll recommend the right platform."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

@@ -1,0 +1,254 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Docebo vs Sana Labs (2026): Enterprise LMS Heavyweights Compared",
+    "description": "Docebo is the safer pick for complex, multi-audience enterprise training. Sana Labs is the AI-native challenger — faster to deploy, easier to use, and now backed by Workday. Compare features, pricing, and fit.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/docebo-vs-sana-labs" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Docebo or Sana Labs better for enterprise training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your use case. Docebo is better for complex, multi-audience enterprise training (employees + customers + partners) with deep compliance, gamification, and integration needs. Sana Labs is better for AI-native internal employee training, especially if you're in the Workday ecosystem and prioritize fast deployment and ease of use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do Docebo and Sana Labs cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both require sales conversations. Docebo's average contract value is approximately $40,000/year (Vendr data), with Enterprise quotes around $70,000/year for 1,000 users. Sana Labs starts at $8-$13/user/month with a 300-user minimum, putting the annual floor at approximately $28,800-$46,800. At comparable scale (500-1,000 users), both land in similar territory: roughly $50,000-$80,000+ annually."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Sana Labs have a mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Sana Labs has no native mobile app as of 2026 — only mobile browser access with no offline mode or push notifications. Docebo offers native mobile apps including a fully branded mobile app on the Enterprise tier with offline access. For frontline workers or field teams, this is a significant gap in Sana's offering."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did Workday acquire Sana Labs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Workday acquired Sana Labs for approximately $1.1 billion in late 2025 — their largest acquisition ever. The integration connects Sana's AI-native learning capabilities with Workday's talent and HR data, enabling learning pathways driven by actual performance and skills data. For Workday customers, this creates a unique competitive advantage no other vendor currently offers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform deploys faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sana Labs deploys in 2-4 weeks. Docebo's standard onboarding runs 6-12 weeks. Sana's AI-powered SCORM/xAPI importer also accelerates content migration. For organizations that need to move fast, this is a meaningful difference."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Founded", values: ["2005 (Milan, Italy)", "2016 (Stockholm, Sweden)"] },
+  { feature: "G2 rating", values: ["4.3/5 (653 reviews)", "4.8/5 (79 reviews)"] },
+  { feature: "AI approach", values: ["AI features layered onto mature LMS", "AI-native architecture from the ground up"] },
+  { feature: "Starting price", values: ["Custom (~$5.83–$10/user/month)", "$8–$13/user/month (300 user minimum)"] },
+  { feature: "Deployment time", values: ["6–12 weeks", "2–4 weeks"] },
+  { feature: "Mobile app", values: ["Yes (branded app on Enterprise tier)", "No native app (mobile browser only)"] },
+  { feature: "Multi-audience training", values: ["✅ Employees + customers + partners", "Primarily internal employee training"] },
+  { feature: "Integrations", values: ["400+ (Salesforce, Teams, SAP, Oracle)", "Growing (Slack, GitHub, SharePoint, Salesforce)"] },
+  { feature: "Compliance & certifications", values: ["Deep compliance automation, audit trails", "Limited compliance tooling"] },
+  { feature: "Owned by", values: ["Independent (publicly traded: DCBO)", "Workday (~$1.1B acquisition, late 2025)"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Docebo or Sana Labs better for enterprise training?",
+    answer: "It depends on your use case. Docebo is better for complex, multi-audience enterprise training (employees + customers + partners) with deep compliance, gamification, and integration needs. Sana Labs is better for AI-native internal employee training, especially if you're in the Workday ecosystem and prioritize fast deployment and ease of use."
+  },
+  {
+    question: "How much do Docebo and Sana Labs cost?",
+    answer: "Both require sales conversations. Docebo's average contract value is approximately $40,000/year. Sana Labs starts at $8–$13/user/month with a 300-user minimum, putting the annual floor at approximately $28,800–$46,800. At comparable scale, both land in similar territory: roughly $50,000–$80,000+ annually."
+  },
+  {
+    question: "Does Sana Labs have a mobile app?",
+    answer: "No. Sana Labs has no native mobile app as of 2026 — only mobile browser access with no offline mode or push notifications. Docebo offers native mobile apps including a fully branded app on the Enterprise tier. For frontline workers or field teams, this is a significant gap."
+  },
+  {
+    question: "Why did Workday acquire Sana Labs?",
+    answer: "Workday acquired Sana Labs for approximately $1.1 billion in late 2025 — their largest acquisition ever. The integration connects Sana's AI-native learning with Workday's talent and HR data, enabling learning pathways driven by actual performance and skills data."
+  },
+  {
+    question: "Which platform deploys faster?",
+    answer: "Sana Labs deploys in 2–4 weeks. Docebo's standard onboarding runs 6–12 weeks. Sana's AI-powered content importer also accelerates migration. For organizations that need to move fast, this is a meaningful difference."
+  }
+];
+
+const relatedPages = [
+  { title: "TalentLMS vs Docebo", href: "/compare/talentlms-vs-docebo", description: "Affordable cloud LMS vs enterprise AI powerhouse — which fits your scale and budget." },
+  { title: "Docebo vs Moodle", href: "/compare/docebo-vs-moodle", description: "AI-driven SaaS LMS vs open-source flexibility for enterprise training." },
+  { title: "Docebo vs Skilljar", href: "/compare/docebo-vs-skilljar", description: "Enterprise LMS vs purpose-built customer education platform." },
+  { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "Learning commerce vs enterprise LMS — which model fits your needs." },
+];
+---
+
+<ComparisonLayout
+  title="Docebo vs Sana Labs (2026): Enterprise LMS Heavyweights Compared"
+  description="Docebo is the safer pick for complex, multi-audience enterprise training. Sana Labs is the AI-native challenger — faster to deploy, easier to use, and now backed by Workday. Compare features, pricing, and fit."
+  platform1="Docebo"
+  platform2="Sana Labs"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Docebo vs Sana Labs' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Docebo vs Sana Labs: Enterprise LMS Heavyweights Compared</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Docebo is the safer pick for complex, multi-audience enterprise training with deep compliance and partner enablement needs. Sana Labs is the sharper pick if your priority is AI-native learning, fast deployment, and you're willing to bet on the newer platform — especially if you're already in the Workday ecosystem. Neither is cheap. Both are serious enterprise tools.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for mid-market and enterprise organizations evaluating their next learning platform. If you're weighing a proven, feature-complete enterprise LMS (Docebo) against a modern, AI-first challenger backed by Workday (Sana Labs), this guide breaks down where each wins and which matches your training strategy.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Docebo is the established, feature-complete platform for multi-audience enterprise training (employees + customers + partners).",
+    "Sana Labs is AI-native from the ground up — built around adaptive learning, knowledge retrieval, and AI-powered authoring.",
+    "Workday acquired Sana Labs for ~$1.1B in 2025, creating unique talent-data synergies for Workday customers.",
+    "Sana deploys in 2–4 weeks; Docebo takes 6–12 weeks — a meaningful difference for time-sensitive rollouts.",
+    "Docebo has 400+ integrations and a native mobile app; Sana has no mobile app and a thinner integration catalog.",
+    "At comparable scale (500–1,000 users), both platforms cost roughly $50,000–$80,000+ annually."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Docebo", "Sana Labs"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Docebo Wins</h2>
+
+    <h3 class="mt-6">Multi-Audience and Extended Enterprise</h3>
+    <p>
+      If you need to train employees, onboard customers, certify partners, and enable resellers — all from a single platform with segmented, white-labeled experiences — Docebo is purpose-built for this. Its multi-tenant architecture, eCommerce engine, and extended enterprise capabilities are the product of two decades of enterprise experience. Sana Labs is primarily focused on internal employee training.
+    </p>
+
+    <h3 class="mt-6">Compliance and Certifications</h3>
+    <p>
+      Docebo has deep compliance automation: certificate generation, automatic re-enrollment, industry-specific compliance tracking, and audit trails built from years of serving regulated industries. Sana Labs doesn't currently offer certification engines or the compliance infrastructure that heavily regulated organizations require.
+    </p>
+
+    <h3 class="mt-6">Integration Breadth</h3>
+    <p>
+      Docebo offers 400+ integrations including deep connections with Salesforce, Microsoft Teams, SAP, Oracle, and major HRIS platforms. Sana integrates with major tools like Slack, GitHub, and SharePoint, but the catalog is thinner. However, Sana's Workday acquisition changes the calculus for Workday-centric organizations.
+    </p>
+
+    <h3 class="mt-6">Mobile Learning</h3>
+    <p>
+      Docebo offers native mobile apps, including a fully branded app on the Enterprise tier with offline access and push notifications. Sana has no native mobile app — only mobile browser access. For frontline workers, healthcare staff, or field teams, this is a significant gap.
+    </p>
+
+    <h3 class="mt-6">Gamification</h3>
+    <p>
+      Docebo offers badges, leaderboards, point systems, and gamification mechanics. Sana's approach to engagement focuses on adaptive learning paths and AI personalization rather than traditional gamification elements.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Sana Labs Wins</h2>
+
+    <h3 class="mt-6">AI-Native Architecture</h3>
+    <p>
+      Sana was built AI-first, and it shows. AI authoring converts documents into structured courses with assessments. The AI tutor uses retrieval-augmented generation grounded in your organization's actual data — Slack messages, SharePoint docs, GitHub repos. Semantic search indexes across connected apps with sub-100ms latency. Natural-language analytics let you ask questions like "which managers in EMEA have the lowest completion rates?" and get a visualization. Docebo's AI is capable but architecturally different — it feels like a sophisticated addition rather than the platform itself.
+    </p>
+
+    <h3 class="mt-6">Content Creation and Authoring</h3>
+    <p>
+      Sana's authoring environment is described as "Figma-like" — collaborative, drag-and-drop, designed so subject matter experts can build content without specialist training. G2 scores back this up: Sana scores 9.1 for Content Creation vs. Docebo's 7.1. Built-in DeepL translation covers 50+ languages natively.
+    </p>
+
+    <h3 class="mt-6">Ease of Use</h3>
+    <p>
+      G2 ratings tell the story: Sana scores 9.3 for Ease of Use vs. Docebo's 8.4, and 9.1 for Ease of Setup vs. Docebo's 7.6. Sana's modern, clean interface reflects its 2016-era design sensibility. Docebo is powerful but carries the complexity of a platform that's been adding features for 20 years.
+    </p>
+
+    <h3 class="mt-6">Deployment Speed</h3>
+    <p>
+      Sana deploys in 2–4 weeks. Docebo's Essential onboarding runs 6–12 weeks. For organizations that need to move fast, this is a meaningful difference.
+    </p>
+
+    <h3 class="mt-6">Workday Integration</h3>
+    <p>
+      The Workday acquisition creates something no other vendor currently offers: learning pathways driven by actual HR and performance data. If you're a Workday shop, the integration of Sana's skill-mapping with Workday's talent data is a unique competitive advantage.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Docebo if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Train multiple audiences (employees, customers, partners)</li>
+          <li>Operate in regulated industries requiring compliance automation</li>
+          <li>Need a branded mobile app with offline access</li>
+          <li>Have a complex tech stack requiring 400+ integrations</li>
+          <li>Want eCommerce to monetize training content</li>
+          <li>Need gamification as a core engagement strategy</li>
+          <li>Prefer a publicly traded, independent vendor with a 20-year track record</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Sana Labs if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Prioritize AI-native learning as the foundation, not an add-on</li>
+          <li>Need fast deployment (2–4 weeks vs. months)</li>
+          <li>Focus primarily on internal employee training</li>
+          <li>Want consolidated tooling (LMS + LXP + authoring + virtual classroom)</li>
+          <li>Are a Workday customer who can leverage talent-data integration</li>
+          <li>Value ease of use for subject matter experts building content</li>
+          <li>Need powerful knowledge retrieval across your internal knowledge base</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Docebo and Sana Labs?"
+    ctaDescription="Tell us about your training requirements — multi-audience needs, compliance, AI priorities — and we'll recommend the platform that fits your organization."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

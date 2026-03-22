@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = "LMS Platform Comparisons (2026) — Side-by-Side Reviews";
+const description = "Compare the top LMS and learning commerce platforms side by side. Objective, buyer-focused comparisons to help you choose the right platform.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Organization",
+    "name": "LMS Guide Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LMS Guide"
+  },
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-22",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lms-guide.com/compare/"
+  }
+};
+
+// Comparison sections data
+const thinkificComparisons = [
+  {
+    title: "Thinkific vs Kajabi",
+    description: "Learning-first course platform vs all-in-one business builder — which fits your teaching and marketing needs?",
+    href: "/compare/thinkific-vs-kajabi"
+  },
+  {
+    title: "Thinkific vs Teachable",
+    description: "Two leading learning commerce platforms compared on features, pricing, and student experience.",
+    href: "/compare/thinkific-vs-teachable"
+  },
+  {
+    title: "Thinkific vs LearnWorlds",
+    description: "Community-first learning vs interactive course experiences — which approach fits your academy?",
+    href: "/compare/thinkific-vs-learnworlds"
+  },
+  {
+    title: "Thinkific vs Docebo",
+    description: "Learning commerce vs enterprise LMS — which model fits your customer education needs?",
+    href: "/compare/thinkific-vs-docebo"
+  },
+  {
+    title: "Thinkific vs Podia",
+    description: "Dedicated learning platform vs simple all-in-one — comparing course delivery and community features.",
+    href: "/compare/thinkific-vs-podia"
+  },
+  {
+    title: "Thinkific vs Absorb",
+    description: "Branded academy platform vs enterprise LMS — different approaches to customer and partner training.",
+    href: "/compare/thinkific-vs-absorb"
+  },
+  {
+    title: "Thinkific vs Skilljar",
+    description: "Two customer education platforms compared on integrations, analytics, and enterprise readiness.",
+    href: "/compare/thinkific-vs-skilljar"
+  },
+  {
+    title: "Thinkific vs TalentLMS",
+    description: "Learning commerce vs affordable multi-purpose LMS — which fits your training goals?",
+    href: "/compare/thinkific-vs-talentlms"
+  },
+  {
+    title: "Thinkific vs Moodle",
+    description: "Hosted learning commerce vs open-source flexibility — comparing ownership models and capabilities.",
+    href: "/compare/thinkific-vs-moodle"
+  }
+];
+
+const learningCommerceComparisons = [
+  {
+    title: "Kajabi vs Podia",
+    description: "Premium marketing power vs simple all-in-one — which bundled platform fits your budget and needs?",
+    href: "/compare/kajabi-vs-podia"
+  },
+  {
+    title: "Kajabi vs Teachable",
+    description: "All-in-one business platform vs dedicated course platform — comparing two popular expert tools.",
+    href: "/compare/kajabi-vs-teachable"
+  },
+  {
+    title: "Kajabi vs LearnDash",
+    description: "All-in-one marketing platform vs WordPress LMS plugin — convenience vs control for course businesses.",
+    href: "/compare/kajabi-vs-learndash"
+  },
+  {
+    title: "Kajabi vs LearnWorlds",
+    description: "Marketing-first all-in-one vs learning-first platform with interactive video and SCORM support.",
+    href: "/compare/kajabi-vs-learnworlds"
+  },
+  {
+    title: "Teachable vs LearnWorlds",
+    description: "Streamlined course platform vs interactive learning environment — different approaches to student engagement.",
+    href: "/compare/teachable-vs-learnworlds"
+  },
+  {
+    title: "Teachable vs LearnDash",
+    description: "Hosted simplicity vs WordPress power — which philosophy fits how you want to run your course business.",
+    href: "/compare/teachable-vs-learndash"
+  },
+  {
+    title: "Teachable vs Podia",
+    description: "Dedicated course platform vs multi-product storefront — choose based on your product mix.",
+    href: "/compare/teachable-vs-podia"
+  },
+  {
+    title: "LearnDash vs LearnWorlds",
+    description: "WordPress plugin vs hosted platform — deep quiz logic and customization vs interactive video and simplicity.",
+    href: "/compare/learndash-vs-learnworlds"
+  }
+];
+
+const enterpriseLMSComparisons = [
+  {
+    title: "Docebo vs Absorb",
+    description: "Enterprise AI powerhouse vs intuitive learning platform — comparing two leading corporate LMS solutions.",
+    href: "/compare/docebo-vs-absorb"
+  },
+  {
+    title: "Docebo vs Moodle",
+    description: "AI-driven SaaS LMS vs open-source flexibility — which enterprise approach fits your organization?",
+    href: "/compare/docebo-vs-moodle"
+  },
+  {
+    title: "Docebo vs Sana Labs",
+    description: "Established enterprise LMS vs AI-native challenger backed by Workday — two visions of enterprise learning.",
+    href: "/compare/docebo-vs-sana-labs"
+  },
+  {
+    title: "Docebo vs Skilljar",
+    description: "Full-spectrum enterprise LMS vs purpose-built customer education platform — which fits your training strategy.",
+    href: "/compare/docebo-vs-skilljar"
+  },
+  {
+    title: "TalentLMS vs Docebo",
+    description: "Affordable cloud LMS vs enterprise AI powerhouse — which matches your trajectory and budget.",
+    href: "/compare/talentlms-vs-docebo"
+  },
+  {
+    title: "TalentLMS vs Moodle",
+    description: "Affordable cloud LMS vs self-hosted open-source — comparing cost, control, and deployment options.",
+    href: "/compare/talentlms-vs-moodle"
+  },
+  {
+    title: "TalentLMS vs Skilljar",
+    description: "Internal employee training vs customer education — choosing the right platform for your audience.",
+    href: "/compare/talentlms-vs-skilljar"
+  },
+  {
+    title: "Moodle vs TalentLMS",
+    description: "Open-source power vs cloud simplicity — total cost of ownership and deployment speed compared.",
+    href: "/compare/moodle-vs-talentlms"
+  },
+  {
+    title: "Absorb vs Skilljar",
+    description: "Corporate training powerhouse vs customer education specialist — employee L&D vs external training.",
+    href: "/compare/absorb-vs-skilljar"
+  },
+  {
+    title: "Absorb vs TalentLMS",
+    description: "Enterprise corporate LMS vs affordable cloud LMS — which fits your team size and budget.",
+    href: "/compare/absorb-vs-talentlms"
+  }
+];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Comparisons", href: "/compare/" }
+];
+---
+
+<BaseLayout title={title} description={description} canonical="https://lms-guide.com/compare/" jsonLd={jsonLd}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">LMS Platform Comparisons (2026)</h1>
+    <p class="text-lg text-slate-600 leading-relaxed mb-4">
+      Choosing the right learning platform is a high-stakes decision. These side-by-side comparisons break down 
+      the key differences between leading LMS and learning commerce platforms — not just feature checklists, 
+      but real decision frameworks based on what buyers actually compare.
+    </p>
+    <p class="text-slate-600">
+      Whether you're building a customer education program, launching a branded academy, or comparing enterprise 
+      LMS options, these guides will help you make a confident, informed choice.
+    </p>
+  </section>
+
+  <!-- Thinkific Comparisons -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Thinkific Comparisons</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">
+      Thinkific is a leading learning commerce platform for customer education, branded academies, and course businesses. 
+      See how it stacks up against alternatives.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {thinkificComparisons.map((comparison) => (
+        <a 
+          href={comparison.href} 
+          class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+        >
+          <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-3">{comparison.title}</h3>
+          <p class="text-slate-600 text-sm flex-grow">{comparison.description}</p>
+          <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+            Read comparison
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Learning Commerce Comparisons -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Learning Commerce Comparisons</h2>
+      <p class="text-slate-600 mb-8 max-w-3xl">
+        Comparing platforms built for selling courses, coaching, and digital products — 
+        Kajabi, Podia, Teachable, and LearnWorlds head-to-head.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {learningCommerceComparisons.map((comparison) => (
+          <a 
+            href={comparison.href} 
+            class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+          >
+            <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-3">{comparison.title}</h3>
+            <p class="text-slate-600 text-sm flex-grow">{comparison.description}</p>
+            <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+              Read comparison
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise LMS Comparisons -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Enterprise LMS Comparisons</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">
+      For organizations needing scalable, compliance-ready learning management — 
+      comparing Docebo, Absorb, TalentLMS, and Moodle for enterprise use cases.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {enterpriseLMSComparisons.map((comparison) => (
+        <a 
+          href={comparison.href} 
+          class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+        >
+          <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-3">{comparison.title}</h3>
+          <p class="text-slate-600 text-sm flex-grow">{comparison.description}</p>
+          <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+            Read comparison
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <LeadFormModal
+      ctaTitle="Not sure which comparison to start with?"
+      ctaDescription="Tell us about your use case — customer training, employee onboarding, or selling courses — and we'll send you a personalized LMS recommendation with the platforms that actually fit your situation."
+      ctaButtonText="Get My Free Recommendation"
+    />
+  </section>
+</BaseLayout>

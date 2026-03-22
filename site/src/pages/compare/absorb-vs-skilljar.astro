@@ -1,0 +1,249 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Absorb LMS vs Skilljar (2026): Corporate Training Powerhouse vs Customer Education Specialist",
+    "description": "Absorb LMS and Skilljar serve fundamentally different training audiences. This comparison breaks down where each platform wins — employee training vs customer education — based on features, pricing, and real-world fit.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/absorb-vs-skilljar" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Absorb LMS or Skilljar better for customer education?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Skilljar is better for customer education. It was purpose-built for external training with deep Salesforce integration, built-in monetization, content syndication, and certification with LinkedIn integration. Absorb can handle customer education through its eCommerce portal, but it's an extension of an employee training platform rather than a purpose-built solution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Absorb LMS handle both employee and customer training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Absorb's multi-portal architecture lets you serve different audiences — employees, customers, and partners — from one platform. Its eCommerce portal supports course sales, and Absorb Infuse embeds learning elements into external applications. If you need one platform for all audiences, Absorb is the pragmatic single-platform choice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do Absorb LMS and Skilljar cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb's median contract value is approximately $20,000/year across verified deals. Skilljar starts at approximately $30,000/year for 1,000 monthly active users on the Essential tier, with Professional tier running $52,000–$85,000/year. Neither publishes transparent pricing — both require sales conversations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb LMS has more mature AI capabilities today, including Absorb Intelligence for content recommendations, Absorb Aura for AI-enabled learning, and smart administration tools. Skilljar's AI features are newer and more limited, though the Gainsight acquisition positions it for rapid AI evolution in customer education specifically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Skilljar have a mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Skilljar offers only responsive web access with no native mobile app. Absorb LMS has a native mobile app for iOS and Android with offline learning support — a genuine differentiator for organizations with deskless or remote workers."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Best for", values: ["Corporate training, compliance, employee L&D", "Customer education, partner certification"] },
+  { feature: "Starting price", values: ["~$20,000/year (custom quotes)", "~$30,000/year (custom quotes)"] },
+  { feature: "Pricing model", values: ["Per active learner + tier", "Annual subscription + monthly active users"] },
+  { feature: "Employee training", values: ["✅ Core strength", "❌ Not designed for it"] },
+  { feature: "Customer training", values: ["✅ Supported (eCommerce portal)", "✅ Core strength"] },
+  { feature: "AI features", values: ["Deep (Absorb Aura, Intelligence suite)", "Basic (AI Content Assist, LearnExpert add-on)"] },
+  { feature: "CRM integration", values: ["Salesforce, generic CRM via API", "Salesforce-native, deep CRM/CS tooling"] },
+  { feature: "Mobile app", values: ["Native mobile app (online + offline)", "Responsive web (no native app)"] },
+  { feature: "Content authoring", values: ["Built-in + Absorb Create", "Basic; relies on third-party tools"] },
+  { feature: "eCommerce", values: ["Built-in module", "Built-in (subscriptions, bundles, credits)"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Absorb LMS or Skilljar better for customer education?",
+    answer: "Skilljar is better for customer education. It was purpose-built for external training with deep Salesforce integration, built-in monetization, content syndication, and certification with LinkedIn integration. Absorb can handle customer education through its eCommerce portal, but it's an extension of an employee training platform rather than a purpose-built solution."
+  },
+  {
+    question: "Can Absorb LMS handle both employee and customer training?",
+    answer: "Yes. Absorb's multi-portal architecture lets you serve different audiences — employees, customers, and partners — from one platform. Its eCommerce portal supports course sales, and Absorb Infuse embeds learning elements into external applications. If you need one platform for all audiences, Absorb is the pragmatic single-platform choice."
+  },
+  {
+    question: "How much do Absorb LMS and Skilljar cost?",
+    answer: "Absorb's median contract value is approximately $20,000/year across verified deals. Skilljar starts at approximately $30,000/year for 1,000 monthly active users on the Essential tier, with Professional tier running $52,000–$85,000/year. Neither publishes transparent pricing — both require sales conversations."
+  },
+  {
+    question: "Which platform has better AI features?",
+    answer: "Absorb LMS has more mature AI capabilities today, including Absorb Intelligence for content recommendations, Absorb Aura for AI-enabled learning, and smart administration tools. Skilljar's AI features are newer and more limited, though the Gainsight acquisition positions it for rapid AI evolution in customer education specifically."
+  },
+  {
+    question: "Does Skilljar have a mobile app?",
+    answer: "No. Skilljar offers only responsive web access with no native mobile app. Absorb LMS has a native mobile app for iOS and Android with offline learning support — a genuine differentiator for organizations with deskless or remote workers."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Absorb", href: "/compare/thinkific-vs-absorb", description: "Branded academy platform vs enterprise LMS — different approaches to customer and partner training." },
+  { title: "Thinkific vs Skilljar", href: "/compare/thinkific-vs-skilljar", description: "Two customer education platforms compared on integrations, analytics, and enterprise readiness." },
+  { title: "Docebo vs Skilljar", href: "/compare/docebo-vs-skilljar", description: "Enterprise LMS vs purpose-built customer education — which fits your training strategy." },
+  { title: "Absorb vs TalentLMS", href: "/compare/absorb-vs-talentlms", description: "Enterprise corporate LMS vs affordable cloud LMS — which fits your team size and budget." },
+];
+---
+
+<ComparisonLayout
+  title="Absorb LMS vs Skilljar (2026): Corporate Training Powerhouse vs Customer Education Specialist"
+  description="Absorb LMS and Skilljar serve fundamentally different training audiences. This comparison breaks down where each platform wins — employee training vs customer education — based on features, pricing, and real-world fit."
+  platform1="Absorb LMS"
+  platform2="Skilljar"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Absorb vs Skilljar' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Absorb LMS vs Skilljar: Corporate Training Powerhouse vs Customer Education Specialist</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Absorb LMS and Skilljar solve training problems that look similar on paper but diverge sharply in practice. Absorb is an AI-powered corporate LMS built for employee training, compliance, and onboarding — with the flexibility to extend into customer and partner education. Skilljar (now owned by Gainsight) is purpose-built for external training: customer onboarding, product adoption, partner certification, and training monetization. They're adjacent, not interchangeable.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for companies evaluating enterprise training platforms and trying to decide whether they need a corporate LMS that can stretch into customer education (Absorb) or a purpose-built customer education platform (Skilljar). Whether you're a company launching training programs, an academy scaling professional development, or an expert building a training business, this breakdown will help you match the platform to your actual requirements.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Absorb is built for employee training first, with the ability to extend into customer and partner education.",
+    "Skilljar is purpose-built for customer education with deep Salesforce and Gainsight integration.",
+    "If you need one platform for all audiences (employees + customers + partners), Absorb is the single-platform choice.",
+    "If customer education is your primary initiative and you're a Salesforce shop, Skilljar wins convincingly.",
+    "Absorb's median contract is ~$20,000/year; Skilljar starts at ~$30,000/year — but they solve different problems.",
+    "Absorb has a native mobile app with offline access; Skilljar has no native app."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Absorb LMS", "Skilljar"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Absorb LMS Wins</h2>
+
+    <h3 class="mt-6">Employee Training and Internal L&D</h3>
+    <p>
+      This is Absorb's home turf. The platform offers a full internal training suite: compliance, onboarding, skill development, and leadership programs. Observational checklists bridge the gap between online training and on-the-job skill verification. eSignatures handle compliance acknowledgment. The pre-built content library includes thousands of courses from leading providers. Skilljar simply doesn't do employee training — if that's part of your requirements, Absorb is the only option.
+    </p>
+
+    <h3 class="mt-6">AI-Powered Learning</h3>
+    <p>
+      Absorb has made AI a core part of its platform identity. The Absorb Intelligence suite provides AI-powered content recommendations, smart administration, and automated workflows. Absorb Aura enables AI-driven learning that builds capabilities and closes skill gaps. Skilljar's AI capabilities are newer and more limited — its story is largely forward-looking, tied to Gainsight's vision for "Agentic Education."
+    </p>
+
+    <h3 class="mt-6">Mobile App with Offline Access</h3>
+    <p>
+      Absorb offers a native mobile app for iOS and Android with offline learning support — essential for field teams, manufacturing workers, and deskless employees. Skilljar has no native mobile app, only responsive web access. For organizations with distributed or offline workforces, this is a significant gap.
+    </p>
+
+    <h3 class="mt-6">Content Creation and Libraries</h3>
+    <p>
+      Absorb provides built-in content authoring tools, AI-powered creation via Absorb Create, and access to pre-built content libraries from leading eLearning providers. Absorb Pinpoint uses NLP to make video content searchable. Skilljar assumes you'll create content elsewhere and use their platform for delivery — it lacks built-in content libraries.
+    </p>
+
+    <h3 class="mt-6">Support and Scalability</h3>
+    <p>
+      Absorb includes 24/7 customer support on all tiers and claims 99.99% uptime. Its infrastructure is designed for enterprise-scale deployments with tens of thousands of learners. Skilljar scales well for customer education but its MAU-based pricing creates friction at very high scale.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Skilljar Wins</h2>
+
+    <h3 class="mt-6">Customer and Partner Education</h3>
+    <p>
+      Customer education is Skilljar's entire reason for existing, and the 2025 Gainsight acquisition doubled down on this positioning. Deep Salesforce integration maps training completions to accounts, contacts, and opportunities. Built-in eCommerce supports subscriptions, course bundles, and training credits. Content syndication delivers courses into customers' existing LMS platforms. Every feature is designed around customer education workflows.
+    </p>
+
+    <h3 class="mt-6">Salesforce-Native Integration</h3>
+    <p>
+      Skilljar's Salesforce integration is widely cited as best-in-class for customer education. It connects training directly to revenue and retention metrics — showing exactly how training impacts customer health scores, renewal rates, and expansion revenue. Absorb integrates with Salesforce via API, but the depth isn't comparable for customer education use cases.
+    </p>
+
+    <h3 class="mt-6">Training Monetization</h3>
+    <p>
+      Skilljar was built with revenue generation in mind. Native support for subscriptions, course bundles, training credits, and multiple currencies makes it straightforward to monetize training programs. Absorb has an eCommerce module, but Skilljar's monetization infrastructure is more mature and purpose-built.
+    </p>
+
+    <h3 class="mt-6">Faster Time-to-Value</h3>
+    <p>
+      Skilljar implements in 3–8 weeks compared to Absorb's 4–12 weeks. The narrower scope means less configuration, fewer features to set up, and a faster path from contract to live academy. For customer education teams that need to show results quickly, this matters.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Absorb LMS if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Need employee training as your primary use case</li>
+          <li>Want one platform for internal and external training</li>
+          <li>Need AI-powered learning that's mature today</li>
+          <li>Require a mobile app with offline access</li>
+          <li>Want pre-built content libraries for faster launch</li>
+          <li>Need compliance tools (eSignatures, observational checklists)</li>
+          <li>Have a budget under $25,000/year</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Skilljar if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Customer and partner education is your primary initiative</li>
+          <li>You're a SaaS/tech company tying training to product adoption</li>
+          <li>Salesforce is central to your operations</li>
+          <li>You already use or plan to use Gainsight</li>
+          <li>Want to monetize training programs</li>
+          <li>Need fast time-to-value for external training</li>
+          <li>Content syndication to partner LMS platforms matters</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Absorb and Skilljar?"
+    ctaDescription="Tell us about your training needs — employee development, customer education, or both — and we'll recommend the right platform for your situation."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

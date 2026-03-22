@@ -1,0 +1,242 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Teachable vs LearnDash (2026): Hosted Simplicity or WordPress Power?",
+    "description": "Teachable handles payments, taxes, and hosting so you can focus on teaching. LearnDash gives you deep customization and full control on WordPress. Compare features, pricing, and which philosophy fits your business.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/teachable-vs-learndash" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Teachable or LearnDash better for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable is significantly easier for beginners. You sign up, build a course, connect payments, and start selling — no technical knowledge needed. LearnDash requires WordPress familiarity and, for self-hosted setups, comfort with hosting, themes, and plugin management. An expert with no technical background can launch a Teachable course in a weekend."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is LearnDash actually cheaper than Teachable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnDash looks cheaper on paper ($199/year plugin) but can cost more in practice. Add hosting ($120-600/year), a theme ($59-228/year), add-ons ($49-99/year each), and tax compliance ($228-1,188/year), and you may spend more than Teachable's Builder plan at $828/year — which includes everything. Context matters: if you already pay for WordPress hosting, adding LearnDash is genuinely affordable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better quizzes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnDash has a substantially better quiz engine with eight question types, question banks, randomized pools, time limits, retry restrictions, custom result messages, and detailed result analysis. Teachable supports auto-graded quizzes and short-answer assessments — functional but limited. For certifications or compliance training, LearnDash is in a different league."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Teachable handle taxes automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Teachable automatically calculates and remits US sales tax, international VAT, and GST through its integrated payment processing. This is a significant advantage over LearnDash, where tax compliance requires third-party plugins like TaxJar ($19-99/month) or manual handling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I build a multi-instructor academy on Teachable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable supports multiple admin users (1 on Starter, up to 100 on Advanced), but it's designed for a single expert or small team. LearnDash's Instructor Role add-on enables front-end course creation by multiple instructors, plus Groups Management for cohort-based learning — making it better suited for multi-instructor academies."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Platform type", values: ["Hosted SaaS (all-in-one)", "WordPress plugin (self-hosted)"] },
+  { feature: "Starting price", values: ["$29/mo (Starter, annual)", "$199/yr (plugin) or $29/mo (Cloud)"] },
+  { feature: "Transaction fees", values: ["7.5% on Starter; 0% on Builder+", "0% (payment processor fees only)"] },
+  { feature: "Hosting included", values: ["Yes", "No (BYO hosting) or Cloud plans"] },
+  { feature: "Tax handling", values: ["Automated (US, VAT, GST)", "Manual or third-party plugin"] },
+  { feature: "Quiz engine", values: ["Auto-graded quizzes, short-answer", "8 question types, advanced logic"] },
+  { feature: "Mobile app", values: ["iOS & Android included", "Add-on ($1,199/yr)"] },
+  { feature: "Multi-instructor", values: ["Limited (admin roles)", "Full (Instructor Role add-on)"] },
+  { feature: "Community", values: ["Built-in feature", "Via BuddyBoss or bbPress"] },
+  { feature: "Customization", values: ["Within Teachable's framework", "Full WordPress control"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Teachable or LearnDash better for beginners?",
+    answer: "Teachable is significantly easier for beginners. Sign up, build a course, connect payments, and sell — no technical knowledge needed. LearnDash requires WordPress familiarity. An expert with no technical background can launch a Teachable course in a weekend."
+  },
+  {
+    question: "Is LearnDash actually cheaper than Teachable?",
+    answer: "LearnDash looks cheaper ($199/year plugin) but add hosting, themes, add-ons, and tax compliance, and you may spend more than Teachable's Builder plan ($828/year). If you already have WordPress hosting, adding LearnDash is genuinely affordable."
+  },
+  {
+    question: "Which platform has better quizzes?",
+    answer: "LearnDash has a substantially better quiz engine: eight question types, question banks, randomized pools, time limits, retry restrictions, and detailed analytics. Teachable offers auto-graded quizzes that are functional but limited."
+  },
+  {
+    question: "Does Teachable handle taxes automatically?",
+    answer: "Yes. Teachable automatically handles US sales tax, VAT, and GST through integrated payment processing. LearnDash requires third-party plugins like TaxJar or manual handling."
+  },
+  {
+    question: "Can I build a multi-instructor academy on Teachable?",
+    answer: "Teachable supports multiple admin users but is designed for single-expert setups. LearnDash's Instructor Role add-on enables true multi-instructor academies with front-end course creation and group management."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Teachable", href: "/compare/thinkific-vs-teachable", description: "Two leading learning commerce platforms compared on features and pricing." },
+  { title: "Thinkific vs LearnDash", href: "/compare/thinkific-vs-learndash", description: "Hosted SaaS vs WordPress plugin for course businesses." },
+  { title: "Teachable vs Podia", href: "/compare/teachable-vs-podia", description: "Dedicated course platform vs multi-product storefront." },
+  { title: "Kajabi vs LearnDash", href: "/compare/kajabi-vs-learndash", description: "All-in-one platform vs WordPress LMS plugin." },
+];
+---
+
+<ComparisonLayout
+  title="Teachable vs LearnDash (2026): Hosted Simplicity or WordPress Power?"
+  description="Teachable handles payments, taxes, and hosting so you can focus on teaching. LearnDash gives you deep customization and full control on WordPress. Compare features, pricing, and which philosophy fits your business."
+  platform1="Teachable"
+  platform2="LearnDash"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Teachable vs LearnDash' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Teachable vs LearnDash: Hosted Simplicity or WordPress Power?</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Teachable is a fully hosted platform that handles payments, taxes, and hosting so you can focus on teaching. LearnDash is a WordPress plugin that gives you deep customization and full control. The choice isn't about which is "better" — it's about whether you want a platform that says "we'll handle it" or one that says "you're in control."
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for course builders and training organizations choosing between hosted simplicity and WordPress-based control. Whether you're a solo expert launching your first course or an academy building a multi-instructor platform, this guide helps you pick the philosophy that matches how you want to run your business.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Teachable is the right choice for most independent experts — zero infrastructure burden, built-in sales tools, automated tax compliance.",
+    "LearnDash is the right choice for academies, multi-instructor setups, and companies that want WordPress control.",
+    "Teachable's Builder plan ($69/mo annual) includes everything; LearnDash's $199/year plugin needs $400-800+ in extras.",
+    "LearnDash's quiz engine is in a different league — 8 question types vs Teachable's basic auto-graded quizzes.",
+    "Teachable includes iOS/Android mobile apps at no cost; LearnDash's app costs $1,199/year.",
+    "Teachable handles taxes automatically (US, VAT, GST); LearnDash requires third-party tax tools."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Teachable", "LearnDash"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Teachable Wins</h2>
+
+    <h3 class="mt-6">Built-in Sales and Tax Handling</h3>
+    <p>
+      Teachable includes integrated payment processing with Stripe Express, PayPal, Apple Pay, and Google Pay. Automated tax handling covers US sales tax, VAT, and GST across 200+ countries. Abandoned cart recovery, coupons, bundles, upsells, order bumps, and a built-in affiliate program come standard. LearnDash requires assembling separate tools for each of these functions.
+    </p>
+
+    <h3 class="mt-6">Zero Infrastructure Burden</h3>
+    <p>
+      No servers, no WordPress updates, no plugin conflicts, no security patches. Sign up, build a course, connect payments, publish. An expert with no technical background can launch in a weekend. LearnDash (self-hosted) requires managing hosting, backups, security, and plugin compatibility.
+    </p>
+
+    <h3 class="mt-6">Mobile Apps Included</h3>
+    <p>
+      Every Teachable plan includes iOS and Android student apps. LearnDash's mobile app is a separate $1,199/year add-on with a 3–4 week setup process. For most users, this gap is significant.
+    </p>
+
+    <h3 class="mt-6">Single Point of Support</h3>
+    <p>
+      When something breaks on Teachable, you contact Teachable. When something breaks on a self-hosted LearnDash setup, the issue might be a theme conflict, a plugin conflict, or a hosting problem — and LearnDash support can only help with their plugin.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where LearnDash Wins</h2>
+
+    <h3 class="mt-6">Advanced Assessments</h3>
+    <p>
+      LearnDash's quiz engine supports eight question types, question banks, randomized pools, time limits, retry restrictions, and certificate generation tied to scores. Assignments with manual or auto-approval, focus mode for distraction-free learning, and video progression (requiring students to watch before proceeding) make it significantly stronger for structured education.
+    </p>
+
+    <h3 class="mt-6">Multi-Instructor and Group Management</h3>
+    <p>
+      The Instructor Role add-on enables front-end course creation by multiple experts. Groups Management handles cohort-based learning with team leaders and organizational structures. Teachable supports multiple admins but is designed for single-expert setups.
+    </p>
+
+    <h3 class="mt-6">Full WordPress Customization</h3>
+    <p>
+      Any theme, any page builder, any plugin. Custom post types, CSS, PHP, REST API — the sky is the limit. Your LMS integrates deeply with your existing WordPress site rather than living on a separate platform.
+    </p>
+
+    <h3 class="mt-6">Integration Breadth</h3>
+    <p>
+      LearnDash connects to the entire WordPress ecosystem — thousands of plugins for email, CRM, analytics, membership, and eCommerce. Teachable's integrations cover essentials but are more limited in scope.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Teachable if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are a solo expert launching your first course</li>
+          <li>Value simplicity over control</li>
+          <li>Don't want to manage hosting, updates, or tax compliance</li>
+          <li>Need mobile apps without a large investment</li>
+          <li>Want built-in payments, affiliates, and marketing tools</li>
+          <li>Prefer single-vendor support for everything</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose LearnDash if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are building a multi-instructor academy</li>
+          <li>Need advanced assessments for certifications or compliance</li>
+          <li>Already run WordPress and want to add LMS functionality</li>
+          <li>Want full data ownership and technical control</li>
+          <li>Need group management for corporate or cohort training</li>
+          <li>Are WordPress-savvy and comfortable managing your stack</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Teachable and LearnDash?"
+    ctaDescription="Tell us about your experience level, technical comfort, and course business goals — and we'll recommend the right approach."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

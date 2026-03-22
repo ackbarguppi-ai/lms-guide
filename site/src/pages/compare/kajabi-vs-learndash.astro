@@ -1,0 +1,242 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Kajabi vs LearnDash (2026): All-in-One Platform or WordPress Control?",
+    "description": "Kajabi is a fully hosted all-in-one business platform with built-in marketing. LearnDash is a WordPress LMS plugin with deep course tools and unlimited customization. Compare features, pricing, and which fits your business model.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/kajabi-vs-learndash" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Kajabi or LearnDash better for selling online courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your business model. Kajabi is better for marketing-driven experts who want built-in email, funnels, and checkout without stitching tools together. LearnDash is better for education-first organizations — academies, training companies, and WordPress-native businesses — that need deep course structure, rigorous assessments, and technical control."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Kajabi cost vs LearnDash?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kajabi starts at $143/month (Basic, annual billing). LearnDash's plugin starts at $199/year (~$17/month). However, LearnDash requires separate hosting ($10-50/month), email marketing ($20-100/month), and landing page tools ($30-100/month). Once you add the full marketing stack, the gap narrows significantly — though LearnDash typically remains cheaper overall."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does LearnDash have built-in email marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. LearnDash has no native marketing tools. Email marketing, landing pages, and sales funnels all require third-party integrations. You'll connect Mailchimp, ActiveCampaign, or ConvertKit via WP Fusion or Zapier. Kajabi includes a full email marketing suite with sequences, broadcasts, and automation on every plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better quizzes and assessments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnDash wins by a wide margin. It supports eight question types (multiple choice, fill-in-the-blank, sorting, matching, essays, and more), randomized question pools, time limits, retry restrictions, and certificate generation tied to quiz results. Kajabi offers basic quizzes and surveys sufficient for simple knowledge checks but not rigorous assessment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Kajabi with WordPress?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Kajabi is a fully hosted, standalone platform — you cannot install it on WordPress. If you already run a WordPress site and want to add LMS functionality, LearnDash is designed for exactly that. Kajabi replaces your entire website, not just the course component."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Platform type", values: ["Hosted all-in-one platform", "WordPress LMS plugin"] },
+  { feature: "Starting price", values: ["$143/mo (Basic annual)", "$199/year plugin (~$17/mo)"] },
+  { feature: "Built-in email marketing", values: ["Yes, all plans", "No (requires third-party)"] },
+  { feature: "Sales funnels", values: ["Built-in visual pipeline builder", "No (requires third-party)"] },
+  { feature: "Course limits", values: ["5–Unlimited by plan", "Unlimited (all plans)"] },
+  { feature: "Quiz engine", values: ["Basic (surveys, quizzes)", "Advanced (8+ question types, certificates)"] },
+  { feature: "SCORM/xAPI", values: ["No", "Via add-ons"] },
+  { feature: "Community", values: ["Built-in, all plans", "Via BuddyBoss or bbPress"] },
+  { feature: "Coaching tools", values: ["Yes", "Limited (via add-ons)"] },
+  { feature: "Technical control", values: ["None (hosted platform)", "Full WordPress customization"] },
+];
+
+const faqItems = [
+  {
+    question: "Is Kajabi or LearnDash better for selling online courses?",
+    answer: "It depends on your business model. Kajabi is better for marketing-driven experts who want built-in email, funnels, and checkout without stitching tools together. LearnDash is better for education-first organizations that need deep course structure, rigorous assessments, and technical control."
+  },
+  {
+    question: "How much does Kajabi cost vs LearnDash?",
+    answer: "Kajabi starts at $143/month (Basic, annual). LearnDash's plugin starts at $199/year (~$17/month). But LearnDash requires hosting ($10–50/month), email marketing ($20–100/month), and landing page tools ($30–100/month). Once you add the full stack, the gap narrows — though LearnDash typically remains cheaper overall."
+  },
+  {
+    question: "Does LearnDash have built-in email marketing?",
+    answer: "No. LearnDash has no native marketing tools. Email, landing pages, and funnels require third-party integrations. Kajabi includes a full email marketing suite with sequences, broadcasts, and automation on every plan."
+  },
+  {
+    question: "Which platform has better quizzes and assessments?",
+    answer: "LearnDash wins by a wide margin. It supports eight question types, randomized question pools, time limits, retry restrictions, and certificate generation. Kajabi offers basic quizzes sufficient for simple knowledge checks but not rigorous assessment."
+  },
+  {
+    question: "Can I use Kajabi with WordPress?",
+    answer: "No. Kajabi is a fully hosted, standalone platform. If you already run WordPress and want to add LMS functionality, LearnDash is designed for exactly that. Kajabi replaces your entire website."
+  }
+];
+
+const relatedPages = [
+  { title: "Kajabi vs LearnWorlds", href: "/compare/kajabi-vs-learnworlds", description: "All-in-one business platform vs learning-first platform with interactive video." },
+  { title: "Kajabi vs Teachable", href: "/compare/kajabi-vs-teachable", description: "All-in-one business platform vs dedicated course platform." },
+  { title: "Thinkific vs LearnDash", href: "/compare/thinkific-vs-learndash", description: "Hosted SaaS vs WordPress plugin — which approach fits your course business." },
+  { title: "LearnDash vs LearnWorlds", href: "/compare/learndash-vs-learnworlds", description: "WordPress plugin vs hosted platform for serious course builders." },
+];
+---
+
+<ComparisonLayout
+  title="Kajabi vs LearnDash (2026): All-in-One Platform or WordPress Control?"
+  description="Kajabi is a fully hosted all-in-one business platform with built-in marketing. LearnDash is a WordPress LMS plugin with deep course tools and unlimited customization. Compare features, pricing, and which fits your business model."
+  platform1="Kajabi"
+  platform2="LearnDash"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Kajabi vs LearnDash' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Kajabi vs LearnDash: All-in-One Platform or WordPress Control?</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Kajabi and LearnDash represent two fundamentally different approaches to selling online courses. Kajabi is a fully hosted, all-in-one business platform — courses, email marketing, sales funnels, community, and website all under one roof. LearnDash is a WordPress LMS plugin that turns any WordPress site into a full-featured learning management system. The choice comes down to a core trade-off: convenience and integration vs. control and cost.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for experts deciding between an all-in-one marketing-first platform and a WordPress-based LMS. Whether you're an expert selling courses, an academy running structured training, or a company adding customer education, this guide helps you choose based on your business model — not just features.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Kajabi is a marketing platform that happens to host courses; LearnDash is an LMS that happens to sell courses.",
+    "Kajabi includes email, funnels, landing pages, and CRM on every plan. LearnDash requires assembling your own marketing stack.",
+    "LearnDash's quiz engine is in a different league — 8+ question types with advanced logic vs Kajabi's basic quizzes.",
+    "Kajabi starts at $143/month; LearnDash's plugin is $199/year — but true costs converge once you add hosting and marketing tools.",
+    "LearnDash gives you full WordPress customization and data ownership. Kajabi handles everything but constrains you to its framework.",
+    "Choose Kajabi if you're primarily a marketer who teaches. Choose LearnDash if you're primarily an educator who markets."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Kajabi", "LearnDash"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Kajabi Wins</h2>
+
+    <h3 class="mt-6">Marketing and Sales Tools</h3>
+    <p>
+      Marketing is Kajabi's strongest suit. Built-in email marketing with automation sequences, visual pipeline builders, landing page templates, and sales funnels are included on every plan. The email system supports tags, segments, broadcasts, and multi-step automations. Sales pages, checkout flows, upsells, and order bumps are native. LearnDash has no native marketing tools — you're assembling your own stack.
+    </p>
+
+    <h3 class="mt-6">All-in-One Simplicity</h3>
+    <p>
+      Kajabi handles hosting, security, updates, and performance. You don't touch servers. Courses, email, funnels, community, website, and payments all live in one dashboard. For experts who want to focus on content and marketing rather than infrastructure, this eliminates the integration tax entirely.
+    </p>
+
+    <h3 class="mt-6">Community and Coaching</h3>
+    <p>
+      Kajabi includes built-in community features on all plans with posts, topics, challenges, and member groups. Native coaching tools handle client intake, session scheduling, and package management. LearnDash requires BuddyBoss ($228/year+) for comparable community features and third-party tools for coaching.
+    </p>
+
+    <h3 class="mt-6">Zero-Maintenance Operations</h3>
+    <p>
+      No WordPress updates, no plugin conflicts, no security patches, no hosting optimization. Kajabi handles the infrastructure so you focus on content and sales. For solo experts and small teams, this time savings is significant.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where LearnDash Wins</h2>
+
+    <h3 class="mt-6">Course Building and Assessments</h3>
+    <p>
+      LearnDash's course builder offers deep structural control with hierarchical organization (courses → sections → topics → quizzes). Its quiz engine supports eight question types, randomized question pools, time limits, retry restrictions, and certificate generation. For compliance training, certifications, or academic programs, LearnDash's assessment capabilities are in a different league.
+    </p>
+
+    <h3 class="mt-6">Unlimited Customization</h3>
+    <p>
+      LearnDash gives you the entire WordPress ecosystem — thousands of themes, page builders, and plugins. Need a fully custom checkout flow? Wire up WooCommerce. Want a membership site with community forums? Add BuddyBoss. Need SCORM/xAPI support? Add-ons handle it. The ceiling on customization is essentially limitless.
+    </p>
+
+    <h3 class="mt-6">Cost at Scale</h3>
+    <p>
+      LearnDash's plugin costs $199/year with unlimited courses and no student limits. Even with hosting, a theme, and add-ons, the total cost typically ranges $600–$2,300/year. Kajabi's Growth plan at $199/month ($2,388/year) is required for many business features. For budget-conscious experts willing to do the setup work, LearnDash is significantly cheaper.
+    </p>
+
+    <h3 class="mt-6">Multi-Instructor and Group Management</h3>
+    <p>
+      LearnDash's Instructor Role add-on enables front-end course creation by multiple instructors — ideal for course marketplaces and multi-expert academies. Groups Management handles cohort-based learning with team leaders and organizational structures. Kajabi is designed for single-expert or small team setups.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Kajabi if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are an expert building a personal brand business</li>
+          <li>Want everything in one platform without stitching tools together</li>
+          <li>Depend on email marketing, funnels, and automation</li>
+          <li>Prefer zero technical maintenance</li>
+          <li>Run coaching programs and want native scheduling tools</li>
+          <li>Value speed to launch over maximum customization</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose LearnDash if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Run an academy with structured curricula and rigorous assessments</li>
+          <li>Already use WordPress and want to add LMS functionality</li>
+          <li>Need multi-instructor support and group management</li>
+          <li>Require SCORM/xAPI support for compliance training</li>
+          <li>Want full data ownership and technical control</li>
+          <li>Are budget-conscious and willing to manage your own stack</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Kajabi and LearnDash?"
+    ctaDescription="Tell us about your business model — marketing-driven expert business or education-first academy — and we'll recommend the right platform."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

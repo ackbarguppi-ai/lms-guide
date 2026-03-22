@@ -1,0 +1,247 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TalentLMS vs Docebo (2026): Which LMS Fits Your Business?",
+    "description": "TalentLMS is the best value for SMBs under 500 users. Docebo is the enterprise choice for AI-powered, multi-audience training at scale. Compare pricing, features, and which matches your trajectory.",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/compare/talentlms-vs-docebo" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is TalentLMS or Docebo cheaper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TalentLMS is significantly cheaper for SMBs. A 100-person team might pay ~$5,400/year on TalentLMS Pro. Docebo typically starts at $25,000-$50,000/year with a verified enterprise quote of $70,000/year for 1,000 users. The gap narrows at 1,000+ users where Docebo's volume discounting kicks in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I upgrade from TalentLMS to Docebo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common triggers for outgrowing TalentLMS include: user count exceeding 500-1,000, adding customer or partner training, leadership requesting ROI analytics that TalentLMS can't provide, integration needs growing beyond API + Zapier, and multiple business units needing deeply branded training environments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does TalentLMS have AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. TalentLMS includes TalentCraft for AI content generation, AI Coach for learner guidance, AI test creation, and AI course translation in 40+ languages. However, these are primarily content-creation tools. Docebo's AI (Harmony) is a platform-wide intelligence layer powering recommendations, skill mapping, and copilot functionality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Docebo train customers and partners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Docebo's Extended Enterprise module is purpose-built for multi-audience training — employees, customers, and partners from one platform with separate branded experiences. TalentLMS can serve different audiences through branches, but it lacks the depth for complex external training programs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform sets up faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TalentLMS deploys in hours to days. Docebo requires a structured 8-week onboarding process minimum, with complex deployments taking longer. If speed to launch matters, TalentLMS is the clear choice."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Best for", values: ["SMBs, startups, lean L&D teams", "Mid-market to enterprise orgs"] },
+  { feature: "User sweet spot", values: ["5–500 users", "250–50,000+ users"] },
+  { feature: "Pricing model", values: ["Transparent tiers, published pricing", "Custom quote-based"] },
+  { feature: "Starting price", values: ["Free (5 users); paid from $119/mo", "~$25,000–$50,000+/year"] },
+  { feature: "Setup time", values: ["Hours to days", "Weeks to months (8-week onboarding)"] },
+  { feature: "AI features", values: ["TalentCraft content creation, AI Coach", "Harmony AI copilot, virtual coaching, skill mapping"] },
+  { feature: "Multi-audience training", values: ["Branches (1–15+ by plan)", "Multi-portal with white-labeling"] },
+  { feature: "Integrations", values: ["API, SSO, HubSpot, Zapier", "400+ (Salesforce, Workday, Teams, HRIS)"] },
+  { feature: "Analytics", values: ["Custom reports, dashboards", "AI-driven dashboards, business impact tracking"] },
+  { feature: "G2 rating", values: ["4.6/5 (780+ reviews)", "4.4/5 (580+ reviews)"] },
+];
+
+const faqItems = [
+  {
+    question: "Is TalentLMS or Docebo cheaper?",
+    answer: "TalentLMS is significantly cheaper for SMBs. A 100-person team might pay ~$5,400/year on TalentLMS Pro. Docebo starts at $25,000–$50,000/year. The gap narrows at 1,000+ users where Docebo's volume discounting kicks in."
+  },
+  {
+    question: "When should I upgrade from TalentLMS to Docebo?",
+    answer: "Common triggers: user count exceeding 500–1,000, adding customer or partner training, leadership requesting ROI analytics, integration needs growing beyond API + Zapier, and multiple business units needing deeply branded environments."
+  },
+  {
+    question: "Does TalentLMS have AI features?",
+    answer: "Yes — TalentCraft for content generation, AI Coach, AI test creation, and translation in 40+ languages. But these are content-creation tools. Docebo's Harmony AI is a platform-wide intelligence layer powering recommendations, skill mapping, and copilot functionality."
+  },
+  {
+    question: "Can Docebo train customers and partners?",
+    answer: "Yes. Docebo's Extended Enterprise module handles employees, customers, and partners from one platform with separate branded experiences. TalentLMS uses branches for different audiences but lacks the depth for complex external training."
+  },
+  {
+    question: "Which platform sets up faster?",
+    answer: "TalentLMS deploys in hours to days. Docebo requires a structured 8-week onboarding minimum. If speed matters, TalentLMS is the clear choice."
+  }
+];
+
+const relatedPages = [
+  { title: "Absorb vs TalentLMS", href: "/compare/absorb-vs-talentlms", description: "Enterprise corporate LMS vs affordable cloud LMS." },
+  { title: "Docebo vs Sana Labs", href: "/compare/docebo-vs-sana-labs", description: "Established enterprise LMS vs AI-native challenger." },
+  { title: "Thinkific vs TalentLMS", href: "/compare/thinkific-vs-talentlms", description: "Learning commerce vs affordable multi-purpose LMS." },
+  { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "Learning commerce vs enterprise LMS for customer education." },
+];
+---
+
+<ComparisonLayout
+  title="TalentLMS vs Docebo (2026): Which LMS Fits Your Business?"
+  description="TalentLMS is the best value for SMBs under 500 users. Docebo is the enterprise choice for AI-powered, multi-audience training at scale. Compare pricing, features, and which matches your trajectory."
+  platform1="TalentLMS"
+  platform2="Docebo"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'TalentLMS vs Docebo' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>TalentLMS vs Docebo: Which LMS Fits Your Business?</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    TalentLMS is the best choice for small-to-midsize companies that want transparent pricing, fast setup, and a system their team can manage without IT support. Docebo is the better fit for mid-market and enterprise organizations that need AI-powered personalization, advanced analytics, multi-audience training, and deep integrations. The right choice depends more on your trajectory than your current headcount.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for organizations weighing an affordable, fast-deploying LMS against a full-featured enterprise platform. Whether you're a growing company launching your first training program or an organization outgrowing a simpler tool, this guide helps you match the platform to your current reality and future trajectory.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "TalentLMS and Docebo serve different stages of organizational learning maturity.",
+    "TalentLMS deploys in hours with published pricing from $119/month. Docebo requires 8+ weeks and custom quotes starting at ~$25,000/year.",
+    "Docebo's Harmony AI is a platform-wide intelligence layer. TalentLMS AI focuses on content creation tools.",
+    "Docebo's Extended Enterprise module handles employees, customers, and partners from one platform.",
+    "TalentLMS is the right choice for most companies under 500 users — validated by its free plan.",
+    "The 'growing out of TalentLMS' signal: user count exceeds 1,000, or you need customer/partner training."
+  ]} />
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["TalentLMS", "Docebo"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where TalentLMS Wins</h2>
+
+    <h3 class="mt-6">Transparent, Predictable Pricing</h3>
+    <p>
+      Four published tiers with clear feature breakdowns. A free plan for up to 5 users. No sales call required. No contract lock-in on monthly billing. A 100-person company on TalentLMS Pro pays ~$5,400/year. The same organization would pay $12,000–$18,000+ on Docebo Elevate.
+    </p>
+
+    <h3 class="mt-6">Fast Time to Value</h3>
+    <p>
+      Most teams launch their first course within a day or two. The platform guides you through setup without professional services. Docebo requires a structured 8-week onboarding process — and complex deployments take longer. If you need training running this week, TalentLMS is the only viable option.
+    </p>
+
+    <h3 class="mt-6">Content Standard Support</h3>
+    <p>
+      TalentLMS supports SCORM 1.2, xAPI/Tin Can, and cmi5 — the broadest standard support of the two. If you've invested in authored content, it will work here. Docebo provides SCORM and basic xAPI but doesn't match TalentLMS's standard breadth.
+    </p>
+
+    <h3 class="mt-6">Ease of Use</h3>
+    <p>
+      TalentLMS is designed so an HR manager or team lead can manage it part-time. The interface is clean and the learning curve is short. Docebo is powerful but has a steeper admin learning curve — smaller teams without dedicated LMS administrators may struggle.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Docebo Wins</h2>
+
+    <h3 class="mt-6">AI-First Platform Intelligence</h3>
+    <p>
+      Docebo's Harmony AI powers content discovery, personalized recommendations, skill inference, copilot functionality, and automated workflows throughout the platform. This isn't bolted-on AI — it's embedded in the core. TalentLMS has useful AI content tools, but they're creation-focused rather than a platform-wide intelligence layer.
+    </p>
+
+    <h3 class="mt-6">Multi-Audience Architecture</h3>
+    <p>
+      Train employees, onboard customers, and enable partners from a single platform with separate branded experiences. The Extended Enterprise module is purpose-built for this. TalentLMS's branch system can serve different departments or clients, but it's not as feature-rich for complex external training programs.
+    </p>
+
+    <h3 class="mt-6">Enterprise Analytics</h3>
+    <p>
+      Docebo's Advanced Analytics ties learning data to business outcomes — not just who completed what, but the impact training had on performance metrics. Custom dashboards, AI-driven pattern detection, and compliance-ready audit reporting serve L&D teams that need to justify budget to leadership.
+    </p>
+
+    <h3 class="mt-6">Integration Depth</h3>
+    <p>
+      400+ integrations including native Salesforce, Workday, Microsoft Teams, and major HRIS connectors. Plus APIs, webhooks, and an iPaaS solution. TalentLMS covers basics (API, SSO, HubSpot, Zapier) but wasn't designed for enterprise integration complexity.
+    </p>
+
+    <h3 class="mt-6">Scalability</h3>
+    <p>
+      Docebo serves Fortune 500 companies and 30M+ learners globally. It handles tens of thousands of concurrent users across regions with multilingual support. TalentLMS scales well to around 1,000 users but wasn't architected for that level of complexity.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose TalentLMS if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Have fewer than 500 active learners</li>
+          <li>Need to launch training within days, not months</li>
+          <li>Have a budget under $10,000/year for an LMS</li>
+          <li>Don't have a dedicated LMS admin or IT support</li>
+          <li>Primarily need employee onboarding and skills training</li>
+          <li>Want to validate with a free plan before committing</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Docebo if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Have 250+ learners and plan to scale to 1,000+</li>
+          <li>Need to train employees, customers, and partners</li>
+          <li>Operate in a regulated industry requiring advanced compliance</li>
+          <li>Want AI to drive personalization at scale</li>
+          <li>Need Salesforce, Workday, or deep enterprise integrations</li>
+          <li>Have the budget ($25K+/year) and timeline (2+ months)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between TalentLMS and Docebo?"
+    ctaDescription="Tell us about your team size, growth plans, and training needs — we'll recommend the platform that fits your current reality and future trajectory."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>
