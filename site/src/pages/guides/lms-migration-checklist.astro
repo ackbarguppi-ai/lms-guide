@@ -1,0 +1,219 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Migration Checklist (2026): Step-by-Step Guide",
+    "description": "A step-by-step guide for migrating from one Learning Management System to another. Follow these phases to minimize disruption, preserve critical data, and get productive on the new platform quickly.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-migration-checklist" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does an LMS migration take?", "acceptedAnswer": { "@type": "Answer", "text": "4-12 weeks depending on content volume, integrations, and organizational complexity. A simple migration (50 courses, basic integrations) can be done in 4-6 weeks. Complex migrations (500+ courses, SCORM content, multiple integrations, compliance records) may take 8-12 weeks." } },
+      { "@type": "Question", "name": "What's the hardest part of LMS migration?", "acceptedAnswer": { "@type": "Answer", "text": "Compliance records are typically the hardest. Historical completion data, certificate records, and regulatory documentation often don't transfer cleanly between platforms. If your new LMS can't import historical completions natively, plan for a workaround: CSV archive, read-only legacy portal, or manual entry for active compliance items." } },
+      { "@type": "Question", "name": "Should I migrate all my courses?", "acceptedAnswer": { "@type": "Answer", "text": "No. Migration is the perfect time to audit and retire old content. If nobody's taken a course in 18 months and it's not compliance-required, archive it instead of migrating. This reduces migration effort and improves the new platform's content quality from day one." } },
+      { "@type": "Question", "name": "How do I minimize disruption during migration?", "acceptedAnswer": { "@type": "Answer", "text": "Keep the old LMS accessible (read-only) for at least 90 days post-migration. Communicate early and often — learners handle change well when they know what's coming. Test with real data in a sandbox before cutover. Have a rollback plan. And assign one person accountable for the end-to-end process." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Migration Checklist (2026): Step-by-Step Guide"
+  description="A step-by-step guide for migrating from one Learning Management System to another. Follow these phases to minimize disruption, preserve critical data, and get productive quickly."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Migration Checklist' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Migration Checklist: Step-by-Step Guide</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>A step-by-step guide for migrating from one LMS to another.</strong> Follow these seven phases to minimize disruption, preserve critical data, and get your team productive on the new platform quickly. Estimated timeline: 4–12 weeks depending on content volume, integrations, and complexity.
+  </p>
+
+  <KeyTakeaways items={[
+    "Seven phases: Discovery & Audit → Planning & Setup → Content Migration → Integration Reconnection → Communication Plan → Cutover & Go-Live → Post-Migration.",
+    "Migration is the perfect time to retire old content — if nobody's taken a course in 18 months, archive it.",
+    "Compliance records are the hardest part. Validate 100% of regulated training records, not just a sample.",
+    "Keep the old LMS read-only for 90+ days. Don't delete until legal/compliance confirms all data is preserved.",
+    "SSO is the #1 day-one blocker. Start configuration in week 2, test weekly, and have a password fallback ready.",
+    "The communication plan is as important as the technical migration — start communicating 4 weeks before go-live."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Migration Principles</h2>
+    <ol class="list-decimal list-inside space-y-2 text-slate-700 mb-4">
+      <li><strong>Nothing gets left behind by accident</strong> — audit everything first, then decide what to migrate vs. archive vs. retire</li>
+      <li><strong>Test with real data, not sample data</strong> — your SCORM packages, your user roles, your edge cases</li>
+      <li><strong>Communicate early and often</strong> — learners handle change well when they know what's coming</li>
+      <li><strong>Plan for rollback</strong> — keep the old LMS accessible (read-only) for at least 90 days</li>
+      <li><strong>Assign a migration owner</strong> — one person accountable for the end-to-end process</li>
+    </ol>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 1: Discovery & Audit (Weeks 1–2)</h2>
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Content Audit</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Export complete course list from current LMS</li>
+      <li>☐ Categorize each: Active, Archived, Deprecated, or Redundant</li>
+      <li>☐ Record format: SCORM, xAPI, native, video, PDF, HTML</li>
+      <li>☐ Note which courses updated in past 12 months</li>
+      <li>☐ Identify external dependencies (embedded links, LTI connections)</li>
+      <li>☐ Flag courses to rebuild vs. migrate as-is</li>
+      <li>☐ Document content ownership per course</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">User Data & Compliance Records</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Export full user list with roles and permissions</li>
+      <li>☐ Document provisioning method (manual, SSO, SCIM, CSV)</li>
+      <li>☐ Export all historical completion and certificate records</li>
+      <li>☐ Identify regulatory retention requirements (e.g., OSHA = 3+ years)</li>
+      <li>☐ Confirm new LMS can import historical completions</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Integration Inventory</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ List all integrated systems (SSO, HRIS, CRM, video, notifications)</li>
+      <li>☐ Identify native vs. custom integrations on new LMS</li>
+      <li>☐ Get API credentials and documentation for each</li>
+      <li>☐ Determine priority order (SSO first, always)</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 2: Planning & Setup (Weeks 2–4)</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Define scope: what migrates, what's rebuilt, what's archived</li>
+      <li>☐ Assign roles (migration owner, content leads, IT lead, comms lead)</li>
+      <li>☐ Set up new LMS instance with branding and SSO</li>
+      <li>☐ Configure roles, permissions, and organizational structure</li>
+      <li>☐ Set up sandbox/test environment</li>
+      <li>☐ Test importing 2-3 sample courses (simplest + most complex)</li>
+      <li>☐ Map old URLs → new URLs for redirects</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Planning an LMS migration?"
+    ctaDescription="Get guidance on platform selection, migration planning, and minimizing disruption during your transition."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 3: Content Migration & Testing (Weeks 4–8)</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Import all SCORM/xAPI packages</li>
+      <li>☐ Upload or recreate native content</li>
+      <li>☐ Set up learning paths, prerequisites, and enrollment rules</li>
+      <li>☐ Configure assessments, certificates, and badges</li>
+      <li>☐ Test every SCORM package: launches, tracks, completes</li>
+      <li>☐ Verify video playback (multiple browsers, mobile)</li>
+      <li>☐ Test all quiz types and certificate generation</li>
+      <li>☐ Import and verify historical completion records (100% check for regulated training)</li>
+      <li>☐ Check accessibility: screen reader, keyboard navigation, contrast</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 4: Integration Reconnection (Weeks 5–8)</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ SSO / Identity Provider — configure, test with multiple user types</li>
+      <li>☐ HRIS — map fields, run initial sync, set up ongoing schedule</li>
+      <li>☐ Video Conferencing — test creating sessions, verify attendance tracking</li>
+      <li>☐ Communication Tools — configure Slack/Teams notifications</li>
+      <li>☐ CRM — map events to fields, test bidirectional data flow</li>
+      <li>☐ Automation — recreate Zapier/Make workflows with new triggers</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 5: Communication Plan (Start Week 3)</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">When</th>
+            <th class="py-3 px-4 text-navy font-semibold">Who</th>
+            <th class="py-3 px-4 text-navy font-semibold">Message</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4">4 weeks before</td><td class="py-2 px-4">Leadership & managers</td><td class="py-2 px-4">We're switching. Here's why and the timeline.</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">3 weeks before</td><td class="py-2 px-4">All employees</td><td class="py-2 px-4">Your learning platform is changing. Progress is preserved.</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">1 week before</td><td class="py-2 px-4">All employees</td><td class="py-2 px-4">New LMS launches on [date]. Here's how to log in.</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Go-live day</td><td class="py-2 px-4">All employees</td><td class="py-2 px-4">It's live! Quick-start video attached.</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">1 week after</td><td class="py-2 px-4">All employees</td><td class="py-2 px-4">Check-in. FAQs answered. Support at [link].</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 6: Cutover & Go-Live (Week 8–10)</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Go/no-go meeting with explicit stakeholder sign-off</li>
+      <li>☐ Set old LMS to read-only (don't delete)</li>
+      <li>☐ Activate new LMS, switch DNS for custom domain</li>
+      <li>☐ Enable URL redirects from old paths</li>
+      <li>☐ Send go-live announcement</li>
+      <li>☐ Monitor support channels actively for first 4-8 hours</li>
+      <li>☐ Verify SSO working (the #1 day-one blocker)</li>
+      <li>☐ Smoke test: complete a course end-to-end as test learner</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Common Go-Live Issues</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Users can't log in:</strong> SSO misconfiguration — check IdP metadata. <strong>SCORM stuck on "incomplete":</strong> API version mismatch — re-export from authoring tool. <strong>Emails going to spam:</strong> New sender domain not authenticated — configure SPF/DKIM/DMARC. <strong>Reports show wrong numbers:</strong> Timezone or date format mismatch.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Phase 7: Post-Migration (Weeks 10–12+)</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Monitor support volume and categories daily (first week)</li>
+      <li>☐ Review adoption metrics: login rates, course starts, completions</li>
+      <li>☐ Address top 5 issues with documentation or training</li>
+      <li>☐ Conduct migration retrospective</li>
+      <li>☐ Archive old LMS (after confirming all data preserved)</li>
+      <li>☐ Update onboarding docs, intranet links, vendor records</li>
+      <li>☐ Close old LMS contract (mind cancellation terms)</li>
+      <li>☐ Celebrate. Migrations are hard. Your team earned it.</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Planning an LMS migration?"
+    ctaDescription="Get guidance on platform selection and migration planning."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "How long does an LMS migration take?", answer: "4-12 weeks depending on content volume, integrations, and complexity. Simple migrations (50 courses) in 4-6 weeks. Complex (500+ courses, SCORM, compliance) in 8-12 weeks." },
+    { question: "What's the hardest part of LMS migration?", answer: "Compliance records. Historical completions and certificates often don't transfer cleanly. Validate 100% of regulated training records and have a backup plan." },
+    { question: "Should I migrate all my courses?", answer: "No. Audit and retire old content. If nobody's taken it in 18 months and it's not compliance-required, archive it." },
+    { question: "How do I minimize disruption?", answer: "Keep old LMS read-only for 90+ days. Communicate 4 weeks before go-live. Test with real data. Have a rollback plan. Assign one migration owner." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "LMS Evaluation Checklist", href: "/guides/lms-evaluation-checklist", description: "The comprehensive checklist for comparing LMS platforms." },
+    { title: "LMS RFP Template", href: "/guides/lms-rfp-template", description: "A ready-to-use RFP template for LMS procurement." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for LMS selection." }
+  ]} />
+
+</GuideLayout>

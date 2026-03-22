@@ -1,0 +1,231 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Evaluation Checklist (2026): The Complete Buyer's Guide",
+    "description": "A comprehensive checklist for evaluating Learning Management Systems. Use during vendor demos, trial periods, and internal review meetings to compare platforms on what actually matters.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-evaluation-checklist" }
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Evaluation Checklist (2026): The Complete Buyer's Guide"
+  description="A comprehensive checklist for evaluating Learning Management Systems. Use during vendor demos, trial periods, and internal review meetings to compare platforms on what actually matters."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Evaluation Checklist' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Evaluation Checklist (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>A comprehensive checklist for evaluating Learning Management Systems.</strong> Use this during vendor demos, trial periods, and internal review meetings to ensure you're comparing platforms on what actually matters — not just what vendors want to show you.
+  </p>
+
+  <p class="text-slate-600 mb-6">
+    <strong>How to use:</strong> 1) Fill in must-haves vs. nice-to-haves before you start. 2) Check off capabilities during demos. 3) Score each platform 1–5 on items that matter most. 4) Weight scores by priority to get your shortlist.
+  </p>
+
+  <KeyTakeaways items={[
+    "13 evaluation categories covering core features, authoring, user management, analytics, integrations, mobile, branding, e-commerce, security, scalability, support, pricing, and vendor viability.",
+    "Priority system: 🔴 Must-have, 🟡 Important, 🟢 Nice-to-have — customize before you start evaluating.",
+    "Includes a scoring template and weighted comparison matrix for your top 3-5 vendors.",
+    "Decision checklist: 9 items to verify before signing any contract.",
+    "Don't skip the trial period — hands-on testing with real content reveals issues demos never show."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">1. Core Learning Features</h2>
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Content Delivery</h3>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Supports SCORM 1.2 and SCORM 2004 content packages</li>
+      <li>☐ Supports xAPI (Tin Can) for advanced tracking</li>
+      <li>☐ Native video hosting with adaptive bitrate streaming</li>
+      <li>☐ Multiple content types (video, PDF, HTML, audio, interactive)</li>
+      <li>☐ Drip/scheduled content release</li>
+      <li>☐ Content locking and prerequisite enforcement</li>
+      <li>☐ Live/synchronous sessions (built-in or via integration)</li>
+      <li>☐ Offline access or downloadable content</li>
+      <li>☐ Multi-language content support</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Assessments & Engagement</h3>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Quiz engine with multiple question types (MCQ, fill-in, matching, essay)</li>
+      <li>☐ Question banks with randomization</li>
+      <li>☐ Graded assignments with rubrics</li>
+      <li>☐ Discussion forums or community features</li>
+      <li>☐ Certificates and badges (customizable templates)</li>
+      <li>☐ Gamification (points, leaderboards, streaks)</li>
+      <li>☐ Surveys and feedback collection</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">2. User Management & Roles</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Self-registration with approval workflows</li>
+      <li>☐ Bulk user import (CSV/Excel)</li>
+      <li>☐ Automated user provisioning via SCIM or API</li>
+      <li>☐ Granular role-based access control (not just Admin/Learner)</li>
+      <li>☐ Custom roles (Department Manager, External Partner)</li>
+      <li>☐ Auto-enrollment based on rules (role, department, hire date)</li>
+      <li>☐ Manager role for team oversight</li>
+      <li>☐ Sub-account or multi-tenant architecture</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">3. Analytics & Reporting</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Course completion rates and progress tracking</li>
+      <li>☐ Individual learner transcripts</li>
+      <li>☐ Custom report builder (drag-and-drop or query-based)</li>
+      <li>☐ Scheduled report delivery via email</li>
+      <li>☐ Export to CSV, Excel, or PDF</li>
+      <li>☐ API access to raw reporting data</li>
+      <li>☐ Integration with BI tools (Tableau, Power BI)</li>
+      <li>☐ Compliance tracking with overdue alerts and escalation</li>
+      <li>☐ Audit trail for completions (timestamped, tamper-evident)</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">4. Integrations</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ SSO via SAML 2.0 or OAuth/OIDC</li>
+      <li>☐ HRIS integration (Workday, BambooHR, ADP)</li>
+      <li>☐ CRM integration (Salesforce, HubSpot)</li>
+      <li>☐ Video conferencing (Zoom, Teams, Webex)</li>
+      <li>☐ REST API with comprehensive documentation</li>
+      <li>☐ Webhooks for event-driven automation</li>
+      <li>☐ Zapier / Make connector</li>
+      <li>☐ LTI 1.3 for tool interoperability</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Evaluating LMS platforms?"
+    ctaDescription="Get a personalized recommendation based on your must-have features, budget, and team size."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">5. Security & Compliance</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Data encryption at rest (AES-256) and in transit (TLS 1.2+)</li>
+      <li>☐ SOC 2 Type II certified</li>
+      <li>☐ GDPR compliant</li>
+      <li>☐ WCAG 2.1 AA accessibility compliance</li>
+      <li>☐ Regular penetration testing</li>
+      <li>☐ 99.9%+ uptime SLA</li>
+      <li>☐ Data Processing Agreement (DPA) available</li>
+      <li>☐ Data residency options</li>
+      <li>☐ Automatic backups with defined RPO/RTO</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">6. Mobile, Branding & E-Commerce</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Responsive web design</li>
+      <li>☐ Native mobile app (iOS and Android)</li>
+      <li>☐ Offline learning with sync</li>
+      <li>☐ Custom domain and white-label branding</li>
+      <li>☐ Branded mobile app (your name in app stores)</li>
+      <li>☐ Built-in payment processing</li>
+      <li>☐ Subscription and membership pricing models</li>
+      <li>☐ Coupon and affiliate program support</li>
+      <li>☐ Tax calculation and invoicing</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">7. Pricing & Contract</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ Pricing model is clear and predictable</li>
+      <li>☐ No surprise costs for storage, bandwidth, or API calls</li>
+      <li>☐ Free trial or pilot available</li>
+      <li>☐ Flexible contract terms (monthly, annual, multi-year)</li>
+      <li>☐ Implementation/setup fees clearly stated</li>
+      <li>☐ Year-over-year price increase caps</li>
+      <li>☐ Data export included at no extra cost</li>
+      <li>☐ No lock-in penalties</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Scoring Template</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Category</th>
+            <th class="py-3 px-4 text-navy font-semibold">Weight</th>
+            <th class="py-3 px-4 text-navy font-semibold">Vendor A</th>
+            <th class="py-3 px-4 text-navy font-semibold">Vendor B</th>
+            <th class="py-3 px-4 text-navy font-semibold">Vendor C</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4">Core Learning Features</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">User Management</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Analytics & Reporting</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Integrations</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Security & Privacy</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Scalability</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Support & Success</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Pricing & Value</td><td class="py-2 px-4">/10</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td><td class="py-2 px-4">/5</td></tr>
+          <tr class="border-b font-semibold"><td class="py-2 px-4">Weighted Total</td><td class="py-2 px-4">—</td><td class="py-2 px-4">—</td><td class="py-2 px-4">—</td><td class="py-2 px-4">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Decision Checklist — Before Signing</h2>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li>☐ At least 2 stakeholders have seen a live demo</li>
+      <li>☐ You've completed a hands-on trial with real content</li>
+      <li>☐ You've spoken with at least 2 reference customers</li>
+      <li>☐ IT/Security has reviewed and approved</li>
+      <li>☐ Legal has reviewed contract and DPA</li>
+      <li>☐ Total cost of ownership calculated for Year 1 and Year 3</li>
+      <li>☐ Implementation timeline is agreed and realistic</li>
+      <li>☐ Exit/migration terms are acceptable</li>
+      <li>☐ The platform genuinely solves your top 3 problems</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help evaluating LMS platforms?"
+    ctaDescription="Get a personalized recommendation based on your evaluation criteria."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "How long should an LMS evaluation take?", answer: "A thorough evaluation typically takes 4-8 weeks — 1-2 weeks for requirements gathering, 1-2 weeks for vendor demos, 2-3 weeks for hands-on trials, and 1 week for final decision. Don't rush the trial period; that's where you discover the real issues." },
+    { question: "How many vendors should I evaluate?", answer: "Start with a long list of 5-8 platforms based on your requirements, narrow to 3-5 for demos, and shortlist 2-3 for hands-on trials. Evaluating more than 5 in depth leads to decision fatigue." },
+    { question: "What's the most common mistake in LMS evaluation?", answer: "Buying based on the demo instead of the trial. Demos are curated, controlled experiences. Trials reveal real limitations — import your actual content, test your actual workflows, and see how the platform handles your edge cases." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "LMS RFP Template", href: "/guides/lms-rfp-template", description: "A ready-to-use RFP template for organizations purchasing a Learning Management System." },
+    { title: "LMS Migration Checklist", href: "/guides/lms-migration-checklist", description: "Step-by-step guide for migrating between LMS platforms with minimal disruption." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for choosing the right LMS platform." }
+  ]} />
+
+</GuideLayout>

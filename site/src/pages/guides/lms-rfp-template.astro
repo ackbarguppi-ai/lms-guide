@@ -1,0 +1,214 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Request for Proposal (RFP) Template (2026)",
+    "description": "A ready-to-use RFP template for organizations purchasing a Learning Management System. Customize each section, distribute to shortlisted vendors, and evaluate responses objectively.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-rfp-template" }
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Request for Proposal (RFP) Template (2026)"
+  description="A ready-to-use RFP template for organizations purchasing a Learning Management System. Customize each section, distribute to shortlisted vendors, and evaluate responses objectively."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'RFP Template' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Request for Proposal (RFP) Template</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>A ready-to-use RFP template for organizations purchasing a Learning Management System.</strong> Customize each section to match your requirements, then distribute to 3–5 shortlisted vendors with a clear response deadline. Replace all [bracketed text] with your organization's specifics.
+  </p>
+
+  <KeyTakeaways items={[
+    "9 comprehensive sections covering organizational context, functional requirements, technical requirements, security, pricing, implementation, support, vendor information, and evaluation criteria.",
+    "Every requirement can be marked Required (R), Preferred (P), or Optional (O) so vendors respond precisely.",
+    "Includes a weighted scoring rubric: Functional Fit (30%), Technical Fit (15%), Ease of Use (15%), Pricing (15%), Implementation (10%), Support (10%), Vendor Viability (5%).",
+    "Share with L&D, IT, Procurement, and business unit stakeholders before sending — requirements you miss now become compromises later.",
+    "Includes 10 demo questions designed to get past the sales pitch and see how platforms actually perform."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 1: Introduction & Overview</h2>
+    <p class="text-slate-700 mb-4">Start with your organization profile and project context:</p>
+    <ul class="space-y-2 text-slate-700 mb-4">
+      <li><strong>Organization details:</strong> Name, industry, headquarters, employee count</li>
+      <li><strong>Learner projections:</strong> Year 1 count, Year 3 projected growth</li>
+      <li><strong>Current LMS:</strong> Existing platform (if any) and reason for change</li>
+      <li><strong>Project overview:</strong> 2-3 paragraphs on primary use cases, expected outcomes, and constraints</li>
+      <li><strong>RFP timeline:</strong> Issue date → Questions due → Submission deadline → Shortlist → Demos → Trial → Selection → Go-live</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 2: Functional Requirements</h2>
+    <p class="text-slate-700 mb-4">
+      Mark each as <strong>R</strong> (Required), <strong>P</strong> (Preferred), or <strong>O</strong> (Optional). Vendors respond: ✅ Fully supported, 🔧 Supported with configuration, 🔌 Via integration, 🗓️ On roadmap, ❌ Not supported.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Learning & Content Delivery</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ SCORM 1.2/2004 and xAPI support</li>
+      <li>☐ Native video hosting with adaptive streaming</li>
+      <li>☐ Live virtual classroom integration (Zoom, Teams, Webex)</li>
+      <li>☐ Learning paths spanning multiple courses</li>
+      <li>☐ Drip/scheduled content release</li>
+      <li>☐ Cohort-based delivery with start/end dates</li>
+      <li>☐ Multi-language content support</li>
+      <li>☐ Built-in content authoring</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">Assessment & Certification</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Quiz engine with multiple question types</li>
+      <li>☐ Question banks with randomization</li>
+      <li>☐ Customizable certificate templates</li>
+      <li>☐ Certificate expiration and auto-recertification</li>
+      <li>☐ Proctoring or assessment integrity features</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-4">User Management</h3>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ SSO via SAML 2.0 or OAuth/OIDC</li>
+      <li>☐ SCIM provisioning</li>
+      <li>☐ Role-based access with custom roles</li>
+      <li>☐ Multi-tenant / sub-account architecture</li>
+      <li>☐ Auto-enrollment rules</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 3: Technical Requirements</h2>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Cloud-hosted SaaS (no on-premise required)</li>
+      <li>☐ 99.9%+ uptime SLA</li>
+      <li>☐ CDN for global content delivery</li>
+      <li>☐ Sandbox/staging environment</li>
+      <li>☐ REST API with documentation</li>
+      <li>☐ Webhooks and Zapier/Make connector</li>
+      <li>☐ LTI 1.3 support</li>
+      <li>☐ Native mobile apps (iOS/Android)</li>
+      <li>☐ Offline learning with sync</li>
+      <li>☐ Branded/white-label mobile app</li>
+    </ul>
+    <p class="text-slate-700 mb-4">
+      <strong>Integration matrix:</strong> List your specific systems (HRIS, CRM, communication tools, identity provider, content storage) and ask vendors to describe their integration method for each.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Writing an LMS RFP?"
+    ctaDescription="Get expert guidance on requirements, vendor selection, and evaluation — tailored to your organization's needs."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 4: Security & Compliance</h2>
+    <p class="text-slate-700 mb-4">
+      <em>Vendors must complete this fully. Incomplete security responses may result in disqualification.</em>
+    </p>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>☐ Encryption at rest and in transit (specify standards)</li>
+      <li>☐ Penetration testing (most recent date)</li>
+      <li>☐ SOC 2 Type II, ISO 27001, GDPR, HIPAA, FERPA, CCPA, WCAG 2.1 AA (check all held)</li>
+      <li>☐ Data residency options</li>
+      <li>☐ Sub-processor list</li>
+      <li>☐ Data Processing Agreement (DPA) available</li>
+      <li>☐ Data retention policy after contract ends</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 5: Pricing</h2>
+    <p class="text-slate-700 mb-4">Request pricing for 3 scenarios: current learner count, 2x growth, and 3x growth. Itemize all costs:</p>
+    <ul class="space-y-1 text-slate-700 mb-4">
+      <li>Platform license/subscription (annual)</li>
+      <li>Implementation/setup fees</li>
+      <li>Data migration costs</li>
+      <li>Admin training</li>
+      <li>Premium support tier</li>
+      <li>Custom integrations</li>
+      <li>Additional storage</li>
+      <li>Mobile app (if separate)</li>
+      <li>API access (if separate)</li>
+    </ul>
+    <p class="text-slate-700 mb-4">
+      <strong>Key questions:</strong> How do you define "active user"? What happens if we exceed our tier mid-contract? Are there annual price increase caps? What discounts for multi-year commitments?
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Section 6: Evaluation Criteria</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Criteria</th>
+            <th class="py-3 px-4 text-navy font-semibold">Weight</th>
+            <th class="py-3 px-4 text-navy font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4">Functional Fit</td><td class="py-2 px-4">30%</td><td class="py-2 px-4">How well the platform meets stated requirements</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Technical Fit</td><td class="py-2 px-4">15%</td><td class="py-2 px-4">Architecture, integrations, security, scalability</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Ease of Use</td><td class="py-2 px-4">15%</td><td class="py-2 px-4">Admin and learner experience (assessed during trial)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Pricing & Value</td><td class="py-2 px-4">15%</td><td class="py-2 px-4">Total cost of ownership relative to capabilities</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Implementation</td><td class="py-2 px-4">10%</td><td class="py-2 px-4">Timeline, methodology, migration support</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Support & Partnership</td><td class="py-2 px-4">10%</td><td class="py-2 px-4">Responsiveness, account management, long-term fit</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Vendor Viability</td><td class="py-2 px-4">5%</td><td class="py-2 px-4">Company stability, customer base, trajectory</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">10 Questions for Live Demos</h2>
+    <p class="text-slate-700 mb-4">Use these during vendor demos to get beyond the sales pitch:</p>
+    <ol class="list-decimal list-inside space-y-2 text-slate-700 mb-4">
+      <li>Show us creating a course from scratch — no pre-built content</li>
+      <li>Walk through a new employee's first day on the platform</li>
+      <li>Show a manager checking team compliance status and following up on overdue training</li>
+      <li>Demonstrate your most complex use case handling</li>
+      <li>Show us what happens when something goes wrong — an error, a failed upload</li>
+      <li>Build a custom report live — don't show pre-built ones</li>
+      <li>Show the mobile experience on an actual phone</li>
+      <li>Demonstrate the SSO login flow</li>
+      <li>Show how an admin troubleshoots a learner issue</li>
+      <li>What's the one thing you'd improve about your own product?</li>
+    </ol>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Writing an LMS RFP?"
+    ctaDescription="Get expert guidance on requirements and vendor selection."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "How many vendors should receive my RFP?", answer: "Send to 3-5 shortlisted vendors. Fewer than 3 limits your comparison. More than 5 creates evaluation fatigue and delays your timeline. Pre-qualify vendors before sending." },
+    { question: "How long should I give vendors to respond?", answer: "3-4 weeks is standard. Allow 1 week for vendor questions, publish answers to all vendors simultaneously, then give 2-3 weeks for proposal preparation." },
+    { question: "Should I include our budget in the RFP?", answer: "It's debated. Including a budget range helps vendors propose appropriate solutions. Not including it ensures you see their standard pricing. A middle ground: state your budget range privately during shortlist conversations." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "LMS Evaluation Checklist", href: "/guides/lms-evaluation-checklist", description: "The comprehensive checklist for comparing LMS platforms on what matters." },
+    { title: "LMS Migration Checklist", href: "/guides/lms-migration-checklist", description: "Step-by-step guide for switching between LMS platforms." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for choosing the right LMS platform." }
+  ]} />
+
+</GuideLayout>

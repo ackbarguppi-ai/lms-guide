@@ -1,0 +1,137 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Best LMS for Memberships & Communities (2026): Recurring Revenue Through Community-Based Learning",
+    "description": "The best platforms for building membership sites and learning communities — recurring revenue models, community engagement, and hybrid course + community experiences.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/best-lms-for-memberships" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the best platform for course + community memberships?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific is the best platform for combining courses with community — native community features alongside a mature course builder, no transaction fees, and strong membership commerce tools. Skool is best if community IS the product and courses are supplementary. Mighty Networks offers the most comprehensive community-first platform with a branded native app." } },
+      { "@type": "Question", "name": "How much does it cost to run a membership on each platform?", "acceptedAnswer": { "@type": "Answer", "text": "At 300 members paying $49/month ($14,700/month revenue): Skool costs $99/month flat (0.7% of revenue). Thinkific Grow costs $199/month (1.4%). Circle Business costs $199/month plus external billing. Kajabi Growth costs $299/month (2.0%). Mighty Networks Business costs $513-$660/month including 2-3% transaction fees (3.5-4.5%)." } },
+      { "@type": "Question", "name": "Should I use one platform or pair an LMS with a community tool?", "acceptedAnswer": { "@type": "Answer", "text": "All-in-one (Thinkific, Kajabi, Mighty Networks) is simpler — one platform, one login, one bill. Pairing an LMS with Circle or Skool gives you best-in-class for each but adds operational complexity. Start all-in-one if you're launching new. Pair if you already have courses on an LMS and want to add community without migrating." } },
+      { "@type": "Question", "name": "How do I keep members from canceling?", "acceptedAnswer": { "@type": "Answer", "text": "The first 48 hours are critical — members who post in the community within 48 hours are 4-5x more likely to stay past month three. Establish a weekly rhythm (Monday content, Wednesday live session, Friday challenge). Show progress with learning paths and completion badges. Celebrate member wins. Build peer connections. The secret to retention isn't your content — it's relationships between members." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="Best LMS for Memberships & Communities (2026)"
+  description="The best platforms for building membership sites and learning communities — recurring revenue models, community engagement, and hybrid course + community experiences."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Best LMS for Memberships' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">Best LMS for Memberships & Communities: Recurring Revenue Through Community-Based Learning</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong><a href="/reviews/thinkific" class="text-teal-dark hover:text-teal underline">Thinkific</a> is the best platform for combining courses with community in 2026</strong> — native community features alongside a mature course builder, with no transaction fees and strong membership commerce tools. <strong>Skool</strong> is the best choice if community is the primary product and courses are supplementary. <strong>Mighty Networks</strong> offers the most comprehensive community-first platform with courses built in, but at a higher price point.
+  </p>
+
+  <KeyTakeaways items={[
+    "The standalone online course model is declining — completion rates sit at 5-15%. Membership models with community drive 2-3x higher retention.",
+    "Thinkific: best for course-first memberships with community as the engagement layer. No transaction fees. $49-$199/month.",
+    "Skool: best for community-first memberships. Dead-simple pricing ($99/month flat), gamification that works, native mobile app. But course features are basic.",
+    "Mighty Networks: most comprehensive community platform with branded native app. But 2-3% transaction fees and $119-$360/month.",
+    "Circle: best standalone community (pair with your existing LMS). Beautiful UX, but no courses — two-platform complexity.",
+    "The economics matter: at 300 members × $49/month, platform costs range from $99/month (Skool) to $660/month (Mighty Networks with fees)."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Best Platforms</h2>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">1. Thinkific — Best for Course-First Memberships</h3>
+    <p class="text-slate-700 mb-4">
+      Courses + community in one platform, same login, same interface. No transaction fees on paid plans. Community Spaces with topics, posts, and reactions tied to courses or tiers. Flexible subscription commerce, learning paths, site builder. Thinkific Plus for 1,000+ members adds SSO and API access. <strong>Limitations:</strong> Community features are newer than pure community platforms, no native mobile app (mobile web), live events need Zoom. Best for $29-$149/month memberships with 100-5,000 members.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">2. Skool — Best for Community-First Memberships</h3>
+    <p class="text-slate-700 mb-4">
+      Clean community feed that feels like a social network, gamification with points/levels/leaderboards that genuinely drives engagement, native mobile app, built-in calendar and events. $99/month flat — no tiers, no transaction fees, no per-member charges. Built-in discovery network for lead generation. <strong>Limitations:</strong> Basic course features (no SCORM, no certificates, no learning paths), one price point per group, limited customization, no email marketing. Best for coaching communities and masterminds at $29-$99/month.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">3. Mighty Networks — Best All-in-One Community Platform</h3>
+    <p class="text-slate-700 mb-4">
+      Branded native app (your name in the App Store), Spaces architecture for organizing content/discussions/events, native courses, live streaming, rich member profiles, AI features. <strong>Limitations:</strong> Aggressive pricing ($119-$360/month), 2-3% transaction fees, steep learning curve, no discovery network. Best for premium memberships above $49/month where the branded app justifies the cost.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">4. Circle — Best Standalone Community (Pair with LMS)</h3>
+    <p class="text-slate-700 mb-4">
+      The most polished community UX — beautiful, modern interface with spaces/channels, rich content, events, workflows, and automation. Custom domain and branding. <strong>Limitations:</strong> No course hosting, no built-in commerce, requires a separate LMS (two platforms to manage). $89-$360/month based on member count. Best for experts who already have courses on Thinkific, Teachable, or Kajabi and want to add premium community.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Building a membership community?"
+    ctaDescription="Get a platform recommendation based on whether courses or community is your centerpiece — and your target price point and member count."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Membership Revenue Math</h2>
+    <p class="text-slate-700 mb-4">At 300 members paying $49/month ($14,700/month revenue):</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly Cost</th>
+            <th class="py-3 px-4 text-navy font-semibold">Transaction Fees</th>
+            <th class="py-3 px-4 text-navy font-semibold">% of Revenue</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4">Skool</td><td class="py-2 px-4">$99</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">0.7%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Thinkific Grow</td><td class="py-2 px-4">$199</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">1.4%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Circle Business</td><td class="py-2 px-4">$199</td><td class="py-2 px-4">N/A (external)</td><td class="py-2 px-4">~1.5%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Kajabi Growth</td><td class="py-2 px-4">$299</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">2.0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4">Mighty Networks</td><td class="py-2 px-4">$219</td><td class="py-2 px-4">$294–$441</td><td class="py-2 px-4">3.5–4.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-500 text-sm mt-2">All platforms also incur Stripe/payment processing fees (~2.9% + $0.30).</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Building a Membership That Retains</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>First 48 hours determine everything.</strong> Members who post in the community within 48 hours are 4-5x more likely to stay past month three. <strong>Weekly rhythm creates habit</strong> — Monday content, Wednesday live session, Friday challenge. <strong>Show progress</strong> with learning paths and completion badges. <strong>Celebrate members</strong> — feature wins, spotlight contributors. <strong>Create peer connections</strong> — the secret to retention isn't your content, it's relationships between members.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Building a membership community?"
+    ctaDescription="Get a recommendation based on your membership model."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What is the best platform for course + community memberships?", answer: "Thinkific for course-first memberships with community. Skool if community IS the product. Mighty Networks for the most comprehensive community-first platform with a branded app." },
+    { question: "How much does it cost to run a membership on each platform?", answer: "At 300 members × $49/month: Skool $99/month (0.7%), Thinkific $199/month (1.4%), Circle $199/month + billing, Kajabi $299/month (2.0%), Mighty Networks $513-$660/month (3.5-4.5%)." },
+    { question: "Should I use one platform or pair an LMS with a community tool?", answer: "All-in-one (Thinkific, Kajabi) is simpler. Pair an LMS with Circle or Skool for best-in-class each but more complexity. Start all-in-one if launching new." },
+    { question: "How do I keep members from canceling?", answer: "First 48 hours are critical — get new members posting immediately. Weekly rhythm, show progress, celebrate members, build peer connections. Retention comes from relationships, not just content." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "Best LMS for Training Businesses", href: "/guides/best-lms-for-training-businesses", description: "Top platforms for academies, bootcamps, and certification programs." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for choosing the right LMS platform." }
+  ]} />
+
+</GuideLayout>
