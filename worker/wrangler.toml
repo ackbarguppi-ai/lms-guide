@@ -1,0 +1,11 @@
+name = "lms-guide-leads"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "LEADS"
+id = "" # Will be filled after creating the KV namespace
+
+[vars]
+GOOGLE_SHEET_ID = "1OjoWG_KuhnlP9EIb-tVzPNPw3tIf8dXTS_-OcH4kJLQ"
+# GOOGLE_SERVICE_ACCOUNT_JSON will be added as a secret later

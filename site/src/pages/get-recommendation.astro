@@ -187,21 +187,25 @@ const jsonLd = {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    // For now, store submissions — we'll connect a backend later
-    // This sends to a simple endpoint or stores locally
     try {
-      // Attempt to send to a webhook/endpoint if configured
-      const endpoint = form.dataset.endpoint;
-      if (endpoint) {
-        await fetch(endpoint, {
+      // Send to Cloudflare Worker (when deployed)
+      const workerUrl = 'https://lms-guide-leads.ackbarguppi-ai.workers.dev';
+      await fetch(workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      // Also try Formspree fallback
+      try {
+        await fetch('https://formspree.io/f/xrgwylvn', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
+      } catch (e) {
+        console.log('Form data (offline):', data);
       }
-    } catch (err) {
-      // Silent fail — we'll still show success
-      console.log('Form data:', data);
     }
 
     // Show success
