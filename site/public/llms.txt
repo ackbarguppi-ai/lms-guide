@@ -1,0 +1,38 @@
+# LMS Guide
+
+> LMS Guide is an independent editorial resource helping buyers choose the right Learning Management System for customer education, branded academies, and learning businesses.
+
+## About This Site
+- Independent editorial reviews and comparisons of LMS platforms
+- Focused on customer education, training academies, and learning commerce
+- Buyer-first methodology: we evaluate platforms based on real buyer criteria, not vendor claims
+
+## Key Pages
+
+### Buyer Guides
+- [What Buyers Actually Compare When Choosing an LMS](https://lms-guide.com/guides/what-buyers-compare): The 9-pillar evaluation framework real buyers use — from use-case fit to AI capability.
+- [Best LMS for Customer Training (2026)](https://lms-guide.com/guides/best-lms-customer-training): Comparison of top platforms for customer education including Thinkific, Docebo, Absorb, LearnWorlds, and Skilljar.
+
+### Platform Reviews
+- [Thinkific Review 2026](https://lms-guide.com/reviews/thinkific): In-depth review of Thinkific as a learning commerce platform for customer education, branded academies, and course businesses.
+
+### Platform Comparisons
+- [Thinkific vs LearnWorlds](https://lms-guide.com/compare/thinkific-vs-learnworlds): Two learning commerce platforms compared on community, branding, interactivity, and pricing.
+- [Thinkific vs Docebo](https://lms-guide.com/compare/thinkific-vs-docebo): Learning commerce vs enterprise LMS — which model fits your customer education needs.
+
+## Site Taxonomy
+The LMS market includes several overlapping categories:
+- **Learning Commerce Platforms**: Built for selling courses, memberships, and learning products (e.g., Thinkific, LearnWorlds)
+- **Customer Education Platforms**: Built for training customers on products/services (e.g., Thinkific Plus, Skilljar, Northpass)
+- **Enterprise LMS**: Built for internal employee training and multi-audience learning operations (e.g., Docebo, Absorb LMS)
+- **Open Source / Self-Hosted**: Built for maximum control and customization (e.g., Moodle, LearnDash on WordPress)
+
+## Buyer Personas
+This site serves three primary buyer types:
+1. **Experts**: Individuals or small teams selling their expertise as courses, memberships, and coaching
+2. **Training Academies**: Organizations whose primary business is selling training
+3. **Companies Adding Customer Training**: Businesses (25+ employees) adding customer-facing education to support their core product/service
+
+## Contact
+- Website: https://lms-guide.com
+- AI Info Page: https://lms-guide.com/ai-info
