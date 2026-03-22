@@ -189,7 +189,7 @@ const jsonLd = {
 
     try {
       // Send to Cloudflare Worker (when deployed)
-      const workerUrl = 'https://lms-guide-leads.ackbarguppi-ai.workers.dev';
+      const workerUrl = 'https://lms-guide-leads.ackbarguppi.workers.dev';
       await fetch(workerUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
