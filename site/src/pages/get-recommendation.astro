@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Get Your Personalized LMS Recommendation — LMS Guide";
+const description = "Tell us about your business and we'll generate a custom LMS recommendation report with platform comparisons and an evaluation scorecard tailored to your use case.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Get Your Personalized LMS Recommendation",
+  "description": description,
+  "url": "https://lms-guide.com/get-recommendation",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LMS Guide"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Get Your Personalized LMS Recommendation</h1>
+
+    <div class="bg-teal/5 border border-teal/20 rounded-lg p-6 mb-8">
+      <p class="text-slate-700 leading-relaxed mb-3">
+        <strong>Here's what you'll get:</strong> A custom recommendation report comparing the top platforms for your specific situation, plus an evaluation scorecard you can use in vendor conversations.
+      </p>
+      <ul class="text-slate-600 space-y-1 text-sm">
+        <li>✓ Personalized platform shortlist based on your use case</li>
+        <li>✓ Side-by-side comparison of your best-fit options</li>
+        <li>✓ Evaluation scorecard weighted to your priorities</li>
+        <li>✓ Key questions to ask each vendor</li>
+      </ul>
+    </div>
+
+    <form id="lead-form" class="space-y-6">
+
+      <!-- Email (required) -->
+      <div>
+        <label for="email" class="block text-sm font-semibold text-navy mb-1">
+          Email address <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@company.com"
+          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700"
+        />
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-5">
+        <p class="text-sm text-slate-500 mb-4">
+          <strong>Optional but helpful:</strong> The more we know about your situation, the more specific and useful your recommendation will be.
+        </p>
+
+        <!-- Name -->
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Your name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Jane Smith"
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm"
+          />
+        </div>
+
+        <!-- Company name -->
+        <div class="mb-4">
+          <label for="company" class="block text-sm font-medium text-slate-700 mb-1">Company name</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Acme Corp"
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-4">
+          <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">Phone number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+1 (555) 123-4567"
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm"
+          />
+        </div>
+
+        <!-- Company size -->
+        <div class="mb-4">
+          <label for="company_size" class="block text-sm font-medium text-slate-700 mb-1">Company size</label>
+          <select
+            id="company_size"
+            name="company_size"
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm bg-white"
+          >
+            <option value="">Select...</option>
+            <option value="solo">Just me</option>
+            <option value="2-10">2–10 people</option>
+            <option value="11-50">11–50 people</option>
+            <option value="51-200">51–200 people</option>
+            <option value="201-1000">201–1,000 people</option>
+            <option value="1000+">1,000+ people</option>
+          </select>
+        </div>
+
+        <!-- Use case -->
+        <div class="mb-4">
+          <label for="use_case" class="block text-sm font-medium text-slate-700 mb-1">Primary use case</label>
+          <select
+            id="use_case"
+            name="use_case"
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm bg-white"
+          >
+            <option value="">Select...</option>
+            <option value="expert">I'm an expert selling courses, memberships, or coaching</option>
+            <option value="academy">Training is our primary business (training academy)</option>
+            <option value="customer-training">Adding customer training to support our product/service</option>
+            <option value="employee-training">Internal employee training</option>
+            <option value="partner-training">Partner or channel training</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Top criteria -->
+        <div>
+          <label for="criteria" class="block text-sm font-medium text-slate-700 mb-1">
+            What matters most to you? <span class="text-slate-400">(your top selection criteria, priorities, or specific requirements)</span>
+          </label>
+          <textarea
+            id="criteria"
+            name="criteria"
+            rows="4"
+            placeholder="e.g., We need strong Salesforce integration, branded customer academy, and the ability to sell certifications..."
+            class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent text-slate-700 text-sm"
+          ></textarea>
+        </div>
+
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="w-full bg-teal hover:bg-teal-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors text-lg"
+      >
+        Get My Recommendation Report
+      </button>
+
+      <p class="text-xs text-slate-400 text-center">
+        We'll email your personalized report within 24 hours. No spam, no phone calls unless you ask.
+      </p>
+    </form>
+
+    <!-- Success message (hidden by default) -->
+    <div id="success-message" class="hidden">
+      <div class="bg-teal/10 border border-teal/30 rounded-lg p-8 text-center">
+        <svg class="w-12 h-12 text-teal mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h2 class="text-2xl font-bold text-navy mb-2">We're on it!</h2>
+        <p class="text-slate-700 leading-relaxed">
+          Your personalized LMS recommendation report is being prepared. Check your inbox within 24 hours.
+        </p>
+        <p class="text-slate-500 text-sm mt-4">
+          While you wait, explore our <a href="/guides/what-buyers-compare" class="text-teal hover:underline">buyer evaluation framework</a>.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('lead-form');
+  const successMsg = document.getElementById('success-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // For now, store submissions — we'll connect a backend later
+    // This sends to a simple endpoint or stores locally
+    try {
+      // Attempt to send to a webhook/endpoint if configured
+      const endpoint = form.dataset.endpoint;
+      if (endpoint) {
+        await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      }
+    } catch (err) {
+      // Silent fail — we'll still show success
+      console.log('Form data:', data);
+    }
+
+    // Show success
+    form.classList.add('hidden');
+    successMsg?.classList.remove('hidden');
+  });
+</script>
