@@ -2,7 +2,7 @@
 import GuideLayout from '../../layouts/GuideLayout.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import FAQ from '../../components/FAQ.astro';
-import CTA from '../../components/CTA.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 
 const title = "What Buyers Actually Compare When Choosing an LMS";
@@ -295,12 +295,11 @@ const jsonLd = [
     </div>
   </div>
 
-  <CTA
-    variant="subtle"
-    title="Not sure which pillar weights fit your situation?"
-    description="Use our comparison tool to see how platforms stack up based on the pillars that matter most for your use case."
-    buttonText="Compare Platforms"
-    buttonHref="/"
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Want to know which pillars matter most for your situation?"
+    ctaDescription="We'll weight the criteria for your use case and recommend the best-fit platforms."
+    ctaButtonText="Get My Custom Scorecard"
   />
 
   <FAQ items={faqItems} />

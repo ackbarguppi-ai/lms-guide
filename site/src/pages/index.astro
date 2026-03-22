@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadFormModal from '../components/LeadFormModal.astro';
 import RelatedPages from '../components/RelatedPages.astro';
 
 const title = "LMS Guide";
@@ -117,14 +118,12 @@ const jsonLd = {
   </section>
 
   <!-- CTA -->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Not Sure Where to Start?</h2>
-    <p class="text-slate-600 max-w-2xl mx-auto mb-8">
-      Our buyer framework helps you identify which evaluation criteria matter most for your specific situation — so you can stop comparing every platform on the market and focus on the two or three that actually fit.
-    </p>
-    <a href="/guides/what-buyers-compare" class="inline-block bg-teal hover:bg-teal-light text-white font-semibold py-3 px-8 rounded-lg transition-colors">
-      Read the 9-Pillar Framework
-    </a>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <LeadFormModal
+      ctaTitle="Not sure where to start?"
+      ctaDescription="Tell us about your business and goals — we'll send you a personalized LMS recommendation report with the platforms that actually fit your situation."
+      ctaButtonText="Get My Free Recommendation"
+    />
   </section>
 
 </BaseLayout>

@@ -4,7 +4,7 @@ import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import PlatformCard from '../../components/PlatformCard.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import FAQ from '../../components/FAQ.astro';
-import CTA from '../../components/CTA.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 
 const jsonLd = [
@@ -270,11 +270,10 @@ const jsonLd = [
     </ul>
   </section>
 
-  <CTA
-    title="Not sure which platform fits your customer training needs?"
-    description="Tell us about your use case, audience size, and goals. We will match you with the right platform."
-    buttonText="Get a Recommendation"
-    buttonHref="/recommend"
+  <LeadFormModal
+    ctaTitle="Not sure which platform fits your customer training needs?"
+    ctaDescription="Tell us about your use case and audience — we'll send you a personalized platform comparison."
+    ctaButtonText="Get My Recommendation"
   />
 
   <FAQ items={[

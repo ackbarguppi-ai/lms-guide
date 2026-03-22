@@ -1,0 +1,168 @@
+---
+interface Props {
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaButtonText?: string;
+  variant?: 'banner' | 'inline' | 'subtle';
+}
+
+const {
+  ctaTitle = 'Need help choosing the right platform?',
+  ctaDescription = 'Get a personalized LMS recommendation report based on your specific use case.',
+  ctaButtonText = 'Get My Recommendation',
+  variant = 'banner',
+} = Astro.props;
+
+const modalId = `lead-modal-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+{/* CTA Trigger */}
+{variant === 'banner' ? (
+  <section class="my-12 bg-navy rounded-xl p-8 md:p-10 text-center">
+    <h3 class="text-white text-2xl mb-3">{ctaTitle}</h3>
+    <p class="text-slate-300 mb-6 max-w-2xl mx-auto">{ctaDescription}</p>
+    <button
+      data-modal={modalId}
+      class="lead-modal-trigger inline-block bg-teal hover:bg-teal-light text-white font-semibold py-3 px-8 rounded-lg transition-colors cursor-pointer"
+    >
+      {ctaButtonText}
+    </button>
+  </section>
+) : variant === 'inline' ? (
+  <div class="my-8 bg-teal/5 border border-teal/20 rounded-lg p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div>
+      <p class="font-semibold text-navy">{ctaTitle}</p>
+      <p class="text-slate-600 text-sm mt-1">{ctaDescription}</p>
+    </div>
+    <button
+      data-modal={modalId}
+      class="lead-modal-trigger whitespace-nowrap bg-teal hover:bg-teal-dark text-white font-semibold py-2.5 px-6 rounded-lg transition-colors cursor-pointer text-sm"
+    >
+      {ctaButtonText}
+    </button>
+  </div>
+) : (
+  <aside class="my-6 text-center">
+    <button
+      data-modal={modalId}
+      class="lead-modal-trigger text-teal-dark hover:text-teal font-medium text-sm cursor-pointer underline"
+    >
+      {ctaButtonText} →
+    </button>
+  </aside>
+)}
+
+{/* Modal */}
+<div id={modalId} class="lead-modal fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm lead-modal-backdrop"></div>
+  <div class="relative flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative">
+
+      <button class="lead-modal-close absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <h3 class="text-2xl font-bold text-navy mb-2">Get Your Personalized Recommendation</h3>
+      <p class="text-slate-500 text-sm mb-6">We'll send you a custom LMS comparison report tailored to your situation.</p>
+
+      <form class="lead-capture-form space-y-4">
+        <div>
+          <label class="block text-sm font-semibold text-navy mb-1">Email <span class="text-red-500">*</span></label>
+          <input type="email" name="email" required placeholder="you@company.com" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal text-sm" />
+        </div>
+
+        <div class="bg-slate-50 rounded-lg p-4 space-y-3">
+          <p class="text-xs text-slate-500">Optional — helps us personalize your report:</p>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">Name</label>
+            <input type="text" name="name" placeholder="Jane Smith" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">Company</label>
+            <input type="text" name="company" placeholder="Acme Corp" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">Use case</label>
+            <select name="use_case" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal">
+              <option value="">Select...</option>
+              <option value="expert">Selling courses, memberships, or coaching</option>
+              <option value="academy">Training is our primary business</option>
+              <option value="customer-training">Customer training for our product/service</option>
+              <option value="employee-training">Internal employee training</option>
+              <option value="certification">Certification or credentialing programs</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">What matters most?</label>
+            <textarea name="criteria" rows="2" placeholder="e.g., need strong assessments, branded certificates..." class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-teal"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-teal hover:bg-teal-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+          Get My Report
+        </button>
+        <p class="text-xs text-slate-400 text-center">No spam. Report delivered within 24 hours.</p>
+      </form>
+
+      <div class="lead-form-success hidden text-center py-8">
+        <svg class="w-12 h-12 text-teal mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h4 class="text-xl font-bold text-navy mb-2">We're on it!</h4>
+        <p class="text-slate-600 text-sm">Check your inbox within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal open/close
+  document.querySelectorAll('.lead-modal-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modalId = btn.dataset.modal;
+      document.getElementById(modalId)?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.querySelectorAll('.lead-modal-close, .lead-modal-backdrop').forEach(el => {
+    el.addEventListener('click', () => {
+      el.closest('.lead-modal')?.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Form submission
+  document.querySelectorAll('.lead-capture-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      
+      try {
+        await fetch('https://lms-guide-leads.ackbarguppi.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {
+        console.log('Form data:', data);
+      }
+
+      form.classList.add('hidden');
+      form.closest('.lead-modal')?.querySelector('.lead-form-success')?.classList.remove('hidden');
+    });
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.lead-modal:not(.hidden)').forEach(m => {
+        m.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+</script>

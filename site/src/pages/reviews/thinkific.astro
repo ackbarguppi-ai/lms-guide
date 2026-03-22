@@ -3,7 +3,7 @@ import ReviewLayout from '../../layouts/ReviewLayout.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import FAQ from '../../components/FAQ.astro';
-import CTA from '../../components/CTA.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 
 const faqItems = [
@@ -383,12 +383,11 @@ const jsonLd = [
   </section>
 
   <!-- CTA -->
-  <CTA
-    variant="subtle"
-    title="Comparing Thinkific to another platform?"
-    description="See our detailed head-to-head comparisons to understand exactly where Thinkific fits in your shortlist."
-    buttonText="View Thinkific Comparisons"
-    buttonHref="/compare"
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
   />
 
   <!-- FAQ -->

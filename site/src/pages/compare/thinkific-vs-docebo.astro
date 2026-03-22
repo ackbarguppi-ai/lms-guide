@@ -3,7 +3,7 @@ import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import FAQ from '../../components/FAQ.astro';
-import CTA from '../../components/CTA.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 
 const jsonLd = [
@@ -306,11 +306,10 @@ const relatedPages = [
     </div>
   </section>
 
-  <CTA
-    title="Not sure which model fits your business?"
-    description="Tell us about your use case, team size, and training goals — we'll help you determine whether a learning commerce platform or enterprise LMS is the right fit."
-    buttonText="Get a Recommendation"
-    buttonHref="#"
+  <LeadFormModal
+    ctaTitle="Learning commerce or enterprise LMS — which model fits?"
+    ctaDescription="Share your use case and we'll help you determine the right approach with a personalized recommendation."
+    ctaButtonText="Get My Recommendation"
   />
 
   <FAQ items={faqItems} />

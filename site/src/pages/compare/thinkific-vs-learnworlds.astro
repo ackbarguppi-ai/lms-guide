@@ -3,7 +3,7 @@ import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import FAQ from '../../components/FAQ.astro';
-import CTA from '../../components/CTA.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 
 const jsonLd = [
@@ -322,11 +322,10 @@ const relatedPages = [
     </div>
   </section>
 
-  <CTA
-    title="Not sure which platform is right for you?"
-    description="Tell us about your use case, audience, and goals — we'll help you figure out whether Thinkific, LearnWorlds, or something else entirely is the best fit."
-    buttonText="Get a Recommendation"
-    buttonHref="#"
+  <LeadFormModal
+    ctaTitle="Still deciding between platforms?"
+    ctaDescription="Tell us about your business and we'll send you a personalized comparison with the platforms that actually fit."
+    ctaButtonText="Get My Comparison Report"
   />
 
   <FAQ items={faqItems} />
