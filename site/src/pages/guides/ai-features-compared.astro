@@ -1,0 +1,266 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS AI Features Compared (2026): Course Creation, Adaptive Learning & Analytics",
+    "description": "AI course creation, adaptive learning, AI assistants, content recommendations, and AI-powered analytics across eight major platforms — what's real, what's hype, and what actually helps your learners.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lms-guide.com/guides/ai-features-compared"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which LMS has the best AI course creation tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LearnWorlds and Docebo offer the most sophisticated AI content generation in 2026. LearnWorlds excels at AI-powered outlines, lesson content, and quiz generation for expert-focused platforms. Docebo's Shape tool produces production-quality AI videos with avatars, interactive simulations, and multi-language content — the strongest offering for enterprise training."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do any LMS platforms offer AI teaching assistants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Kajabi's Creator.io is the most mature AI chatbot for the expert market — it can engage website visitors, answer learner questions, and capture leads. Docebo and Absorb LMS offer enterprise-grade AI assistants for content discovery and learner support. Most other platforms either lack AI assistants or offer limited implementations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which LMS has the best adaptive learning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo and Absorb LMS lead with true AI-driven adaptive learning — dynamically adjusting paths based on learner performance, role, and skills. LearnWorlds offers the best adaptive features among expert-focused platforms with conditional content and personalized learning journeys. Thinkific, Kajabi, Teachable, and Podia have limited or no adaptive learning capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI in LMS platforms actually useful or just marketing hype?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the platform. AI content generation tools genuinely accelerate course creation — generating outlines, draft lessons, and quiz questions saves hours. AI-generated content still requires human review and editing. Adaptive learning AI meaningfully improves learner outcomes at enterprise scale. The most overhyped area is AI analytics, where many platforms label basic reporting dashboards as 'AI-powered' without genuine machine learning behind them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which LMS has the weakest AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podia has the most limited AI features in this comparison — no AI course creation, no AI assistant, no adaptive learning, and no AI analytics. Podia's focus is on simplicity rather than AI capability. Teachable and Thinkific also have relatively limited AI compared to LearnWorlds, Docebo, and Absorb."
+        }
+      }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS AI Features Compared (2026): Course Creation, Adaptive Learning & Analytics"
+  description="AI course creation, adaptive learning, AI assistants, content recommendations, and AI-powered analytics across eight major platforms — what's real, what's hype, and what actually helps your learners."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'AI Features Compared' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS AI Features Compared (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Artificial intelligence entered the LMS conversation around 2023. By 2026, it's moved from marketing buzzword to genuine feature set.</strong> But the gap between platforms with real AI capabilities and those with AI-washing is significant. Some platforms generate complete course outlines from a prompt. Others can only auto-tag uploaded content. Understanding the difference matters — especially if AI is why you're considering a platform.
+  </p>
+
+  <p class="text-slate-600 mb-6">
+    This guide compares AI capabilities across <strong>Thinkific, Kajabi, LearnWorlds, Teachable, Podia, Docebo, Absorb LMS, and TalentLMS</strong> — covering AI course creation, content assistance, adaptive learning, AI assistants/chatbots, content recommendations, and AI analytics.
+  </p>
+
+  <KeyTakeaways items={[
+    "Best AI course creation: LearnWorlds and Docebo offer the most sophisticated AI content generation — from course outlines to full interactive lessons with AI avatars.",
+    "Best AI assistant/chatbot: Kajabi's Creator.io is the most mature AI assistant for the expert market, built for engagement and lead capture.",
+    "Best adaptive learning: Docebo and Absorb LMS lead with personalized learning paths, skill gap analysis, and AI-driven content recommendations for enterprise training.",
+    "Most limited AI: Podia and Teachable have minimal AI features compared to the competition.",
+    "The most important distinction is between AI for content creation versus AI for learning optimization — few platforms excel at both.",
+    "AI-generated content still requires human review. No platform delivers truly publish-ready course content without editing."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Course Creation</h2>
+    <p class="text-slate-700 mb-4">
+      The holy grail of LMS AI: starting with a topic and letting the platform generate a course structure, lessons, quizzes, and supporting content. No platform delivers on this fully, but several are getting close.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">Thinkific</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's AI features focus on the early stages of course creation — an <strong>AI Course Outline Generator</strong> that produces structured outlines with modules and lessons, plus AI-powered content suggestions and course name/description generation. <strong>Reality check:</strong> Thinkific's AI helps with structure and planning, not content generation. You'll still create the actual content manually. The AI is a co-pilot, not an autopilot.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">Kajabi</h3>
+    <p class="text-slate-700 mb-4">
+      Kajabi's AI features are embedded across its platform — an <strong>AI Content Assistant</strong> for lesson content, sales copy, and email sequences, plus AI-driven course outline suggestions. The content assistant can generate draft lessons, but the output is generic and requires significant editing. Best used for outlines and inspiration, not finished courses.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">LearnWorlds</h3>
+    <p class="text-slate-700 mb-4">
+      LearnWorlds has built one of the most comprehensive AI content creation suites — <strong>AI Course Creator</strong> for complete outlines, <strong>AI Authoring Tool</strong> for written content, <strong>AI-powered assessments</strong> that generate quiz questions from course content, plus AI video transcripts and content personalization suggestions. <strong>Reality check:</strong> LearnWorlds is among the strongest for AI content generation, particularly for quizzes and assessments.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">Docebo (Shape)</h3>
+    <p class="text-slate-700 mb-4">
+      Docebo's <strong>Shape</strong> is the most sophisticated AI content authoring tool among enterprise LMS platforms — <strong>AI-powered video creation</strong> with AI avatars and voice synthesis, <strong>interactive simulation creation</strong> with branching logic, content transformation from PDFs/PowerPoints into interactive modules, plus multi-language content creation with AI translation. <strong>Reality check:</strong> Shape produces genuinely usable content — especially video and simulations. The AI avatars and voice synthesis are production-quality.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">Others</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable</strong> offers an AI Curriculum Generator and content analysis feature (useful for converting existing content into courses). <strong>TalentLMS</strong> has expanded AI course creation in 2025–2026 with outline generation, writing assistance, and quiz generation. <strong>Podia</strong> has minimal AI — basic writing assistance in email only, no dedicated course creation tools. <strong>Absorb LMS</strong> focuses on content curation and recommendations rather than generation.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Assistants & Chatbots</h2>
+    <p class="text-slate-700 mb-4">
+      AI assistants help learners navigate content, answer questions, and provide support without human intervention.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi's Creator.io</strong> is the standout — a custom AI chatbot you can train on your content, embed on your website, and use for lead capture and course Q&A. It's not just a support bot but a marketing and sales tool. <strong>Docebo</strong> offers AI-powered search and Q&A for enterprise learners. <strong>Absorb LMS</strong> provides natural language search and AI content recommendations. Most other platforms (Thinkific, Teachable, LearnWorlds, Podia, TalentLMS) have no native AI chatbot.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Adaptive Learning & Personalized Paths</h2>
+    <p class="text-slate-700 mb-4">
+      Adaptive learning adjusts course difficulty, content order, and learning paths based on individual learner performance. This is where AI has the potential to significantly impact outcomes.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> leads with true AI-driven personalization — dynamically adjusting paths based on performance, role, and skills, with predictive learning that identifies at-risk learners. <strong>Absorb LMS</strong> offers strategic upskilling with AI content recommendations and adaptive learning plans. <strong>LearnWorlds</strong> has the most adaptive features among expert-focused platforms, including conditional content and personalized learning journeys. <strong>TalentLMS</strong> is expanding with skill-based paths and adaptive assessments. <strong>Thinkific, Kajabi, Teachable, and Podia</strong> have limited or no adaptive learning capabilities.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help choosing an AI-capable LMS?"
+    ctaDescription="Get a platform recommendation based on your specific AI requirements — whether you need content generation, adaptive learning, or AI-powered learner support."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Feature</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Podia</th>
+            <th class="py-3 px-2 text-navy font-semibold">Docebo</th>
+            <th class="py-3 px-2 text-navy font-semibold">Absorb</th>
+            <th class="py-3 px-2 text-navy font-semibold">TalentLMS</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Course Outline</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Content Generation</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Video Creation</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Assistant/Chatbot</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Adaptive Learning</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Recommendations</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Analytics</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Skill Gap Analysis</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Which Platform Fits Your AI Needs?</h2>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">For Experts Who Want AI Content Help</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>LearnWorlds</strong> and <strong>Teachable</strong> offer the strongest AI content creation among expert-focused platforms. LearnWorlds has the edge on comprehensive AI authoring. Thinkific and Kajabi have useful AI writing assistance but are not as strong for full course generation. Podia lags significantly.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">For Experts Who Want an AI Marketing Assistant</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi's Creator.io</strong> is the clear winner. No other platform offers a comparable AI chatbot that can engage visitors, answer questions, capture leads, and integrate with your marketing automation.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">For Enterprise Training</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> is the AI leader for corporate learning — Shape's AI video creation, comprehensive adaptive learning, skill mapping, and predictive analytics make it the most AI-capable enterprise platform. <strong>Absorb LMS</strong> is a strong second choice. <strong>TalentLMS</strong> offers the best AI-to-price ratio for smaller organizations.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Bottom Line</h2>
+    <p class="text-slate-700 mb-4">
+      AI capabilities in LMS platforms have matured rapidly between 2024 and 2026, but the gap between platforms has widened. On one end, <strong>Docebo</strong> offers AI that genuinely transforms content creation and delivery. On the other end, <strong>Podia</strong> offers essentially no AI features at all.
+    </p>
+    <p class="text-slate-700 mb-4">
+      If you're choosing an LMS specifically for its AI features, be clear about what kind of AI you need. Content generation AI helps you build courses faster. Adaptive learning AI helps your learners succeed. Content recommendation AI helps surface the right training at the right time. Analytics AI helps you understand what's working. Few platforms excel at all four. Choose based on which AI capabilities align with your biggest pain point.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help choosing an AI-capable LMS?"
+    ctaDescription="Get a platform recommendation based on your specific AI requirements — content generation, adaptive learning, or AI-powered support."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    {
+      question: "Which LMS has the best AI course creation tools?",
+      answer: "LearnWorlds and Docebo offer the most sophisticated AI content generation in 2026. LearnWorlds excels at AI-powered outlines, lesson content, and quiz generation for expert-focused platforms. Docebo's Shape tool produces production-quality AI videos with avatars, interactive simulations, and multi-language content."
+    },
+    {
+      question: "Do any LMS platforms offer AI teaching assistants?",
+      answer: "Yes. Kajabi's Creator.io is the most mature AI chatbot for the expert market — it can engage website visitors, answer learner questions, and capture leads. Docebo and Absorb LMS offer enterprise-grade AI assistants for content discovery and learner support."
+    },
+    {
+      question: "Which LMS has the best adaptive learning?",
+      answer: "Docebo and Absorb LMS lead with true AI-driven adaptive learning — dynamically adjusting paths based on learner performance, role, and skills. LearnWorlds offers the best adaptive features among expert-focused platforms."
+    },
+    {
+      question: "Is AI in LMS platforms actually useful or just marketing hype?",
+      answer: "It depends on the platform. AI content generation tools genuinely accelerate course creation. Adaptive learning AI meaningfully improves learner outcomes at enterprise scale. The most overhyped area is AI analytics, where many platforms label basic dashboards as 'AI-powered' without genuine machine learning."
+    },
+    {
+      question: "Which LMS has the weakest AI features?",
+      answer: "Podia has the most limited AI features — no AI course creation, no AI assistant, no adaptive learning, and no AI analytics. Podia's focus is on simplicity rather than AI capability."
+    }
+  ]} />
+
+  <RelatedPages pages={[
+    {
+      title: "AI Teaching Assistants Compared",
+      href: "/guides/ai-teaching-assistants",
+      description: "Deep dive into AI assistants across LMS platforms — Thinkific Thinker, Docebo Harmony, Absorb Aura, and more."
+    },
+    {
+      title: "What Buyers Actually Compare",
+      href: "/guides/what-buyers-compare",
+      description: "The 9-pillar evaluation framework for choosing the right LMS platform."
+    }
+  ]} />
+
+</GuideLayout>

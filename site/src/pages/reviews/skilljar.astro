@@ -1,0 +1,428 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Skilljar an LMS?",
+    answer: "Yes, Skilljar is a learning management system, but it is specifically designed as an 'external LMS' for customer, partner, and prospect education rather than internal employee training. Unlike traditional corporate LMS platforms, Skilljar is purpose-built for external audiences with features like e-commerce, content syndication, and deep CRM integration."
+  },
+  {
+    question: "How much does Skilljar cost?",
+    answer: "Skilljar uses custom, quote-based pricing with no public price list. Pricing includes a base plan fee (Essentials, Professional, or Enterprise) plus an annual active user fee based on unique learners taking lessons. Add-ons like Content Syndication ($10k/year) and Data Connector ($25k/year) are priced separately. You will need to contact sales for a quote."
+  },
+  {
+    question: "Does Skilljar offer a free trial?",
+    answer: "No, Skilljar does not offer a free trial. Their sales process requires booking a demo and working with their team to evaluate the platform. This is one of the key differences between Skilljar and more self-serve platforms like Thinkific or TalentLMS."
+  },
+  {
+    question: "What is Skilljar's Salesforce integration like?",
+    answer: "Skilljar's Salesforce integration is particularly deep and is one of its standout features. Training data flows directly into account records, enabling training-influenced pipeline tracking, customer health scoring, and visibility for CS and Sales teams within their existing workflows. This integration is a major reason enterprise SaaS companies choose Skilljar."
+  },
+  {
+    question: "Can I use Skilljar for internal employee training?",
+    answer: "While technically possible, Skilljar is not optimized for internal training use cases like compliance training, HR onboarding, or skills gap analysis. It lacks features like advanced compliance tracking, skills management, and internal HR system integrations that dedicated employee LMS platforms offer. Skilljar is designed for external audiences first."
+  },
+  {
+    question: "How does Skilljar compare to Thinkific?",
+    answer: "Skilljar and Thinkific serve different markets. Skilljar is an enterprise customer education platform with deep CRM integration, quote-based pricing, and a focus on B2B training at scale. Thinkific is a more flexible learning platform serving experts, creators, and SMBs with transparent pricing, self-serve setup, and broader monetization options. See our <a href='/compare/skilljar-vs-thinkific' class='text-teal-dark hover:underline'>full Skilljar vs Thinkific comparison</a> for a detailed breakdown."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Skilljar Review 2026: Enterprise Customer Education Platform",
+    "description": "An honest, in-depth review of Skilljar for customer training, partner education, and certification programs. Who it's best for, key strengths, limitations, and pricing.",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Skilljar Review 2026: Enterprise Customer Education Platform"
+  description="An honest, in-depth review of Skilljar for customer training, partner education, and certification programs. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Skilljar"
+  rating={4.2}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Skilljar' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Skilljar Review 2026: Enterprise Customer Education Platform</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.2 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-skilljar">
+            <stop offset="20%" stop-color="#fbbf24" />
+            <stop offset="20%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-skilljar)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.2 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Skilljar is a purpose-built customer education platform that excels for enterprise SaaS companies and organizations with sophisticated customer success operations. Its deep Salesforce integration, certification engine, and content syndication capabilities make it a strong choice for B2B training at scale. However, the lack of transparent pricing, no free trial, and limited course authoring tools make it a poor fit for smaller teams, individual creators, or those seeking quick self-serve deployment.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for customer education managers, customer success leaders, training directors at SaaS companies, and anyone evaluating Skilljar as a platform for external training programs. If you are trying to decide between Skilljar and alternatives like Thinkific, Docebo, or TalentLMS, this review will help you understand where Skilljar fits—and where it does not.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Skilljar is purpose-built for customer and partner education, not internal employee training. It excels in the 'external LMS' category.",
+    "Deep Salesforce and Gainsight integration makes it ideal for organizations with established customer success tech stacks.",
+    "Enterprise-grade certification engine with proctored exams, Credly badging, and QR code verification.",
+    "Content syndication allows embedding courses in customers' existing LMS platforms—a unique differentiator.",
+    "No free trial and quote-based pricing creates friction for smaller teams or those wanting to evaluate quickly.",
+    "Course authoring is basic; you will need external tools like Articulate or Camtasia for interactive content.",
+    "Quality of support is consistently rated highly (9.4/10 on G2) with dedicated Implementation and Customer Success managers."
+  ]} />
+
+  <!-- What is Skilljar? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Skilljar?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Skilljar is a customer education platform that calls itself "The External LMS." Founded in 2013 and headquartered in Seattle, it is explicitly designed for training customers, partners, and prospects—not employees. In April 2025, Gainsight acquired Skilljar, combining it with their existing customer education capabilities to create a unified platform emphasizing AI-powered, agentic learning experiences.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform's core philosophy is simple: a trained customer is a retained customer. Skilljar focuses on connecting training metrics to business outcomes like product adoption, retention, expansion revenue, and support deflection. With 400+ customers including Zendesk, Shopify, LinkedIn, Verizon, and Cisco, it has established itself as a leader in the extended enterprise LMS category.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Unlike generalist LMS platforms that were retrofitted for external use, Skilljar was built from the ground up for external audiences. This shows in its e-commerce capabilities, content syndication features, and user management controls designed for customer populations rather than employee hierarchies.
+    </p>
+  </section>
+
+  <!-- Who is Skilljar Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Skilljar Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Skilljar works best for specific organizational profiles. Here is where it fits:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">B2B SaaS Companies (Mid-Market to Enterprise)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with complex products requiring structured customer onboarding, organizations with existing Salesforce or Gainsight investments, and teams measuring training impact on retention and expansion. Skilljar's CRM integration shines in these environments.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Certification Program Leaders</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations needing proctored exams, credential verification, and LinkedIn-integrated badging. Paycor's data showed certified customers retained at higher rates than non-certified customers—a compelling ROI case.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Partner and Channel Training Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies training reseller networks or implementation partners who need external management features and content syndication to partner systems. Shopify uses Skilljar to scale partner education globally.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Customer Success-Driven Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          CS teams wanting training data in their existing workflow, companies viewing education as a retention strategy, and organizations with CSMs who influence training adoption and can tie it to health scores.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Customer Education & Onboarding</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Skilljar provides branded, customizable learning portals with custom themes, a low-code page builder, and domain customization. It supports self-paced courses with video, PDF, audio, SCORM, and embedded content. Native Zoom and Webex integration enables virtual instructor-led training with automated registration and calendar sync. Learning paths allow structured progression, though reviewers note these are more like "blocks of courses" than dynamic, branching experiences.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Certifications & Credentials</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The certification engine is enterprise-grade. Auto-populated certificates include QR codes for verification. Multi-level certifications support expiration and renewal capabilities. LinkedIn-shareable badges integrate via Credly. For secure testing, Skilljar integrates with Examity and Caveon for proctored exams—a feature many competitors lack.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native analytics provide pre-built dashboards for enrollments, completions, and engagement by course and learner. Strategic insights include benchmarking against similar Skilljar customers. Custom reports support scheduled and ad-hoc generation with CSV export. For advanced analytics, the Data Connector add-on ($25,000/year starting price) provides real-time PostgreSQL database access for BI tools.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations Ecosystem</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Skilljar emphasizes deep CRM and CS platform integration with 80+ integrations. Key connections include Salesforce, HubSpot, Gainsight, Totango, Marketo, Eloqua, Intercom, Stripe, PayPal, Okta, and Zapier. The Salesforce integration is particularly deep—training data flows into account records, enabling training-influenced pipeline and health scoring that CS and Sales teams can act on without leaving their existing workflows.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Syndication</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      A unique differentiator, content syndication ($10,000/year add-on) allows embedding Skilljar courses into other LMS platforms. This reduces friction for enterprise buyers who want training but do not want another platform to manage. External management features also allow partners and resellers to manage learners without dashboard access.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Monetization Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Skilljar supports flexible pricing models including subscriptions, training credits, and one-time purchases. Plans (bundles) package multiple courses or paths into tiered offerings. Group purchases allow enterprise buyers to bulk-purchase seats and distribute them to team members. Multi-currency support enables global transactions.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Capabilities</h3>
+    <p class="text-slate-700 leading-relaxed">
+      Following the Gainsight acquisition, Skilljar is investing in AI. AI Content Assist generates course descriptions, learning objectives, and quizzes from existing content. The broader vision includes "agentic learning"—AI that delivers contextual training in the flow of work through in-app guidance and personalized lessons. These capabilities are newer and still maturing compared to some competitors.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Purpose-Built for Customer Education</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike generalist LMS platforms retrofitted for external use, Skilljar was designed from the ground up for customer training. This shows in external-first user management, group controls, e-commerce features native to the platform, and a focus on product adoption metrics rather than compliance tracking.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise-Grade CRM Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Salesforce integration is a standout feature. Training data flows into account records, opportunity influence tracking, and customer health scores. This enables CS and Sales teams to see training engagement in their existing workflows—a critical capability for organizations measuring training's impact on revenue.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Robust Certification Engine</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Certification programs with proctored exams, badging, and LinkedIn integration help drive customer retention. Paycor's data showed certified customers retained at higher rates than non-certified customers. The ability to verify credentials via QR codes adds professional credibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Syndication</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The ability to embed courses in customers' own LMS platforms is genuinely differentiated. This reduces procurement friction for enterprise buyers who have existing learning infrastructure and do not want to manage another platform—potentially accelerating deals and expanding reach.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Quality of Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          G2 reviews consistently rate Skilljar's Quality of Support at 9.4/10. Every customer gets an Implementation Manager and ongoing Customer Success Manager. The company also runs Skilljar Academy (their own platform) and an annual user conference (Skilljar Connect), demonstrating investment in customer success.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Mobile & Offline Access</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Full mobile responsiveness with offline content download and sync capabilities is important for field workers or travelers. This is not a given in the LMS space and shows attention to real-world learner needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Skilljar May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Skilljar May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Being honest about limitations is more useful than pretending they do not exist. Here is where Skilljar falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Course Authoring</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Skilljar's quiz builder only supports multiple-choice, fill-in-the-blank, and open-text questions. There is no native content authoring for interactive content—you will need external tools like Articulate, Camtasia, or Adobe Captivate. AI Content Assist is newer and less mature than competitors' offerings.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Path Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Multiple G2 reviewers note that learning paths are "not really paths as much as they are blocks of courses." The platform lacks dynamic branching, adaptive learning, or complex conditional logic that would enable truly personalized learning journeys.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Free Trial or Self-Serve</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The demo-required, quote-based sales process creates friction for smaller teams or those wanting to evaluate quickly. No free trial means prospects must commit to sales conversations before experiencing the product—fine for enterprise, but a barrier for others.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Pricing Opacity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The lack of transparent pricing and reliance on add-ons for core enterprise features (Data Connector at $25k, Content Syndication at $10k, Language Packs at $10k) makes total cost of ownership unpredictable. Budgeting requires working through sales, which some organizations find frustrating.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Interface Learning Curve</h3>
+        <p class="text-slate-700 leading-relaxed">
+          G2 reviews cite Ease of Use at 8.7/10—solid but not exceptional. Some users find publishing workflows confusing, domain setup non-intuitive, and the admin interface less polished than the learner interface.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not for Internal Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Skilljar can technically be used for employees, it is not optimized for internal use cases like compliance training, HR onboarding, or skills gap analysis. Organizations primarily needing employee training should look at dedicated internal LMS platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Skilljar uses custom, quote-based pricing with no public price list. Pricing has two components: a base plan fee and an annual active user fee.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Academy Sites</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Essentials</td>
+            <td class="py-3 px-4 text-slate-600">1</td>
+            <td class="py-3 px-4 text-slate-600">Starting academies needing unlimited seats, basic integrations, and certifications</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Professional</td>
+            <td class="py-3 px-4 text-slate-600">2</td>
+            <td class="py-3 px-4 text-slate-600">Multi-audience training with premium integrations, content syndication, and external management</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">3</td>
+            <td class="py-3 px-4 text-slate-600">Global scale with maximum integrations and enterprise support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Active User Fees:</strong> Pricing includes an annual fee based on the number of unique learners taking lessons in a year. Active users can be added at any time.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Key Add-Ons:</strong>
+    </p>
+    <ul class="list-disc list-inside text-slate-700 mb-4 space-y-1">
+      <li>Content Syndication: $10,000/year</li>
+      <li>Data Connector: $25,000/year</li>
+      <li>Language Packs: $10,000/year (5 languages)</li>
+      <li>LearnExperts AI: Custom pricing</li>
+    </ul>
+
+    <p class="text-sm text-slate-500">
+      Contact Skilljar sales for current pricing. The quote-based model makes budgeting difficult without direct consultation.
+    </p>
+  </section>
+
+  <!-- How Skilljar Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Skilljar Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how Skilljar stacks up against other platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Skilljar", "Thinkific", "Docebo", "TalentLMS", "LearnDash"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Customer & partner education", "Learning commerce & academies", "Enterprise multi-audience", "Small-mid business training", "WordPress-based courses"] },
+        { feature: "Target Buyer", values: ["Customer Education teams, CS leaders", "Experts, creators, training companies", "Enterprise L&D", "SMBs, trainers", "WordPress users"] },
+        { feature: "Pricing Model", values: ["Quote-based (annual + per user)", "Transparent tiers (Free → Plus)", "Quote-based enterprise", "Affordable tiered plans", "WordPress plugin + hosting"] },
+        { feature: "Free Trial", values: ["No", "Yes (Free plan)", "Yes", "Yes (Free tier)", "No"] },
+        { feature: "CRM Integration", values: ["Deep Salesforce/Gainsight native", "Via integrations", "Strong enterprise CRM", "Basic", "Via plugins"] },
+        { feature: "Course Authoring", values: ["Basic (upload + simple quizzes)", "Advanced drag-and-drop + AI", "Good", "Good", "WordPress-based"] },
+        { feature: "Certifications", values: ["Proctored exams, Credly badging", "Completion certificates", "Available", "Available", "Via plugins"] },
+        { feature: "Content Syndication", values: ["Native ($10k add-on)", "Not available", "Limited", "Not available", "Not available"] },
+        { feature: "Ease of Setup", values: ["Implementation required", "Fast, self-serve", "Implementation required", "Fast, self-serve", "Requires WordPress setup"] },
+        { feature: "Best For", values: ["Enterprise SaaS customer ed", "Academies, learning businesses", "Enterprise learning ops", "Quick training deployment", "WordPress-native creators"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Skilljar vs Thinkific", href: "/compare/skilljar-vs-thinkific", description: "Enterprise customer education vs flexible learning platform: which fits your needs?" },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Comprehensive review of Thinkific for customer education, academies, and learning businesses." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS with multi-audience capabilities and strong AI features." },
+    { title: "TalentLMS Review", href: "/reviews/talentlms", description: "Affordable, easy-to-use LMS for small-to-mid-sized training programs." }
+  ]} />
+
+</ReviewLayout>

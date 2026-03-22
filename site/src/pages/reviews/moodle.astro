@@ -1,0 +1,423 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Moodle really free?",
+    answer: "The Moodle LMS software itself is free and open-source under the GPL license. However, running Moodle involves costs: self-hosted deployments require server infrastructure, setup, and ongoing maintenance (typically $80–$500+/month for hosting plus setup costs). MoodleCloud offers hosted plans starting at $170/year for 50 users. For large organizations, Moodle Workplace requires licensing through certified partners. The 'free' label applies to the software license, not the total cost of ownership."
+  },
+  {
+    question: "What is the difference between Moodle LMS, MoodleCloud, and Moodle Workplace?",
+    answer: "Moodle LMS is the free, open-source software you download and host yourself. MoodleCloud is a hosted SaaS version with fixed plans (50–750 users) for those who want managed hosting without technical setup. Moodle Workplace is the licensed enterprise version sold through partners, adding multi-tenancy, advanced compliance tracking, HRIS integrations, and dedicated support. Choose LMS if you have IT resources and want maximum control; Cloud for simple, small-scale needs; Workplace for large enterprise deployments."
+  },
+  {
+    question: "How does Moodle compare to Thinkific?",
+    answer: "Moodle and Thinkific serve fundamentally different audiences. Moodle is an open-source academic/corporate LMS with deep customization, advanced assessment tools, and enterprise scale — ideal for institutions and large organizations with technical resources. Thinkific is a proprietary learning commerce platform built for solo experts and small businesses to sell courses quickly with minimal technical overhead. Moodle wins on flexibility and academic features; Thinkific wins on ease of use and built-in commerce. See our <a href='/compare/moodle-vs-thinkific' class='text-teal-dark hover:underline'>full Moodle vs Thinkific comparison</a> for details."
+  },
+  {
+    question: "Is Moodle good for selling online courses?",
+    answer: "Moodle can sell courses, but it is not optimized for e-commerce out of the box. Self-hosted Moodle requires plugins for payment processing; MoodleCloud offers basic Stripe integration on Medium and Standard plans. Moodle lacks native marketing tools, landing page builders, affiliate programs, and advanced sales analytics found in dedicated learning commerce platforms. If selling courses is your primary goal and you lack technical resources, platforms like Thinkific or LearnWorlds will get you to market faster."
+  },
+  {
+    question: "How hard is it to set up Moodle?",
+    answer: "Moodle setup complexity depends on your chosen tier. MoodleCloud is the easiest — sign up and start building within minutes, though you're limited to 750 users max. Self-hosted Moodle requires significant technical expertise: Linux server administration, MySQL/PostgreSQL database setup, PHP configuration, SSL certificates, security hardening, and ongoing maintenance. Most organizations need a Moodle-certified partner for initial implementation ($2,000–$25,000+). Plan for weeks to months for a full enterprise deployment with custom theming and integrations."
+  },
+  {
+    question: "Is Moodle suitable for customer training?",
+    answer: "Moodle Workplace is designed for corporate training including customer education, with multi-tenancy for separate client portals, automated enrollment rules, and compliance tracking. However, Moodle's dated user interface and lack of native marketing/sales features may create friction for customer-facing academies. For B2B customer training with strict compliance needs, Moodle Workplace works well. For B2C customer education prioritizing modern UX and easy content purchasing, dedicated customer education platforms may be a better fit."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Moodle",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.0",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "description": "An honest, in-depth review of Moodle for education, enterprise training, and organizations seeking open-source LMS flexibility."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Moodle Review 2026: Open-Source LMS for Education & Enterprise"
+  description="An honest, in-depth review of Moodle for education, enterprise training, and organizations seeking open-source LMS flexibility. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Moodle"
+  rating={4.0}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Moodle' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Moodle Review 2026: Open-Source LMS for Education & Enterprise</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.0 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.0 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Moodle is the world's most widely deployed open-source LMS, powering over 500 million users across education and enterprise. It offers unmatched flexibility, academic-grade assessment tools, and cost advantages at scale — but that power comes with significant complexity. If you have technical resources, value data sovereignty, and need deep customization, Moodle is a formidable choice. If you want plug-and-play simplicity with modern UX, look elsewhere.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for learning leaders, IT administrators, educational institutions, and enterprise training teams evaluating Moodle against proprietary SaaS alternatives. If you're weighing the trade-offs between open-source freedom and managed-platform convenience, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Moodle is the dominant open-source LMS with three tiers: free self-hosted LMS, hosted MoodleCloud (up to 750 users), and enterprise Moodle Workplace.",
+    "Unmatched flexibility through 2,000+ plugins, full source code access, and deep customization — but this requires technical expertise.",
+    "Academic-grade assessment with 15+ question types, rubrics, competency frameworks, and plagiarism detection integrations.",
+    "Cost advantages emerge at scale: self-hosted Moodle often beats per-user SaaS pricing for organizations with 1,000+ users.",
+    "Significant UX weaknesses: dated interface, steep learning curve, and mobile responsiveness issues without the dedicated app.",
+    "Not suitable for solo course creators or those needing modern e-commerce and marketing features out of the box."
+  ]} />
+
+  <!-- What is Moodle? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Moodle?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle (Modular Object-Oriented Dynamic Learning Environment) is the world's most widely used open-source Learning Management System. Founded by Martin Dougiamas in 2002, it has grown to become a global standard in educational technology with over 500 million users across 230+ countries.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle positions itself across three distinct product tiers. The open-source Moodle LMS is free software you download and host yourself, requiring technical expertise but offering unlimited customization. MoodleCloud is a hosted SaaS version with plans supporting 50–750 users, ideal for small organizations that want managed hosting without setup complexity. Moodle Workplace is the licensed enterprise version sold through certified partners, adding multi-tenancy, advanced compliance tracking, and HRIS integrations for large organizations.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      At its core, Moodle is built by educators for educators. It prioritizes pedagogical flexibility, data sovereignty, and academic integrity over consumer-grade ease of use. Organizations choose Moodle when they need complete control over their learning infrastructure, want to avoid vendor lock-in, or operate under strict data residency requirements.
+    </p>
+  </section>
+
+  <!-- Who is Moodle Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Moodle Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Moodle serves a broad range of use cases, but it is not a universal solution. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Educational Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          K-12 schools, universities, and vocational training centers needing academic-grade assessment tools, SCORM/xAPI compliance, and integration with student information systems. Moodle's competency frameworks and gradebook integration align with traditional academic workflows.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Large Enterprises</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with 1,000+ employees where per-user SaaS costs become prohibitive. Companies needing multi-tenancy for subsidiaries, automated enrollment rules, and integration with existing HRIS systems. Proven deployments at 100,000+ users.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Regulated Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Government agencies, healthcare organizations (NHS uses Moodle for 60,000+ workers), and financial institutions with strict data sovereignty and compliance requirements. Full control over data storage location and GDPR/HIPAA compliance tools.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Organizations with Technical Resources</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with dedicated IT/LMS administration teams, PHP/MySQL expertise, and the capacity to manage hosting, security, and custom development. The full power of Moodle requires technical investment to unlock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation & Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle's modular course builder supports arranging resources and activities into structured courses. It handles multiple content formats including SCORM, xAPI, and H5P interactive content. Activity types extend far beyond basic quizzes: assignments, forums, wikis, workshops, glossaries, and databases support constructivist and social learning approaches. Drip-fed content release based on dates or completion criteria enables structured learning paths.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment & Grading</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      This is where Moodle distinguishes itself from lighter platforms. The quiz engine supports 15+ question types including calculated questions, drag-and-drop, and matching. Advanced grading methods include rubrics, marking guides, and checklist grading. Plagiarism detection integrates with Turnitin and URKUND. The comprehensive gradebook supports complex aggregation, weighting, and outcome-based assessment aligned to competency frameworks.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Plugins & Extensibility</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      With over 2,000 open-source plugins in the official directory, Moodle's extensibility is virtually unlimited. Key categories include authentication (SSO, SAML, OAuth), content types, reporting and analytics, video conferencing integrations, e-commerce add-ons, and AI connectors. This plugin ecosystem allows organizations to tailor Moodle to highly specific requirements — though plugin quality varies and compatibility must be managed through updates.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Compliance & Security</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle meets WCAG 2.1 AA accessibility standards and includes the Brickfield Accessibility Toolkit for automated checking. GDPR compliance tools handle privacy requests, data export, and consent management. A Bugcrowd-powered security program provides continuous testing. Multi-factor authentication and enhanced encryption for data at rest and in transit meet enterprise security requirements.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The built-in analytics engine provides learning analytics with predictive capabilities. Custom reports are configurable for administrators and instructors. Activity completion tracking gives learners visual progress indicators, while engagement metrics track login frequency, time-on-task, and participation rates. Competency reporting shows progress against defined skill frameworks.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Capabilities</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle has embraced AI through optional open-source plugins rather than baked-in features. The AI Connector integrates ChatGPT, DALL-E, and Azure AI. The AI Text to Questions Generator auto-generates quiz questions from content. OpenAI Chat Block enables conversational AI within courses. This transparent, configurable approach emphasizes user control and EU regulatory compliance over black-box AI integration.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unmatched Flexibility & Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Complete source code access enables unlimited customization. The 2,000+ plugin library extends functionality in virtually any direction. Custom themes allow full brand alignment. No vendor lock-in means your data and platform remain fully portable. For organizations with specific workflows or integration requirements, this flexibility is unmatched.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Cost Efficiency at Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With no per-user licensing fees for self-hosted deployments, Moodle often costs significantly less than SaaS alternatives for large user bases. Example: 2,000 users on SaaS at $8/user = $16,000/month, versus Moodle Workplace at $4,500–$6,000/month fully managed. For organizations with the technical capacity to self-host, the savings compound over time.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Data Sovereignty & Privacy</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Full control over data storage location makes Moodle ideal for organizations with strict data residency requirements. GDPR, HIPAA, and other compliance frameworks are supported natively. Government and healthcare organizations trust Moodle for sensitive training precisely because they control where data lives and who can access it.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Academic Pedigree</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Built by educators for educators, Moodle supports pedagogical approaches including constructivism and social learning. Advanced competency-based learning, outcome tracking, and university-grade assessment tools serve academic institutions better than most commercial alternatives. The platform understands that learning is not just content delivery.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Global Community & Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With 500+ million users, Moodle has a massive global community. Extensive documentation (MoodleDocs), active forums, and a large pool of certified developers and partners provide resources for almost any challenge. You are never alone with Moodle — though the quality of help depends on your engagement with the community or partner network.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Proven Enterprise Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Case studies demonstrate successful deployments at 100,000+ users. Network Rail (UK) trains over 100,000 employees. The NHS (UK) serves 60,000+ healthcare workers. Multi-tenancy support enables complex organizational structures with separate portals for departments, subsidiaries, or clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Moodle May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Moodle May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging where Moodle falls short. Here are the significant limitations:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Steep Learning Curve & Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Moodle's interface presents an excessive number of menus, settings, choices, and features that make navigation overwhelming. As Moodle founder Martin Dougiamas acknowledges: "Moodle is a complicated system with many layers... it's simply way more complex than nearly anything else." Non-technical users struggle to find simple options, and significant administrator training is required for effective use.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Dated User Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The default interface looks dated compared to consumer-grade platforms. Out-of-the-box themes appear unprofessional without custom development investment. Mobile responsiveness issues affect some features (like drag-and-drop) without the dedicated app. Student onboarding friction is real — new learners often struggle with navigation that feels foreign compared to modern web applications.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Self-Hosting Burden</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Self-hosted Moodle requires Linux administration, database management, security hardening, and ongoing maintenance. Regular updates, security patches, and backups demand dedicated technical resources. Hidden infrastructure costs including hosting, CDN, monitoring, and disaster recovery add up. Performance tuning becomes necessary as user bases grow.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Native E-Commerce</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Moodle has no built-in sales features — plugins are required for course selling. Payment gateway options are basic compared to dedicated learning commerce platforms. There are no native marketing tools, landing page builders, email marketing, or sales funnel features. The platform was built for education, not commerce, and it shows when you try to sell courses directly.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Plugin Quality & Maintenance Risks</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Community plugins range from excellent to abandoned. Compatibility issues can arise with Moodle updates. Third-party plugins may introduce security vulnerabilities. Custom plugins require ongoing maintenance that organizations must budget for. The freedom to extend comes with responsibility for vetting and maintaining those extensions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Moodle's pricing depends entirely on which tier you choose. The open-source software is free, but total cost of ownership varies significantly:
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Moodle LMS (Open Source)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The software license is $0 (GPL open source). Self-hosted infrastructure typically runs $80–$500+/month depending on scale. One-time setup costs range from $2,000–$25,000+, with ongoing maintenance at $400–$3,500/month. Custom development costs vary based on developer rates.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">MoodleCloud (Hosted SaaS)</h3>
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Max Users</th>
+            <th class="text-left py-3 px-4 font-semibold">Storage</th>
+            <th class="text-left py-3 px-4 font-semibold">Annual Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Starter</td>
+            <td class="py-3 px-4 text-slate-600">50</td>
+            <td class="py-3 px-4 text-slate-600">1GB</td>
+            <td class="py-3 px-4 text-slate-600">$170</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Mini</td>
+            <td class="py-3 px-4 text-slate-600">100</td>
+            <td class="py-3 px-4 text-slate-600">2.5GB</td>
+            <td class="py-3 px-4 text-slate-600">$270</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Medium</td>
+            <td class="py-3 px-4 text-slate-600">500</td>
+            <td class="py-3 px-4 text-slate-600">20GB</td>
+            <td class="py-3 px-4 text-slate-600">$1,200</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Standard</td>
+            <td class="py-3 px-4 text-slate-600">750</td>
+            <td class="py-3 px-4 text-slate-600">50GB</td>
+            <td class="py-3 px-4 text-slate-600">$2,120</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mb-4">
+      MoodleCloud limitations include no custom plugins, fixed user limits, and storage caps. Best for small organizations and basic training needs.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Moodle Workplace (Enterprise)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Pricing is quote-based through Moodle Premium Certified Partners. Typical ranges are $3–$9 per active user/month, with annual licensing at $25,000–$100,000+/year. Fully managed deployments with 24×7 SLA run $4,500–$6,000/month. Workplace adds multi-tenancy, advanced compliance tracking, automated enrollment rules, enhanced reporting, and HRIS integration support.
+    </p>
+  </section>
+
+  <!-- How Moodle Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Moodle Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how Moodle stacks up against platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Moodle", "Thinkific", "Docebo", "LearnDash", "Canvas"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Open-source education/enterprise", "Learning commerce & customer education", "Enterprise multi-audience training", "WordPress-based course delivery", "Academic education"] },
+        { feature: "Source Code Access", values: ["Full (GPL open source)", "No (proprietary)", "No (proprietary)", "Partial (PHP)", "Partial (open core)"] },
+        { feature: "Self-Hosted Option", values: ["Yes", "No", "No", "Yes (WordPress)", "Yes (open source)"] },
+        { feature: "Ease of Use", values: ["Steep learning curve", "Beginner-friendly", "Moderate", "WordPress-dependent", "Moderate"] },
+        { feature: "Built-in Commerce", values: ["Limited (plugins required)", "Strong", "Limited", "Via plugins", "Limited"] },
+        { feature: "Assessment Depth", values: ["Academic-grade (15+ question types)", "Basic quizzes", "Enterprise assessments", "Basic (via plugins)", "Academic-grade"] },
+        { feature: "Customization", values: ["Unlimited (with dev resources)", "Template-based", "Configurable", "WordPress ecosystem", "Moderate"] },
+        { feature: "Best For", values: ["Institutions, enterprises, IT teams", "Academies, customer ed, learning businesses", "Enterprise learning ops", "WordPress-native creators", "Schools, universities"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Moodle vs Thinkific", href: "/compare/moodle-vs-thinkific", description: "Open-source flexibility vs learning commerce: which approach fits your needs?" },
+    { title: "Moodle vs Docebo", href: "/compare/moodle-vs-docebo", description: "Open-source customization vs enterprise SaaS for corporate training." },
+    { title: "Moodle vs LearnDash", href: "/compare/moodle-vs-learndash", description: "Standalone open-source LMS vs WordPress-based course delivery." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for customer education and learning commerce." }
+  ]} />
+
+</ReviewLayout>

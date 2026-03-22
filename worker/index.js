@@ -43,6 +43,15 @@ export default {
       const countStr = await env.LEADS.get('_count') || '0';
       await env.LEADS.put('_count', String(parseInt(countStr) + 1));
 
+      // Send Telegram notification
+      if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+        try {
+          await sendTelegramNotification(env, submission);
+        } catch (tgErr) {
+          console.error('Telegram notify failed (non-blocking):', tgErr.message);
+        }
+      }
+
       // Try Google Sheets append if configured
       if (env.GOOGLE_SERVICE_ACCOUNT_JSON) {
         try {
@@ -73,6 +82,30 @@ function jsonResponse(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
     headers: { 'Content-Type': 'application/json', ...corsHeaders() },
+  });
+}
+
+async function sendTelegramNotification(env, submission) {
+  const lines = [
+    '🔔 *New LMS Guide Lead*',
+    '',
+    `*Email:* ${submission.email}`,
+    submission.name ? `*Name:* ${submission.name}` : null,
+    submission.company ? `*Company:* ${submission.company}` : null,
+    submission.company_size ? `*Size:* ${submission.company_size}` : null,
+    submission.use_case ? `*Use case:* ${submission.use_case}` : null,
+    '',
+    `_${submission.timestamp}_`,
+  ].filter(Boolean).join('\n');
+
+  await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: env.TELEGRAM_CHAT_ID,
+      text: lines,
+      parse_mode: 'Markdown',
+    }),
   });
 }
 

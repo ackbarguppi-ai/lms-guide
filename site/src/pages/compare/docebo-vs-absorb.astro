@@ -1,0 +1,323 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Docebo vs Absorb LMS (2026): Enterprise AI Powerhouse vs Intuitive Learning Platform",
+    "description": "Docebo and Absorb LMS are both enterprise-grade platforms, but they take different approaches. This comparison breaks down which fits multi-audience training, AI features, and ease of use.",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lms-guide.com/compare/docebo-vs-absorb"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is better for mid-market vs enterprise organizations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb LMS is generally better suited for mid-market organizations (100–5,000 users) with its simpler admin UX, faster setup, and lower cost of ownership. Docebo is designed for larger enterprises (1,000+ users) that need complex multi-tenant architectures, deep AI personalization, and advanced compliance tracking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Docebo and Absorb compare on AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Docebo offers deeper AI capabilities including AI Virtual Coaching with role-play simulations, AI video generation, and its Harmony AI copilot. Absorb focuses on practical AI automation through Absorb Aura, with intelligent search, admin assist, and course recommendations. Docebo wins on AI ambition; Absorb wins on practical day-to-day automation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better eCommerce for selling courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb LMS includes built-in eCommerce with 70+ payment gateways, zero transaction fees, and full storefront capabilities at no extra cost. Docebo offers eCommerce but it's a paid add-on with less mature storefront features. For organizations primarily selling training, Absorb is the stronger choice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Docebo or Absorb easier to implement and manage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb LMS is consistently rated easier to set up and administer (G2 Ease of Setup: 8.5 vs Docebo 7.6). Absorb's self-service-friendly approach means most teams can manage it without dedicated technical staff. Docebo requires more structured implementation (typically 8+ weeks) and benefits from dedicated L&D or IT resources."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is more cost-effective?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absorb LMS is roughly half the cost on average contract value ($20K vs $40K annually). Docebo's pricing starts around $25,000/year with many features as paid add-ons. For organizations under 1,000 users, Absorb almost always delivers better value. Docebo becomes more competitive at scale with volume discounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can both platforms handle multi-audience training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, both support training employees, customers, and partners. Docebo's Extended Enterprise add-on provides deeper multi-tenant architecture with distinct branded portals for each audience. Absorb offers multi-portal support that's easier to configure but less sophisticated for complex hierarchical structures."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Platform type", values: ["Enterprise AI learning platform", "AI-powered enterprise LMS"] },
+  { feature: "Best for", values: ["Large enterprises, complex multi-audience training", "Mid-market orgs, compliance, course selling"] },
+  { feature: "AI approach", values: ["Deep AI: virtual coaching, video generation, skill mapping", "Practical AI: automation, intelligent search, admin assist"] },
+  { feature: "eCommerce / monetization", values: ["Add-on with basic storefront capabilities", "Built-in, full-featured with 70+ payment gateways"] },
+  { feature: "Ease of setup (G2)", values: ["7.6/10 — structured 8+ week implementation", "8.5/10 — faster, self-service friendly"] },
+  { feature: "Multi-audience architecture", values: ["Advanced multi-tenant with branded sub-portals", "Multi-portal support, easier configuration"] },
+  { feature: "Admin experience", values: ["Powerful but complex; rewards deep investment", "Intuitive; manageable without dedicated IT"] },
+  { feature: "Mobile app", values: ["Branded app Enterprise-only; Go.Learn standard", "Native mobile app included in all plans"] },
+  { feature: "Support quality (G2)", values: ["8.5/10", "9.5/10 — highest rated in category"] },
+  { feature: "Average annual cost", values: ["~$40,000/year (Vendr data)", "~$20,000/year (Vendr data)"] },
+];
+
+const faqItems = [
+  {
+    question: "Which is better for mid-market vs enterprise organizations?",
+    answer: "Absorb LMS is generally better suited for mid-market organizations (100–5,000 users) with its simpler admin UX, faster setup, and lower cost of ownership. Docebo is designed for larger enterprises (1,000+ users) that need complex multi-tenant architectures, deep AI personalization, and advanced compliance tracking."
+  },
+  {
+    question: "How do Docebo and Absorb compare on AI features?",
+    answer: "Docebo offers deeper AI capabilities including AI Virtual Coaching with role-play simulations, AI video generation, and its Harmony AI copilot. Absorb focuses on practical AI automation through Absorb Aura, with intelligent search, admin assist, and course recommendations. Docebo wins on AI ambition; Absorb wins on practical day-to-day automation."
+  },
+  {
+    question: "Which platform has better eCommerce for selling courses?",
+    answer: "Absorb LMS includes built-in eCommerce with 70+ payment gateways, zero transaction fees, and full storefront capabilities at no extra cost. Docebo offers eCommerce but it's a paid add-on with less mature storefront features. For organizations primarily selling training, Absorb is the stronger choice."
+  },
+  {
+    question: "Is Docebo or Absorb easier to implement and manage?",
+    answer: "Absorb LMS is consistently rated easier to set up and administer (G2 Ease of Setup: 8.5 vs Docebo 7.6). Absorb's self-service-friendly approach means most teams can manage it without dedicated technical staff. Docebo requires more structured implementation (typically 8+ weeks) and benefits from dedicated L&D or IT resources."
+  },
+  {
+    question: "Which is more cost-effective?",
+    answer: "Absorb LMS is roughly half the cost on average contract value ($20K vs $40K annually). Docebo's pricing starts around $25,000/year with many features as paid add-ons. For organizations under 1,000 users, Absorb almost always delivers better value. Docebo becomes more competitive at scale with volume discounts."
+  },
+  {
+    question: "Can both platforms handle multi-audience training?",
+    answer: "Yes, both support training employees, customers, and partners. Docebo's Extended Enterprise add-on provides deeper multi-tenant architecture with distinct branded portals for each audience. Absorb offers multi-portal support that's easier to configure but less sophisticated for complex hierarchical structures."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "How Thinkific's learning commerce model compares to Docebo's enterprise platform." },
+  { title: "Thinkific vs Absorb LMS", href: "/compare/thinkific-vs-absorb", description: "Compare Thinkific to Absorb for customer training and learning business needs." },
+  { title: "Best LMS for Customer Training", href: "/guides/best-lms-customer-training", description: "Our guide to the top platforms for customer education and external training." },
+  { title: "Docebo Deep Dive", href: "/reviews/docebo", description: "Detailed review of Docebo's features, pricing, and ideal use cases." },
+];
+---
+
+<ComparisonLayout
+  title="Docebo vs Absorb LMS (2026): Enterprise AI Powerhouse vs Intuitive Learning Platform"
+  description="Docebo and Absorb LMS are both enterprise-grade platforms, but they take different approaches. This comparison breaks down which fits multi-audience training, AI features, and ease of use."
+  platform1="Docebo"
+  platform2="Absorb LMS"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Docebo vs Absorb LMS' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Docebo vs Absorb LMS: Enterprise AI Powerhouse vs Intuitive Learning Platform</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Docebo and Absorb LMS are both serious enterprise learning platforms. Both serve mid-market to large organizations training employees, customers, and partners. Both invest heavily in AI. Both earn strong reviews from L&D teams. But they approach the market differently: Docebo bets big on cutting-edge AI and deep configurability for complex multi-audience architectures, while Absorb prioritizes clean usability, faster time-to-value, and practical automation that L&D teams can deploy without extensive IT support. The right choice depends on your organization size, technical resources, and how you balance AI ambition against operational simplicity.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for L&D leaders, training operations teams, and IT decision-makers evaluating enterprise LMS platforms for organizations with 100+ learners. If you're comparing two established players and trying to decide between deep AI capabilities and admin simplicity — or between complex multi-tenant architectures and faster deployment — this breakdown will help you make the right call.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Both platforms serve enterprise training but with different philosophies: Docebo prioritizes AI depth and configurability; Absorb prioritizes usability and speed.",
+    "Absorb LMS wins on ease of setup, admin experience, and support quality — ideal for mid-market teams without dedicated technical staff.",
+    "Docebo wins on AI sophistication (virtual coaching, video generation) and multi-tenant architecture for complex organizational structures.",
+    "Absorb includes full eCommerce at no extra cost; Docebo's eCommerce is a paid add-on.",
+    "Absorb is roughly half the cost on average; Docebo becomes more competitive at 1,000+ users with volume discounts.",
+    "Organizations under 1,000 users typically get better value from Absorb. Organizations with complex multi-audience needs and IT resources may prefer Docebo."
+  ]} />
+
+  <section class="my-10">
+    <h2>Why This Comparison Matters</h2>
+    <p>
+      Docebo and Absorb LMS frequently appear on the same shortlists for enterprise LMS evaluations. Both are cloud-based platforms with strong customer education capabilities. Both offer AI features, mobile apps, and extensive integrations. Both are headquartered in Canada and serve global enterprises.
+    </p>
+    <p class="mt-3">
+      But beneath the surface similarities, these platforms solve different problems for different organizational profiles. Docebo is built for L&D teams who want cutting-edge AI, sophisticated multi-audience architectures, and deep analytics — and have the resources to configure and manage a complex platform. Absorb is built for L&D teams who want powerful capabilities without the operational overhead, with an interface designed for ease of use and a support team consistently rated the best in the industry.
+    </p>
+    <p class="mt-3">
+      The risk is paying for Docebo's complexity when Absorb's simplicity would serve you better — or outgrowing Absorb's architecture when Docebo's multi-tenancy would have future-proofed your training operations.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Docebo", "Absorb LMS"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Docebo Wins</h2>
+
+    <h3 class="mt-6">Advanced AI and Virtual Coaching</h3>
+    <p>
+      Docebo's AI investment goes beyond automation. AI Virtual Coaching provides immersive role-play simulations with voice and chat practice modes, real-time feedback on clarity and confidence, and detailed analytics. AI video generation creates presenter-style content from text. The Harmony AI copilot offers semantic search and contextual guidance. For organizations wanting cutting-edge AI in their learning platform, Docebo leads the market.
+    </p>
+
+    <h3 class="mt-6">Multi-Tenant Architecture for Complex Organizations</h3>
+    <p>
+      Docebo's Extended Enterprise add-on enables true multi-tenancy: separate branded sub-portals for customers, partners, and employees, each with distinct catalogs, admin rights, and analytics — all running from a single platform instance. This is genuine differentiator for large enterprises with complex training hierarchies, franchise networks, or channel partner ecosystems.
+    </p>
+
+    <h3 class="mt-6">Skills Intelligence and Workforce Planning</h3>
+    <p>
+      Docebo's acquisition of 365Talents adds AI-native skills taxonomy, talent marketplace capabilities, and career pathing. This moves Docebo beyond traditional LMS functionality into workforce readiness and skills-based talent mobility — valuable for organizations integrating L&D with HR and workforce planning.
+    </p>
+
+    <h3 class="mt-6">Enterprise Security and Compliance Depth</h3>
+    <p>
+      Docebo's security certifications are extensive: ISO 27001/27017/27018/27701, SOC 2, FedRAMP Moderate, GDPR, CCPA, EU AI Act compliance. For regulated industries (financial services, healthcare, government) and organizations with strict security requirements, this certification depth provides assurance.
+    </p>
+
+    <h3 class="mt-6">Content Creation and Translation</h3>
+    <p>
+      Docebo Creator generates interactive courses from documents, presentations, or text prompts with claimed 70x speed improvement. One-click translation into 50+ languages simplifies global deployment. For organizations creating large volumes of content or operating across regions, these capabilities accelerate program delivery.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Absorb LMS Wins</h2>
+
+    <h3 class="mt-6">Ease of Use and Admin Experience</h3>
+    <p>
+      Absorb consistently outscores Docebo on usability metrics: Ease of Use (8.8 vs 8.4), Ease of Setup (8.5 vs 7.6), Ease of Admin (8.7 vs 7.9). The admin interface is intuitive enough that most L&D teams can manage day-to-day operations without dedicated technical staff. For mid-market organizations without large IT teams, this usability advantage translates to faster deployment and lower operational overhead.
+    </p>
+
+    <h3 class="mt-6">Built-in eCommerce at No Extra Cost</h3>
+    <p>
+      Absorb's eCommerce module is included standard with every instance — no add-on fees, no transaction commissions, 70+ payment gateways, and support for multiple currencies and pricing tiers. For training businesses and organizations selling courses, this eliminates a significant cost category and simplifies the technology stack.
+    </p>
+
+    <h3 class="mt-6">Highest-Rated Support in the Category</h3>
+    <p>
+      Absorb's support quality scores 9.5/10 on G2 — the highest in the corporate LMS category. Reviewers consistently praise responsiveness, expertise, and helpfulness. When implementation issues arise or questions need quick answers, Absorb's support team delivers reliably.
+    </p>
+
+    <h3 class="mt-6">Practical AI for Day-to-Day Operations</h3>
+    <p>
+      Absorb Aura provides AI agents focused on practical automation: Intelligent Assist for natural language admin queries, Discovery for AI-enhanced search, and automated course recommendations. While less ambitious than Docebo's AI suite, Absorb's AI covers what most L&D teams actually need daily without unpredictable credit-based pricing.
+    </p>
+
+    <h3 class="mt-6">Native Mobile App Included</h3>
+    <p>
+      Absorb includes a native mobile app in all plans, supporting offline learning for field workers and distributed teams. Docebo's branded mobile app is Enterprise-tier only — Elevate customers must use the standard Go.Learn app without custom branding.
+    </p>
+
+    <h3 class="mt-6">Lower Total Cost of Ownership</h3>
+    <p>
+      With an average contract value roughly half of Docebo's ($20K vs $40K annually), Absorb delivers enterprise capabilities at mid-market prices. The combination of included eCommerce, no AI credit fees, and faster implementation makes Absorb the more cost-effective choice for most organizations under 1,000 users.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>The Decision Framework</h2>
+    <p class="mb-6">
+      Use these three buyer forks to determine which platform aligns with your organization's profile and priorities.
+    </p>
+
+    <div class="space-y-6">
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 1: Organization Size and Resources</h3>
+        <p class="text-slate-600 mb-3">
+          If you're a mid-market organization (100–1,000 users) without dedicated IT or L&D operations staff, <strong>choose Absorb LMS</strong>. Its intuitive admin experience and highly-rated support team mean you can deploy and manage the platform without extensive technical resources. If you're a large enterprise (1,000+ users) with dedicated L&D operations and IT teams who can invest in platform configuration, <strong>Docebo</strong> rewards that investment with deeper capabilities.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 2: AI Priorities</h3>
+        <p class="text-slate-600 mb-3">
+          If you want cutting-edge AI features like virtual coaching simulations, AI-generated video content, and sophisticated skills mapping — and have budget for AI credit consumption — <strong>choose Docebo</strong>. If you want practical AI automation that simplifies admin work, improves search, and delivers course recommendations without complexity or unpredictable costs, <strong>choose Absorb LMS</strong>.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 3: Training Business vs Enterprise Operations</h3>
+        <p class="text-slate-600 mb-3">
+          If selling training is a significant revenue stream and you need robust eCommerce with minimal overhead, <strong>choose Absorb LMS</strong>. Its built-in storefront, zero transaction fees, and included payment processing are designed for training businesses. If your training operation serves complex multi-audience needs (employees + customers + partners + franchises) with sophisticated reporting and branded portal requirements, <strong>choose Docebo</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Docebo if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are a large enterprise (1,000+ users) with complex training hierarchies</li>
+          <li>Need true multi-tenant architecture for franchises, partners, or subsidiaries</li>
+          <li>Want cutting-edge AI including virtual coaching and video generation</li>
+          <li>Require deep skills intelligence and workforce planning integration</li>
+          <li>Have dedicated L&D and IT teams to manage platform complexity</li>
+          <li>Need FedRAMP, ISO 27701, or other advanced security certifications</li>
+          <li>Can invest $50K–$200K+ annually in your learning platform</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Absorb LMS if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Are a mid-market organization (100–5,000 users) prioritizing ease of use</li>
+          <li>Want fast implementation without heavy IT involvement</li>
+          <li>Need built-in eCommerce for selling courses at no extra cost</li>
+          <li>Value highest-rated customer support and responsive service</li>
+          <li>Prefer practical AI automation over experimental features</li>
+          <li>Want a native mobile app included in all plans</li>
+          <li>Are budget-conscious and need predictable costs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Enterprise LMS comparison — need expert guidance?"
+    ctaDescription="Tell us about your training needs and we'll recommend the right platform with a personalized assessment."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

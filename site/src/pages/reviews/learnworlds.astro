@@ -1,0 +1,423 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is LearnWorlds an LMS?",
+    answer: "Yes, LearnWorlds is a cloud-based LMS, but it positions itself more broadly as an all-in-one learning commerce platform. It combines course creation, website building, mobile app development, and e-commerce in a single platform. Unlike traditional corporate LMS platforms focused on internal compliance training, LearnWorlds is built primarily for selling and delivering learning experiences to external audiences."
+  },
+  {
+    question: "What is LearnWorlds' interactive video feature?",
+    answer: "Interactive video is LearnWorlds' standout differentiator. It allows creators to add auto-extracted transcripts, in-video quizzes, tables of contents, clickable buttons, pointers, and watermarks directly within video content. AI can generate interactive elements from uploaded video, and learners can engage with content without leaving the video player. Most competitors do not offer this depth of video interactivity."
+  },
+  {
+    question: "How much does LearnWorlds cost?",
+    answer: "LearnWorlds offers four tiers: Starter ($29/month, but with a $5 per enrollment fee), Pro Trainer ($99/month), Learning Center ($299/month), and High Volume & Corporate (custom pricing). The Starter plan has significant limitations — no free courses and the per-enrollment fee makes it expensive at scale. Most serious users start at Pro Trainer or Learning Center. Annual billing saves approximately 20%."
+  },
+  {
+    question: "Can I build a mobile app with LearnWorlds?",
+    answer: "Yes. LearnWorlds offers a white-label native mobile app builder for iOS and Android on higher-tier plans. The visual editor requires no coding and supports in-app purchases, push notifications, and 100% custom branding. This is a genuine differentiator — few competitors offer this level of mobile app customization without hiring developers."
+  },
+  {
+    question: "Does LearnWorlds have AI features?",
+    answer: "LearnWorlds brands itself as the '#1 AI-powered LMS' and includes AI tools across all plans. Features include AI course planning, ebook writing, assessment generation, AI-powered feedback, interactive video elements, copy assistance, content translation, and natural language analytics (AI Insights). However, the AI is primarily content-generation focused — there is no adaptive learning AI or AI tutoring chatbot for learners."
+  },
+  {
+    question: "How does LearnWorlds compare to Thinkific?",
+    answer: "Both platforms compete in the learning commerce space, but LearnWorlds emphasizes interactive video and AI features more heavily, while Thinkific offers stronger community features and a free plan. LearnWorlds wins on video interactivity and AI breadth; Thinkific wins on entry-level pricing (free plan available), API accessibility on lower tiers, and proprietary SOC 2 certification. See our <a href='/compare/thinkific-vs-learnworlds' class='text-teal-dark hover:underline'>full Thinkific vs LearnWorlds comparison</a> for detailed analysis."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "LearnWorlds",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.3",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "description": "An honest, in-depth review of LearnWorlds for course creators, customer training, and learning businesses. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="LearnWorlds Review 2026: AI-Powered LMS for Course Creators & Customer Training"
+  description="An honest, in-depth review of LearnWorlds for course creators, customer training, and learning businesses. Who it's best for, key strengths, limitations, and pricing."
+  platformName="LearnWorlds"
+  rating={4.3}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'LearnWorlds' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">LearnWorlds Review 2026: AI-Powered LMS for Course Creators & Customer Training</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.3 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial - ~30% for 4.3) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-lw">
+            <stop offset="30%" stop-color="#fbbf24" />
+            <stop offset="30%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-lw)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.3 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> LearnWorlds is a capable all-in-one platform that excels at interactive video, AI-assisted content creation, and white-label mobile apps. Its interactive video feature is genuinely differentiated, and the breadth of AI tools across all plans is noteworthy. However, pricing jumps are steep, the Starter plan's $5 per enrollment fee is a hidden cost trap, and API access is locked behind a $299/month paywall. Best suited for course creators who prioritize video engagement, European businesses needing regional payment gateways, and organizations wanting branded mobile apps without hiring developers.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for course creators, customer education managers, training business owners, and anyone evaluating LearnWorlds as a platform for creating and monetizing learning experiences. If you are comparing LearnWorlds against other learning commerce platforms and trying to understand where its strengths and weaknesses actually lie, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Interactive video is LearnWorlds' genuine differentiator — auto-generated transcripts, in-video quizzes, and AI overlays that most competitors cannot match.",
+    "AI features are broadly available across all plans, including course planning, assessment generation, and analytics Q&A, though they are primarily content-generation tools rather than adaptive learning.",
+    "White-label native mobile apps for iOS and Android are available without coding — a rare capability among course platforms.",
+    "Pricing has sharp jumps: the gap between Pro Trainer ($99) and Learning Center ($299) gates essential features like API, SSO, and full white-label.",
+    "The Starter plan has significant limitations: $5 per enrollment fee and no free courses, making it expensive for lead generation strategies.",
+    "Strong fit for European businesses with GDPR compliance, EU data centers, and extensive European payment gateway support.",
+    "Security posture is mid-tier — no proprietary SOC 2 certification, which may concern enterprise buyers with strict compliance requirements."
+  ]} />
+
+  <!-- What is LearnWorlds? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is LearnWorlds?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnWorlds is a cloud-based learning management system and learning commerce platform founded in Greece. It positions itself as the "#1 AI-powered LMS built for course creators" — emphasizing the intersection of course creation, website building, and commerce in a single, integrated platform.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      In practice, LearnWorlds offers tools for creating, marketing, selling, and delivering online courses. But calling it merely an "LMS" undersells its scope. The platform includes a drag-and-drop website builder with 50+ industry-specific templates, a native mobile app builder, built-in communities, extensive e-commerce capabilities, and a suite of AI-powered tools for content creation and analytics.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform serves two primary audiences: individual course creators, coaches, and educators on one side; and B2B companies building customer training academies or employee training programs on the other. With 12,000+ customers worldwide and a customer testimonial prominently describing it as "Shopify for courses with approachable customer support," LearnWorlds sits squarely in the learning commerce category alongside competitors like Thinkific and Teachable.
+    </p>
+  </section>
+
+  <!-- Who is LearnWorlds Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is LearnWorlds Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      LearnWorlds works across several buyer profiles, but it is not a one-size-fits-all solution. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Solo Course Creators & Coaches</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Individuals who want beautiful, branded learning sites without hiring developers. The Pro Trainer plan ($99/month) is the sweet spot for creators ready to monetize, offering unlimited pages, subscriptions, memberships, and affiliate management without transaction fees.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">B2B SaaS Companies</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations building customer education academies to reduce support tickets, improve onboarding, and drive product adoption. Case studies with companies like Blip and Lokalise demonstrate measurable outcomes: 15% reduction in support tickets and doubled onboarding capacity.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Fitness, Health & Coaching Professionals</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Professionals who rely heavily on video content and want interactive video features to increase engagement. The ability to add in-video quizzes, clickable elements, and auto-generated transcripts is particularly valuable for demonstration-based learning.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">European Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that need GDPR compliance, EU data centers (Frankfurt), and European payment gateways including Klarna, Afterpay, iDEAL, Bancontact, and Giropay. LearnWorlds' infrastructure on Google Cloud Platform provides regional data residency options.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation & Interactive Video</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnWorlds offers a drag-and-drop course builder supporting video lessons, interactive ebooks, SCORM packages, live sessions, assessments, and downloadable resources. The standout feature is interactive video (branded "iVideo") — auto-extracted transcripts, in-video quizzes, tables of contents, clickable buttons, pointers, and watermarks. AI can generate interactive elements from uploaded video, and learners can engage with content without leaving the video player. This is genuinely differentiated; most competitors do not offer comparable depth of video interactivity.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Website & Mobile App Builder</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform includes a no-code, drag-and-drop website builder with 50+ industry-specific designer templates. Users get custom domain support, pop-up builders (Pro Trainer+), and the ability to add custom CSS/JS. Most notably, LearnWorlds offers a white-label native mobile app builder for iOS and Android — no coding required, visual editor, in-app purchases, and push notifications. Few competitors offer this level of mobile customization without third-party developers.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Commerce & Monetization</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnWorlds supports individual courses, bundles, subscriptions, and memberships. Payment gateways include Stripe, PayPal, Apple Pay, Google Pay, Klarna, Afterpay, and numerous European regional options. Sales tools cover upsells, cross-sells, 1-click funnels, customizable checkout, and promotional coupons. Built-in affiliate management starts on Pro Trainer, with advanced features on Learning Center. Shopify integration is available for selling through existing stores.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      AI is included across all plans with monthly prompt allocations. Capabilities include AI course planning (generate full outlines from topics), AI ebook writing, AI assessment design, AI feedback generation for learners, AI-powered interactive video elements, AI copy assistance for marketing content, content translation, and AI Insights (natural language queries against school data). Users can also connect their own OpenAI API key for unlimited prompts. However, the AI is primarily content-generation focused — there is no adaptive learning AI or AI tutoring chatbot for personalized learner guidance.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Communities & Social Learning</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Built-in communities are available on all plans with social-first training school concepts, community posts, and discussions. AI-assisted interactions are available in video comments. While functional, community features are relatively basic compared to dedicated community platforms like Circle or Mighty Networks.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Basic Google Analytics integration is available on all plans. User progress reports and training matrices start on Pro Trainer. Detailed course insights, scheduled reports, and report templates require Learning Center. The AI Insights feature allows natural language queries against all school data with conversational follow-ups — a novel approach to learning analytics.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Interactive Video</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is LearnWorlds' genuine differentiator. The ability to add auto-generated transcripts, in-video quizzes, clickable buttons, and AI-generated interactive elements within the video player is unmatched by most competitors. For video-heavy courses, this meaningfully improves engagement and completion rates.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">White-Label Native Mobile Apps</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The ability to create branded iOS and Android apps without writing code is a significant advantage. Most competing platforms either lack native apps entirely or require expensive third-party development. For businesses prioritizing mobile learning, this is a major selling point.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">AI Feature Breadth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          AI tools are available across all plans (even Starter), covering course planning, content creation, assessment generation, and analytics. The AI Insights feature for natural language data queries is particularly novel. The ability to BYO OpenAI key for unlimited prompts is also user-friendly.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">European Focus</h3>
+        <p class="text-slate-700 leading-relaxed">
+          GDPR compliance, EU data centers, and extensive European payment gateway support (Klarna, iDEAL, Bancontact, Giropay) make LearnWorlds a strong choice for European businesses or those serving European markets. Regional data residency is increasingly important for compliance-conscious organizations.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">All-in-One Platform Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Website builder, mobile app builder, course creator, commerce engine, and community features are all integrated under one roof. This reduces the need for multiple tools and the associated integration headaches. The 50+ website templates are industry-specific and designer-quality.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Customer Training Positioning</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LearnWorlds has invested meaningfully in B2B customer education with case studies, dedicated solutions pages, and features like bulk licenses and custom orders. The platform demonstrates measurable ROI for customer training use cases.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where LearnWorlds May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where LearnWorlds May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      No platform is right for everyone, and being honest about limitations is more useful than pretending they do not exist. Here is where LearnWorlds may fall short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Developer-Heavy Teams</h3>
+        <p class="text-slate-700 leading-relaxed">
+          API access is gated behind the Learning Center plan ($249-299/month), which is a significant barrier for developer-led buyers or SMBs wanting to build custom integrations. Many competitors offer API access on lower tiers.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Compliance Requirements</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LearnWorlds inherits SOC 2 and ISO 27001 certifications from Google Cloud Platform but does not have proprietary SOC 2 Type II certification. There is no explicit HIPAA or FedRAMP compliance mentioned. Enterprise buyers with strict security requirements may find this limiting.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Salesforce-Dependent Organizations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          There is no native Salesforce integration — it requires Zapier or API workarounds. For businesses deeply embedded in Salesforce ecosystems, this is a potential dealbreaker. HubSpot has native integration, but Salesforce is notably absent.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Budget-Conscious Creators at Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Starter plan's $5 per enrollment fee creates a hidden cost trap that adds up quickly at volume. Additionally, no free courses are allowed on Starter, restricting common lead generation strategies. The jump from Pro Trainer ($99) to Learning Center ($299) is steep and gates essential features.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Organizations Needing Advanced Adaptive Learning</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While LearnWorlds offers AI content generation, it lacks adaptive learning AI that personalizes learning paths based on individual performance, or AI tutoring chatbots that provide personalized learner guidance. The AI is helpful for creators, not personalized for learners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnWorlds offers four pricing tiers. Annual billing saves approximately 20%. All plans include a 30-day free trial — longer than the industry standard 14 days.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Monthly</th>
+            <th class="text-left py-3 px-4 font-semibold">Annual</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Starter</td>
+            <td class="py-3 px-4 text-slate-600">$29/mo</td>
+            <td class="py-3 px-4 text-slate-600">$24/mo</td>
+            <td class="py-3 px-4 text-slate-600">Testing only — $5/enrollment fee, no free courses, 3-page limit</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Pro Trainer</td>
+            <td class="py-3 px-4 text-slate-600">$99/mo</td>
+            <td class="py-3 px-4 text-slate-600">$79/mo</td>
+            <td class="py-3 px-4 text-slate-600">Growing creators — unlimited pages, no transaction fees, subscriptions</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Learning Center</td>
+            <td class="py-3 px-4 text-slate-600">$299/mo</td>
+            <td class="py-3 px-4 text-slate-600">$249/mo</td>
+            <td class="py-3 px-4 text-slate-600">Established businesses — API, SSO, white-label, advanced automations</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">High Volume & Corporate</td>
+            <td class="py-3 px-4 text-slate-600">Custom</td>
+            <td class="py-3 px-4 text-slate-600">Custom</td>
+            <td class="py-3 px-4 text-slate-600">Enterprise — SLA, dedicated success manager, premium infrastructure</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Key pricing observations:</strong> The Starter plan's $5 per enrollment fee makes it unsuitable for any meaningful scale — a creator with 100 enrollments pays $500 in fees alone. Additionally, no free courses are allowed on Starter, eliminating a common lead generation strategy. The jump from Pro Trainer ($99) to Learning Center ($299) gates essential features like API access, SSO, full white-label, and advanced automations. Most serious businesses will need at least Pro Trainer; enterprise buyers are effectively forced to Learning Center or higher.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing changes periodically. Visit LearnWorlds' website for current plan pricing and feature breakdowns.
+    </p>
+  </section>
+
+  <!-- How LearnWorlds Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How LearnWorlds Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how LearnWorlds stacks up against other platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["LearnWorlds", "Thinkific", "Teachable", "Kajabi", "Docebo"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Learning commerce & interactive video", "Learning commerce & customer education", "Course creation & coaching", "All-in-one creator business", "Enterprise multi-audience training"] },
+        { feature: "Interactive Video", values: ["⭐ Strong — in-video quizzes, AI overlays", "Basic video hosting", "Basic video hosting", "Basic video hosting", "Not a core feature"] },
+        { feature: "White-Label Mobile App", values: ["Native iOS/Android builder", "Branded app available", "Native apps (higher tier)", "No native app builder", "Via third parties"] },
+        { feature: "Pricing Entry", values: ["$29/mo ($5/enrollment fee)", "Free plan available", "Free plan available", "$149/mo", "Custom pricing"] },
+        { feature: "API Access", values: ["$249+/mo (Learning Center+)", "Available on lower tiers", "Available on higher tiers", "Available", "Strong enterprise API"] },
+        { feature: "AI Features", values: ["Broad — course, ebook, assessment, analytics", "Thinker AI assistant", "AI content tools", "Limited AI", "AI features"] },
+        { feature: "Best For", values: ["Video-heavy courses, European businesses", "Academies, customer ed, communities", "Coaches, simple course businesses", "Creator businesses with marketing", "Enterprise learning operations"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs LearnWorlds", href: "/compare/thinkific-vs-learnworlds", description: "Detailed comparison of two leading learning commerce platforms." },
+    { title: "LearnWorlds vs Teachable", href: "/compare/learnworlds-vs-teachable", description: "How LearnWorlds compares to Teachable for course creators and coaches." },
+    { title: "LearnWorlds vs Kajabi", href: "/compare/learnworlds-vs-kajabi", description: "Comparing LearnWorlds against the all-in-one creator business platform." },
+    { title: "LearnWorlds vs Docebo", href: "/compare/learnworlds-vs-docebo", description: "Learning commerce vs enterprise LMS: which approach fits your needs?" }
+  ]} />
+
+</ReviewLayout>

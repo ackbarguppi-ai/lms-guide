@@ -1,0 +1,439 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Podia an LMS?",
+    answer: "Podia includes course creation and delivery features, but it is not a traditional LMS. It is better described as an all-in-one digital selling platform. Podia focuses on simplicity for solo creators selling courses, coaching, downloads, and memberships. It lacks advanced LMS features like SCORM support, detailed reporting, compliance tracking, and SSO that corporate learning platforms provide."
+  },
+  {
+    question: "Does Podia have a mobile app?",
+    answer: "No. Podia does not offer a dedicated mobile app for iOS or Android. Both creators and students must access Podia through a web browser. This is a significant gap compared to competitors like Thinkific, Kajabi, and Skool, which all offer mobile apps for on-the-go learning and community engagement."
+  },
+  {
+    question: "How much does Podia cost?",
+    answer: "Podia offers two paid plans: Mover at $39/month ($33/month billed annually) with a 5% transaction fee, and Shaker at $89/month ($75/month billed annually) with 0% transaction fees. Both plans include unlimited courses, digital downloads, coaching, and communities. Email marketing is free for up to 100 subscribers, with tiered pricing beyond that. Podia offers a 30-day free trial with no credit card required."
+  },
+  {
+    question: "Does Podia charge transaction fees?",
+    answer: "Podia charges a 5% transaction fee on the Mover plan, but 0% on the Shaker plan. You will also pay standard payment processing fees to Stripe or PayPal (approximately 2.9% + $0.30 per transaction). The 5% fee on Mover can add up quickly, so high-volume sellers should factor this into their decision."
+  },
+  {
+    question: "Can I migrate to Podia for free?",
+    answer: "Yes. Podia offers free migration services when you switch from another platform. They will migrate up to 20 products on the Mover plan and 30 products on the Shaker plan. This includes content and customer data, which significantly reduces the friction of switching platforms."
+  },
+  {
+    question: "How does Podia compare to Thinkific?",
+    answer: "Podia emphasizes all-in-one simplicity with built-in email, blogging, and multiple product types, making it ideal for solo creators who want everything under one roof. Thinkific offers more advanced course features, better assessments, mobile apps, and AI tools, making it stronger for serious course creators and customer education. Podia is simpler and can be more affordable for basic needs; Thinkific is more powerful for learning-focused businesses. See our <a href='/compare/podia-vs-thinkific' class='text-teal-dark hover:underline'>full Podia vs Thinkific comparison</a> for a detailed breakdown."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Podia",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "description": "An honest, in-depth review of Podia for solo creators, coaches, and digital product sellers. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Podia Review 2026: All-in-One Platform for Solo Creators"
+  description="An honest, in-depth review of Podia for solo creators, coaches, and digital product sellers. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Podia"
+  rating={4.2}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Podia' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Podia Review 2026: All-in-One Platform for Solo Creators</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.2 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partially filled) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="20%" stop-color="#fbbf24" />
+            <stop offset="20%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.2 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Podia is one of the best all-in-one platforms for solo creators, coaches, and consultants who want to sell digital products without managing multiple tools. It combines courses, coaching, downloads, communities, email marketing, and a website builder in a single, easy-to-use platform. If you value simplicity over advanced features and want everything under one roof, Podia is a strong contender. Just be aware of its limitations: no mobile app, basic quizzes, and limited customization compared to more robust platforms.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for solo entrepreneurs, coaches, consultants, and creators evaluating Podia as a platform for selling digital products and services. If you are comparing Podia against course platforms like Thinkific or Teachable and trying to figure out which fits your business model, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Podia is an all-in-one digital selling platform, not a traditional LMS. It combines courses, coaching, downloads, communities, email, and a website builder.",
+    "Best suited for solo creators, coaches, and small digital product businesses who prioritize simplicity over advanced customization.",
+    "Built-in email marketing (free for 100 subscribers) eliminates the need for separate email tools like Mailchimp or ConvertKit.",
+    "Unlimited courses, students, and bandwidth on all paid plans — no artificial limits on your growth.",
+    "Free migration service helps you switch from other platforms without losing content or customers.",
+    "No mobile app is a significant gap. Students must access everything through a browser.",
+    "Basic quiz features and limited customization make it unsuitable for creators needing advanced learning tools or highly branded experiences."
+  ]} />
+
+  <!-- What is Podia? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Podia?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia is an all-in-one platform for selling digital products and services online. Founded in 2014 by Spencer Fry, the company has evolved from a simple course platform into a comprehensive business toolkit for solo entrepreneurs. Podia has been profitable since 2019 and serves over 150,000 creators.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike platforms that focus solely on courses, Podia positions itself as the complete operating system for your online business. It includes a website builder, blog, email marketing, payment processing, and support for multiple product types — all without requiring third-party integrations.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform is designed for non-technical users who want to get started quickly. There are no plugins to configure, no hosting to manage, and no code to write. Everything works out of the box, which makes Podia particularly appealing to creators who would rather focus on their content than their tech stack.
+    </p>
+  </section>
+
+  <!-- Who is Podia Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Podia Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Podia serves a specific segment of the market well, but it is not for everyone. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Solo Creators and Entrepreneurs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Individuals starting or growing an online business who want to sell courses, downloads, or coaching without managing multiple tools. Podia's simplicity makes it ideal for first-time creators who need to launch quickly.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Coaches and Consultants</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Service providers who want to package their expertise into digital products while still offering one-on-one or group coaching. Podia's native coaching features and calendar integrations streamline this hybrid business model.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Non-Technical Users</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Creators who prioritize ease of use over advanced customization. If you want to avoid the complexity of WordPress, the limitations of marketplace platforms, and the tool-sprawl of integrated solutions, Podia offers a middle path.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Multi-Product Sellers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Businesses that sell a mix of courses, ebooks, templates, coaching, and community access. Podia handles all these product types natively, making it easy to bundle, upsell, and cross-sell without workarounds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Online Courses</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia supports unlimited courses on all paid plans with no bandwidth or file size limits. You can upload video, audio, text, PDFs, and embed content from other platforms. Course formats include self-paced, drip content (time-released lessons), and cohort-based courses with specific start dates. Video hosting is included at no extra cost, eliminating the need for Vimeo or Wistia subscriptions.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Students can comment on lessons and engage in discussions within the course. However, quiz functionality is limited to basic multiple-choice questions — there are no assessments, grading, question banks, or assignments. Students must manually mark lessons complete, as there is no automatic progress tracking or enforced video watching.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Digital Downloads</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Sell any file type including ebooks, templates, audio files, videos, and PDFs. Downloads can be used as lead magnets (free offerings to build your email list) or paid products. You control access visibility and can set specific product start dates for launches.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Coaching and Webinars</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia includes native support for one-on-one and group coaching sessions, with integrations for SavvyCal, Acuity, and YouCanBookMe. Coaching can be offered as a standalone product, bundled with courses, or positioned as an upsell. For webinars, Podia integrates with YouTube Live (all plans) and Zoom (Shaker plan only), allowing you to sell access to live sessions and replays.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Communities and Memberships</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Create subscription-based communities with unlimited free and paid plans. You can bundle products within communities, creating tiered membership experiences. Discussion areas are available within products, though community features lack the gamification and mobile app experience offered by dedicated community platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Website Builder and Blog</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Every plan includes a customizable website with professionally designed templates, custom domains, SEO tools, and mobile-responsive design. The blog supports unlimited posts and includes basic SEO optimization. While functional, the design customization is more limited than dedicated website builders like Webflow or WordPress. Think of it more as a storefront builder than a full website platform.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Email Marketing (Podia Email)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia includes a full-featured email marketing platform that rivals dedicated email services. You get unlimited email sends, automation sequences, campaigns, segmentation, tagging, and newsletter templates. The first 100 subscribers are free on all plans; beyond that, pricing scales based on list size. Because email is integrated directly with your products and customer data, you can trigger automations based on purchases, course progress, and community activity without complex integrations.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Payments and Commerce</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia supports Stripe and PayPal (Shaker plan only), with payment options including one-time purchases, payment plans, and subscriptions. You can accept payments in 20+ currencies, with global tax support, Apple Pay, and Google Pay included. Features like coupons, discount codes, upsells, order bumps, and product bundling help maximize revenue per customer.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">True All-in-One Simplicity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Podia's biggest advantage is having everything in one place. Your website, courses, email, downloads, coaching, and community all live under one login. No stitching together Mailchimp, Teachable, and WordPress. No worrying about integrations breaking. For solo operators who value simplicity, this is compelling.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Exceptional Ease of Use</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The interface is clean, intuitive, and consistently praised in user reviews. The "easier-than-drag-and-drop" course builder and straightforward website editor mean you can launch a product in hours, not weeks. No coding or technical knowledge required.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unlimited Everything</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike competitors that cap products on lower tiers, Podia offers unlimited courses, students, bandwidth, and file sizes on all paid plans. Your growth is not artificially constrained by your subscription level.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Built-In Email Marketing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Podia Email is not an afterthought — it is a full-featured platform with automation, segmentation, and analytics. Being directly connected to your products eliminates the need for separate email tools and the integrations that come with them.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Free Video Hosting and Migrations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Video hosting is included at no extra cost, saving you Vimeo or Wistia subscriptions. Podia also offers free migration services (20 products on Mover, 30 on Shaker), removing a major barrier to switching platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Transparent, Simple Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With only two plan tiers and clear feature differentiation, Podia avoids the complexity of platforms with four or five pricing levels. You know exactly what you are getting.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Responsive Customer Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Podia offers 7-day-a-week live chat support that consistently receives positive feedback for responsiveness and helpfulness.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Podia May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Podia May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honesty about limitations helps you make the right decision. Here is where Podia falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Mobile App</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is Podia's most significant gap. Neither creators nor students have a dedicated mobile app. Everything happens in the browser. For students who want to learn on-the-go or creators managing their business from mobile, this is a real limitation. Competitors like Thinkific, Kajabi, and Skool all offer mobile apps.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Course Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Quizzes are basic multiple-choice only — no assessments, grading, question banks, or assignments. There is no enforced video watching or automatic lesson completion. Student analytics are minimal. If you need robust learning features, look elsewhere.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Website templates are limited and design flexibility is constrained compared to WordPress or Webflow. Course certificates are described as "dull" and not highly customizable. If brand differentiation through design is critical to your strategy, Podia may feel restrictive.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Transaction Fees on Lower Plan</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The 5% transaction fee on the Mover plan eats into revenue. To eliminate fees, you must upgrade to Shaker at $75/month (annual). For high-volume sellers, this calculus matters.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Integrations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Podia has fewer third-party integrations than competitors. Zapier actions are limited to the Shaker plan. If you rely on a complex tech stack, verify compatibility before committing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not Suitable for Corporate Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Podia lacks SSO, SCORM/xAPI support, bulk user management, and detailed reporting. It is not designed for corporate learning or academic institutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia keeps pricing simple with just two paid tiers. Both include unlimited courses, students, and bandwidth.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Monthly</th>
+            <th class="text-left py-3 px-4 font-semibold">Annual</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Mover</td>
+            <td class="py-3 px-4 text-slate-600">$39/mo</td>
+            <td class="py-3 px-4 text-slate-600">$33/mo ($396/year)</td>
+            <td class="py-3 px-4 text-slate-600">Getting started, testing ideas, smaller volumes</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Shaker</td>
+            <td class="py-3 px-4 text-slate-600">$89/mo</td>
+            <td class="py-3 px-4 text-slate-600">$75/mo ($900/year)</td>
+            <td class="py-3 px-4 text-slate-600">Established businesses, higher volume, zero transaction fees</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Key differences:</strong> Mover includes a 5% transaction fee; Shaker has 0% fees. Shaker adds Zoom webinars, affiliate marketing, PayPal integration, course certificates, and Zapier actions. Email marketing is free for the first 100 subscribers on both plans, with tiered pricing as your list grows.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Podia offers a 30-day free trial with access to all features and no credit card required. During the trial, transaction fees are 0%.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Note: Payment processing fees from Stripe or PayPal (approximately 2.9% + $0.30 per transaction) apply on top of any Podia fees.
+    </p>
+  </section>
+
+  <!-- How Podia Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Podia Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Podia stacks up against similar platforms you may be evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Podia", "Thinkific", "Kajabi", "Teachable", "Gumroad"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["All-in-one for solo creators", "Learning commerce & courses", "All-in-one marketing suite", "Course platform", "Simple digital downloads"] },
+        { feature: "Starting Price", values: ["$39/mo", "Free / $49/mo", "$119/mo", "Free / $59/mo", "Free (10% fee)"] },
+        { feature: "Transaction Fees", values: ["5% (Mover) / 0% (Shaker)", "0% on all plans", "0%", "5-10% (free) / 0% (paid)", "10% + processing"] },
+        { feature: "Email Marketing", values: ["Built-in (100 free)", "Requires integration", "Built-in", "Built-in (limited)", "Not included"] },
+        { feature: "Mobile App", values: ["None", "Available (Start+)", "Available", "Available", "None"] },
+        { feature: "Blog", values: ["Included", "Not included", "Included", "Not included", "Not included"] },
+        { feature: "Quizzes/Assessments", values: ["Basic only", "Advanced + AI", "Basic", "Basic-Moderate", "None"] },
+        { feature: "Coaching", values: ["Native", "Via integrations", "Via integrations", "Available", "Not included"] },
+        { feature: "Best For", values: ["Solo creators, coaches", "Course businesses, customer ed", "Marketing-heavy creators", "Course creators", "Simple digital products"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, product mix, and business goals."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Podia vs Thinkific", href: "/compare/podia-vs-thinkific", description: "Detailed comparison of two popular platforms for creators and course sellers." },
+    { title: "Podia vs Kajabi", href: "/compare/podia-vs-kajabi", description: "All-in-one simplicity vs marketing power: which fits your business?" },
+    { title: "Podia vs Teachable", href: "/compare/podia-vs-teachable", description: "Comparing two creator-friendly course platforms head-to-head." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "In-depth review of Thinkific for learning commerce and customer education." }
+  ]} />
+
+</ReviewLayout>

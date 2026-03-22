@@ -1,0 +1,153 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Branding & White-Label Options Compared (2026)",
+    "description": "Custom domains, branded apps, platform branding removal, and white-label reselling — how eight LMS platforms handle brand ownership, and which give you full control.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/branding-compared" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which LMS offers the best white-label branding?", "acceptedAnswer": { "@type": "Answer", "text": "For experts, Thinkific and Kajabi both offer custom domains plus branded mobile apps published under your own app store accounts. For enterprise white-label with multi-tenant portals, Docebo leads with Extended Enterprise portals each getting their own domain, branding, and visual identity." } },
+      { "@type": "Question", "name": "Which LMS platforms offer branded mobile apps?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific (Grow+), Kajabi (Growth+), LearnWorlds (Learning Center+), Docebo (Enterprise), and Absorb LMS offer fully branded native apps published under your own developer accounts. Teachable's app is published under Teachable's listing. Podia and TalentLMS do not offer branded apps." } },
+      { "@type": "Question", "name": "Can I remove 'Powered by' branding from my LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, on higher-tier plans. Thinkific (Growth+), Kajabi (all paid plans), Teachable (Pro+), LearnWorlds (Pro Trainer+), Podia (Shaker+), and all enterprise platforms allow full branding removal. Lower-tier plans typically show platform branding." } },
+      { "@type": "Question", "name": "Which LMS supports multi-tenant white-label reselling?", "acceptedAnswer": { "@type": "Answer", "text": "Docebo's Extended Enterprise is purpose-built for this — create multiple branded portals with separate domains, branding, and user management from one admin console. Absorb LMS offers similar multi-portal capabilities. Expert-focused platforms generally don't support true white-label reselling." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Branding & White-Label Options Compared (2026)"
+  description="Custom domains, branded apps, platform branding removal, and white-label reselling — how eight LMS platforms handle brand ownership, and which give you full control."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Branding Compared' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Branding & White-Label Options Compared (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Your brand is the reason learners trust you.</strong> When your LMS shows someone else's logo in the URL bar, the browser tab, or the mobile app store, it undermines that trust — sometimes subtly, sometimes not. White-labeling and branding capabilities vary enormously across learning platforms.
+  </p>
+
+  <KeyTakeaways items={[
+    "Most complete white-label for experts: Thinkific and Kajabi both offer custom domains plus branded mobile apps, giving you full visual control on web and mobile.",
+    "Best enterprise white-label: Docebo leads with multi-tenant white-labeling, extended enterprise portals, and deep visual customization for multiple brands.",
+    "Branded mobile apps are a key differentiator: Thinkific, Kajabi, and LearnWorlds publish fully branded apps under your accounts. Teachable's app lives under Teachable's listing. Podia has no app.",
+    "Every serious platform supports custom domains on paid plans — this is table stakes.",
+    "True white-label reselling (multi-tenant portals for clients) is only available on Docebo and Absorb. Expert-focused platforms don't support it.",
+    "Most limited branding: Podia and TalentLMS offer basic customization but make full white-labeling difficult."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Custom Domains</h2>
+    <p class="text-slate-700 mb-4">
+      Every platform in this comparison supports custom domains on paid plans — this is the minimum viable branding requirement. <strong>Thinkific, Kajabi, Teachable, LearnWorlds, Podia, Docebo, Absorb, and TalentLMS</strong> all support full CNAME/DNS setup with automatic SSL provisioning. The differences emerge in how deeply you can customize the experience beyond the URL.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Branded Mobile Apps</h2>
+    <p class="text-slate-700 mb-4">
+      Mobile apps are where branding matters most — the app name, icon, and store listing directly affect perceived professionalism.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> offers Branded Mobile — a no-code builder creating fully branded iOS and Android apps published under your developer accounts (Grow+). <strong>Kajabi</strong> offers equivalent branded apps on Growth+. <strong>LearnWorlds</strong> offers branded apps on Learning Center+ ($249/month). All three are genuine white-label apps — learners see your brand, not the platform's.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable</strong> has a branded iOS app, but it's published under Teachable's app store listing — learners download "Teachable" and find your school inside. <strong>TalentLMS</strong> similarly uses a generic TalentLMS app. <strong>Podia</strong> has no native mobile app at all — content is mobile-responsive web only. <strong>Docebo</strong> and <strong>Absorb</strong> offer enterprise-grade white-label apps with per-portal branding.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Removing Platform Branding</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> is cleanest — no "Powered by" badge on any paid plan. <strong>Thinkific</strong> removes it on Growth+. <strong>Teachable</strong> on Pro+. <strong>LearnWorlds</strong> on Pro Trainer+. <strong>Podia</strong> on Shaker ($89/month). <strong>Docebo</strong> and <strong>Absorb</strong> are fully white-label on all plans — enterprise software where white-labeling is expected.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need a fully branded learning platform?"
+    ctaDescription="Get a recommendation based on your branding requirements — custom domains, branded apps, multi-tenant portals, or complete white-label reselling."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">White-Label Reselling & Multi-Tenant Support</h2>
+    <p class="text-slate-700 mb-4">
+      Some organizations need to resell the LMS to their own clients, each with its own branding. <strong>Docebo</strong> excels here — its Extended Enterprise feature creates multiple branded portals from a single instance, each with unique domains, branding, content, and user management. <strong>Absorb LMS</strong> supports similar multi-portal configurations. <strong>TalentLMS</strong> supports branches with per-branch branding, but it's less sophisticated.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Expert-focused platforms generally don't support true white-label reselling. <strong>Thinkific Plus</strong> allows multiple sites under one account. <strong>LearnWorlds</strong> has a Network of Schools feature. <strong>Kajabi, Teachable, and Podia</strong> are single-site only.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Feature</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Podia</th>
+            <th class="py-3 px-2 text-navy font-semibold">Docebo</th>
+            <th class="py-3 px-2 text-navy font-semibold">Absorb</th>
+            <th class="py-3 px-2 text-navy font-semibold">TalentLMS</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Custom Domain</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Branded Mobile App</td><td class="py-2 px-2">✅ Grow+</td><td class="py-2 px-2">✅ Growth+</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅ $249+</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Remove Platform Badge</td><td class="py-2 px-2">✅ Growth+</td><td class="py-2 px-2">✅ All</td><td class="py-2 px-2">✅ Pro+</td><td class="py-2 px-2">✅ Pro+</td><td class="py-2 px-2">✅ $89+</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Multi-Tenant Portals</td><td class="py-2 px-2">⚠️ Plus</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">White-Label Reselling</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Bottom Line</h2>
+    <p class="text-slate-700 mb-4">
+      Branding capabilities should be a non-negotiable factor in your LMS decision. The gap between "custom domain with some color changes" and "fully white-labeled web and mobile experience" is significant. For expert-led businesses, the branded mobile app is increasingly important — Thinkific, Kajabi, and LearnWorlds all deliver genuine white-label apps. For enterprise and B2B scenarios, Docebo's multi-tenant architecture sets the standard.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need a fully branded learning platform?"
+    ctaDescription="Get a recommendation based on your branding requirements."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "Which LMS offers the best white-label branding?", answer: "For experts, Thinkific and Kajabi both offer custom domains plus branded mobile apps. For enterprise, Docebo leads with multi-tenant white-labeling and Extended Enterprise portals." },
+    { question: "Which LMS platforms offer branded mobile apps?", answer: "Thinkific (Grow+), Kajabi (Growth+), LearnWorlds (Learning Center+), Docebo, and Absorb offer fully branded native apps. Teachable's app is under Teachable's listing. Podia and TalentLMS do not offer branded apps." },
+    { question: "Can I remove 'Powered by' branding from my LMS?", answer: "Yes, on higher-tier plans. Kajabi removes it on all paid plans. Others require Growth/Pro tier or above. Enterprise platforms have no platform branding by default." },
+    { question: "Which LMS supports multi-tenant white-label reselling?", answer: "Docebo's Extended Enterprise is purpose-built for this. Absorb offers similar multi-portal capabilities. Expert-focused platforms generally don't support true white-label reselling." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "E-Commerce & Sales Features Compared", href: "/guides/ecommerce-compared", description: "How eight platforms handle payments, checkout, upsells, and affiliate programs." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for choosing the right LMS platform." }
+  ]} />
+
+</GuideLayout>

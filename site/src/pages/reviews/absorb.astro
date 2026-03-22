@@ -1,0 +1,414 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Absorb LMS suitable for small businesses?",
+    answer: "Not really. Absorb is built for mid-to-large enterprises with 500+ learners. Its pricing model, implementation process, and feature set are designed for organizations with dedicated L&D or HR teams. Small businesses and solopreneurs are better served by platforms like Thinkific, Teachable, or Kajabi that offer transparent pricing and self-service setup."
+  },
+  {
+    question: "How much does Absorb LMS cost?",
+    answer: "Absorb does not publish pricing. It uses a custom pricing model based on features, training program size, and support needs. Industry estimates suggest enterprise LMS platforms in this tier typically range from $800-$1,500/month for smaller deployments to $20,000-$50,000+/year for mid-market, with large enterprise deals in six figures annually. You'll need to contact sales for a quote."
+  },
+  {
+    question: "What is Absorb Aura?",
+    answer: "Absorb Aura is Absorb's suite of 17+ AI agents integrated into the LMS. Currently in beta are the Learner Agent (unified AI interface), Discovery Agent (AI-enhanced search), and Admin Assist (natural language admin tool). Coming soon are Aura Create (AI course builder) and Aura Q&A (on-demand answers from course content). It's an ambitious AI investment that distinguishes Absorb from many competitors."
+  },
+  {
+    question: "Can I sell courses with Absorb LMS?",
+    answer: "Yes. Absorb includes a PCI-compliant eCommerce module free with every instance, featuring 70+ payment gateways, multiple currencies, bulk/team license sales, and zero commission on transactions. However, it's designed for B2B training sales rather than B2C creator marketing — there are no landing page builders, sales funnels, or marketing automation tools."
+  },
+  {
+    question: "Is Absorb compliant with industry regulations?",
+    answer: "Yes. Absorb holds SOC 2 Type 2 certification, GDPR compliance, WCAG 2.0 accessibility compliance, and PCI compliance for payments. It also supports 21 CFR Part 11 for FDA e-signature requirements, making it suitable for regulated industries like pharmaceuticals, healthcare, and finance."
+  },
+  {
+    question: "How does Absorb compare to Thinkific?",
+    answer: "Absorb and Thinkific serve different markets. Absorb is an enterprise LMS for internal training, compliance, and large-scale customer education with deep HCM integrations and AI features. Thinkific is a learning commerce platform built for creators, coaches, and SMBs selling courses. Absorb excels at enterprise scale and compliance; Thinkific excels at marketing tools and speed to market. See our <a href='/compare/thinkific-vs-absorb' class='text-teal-dark hover:underline'>full Thinkific vs Absorb comparison</a> for details."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Absorb LMS",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.3",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "description": "An honest, in-depth review of Absorb LMS for enterprise training, compliance, customer education, and AI-powered learning."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Absorb LMS Review 2026: Enterprise AI-Powered Learning Platform"
+  description="An honest, in-depth review of Absorb LMS for enterprise training, compliance, customer education, and AI-powered learning. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Absorb LMS"
+  rating={4.3}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Absorb LMS' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Absorb LMS Review 2026: Enterprise AI-Powered Learning Platform</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.3 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-absorb">
+            <stop offset="30%" stop-color="#fbbf24" />
+            <stop offset="30%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-absorb)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.3 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Absorb LMS is a powerful, enterprise-grade learning platform with one of the most ambitious AI strategies in the market. It excels at internal training, compliance management, and large-scale customer education for organizations with 500+ learners. The platform's Absorb Aura AI suite, deep HCM integrations, and unified multi-audience architecture make it a strong choice for enterprises. However, opaque pricing, complex modular packaging, and a sales-led process make it ill-suited for small businesses or self-service buyers.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for L&D leaders, HR directors, training managers, and IT decision-makers evaluating enterprise LMS platforms. If you are comparing Absorb against other enterprise solutions like Docebo, Cornerstone, or SAP SuccessFactors, or weighing it against more accessible platforms like Thinkific, this review will help you understand where Absorb fits and where it falls short.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Absorb LMS is an enterprise-first platform built for organizations with 500 to 25,000+ learners, not small businesses or individual course creators.",
+    "The Absorb Aura AI suite represents one of the most aggressive AI investments in the LMS market, with 17+ planned agents including Learner Agent, Discovery Agent, and Admin Assist currently in beta.",
+    "Unified platform architecture supports employees, customers, and partners from a single system with separate portals — reducing multi-tool sprawl.",
+    "Enterprise compliance credentials are strong: SOC 2 Type 2, GDPR, WCAG 2.0, PCI, and 21 CFR Part 11 support for regulated industries.",
+    "Built-in eCommerce with zero commission is unusual for enterprise LMS, though it's B2B-focused rather than creator-marketing oriented.",
+    "Opaque pricing and a demo-first sales model create friction for comparison shoppers and rule out self-service buyers.",
+    "Most advanced AI features are still in beta or 'coming soon' — enterprise buyers may want to wait for general availability."
+  ]} />
+
+  <!-- What is Absorb LMS? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Absorb LMS?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb LMS is a cloud-based, AI-powered learning management system headquartered in Calgary, Canada. It positions itself as a "strategic learning system" — deliberately distinguishing itself from legacy LMS platforms, HCM training modules, and limited point solutions like LXPs.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform is designed to serve multiple audiences — employees, customers, partners, and members — from a single unified system. With 3,300+ customers including Sony, Johnson & Johnson, Samsung, Toyota, and Atlassian, Absorb has established itself as a credible enterprise player. It was named a Leader in the 2025 Forrester Wave for Learning Management Systems.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Absorb's core positioning centers on AI innovation through Absorb Aura, enterprise scalability, and compliance depth. The platform is modular, encompassing the core LMS plus optional products like Absorb Create (course authoring), Absorb Engage (engagement tools), Absorb Skills (competency management), Absorb Infuse (headless LMS), and Absorb Analyze (BI analytics).
+    </p>
+  </section>
+
+  <!-- Who is Absorb LMS Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Absorb LMS Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Absorb serves a specific buyer profile. Understanding whether you fit that profile will save you significant evaluation time:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-to-Large Enterprises</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with 500 to 25,000+ learners that need a centralized training platform for employees, customers, and partners. Absorb scales across departments and geographies with multi-portal support and international data centers.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Regulated Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies in pharmaceuticals, healthcare, finance, and food service that require strict compliance tracking, automated recertification, and regulatory adherence including SOC 2 Type 2, GDPR, and 21 CFR Part 11.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">L&D Teams with Complex Ecosystems</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations running Workday, SAP SuccessFactors, ADP, Salesforce, or other enterprise HCM/CRM systems who need deep, pre-built integrations rather than manual workarounds.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Companies Selling Training</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that monetize training through B2B sales and need built-in eCommerce with 70+ payment gateways, zero commission, and PCI compliance — without cobbling together third-party shopping carts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Internal Training & Compliance</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb's employee training capabilities include automated onboarding workflows that assign courses based on role, department, and location, with HRIS integration to auto-create learner profiles. The platform claims to reduce onboarding time by up to 40%. For compliance training, Absorb offers automated course scheduling for recertification, real-time compliance status monitoring, and e-signature capability for FDA 21 CFR Part 11 requirements.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">External Training & eCommerce</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb supports customer education with branded learning portals, self-service onboarding modules, and tailored training by use case and role. For partner enablement, the platform provides secure, separate portals for different partner groups with AI-suggested courses based on activity. The built-in eCommerce module comes free with every instance, featuring PCI compliance, 70+ payment gateways, multiple currencies, and zero commission on transactions — unusual for an enterprise LMS.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Authoring & Content</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb Create is a built-in course builder with generative AI capabilities that can create courses from prompts, add quizzes, videos, translations, and voice-overs. For organizations that don't want to build content from scratch, Absorb Amplify provides a library of 20,000+ pre-built courses across multiple industries, pre-tagged to skills.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Features: Absorb Aura</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb Aura is the platform's flagship AI initiative — a suite of 17+ AI agents. Currently in beta are the Aura Learner Agent (unified interface for all AI agents), Aura Discovery Agent (AI-enhanced search with bite-sized micro-learning), and Aura Admin Assist (natural language admin tool). Coming soon are Aura Create (AI course builder from prompts and documents) and Aura Q&A (on-demand answers from enrolled content). This represents one of the most ambitious AI strategies in the LMS market.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb offers pre-built report templates for learner activity, progress, competencies, course activity, and ILC sessions. Reports are highly configurable with custom columns, dynamic date filters, and scheduled distribution. The proprietary Search Analytics Report identifies content gaps by analyzing learner search behavior. For advanced needs, Absorb Analyze provides BI dashboards and personalized visualizations, while optional direct database access gives analytics teams raw SQL access.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations & API</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb provides 40+ pre-built integrations including ADP, Workday, SAP SuccessFactors, Salesforce, BambooHR, Zoom, and Credly. The RESTful API and webhooks enable custom integrations, while Absorb Infuse allows embedding microlearning directly into third-party applications via a headless LMS approach.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise AI Leadership</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Absorb Aura's 17+ planned AI agents represent one of the most ambitious AI investments in the LMS market. The native integration of these agents into the platform (rather than bolted-on third-party AI) positions Absorb well for organizations wanting AI-forward learning technology.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unified Multi-Audience Platform</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Absorb's ability to serve employees, customers, and partners from a single system with separate portals reduces the tool sprawl common in larger organizations. This unified architecture simplifies administration and provides consistent reporting across all learning audiences.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Compliance & Security</h3>
+        <p class="text-slate-700 leading-relaxed">
+          SOC 2 Type 2 certification, GDPR compliance, WCAG 2.0 accessibility, and 21 CFR Part 11 support make Absorb suitable for regulated industries. The security posture and compliance automation are genuine differentiators for organizations in healthcare, pharmaceuticals, and finance.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Library Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The 20,000+ course library via Absorb Amplify, combined with integrations to Go1, SkillSoft, Traliant, and LinkedIn Learning, provides options for organizations that need off-the-shelf content rather than building everything from scratch.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Built-in eCommerce</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike most enterprise LMS platforms that treat eCommerce as an expensive add-on, Absorb includes PCI-compliant eCommerce free with every instance. The zero-commission model and 70+ payment gateway options make it genuinely useful for training monetization.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Integration Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Deep pre-built integrations with enterprise HCM and CRM staples (Workday, SAP, ADP, Salesforce) save significant implementation time compared to platforms requiring custom API work for these connections.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Absorb May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Absorb May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging where Absorb falls short. Here are the key limitations:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Small Businesses and Solopreneurs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Absorb is fundamentally not designed for small organizations or individual course creators. The platform requires dedicated admin resources, the pricing model is enterprise-focused, and the implementation process assumes organizational complexity. Creators should look at Thinkific, Teachable, or Kajabi instead.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Opaque Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The lack of public pricing creates friction for comparison shoppers and makes budgeting difficult. The "contact sales" model is standard for enterprise software but eliminates self-service evaluation and creates uncertainty about whether the platform fits your budget.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">AI Maturity Timeline</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Absorb Aura's vision is ambitious, most of the advanced agents are still in beta or "coming soon." Enterprise buyers making AI a core requirement may want to wait for general availability and proven reliability before committing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Marketing & Sales Tools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Absorb's eCommerce is functional for B2B training sales but lacks the marketing sophistication of learning commerce platforms. There are no landing page builders, sales funnels, email marketing tools, or community features. If marketing and customer acquisition are central to your strategy, this is a significant gap.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Modular Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Absorb ecosystem includes LMS, Create, Engage, Skills, Infuse, Amplify, Analyze, and Aura — understanding what's included versus add-on can be confusing. Buyers need to carefully audit their quotes to understand exactly which modules they're purchasing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Absorb does not publish pricing. The platform uses a custom pricing model based on features, training program size, and support needs. Pricing tiers on their form range from 1-50 learners up to 25,000+.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Component</th>
+            <th class="text-left py-3 px-4 font-semibold">Pricing Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Core LMS</td>
+            <td class="py-3 px-4 text-slate-600">Custom pricing based on learner count and features</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">eCommerce</td>
+            <td class="py-3 px-4 text-slate-600">Included free with every instance, zero commission</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Absorb Analyze (BI)</td>
+            <td class="py-3 px-4 text-slate-600">Add-on option</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Direct Database Access</td>
+            <td class="py-3 px-4 text-slate-600">Add-on option</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Absorb Amplify (Content)</td>
+            <td class="py-3 px-4 text-slate-600">Three tiers (Amplify, Plus, Max) — likely additional cost</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500">
+      Industry estimates suggest enterprise LMS platforms in this tier typically range from $800-$1,500/month for smaller deployments to $20,000-$50,000+/year for mid-market, with large enterprise deals in six figures annually. Contact Absorb directly for a quote.
+    </p>
+  </section>
+
+  <!-- How Absorb Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Absorb Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's a high-level view of how Absorb stacks up against other platforms you're likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Absorb", "Thinkific", "Docebo", "LearnWorlds", "Cornerstone"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Enterprise internal & external training", "Learning commerce & customer education", "Enterprise multi-audience training", "Learning commerce & site building", "Enterprise HCM & talent management"] },
+        { feature: "Learner Scale", values: ["500 - 100,000+", "1 - 10,000", "500 - 100,000+", "1 - 10,000", "1,000 - 500,000+"] },
+        { feature: "AI Features", values: ["Deep (Aura 17+ agents)", "Growing (AI site builder, quiz)", "AI features", "AI tools available", "AI features"] },
+        { feature: "Compliance", values: ["SOC 2, GDPR, 21 CFR Part 11", "Basic", "Strong", "Basic", "Enterprise-grade"] },
+        { feature: "eCommerce", values: ["Built-in B2B, zero commission", "Core strength B2C/B2B", "Limited", "Strong B2C", "Limited"] },
+        { feature: "HCM Integrations", values: ["Deep (Workday, SAP, ADP)", "Basic", "Deep", "Limited", "Deep (native HCM)"] },
+        { feature: "Content Library", values: ["20,000+ courses", "None built-in", "Available", "Available", "Extensive"] },
+        { feature: "Pricing Model", values: ["Custom / contact sales", "Transparent, self-serve", "Custom", "Transparent", "Custom"] },
+        { feature: "Best For", values: ["Enterprise L&D, compliance, AI", "Academies, learning businesses", "Enterprise learning ops", "Branded learning sites", "Large enterprise talent"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Absorb LMS", href: "/compare/thinkific-vs-absorb", description: "How Thinkific compares to Absorb for customer training and beyond." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "An in-depth review of Thinkific for learning commerce and customer education." },
+    { title: "Docebo vs Absorb LMS", href: "/compare/docebo-vs-absorb", description: "Two enterprise LMS leaders compared head-to-head." },
+    { title: "Best LMS for Customer Training", href: "/guides/best-lms-customer-training", description: "A comprehensive guide to platforms for customer education." }
+  ]} />
+
+</ReviewLayout>

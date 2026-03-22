@@ -1,0 +1,409 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Kajabi an LMS?",
+    answer: "Kajabi includes course hosting and delivery features, but it is not a traditional LMS. It positions itself as an all-in-one business platform for knowledge entrepreneurs. While it handles course creation, assessments, and student progress tracking, it lacks enterprise LMS features like SCORM compliance, SSO, and advanced compliance reporting. If you need a corporate learning management system, Kajabi is probably not the right fit. But if you are a coach, consultant, or expert looking to monetize knowledge, it covers that territory well."
+  },
+  {
+    question: "How much does Kajabi cost?",
+    answer: "Kajabi starts at $149/month ($119/month when paid annually) for the Basic plan, which includes 3 products and 10,000 contacts. The Growth plan at $199/month ($159 annually) offers 15 products and advanced automation. The Pro plan at $399/month ($319 annually) supports 100 products and 3 websites. All plans include unlimited landing pages, marketing emails, and 0% transaction fees. A branded mobile app add-on is available for approximately $199/month additional."
+  },
+  {
+    question: "Does Kajabi have transaction fees?",
+    answer: "No. Kajabi charges 0% transaction fees on all plans. You keep 100% of your revenue, minus standard payment processor fees from Stripe or PayPal (typically 2.9% + $0.30 per transaction). This is a significant advantage over some competitors who take a percentage of sales."
+  },
+  {
+    question: "Can I do email marketing in Kajabi?",
+    answer: "Yes. Kajabi includes a full-featured email marketing platform with broadcasts, sequences, visual automation builders, and behavioral triggers. You can tag subscribers based on actions, create complex nurture sequences, and build sales funnels without needing a separate email service provider. This is one of Kajabi's strongest differentiators."
+  },
+  {
+    question: "Does Kajabi support coaching programs?",
+    answer: "Yes. Kajabi offers native coaching management features including 1:1 and group coaching session booking, client intake forms, session notes, and package-based coaching products (e.g., '6-session package'). This is a unique strength that few competitors offer at this level of integration."
+  },
+  {
+    question: "How does Kajabi compare to Thinkific?",
+    answer: "Kajabi is the marketer's platform — it sells courses exceptionally well with built-in funnels, email automation, and affiliate management. Thinkific is the educator's platform — it delivers learning exceptionally well with more robust course features, assessments, and student experience design. Choose Kajabi if marketing automation and having an all-in-one tool are priorities. Choose Thinkific if student learning experience and more affordable pricing matter more. See our <a href='/compare/kajabi-vs-thinkific' class='text-teal-dark hover:underline'>full Kajabi vs Thinkific comparison</a> for a detailed breakdown."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Kajabi",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.3",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "description": "An honest, in-depth review of Kajabi for coaches, consultants, and experts building knowledge businesses."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Kajabi Review 2026: All-in-One Platform for Knowledge Businesses"
+  description="An honest, in-depth review of Kajabi for coaches, consultants, and experts building knowledge businesses. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Kajabi"
+  rating={4.3}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Kajabi' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Kajabi Review 2026: All-in-One Platform for Knowledge Businesses</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.3 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star">
+            <stop offset="30%" stop-color="#fbbf24" />
+            <stop offset="30%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.3 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Kajabi is the most integrated all-in-one platform for coaches, consultants, and experts who want to monetize their knowledge without stitching together multiple tools. Its combination of course hosting, email marketing, sales funnels, and coaching management is genuinely powerful. However, the premium pricing and limited course pedagogy mean it is not the right fit for everyone. If marketing automation and speed to launch matter more than advanced learning features, Kajabi deserves serious consideration.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for coaches, consultants, experts, and knowledge entrepreneurs evaluating Kajabi as the foundation for their online business. If you are comparing Kajabi against course platforms, email marketing tools, and website builders and trying to figure out whether an all-in-one approach makes sense, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Kajabi is best understood as an all-in-one business platform for knowledge entrepreneurs, not a traditional LMS. It replaces your website builder, email marketing tool, course platform, and coaching software.",
+    "Marketing automation is Kajabi's standout strength. Email sequences, behavioral triggers, and sales funnels rival standalone marketing platforms like ConvertKit or ActiveCampaign.",
+    "Native coaching management is a unique differentiator. 1:1 and group coaching scheduling, intake forms, and client management are built into the platform.",
+    "Pricing starts at $119/month (annual), making it one of the more expensive entry points. This is a platform for established businesses, not hobbyists testing the waters.",
+    "Course pedagogy is limited compared to dedicated learning platforms. No SCORM compliance, basic quizzing, and rigid content structure may frustrate advanced instructional designers.",
+    "0% transaction fees on all plans means you keep 100% of revenue (minus payment processor fees)."
+  ]} />
+
+  <!-- What is Kajabi? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Kajabi?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi is an all-in-one platform designed for knowledge entrepreneurs — coaches, consultants, creators, and experts who want to turn their expertise into revenue. Its core promise is replacing your entire tech stack with a single integrated solution: website builder, email marketing, course hosting, community platform, and sales funnels all in one place.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike platforms that lead with "learning management," Kajabi leads with business-building. Their messaging emphasizes stopping the practice of duct-taping together multiple software tools. The platform is built for people who see their knowledge as a business asset and want to monetize it through courses, coaching, memberships, and digital products.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Kajabi heavily markets customer success stories through their "Kajabi Hero" program, celebrating creators who hit revenue milestones like $1K, $10K, and $100K+. This revenue-focused culture permeates the platform, from the feature set to the community. It is cloud-hosted and managed, meaning no server management, no plugin conflicts, and a faster path from idea to launch compared to self-hosted alternatives.
+    </p>
+  </section>
+
+  <!-- Who is Kajabi Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Kajabi Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Kajabi works best for specific buyer profiles. It is not a universal solution. Here is where it fits:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Established Coaches & Consultants</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Professionals with existing audiences who want to package their expertise into courses, group programs, or coaching packages. Kajabi's native coaching management and intake forms streamline client onboarding and session management.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Revenue-Focused Experts</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Subject matter experts who prioritize marketing automation, sales funnels, and conversion optimization. Kajabi's built-in email marketing and behavioral triggers support sophisticated nurture sequences without third-party tools.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Multi-Offer Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Businesses selling a mix of courses, memberships, and coaching. Kajabi handles these product types natively and allows you to bundle them, gate community access based on purchase, and manage everything from one dashboard.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Tech-Averse Professionals</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          People who want one platform, not a Frankenstein stack of WordPress plugins, email tools, and course software. Kajabi's integration means data flows seamlessly between your website, email list, and course content without Zapier connections.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation & Content Delivery</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi offers a visual, drag-and-drop course builder with a module/lesson structure. It supports video (via unlimited Wistia hosting), audio, text, downloads, and assessments. You can create online courses, coaching programs, memberships, podcasts, and digital downloads. Drip content is available based on time or milestones. The builder prioritizes speed to launch over granular instructional design — it is polished and professional out-of-the-box but lacks advanced pedagogical features.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Marketing & Sales Tools</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      This is where Kajabi distinguishes itself most strongly. The platform includes a full email marketing system with sequences, broadcasts, and a visual automation builder. Pre-built "Blueprint" funnels guide users from freebie to nurture to offer. Landing pages are unlimited on all plans with an extensive template library. Behavioral triggers allow actions like "if watched 50% of video, send X email" without third-party tools. Affiliate management is built-in on Growth plans and above.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Community Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi Communities (acquired from Vibely in 2022) provides a feed-based community experience similar to Facebook Groups. It includes challenges, leaderboards, Circle-style subgroups, and live video capabilities. Communities are deeply integrated with products — you can gate access to specific circles based on purchase. The mobile app provides access to community content on the go.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Coaching Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native coaching features include 1:1 and group coaching session booking, client intake forms, session management and notes, calendar integration, and package-based coaching products (e.g., "6-session package"). Few competitors offer this level of native coaching management, making it a genuine differentiator for coaches and consultants.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi provides revenue and sales tracking, email performance metrics (open rates, click rates), video analytics (watch time, completion rates), product progress tracking, and affiliate reporting. Benchmarking data lets you compare against industry averages. The analytics are functional for most knowledge businesses but not as deep as dedicated analytics platforms or enterprise LMS reporting.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Website & Mobile</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi includes a full website builder with blog functionality, custom domains, and unlimited landing pages. The free Kajabi Mobile App allows students to access content, communities, and coaching. A branded mobile app add-on (~$199/month) provides a fully white-labeled iOS/Android experience with offline content access.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">True All-in-One Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The deepest integration between marketing and delivery in the market. When a student watches 50% of a video, that can trigger an abandonment email sequence — no Zapier required. Data flows seamlessly between your website, email list, courses, and coaching calendar.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Marketing Automation Sophistication</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Email sequences, behavioral triggers, funnel blueprints, and tagging rival standalone marketing platforms like ConvertKit or ActiveCampaign. This is Kajabi's core moat and genuinely reduces the need for separate email software.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Native Coaching Management</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Few competitors offer built-in 1:1 and group coaching scheduling, intake forms, session notes, and package management. For coaches and consultants, this eliminates the need for separate coaching software like CoachAccountable or PracticeBetter.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Speed to Launch</h3>
+        <p class="text-slate-700 leading-relaxed">
+          From zero to live course plus sales funnel can happen in hours, not weeks. Templates are polished and conversion-optimized. The managed hosting and integrated nature of the platform removes technical friction.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Revenue-Focused Culture</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The "Kajabi Hero" program, revenue milestones, and success story marketing create a community of monetization-focused creators. The platform is built by people who understand the knowledge business model.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Transaction Fees</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Kajabi takes 0% on all plans. You keep 100% of revenue (minus standard Stripe/PayPal processing fees) even on the lowest tier. This is a meaningful advantage over platforms that take a percentage of sales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Kajabi May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Kajabi May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      No platform is right for everyone. Here is where Kajabi falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Advanced Course Pedagogy</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Kajabi lacks SCORM/xAPI compliance, advanced assessment types (hotspot, scenario-based, proctored exams), peer review workflows, and complex learning paths. If you need sophisticated instructional design features, look elsewhere.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Budget-Conscious Creators</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Starting at $119/month (annual) makes it one of the most expensive entry points. Not viable for hobbyists or creators testing the waters with sub-$1K annual revenue. The contact limits at each tier can also force expensive upgrades.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise & Corporate L&D</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No SSO/SAML, limited user management, no bulk student actions, and surface-level reporting compared to corporate LMS platforms. Academic institutions and corporate training teams should look at dedicated enterprise solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Multi-Instructor Marketplaces</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Kajabi is single-brand focused. While it supports multiple admin users, it is not designed for marketplaces where many instructors sell their own courses under a shared platform. Revenue splitting and instructor-specific analytics are limited.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Design Customization on Lower Tiers</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While templates look great, deep customization requires the Pro plan plus developer skills. Lower tiers have limited design flexibility. If you want complete control over the look and feel without upgrading, you may feel constrained.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Kajabi's pricing is structured across three main tiers. All plans include unlimited landing pages, marketing emails, and 0% transaction fees:
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Price (Annual)</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Basic</td>
+            <td class="py-3 px-4 text-slate-600">$119/month</td>
+            <td class="py-3 px-4 text-slate-600">Solo creators getting started; 3 products, 10,000 contacts</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Growth</td>
+            <td class="py-3 px-4 text-slate-600">$159/month</td>
+            <td class="py-3 px-4 text-slate-600">Established businesses; 15 products, advanced automation, affiliate tools</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Pro</td>
+            <td class="py-3 px-4 text-slate-600">$319/month</td>
+            <td class="py-3 px-4 text-slate-600">Multi-brand businesses; 100 products, 3 websites, custom code</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500">
+      Note: Monthly pricing is approximately 25% higher if not paid annually. Branded mobile app is an additional ~$199/month. All plans incur standard payment processor fees (~2.9% + $0.30) but no Kajabi transaction fees.
+    </p>
+  </section>
+
+  <!-- How Kajabi Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Kajabi Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how Kajabi stacks up against other platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["Kajabi", "Thinkific", "Teachable", "LearnWorlds", "Circle"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["All-in-one knowledge business", "Learning commerce & delivery", "Course creation & sales", "Branded learning sites", "Community & memberships"] },
+        { feature: "Starting Price", values: ["$119/mo (annual)", "$49/mo (annual)", "$59/mo (annual)", "$79/mo (annual)", "$49/mo (annual)"] },
+        { feature: "Built-in Email Marketing", values: ["Full-featured", "Limited", "Basic", "Available", "Limited"] },
+        { feature: "Transaction Fees", values: ["0%", "0%", "0% (paid plans)", "0%", "0%"] },
+        { feature: "Native Coaching", values: ["Strong", "Limited", "Limited", "Available", "Not core"] },
+        { feature: "Community Features", values: ["Built-in", "Built-in", "Limited", "Available", "Core strength"] },
+        { feature: "Course Pedagogy", values: ["Basic", "More robust", "Basic", "Advanced", "Not applicable"] },
+        { feature: "Sales Funnels", values: ["Built-in Blueprints", "Available", "Available", "Available", "Limited"] },
+        { feature: "Best For", values: ["Coaches, experts, all-in-one seekers", "Course creators, academies", "Solo course creators", "Branded learning sites", "Community-first businesses"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether Kajabi fits your business?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, audience size, and revenue goals."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Kajabi vs Thinkific", href: "/compare/kajabi-vs-thinkific", description: "All-in-one business platform vs learning-first course delivery: which fits your needs?" },
+    { title: "Kajabi vs Teachable", href: "/compare/kajabi-vs-teachable", description: "Two popular course platforms compared for features, pricing, and best use cases." },
+    { title: "Kajabi vs LearnWorlds", href: "/compare/kajabi-vs-learnworlds", description: "All-in-one convenience vs advanced learning site customization." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "In-depth review of Thinkific for customer education and learning businesses." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,412 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is TalentLMS an LMS?",
+    answer: "Yes, TalentLMS is a cloud-based learning management system developed by Epignosis. It is designed primarily for internal corporate training, including employee onboarding, compliance training, and customer education. Unlike course-selling platforms, TalentLMS focuses on organizational training delivery rather than eCommerce."
+  },
+  {
+    question: "Is TalentLMS good for customer training?",
+    answer: "TalentLMS can work for customer training through its multi-tenant branch system, which allows you to create separate portals for different audiences. However, it lacks the eCommerce features, marketing tools, and sales funnel capabilities of platforms specifically built for selling courses. If customer training is secondary to internal training, it works well. If selling courses is your primary business, consider alternatives like Thinkific or LearnWorlds."
+  },
+  {
+    question: "What is TalentCraft?",
+    answer: "TalentCraft is TalentLMS's AI-powered content creation suite. It includes AI test generation, AI course translation into 40+ languages, an AI Coach that provides real-time learner guidance, AI-assisted writing, auto-generated course thumbnails, and AI video captions. These tools are designed to reduce content creation time and support global training programs."
+  },
+  {
+    question: "How much does TalentLMS cost?",
+    answer: "TalentLMS offers a free plan for up to 5 users and 10 courses. Paid plans start at $119/month (annual) for the Core plan with up to 40 users, $229/month for the Grow plan with up to 70 users, and $449/month for the Pro plan with up to 100 users. Enterprise pricing is custom for 1,000+ users. Pricing scales based on active users, not total registered users."
+  },
+  {
+    question: "Can I white-label TalentLMS?",
+    answer: "Yes. TalentLMS supports white-labeling on all paid plans, including custom domains, SSL certificates, and the ability to remove TalentLMS branding. The branch system also allows you to create separately branded portals for different departments, clients, or audiences."
+  },
+  {
+    question: "How does TalentLMS compare to Thinkific?",
+    answer: "TalentLMS and Thinkific serve different purposes. TalentLMS is built for internal organizational training with features like SCORM compliance, multi-tenancy, and skills tracking. Thinkific is built for selling courses online with robust eCommerce, marketing tools, and community features. Choose TalentLMS for employee training; choose Thinkific for building a course business. See our <a href='/compare/talentlms-vs-thinkific' class='text-teal-dark hover:underline'>full TalentLMS vs Thinkific comparison</a> for details."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TalentLMS Review 2026: Corporate Training Platform for Employee & Compliance Training",
+    "description": "An honest, in-depth review of TalentLMS for employee training, compliance, and customer education. Who it's best for, key strengths, limitations, and pricing.",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lms-guide.com/reviews/talentlms"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="TalentLMS Review 2026: Corporate Training Platform for Employee & Compliance Training"
+  description="An honest, in-depth review of TalentLMS for employee training, compliance, and customer education. Who it's best for, key strengths, limitations, and pricing."
+  platformName="TalentLMS"
+  rating={4.3}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'TalentLMS' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">TalentLMS Review 2026: Corporate Training Platform for Employee & Compliance Training</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.3 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partially filled) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="30%" stop-color="#fbbf24" />
+            <stop offset="30%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.3 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> TalentLMS is a solid choice for small-to-midsize organizations that need to deploy training quickly without heavy IT involvement. It excels at internal employee training, compliance management, and multi-tenant training across departments or clients. The AI-powered content tools and ready-made course library are genuine differentiators. However, if your primary goal is selling courses to the public or building a learning business, TalentLMS is not the right fit — it is built for organizational training, not eCommerce.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for HR leaders, L&D managers, training coordinators, and operations teams evaluating TalentLMS for employee onboarding, compliance training, and customer education. If you are comparing TalentLMS against enterprise LMS platforms or course-selling tools and trying to understand where it actually fits, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "TalentLMS is built for internal organizational training, not selling courses online. Its strength is employee onboarding, compliance, and multi-audience training.",
+    "Exceptional speed to launch — most organizations can deploy training in days rather than months with minimal IT involvement.",
+    "AI-powered tools through TalentCraft reduce content creation time significantly, including auto-generated tests and 40+ language translation.",
+    "Multi-tenant branch system is a standout feature for organizations training multiple departments, clients, or external partners.",
+    "1,000+ ready-made courses in TalentLibrary eliminate the blank-page problem for new LMS adopters.",
+    "Not suitable for course creators or edupreneurs — limited eCommerce, marketing tools, and community features compared to learning commerce platforms."
+  ]} />
+
+  <!-- What is TalentLMS? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is TalentLMS?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLMS is a cloud-based learning management system developed by Epignosis, a learning technology vendor with over 15 years in the eLearning business. Headquartered across San Francisco, London, and Athens, Epignosis serves customers in 30+ industries across 124+ countries, including notable names like Amazon, Meta, eBay, OpenAI, and Deliveroo.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform positions itself as "the fastest path to better training" — a lean, intuitive LMS designed for rapid deployment without heavy IT involvement. Its core promise is getting a "yes" from everyone: C-level executives concerned with ROI, budget managers watching costs, and busy employees who need training that fits their workflow.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Unlike course-selling platforms that focus on eCommerce and marketing, TalentLMS is purpose-built for organizational training. It supports SCORM and xAPI content standards, offers robust compliance tracking, and provides multi-tenancy through its branch system. The platform is particularly strong for small-to-midsize businesses that need enterprise-grade training capabilities without enterprise-level complexity or budget.
+    </p>
+  </section>
+
+  <!-- Who is TalentLMS Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is TalentLMS Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      TalentLMS serves several buyer profiles, but it is not a universal solution. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Small-to-Midsize Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with 10–1,000 employees that need to deploy training quickly without dedicated IT resources. HR and L&D teams can self-administer the platform, making it ideal for growing organizations that need to scale training without platform migration.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Compliance-Heavy Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations in manufacturing, healthcare, financial services, and retail that need audit-ready compliance training, certification tracking with expiration dates, and automated re-certification workflows. The reporting tools are built for regulatory requirements.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Multi-Audience Training Programs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that need to train multiple distinct audiences — employees, channel partners, franchisees, or customers — through separate branded portals. The branch system allows each audience to have its own customized experience while centralizing administration.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Global Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with distributed workforces across multiple countries that need AI-powered translation into 40+ languages, localized content delivery, and mobile access for remote or field-based employees.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation & Content Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLMS supports a wide range of content types including videos, PDFs, audio, presentations, SCORM 1.2, xAPI (Tin Can), and cmi5. The built-in TalentCraft editor provides WYSIWYG course building with layouts, media options, and assessments. File uploads go up to 600MB on paid plans, and the platform offers unlimited total storage.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI-Powered Content Tools (TalentCraft)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLMS has invested heavily in AI to reduce content creation friction. AI test creation generates quizzes from content units or prompts. AI course translation clones and translates entire courses into 40+ languages instantly. The AI Coach provides real-time guidance, summaries, and practice inside courses. AI-assisted writing, auto-generated thumbnails, and AI video captions round out the suite.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Multi-Tenancy & Branches</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The branch system is a genuine differentiator. Core plans include 1 branch, Grow includes 3, Pro includes 15, and Enterprise offers unlimited branches. Each branch acts as an independent training portal with custom branding, separate course catalogs, and independent reporting. This makes TalentLMS ideal for extended enterprise training scenarios.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Ready-Made Content Library</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLibrary provides 1,000+ expert-authored courses covering soft skills, compliance, workplace safety, sales, and customer service. This eliminates the "blank page" problem for organizations launching their first training programs and provides immediate value while custom content is being developed.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Gamification & Engagement</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform includes points, badges, and leaderboards to drive engagement. Custom badges can be created, and gamification settings are configurable per course. This works particularly well for sales team training and competitive onboarding scenarios.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting & Compliance</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLMS provides course-level and user-level reports, completion tracking, custom reports and dashboards on higher tiers, and scheduled reports via email. Certification tracking includes expiration dates and automated re-certification workflows. Data is exportable for external compliance audits.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations & SSO</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native integrations include Salesforce, HubSpot, BambooHR, Zoom, GoToMeeting, Microsoft Teams, Shopify, Stripe, and PayPal. Zapier connects to 750+ additional apps. Technical integrations include REST API, SAML 2.0, LDAP, OpenID Connect for SSO, LTI 1.3 support, and webhooks.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Exceptional Speed to Launch</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations can set up and launch training in days rather than months. The platform requires minimal IT involvement — HR and L&D teams can self-administer without technical expertise. This translates to faster time-to-value compared to enterprise LMS implementations that often take quarters to deploy.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Affordable & Scalable Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The free plan allows small teams to test the platform, while paid plans offer competitive pricing compared to enterprise alternatives. The active user pricing model means you only pay for users who actually log in each month, not total registered users. A 20% nonprofit discount and transparent pricing with no setup fees add to the value proposition.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Strong Multi-Tenancy</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The branch system is genuinely useful for organizations training multiple audiences. Each branch can have custom branding, independent course catalogs, and separate reporting while maintaining centralized administration. This is ideal for franchisors, companies with channel partners, or organizations training both employees and customers.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">AI-Powered Efficiency</h3>
+        <p class="text-slate-700 leading-relaxed">
+          TalentCraft's AI tools meaningfully reduce content creation time. Auto-generating tests from existing content, translating courses into 40+ languages instantly, and providing an AI Coach for learner support are capabilities that many competitors lack or charge extra for.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ready-Made Content</h3>
+        <p class="text-slate-700 leading-relaxed">
+          TalentLibrary's 1,000+ courses provide immediate training value while custom content is being developed. For compliance-heavy industries, having pre-built safety, POSH, and workplace skills courses accelerates program launch and ensures coverage of standard training requirements.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Robust Standards Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Full SCORM 1.2, xAPI, and cmi5 support makes TalentLMS compatible with third-party authoring tools like Articulate, iSpring, and Adobe Captivate. This is essential for organizations with existing eLearning content libraries or those purchasing off-the-shelf compliance courses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where TalentLMS May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where TalentLMS May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      No platform is right for everyone. Here is where TalentLMS falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not Designed for Selling Courses</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is the most critical gap. While Stripe and PayPal integrations exist, TalentLMS is fundamentally built for internal training, not eCommerce. It lacks marketing tools, sales funnels, lead generation capabilities, and affiliate programs. If selling courses is your primary business model, you will outgrow TalentLMS quickly. As their CTO has noted: "We offer some integrations with payment gateways... but it is not our main focus."
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Visual Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The UI is functional but basic — described by users as "not modern or visually rich." Customization beyond colors and logos requires CSS/JavaScript knowledge. The learner dashboard offers limited customization, and the course player is less polished than consumer-facing platforms. For organizations where brand experience is paramount, this may be a significant limitation.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Basic Community Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          TalentLMS lacks built-in community discussion forums and native social learning features. Discussion boards are basic and cannot foster robust learner interaction. If peer-to-peer learning, cohort-based engagement, or community building are important to your training strategy, you will need to integrate third-party tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Reporting Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While reporting is functional for compliance tracking, TalentLMS lacks strategic insights like skill-readiness scores and built-in training ROI calculators. Data visualization could be more insightful, and organizations needing advanced analytics may need to supplement with BI tools or export data for external analysis.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not for Large Enterprises</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations with 10,000+ employees requiring complex hierarchies, deep ERP integration (SAP, Workday), or advanced talent management/LXP features will find TalentLMS limiting. While Enterprise plans exist, the platform is optimized for small-to-midsize organizations rather than massive global enterprises with sophisticated learning operations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      TalentLMS pricing is structured across five tiers based on active users and feature depth:
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Free</td>
+            <td class="py-3 px-4 text-slate-600">Up to 5 users, 10 courses — testing and small pilots only</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Core</td>
+            <td class="py-3 px-4 text-slate-600">Small teams (up to 40 users), 1 branch, SSO support, API access</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Grow</td>
+            <td class="py-3 px-4 text-slate-600">Growing orgs (up to 70 users), 3 branches, live chat support, HubSpot integration</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Pro</td>
+            <td class="text-slate-600 py-3 px-4">Mid-size orgs (up to 100 users), 15 branches, unlimited learning paths, dedicated Account Manager</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">Large organizations (1,000+ users), unlimited branches, custom SLAs, white-glove support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500">
+      Pricing shown is for annual billing (20% savings vs. monthly). TalentLMS charges based on active users who log in each month, not total registered users. Visit TalentLMS's website for current pricing.
+    </p>
+  </section>
+
+  <!-- How TalentLMS Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How TalentLMS Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is a high-level view of how TalentLMS stacks up against other platforms you are likely evaluating:
+    </p>
+
+    <ComparisonTable
+      headers={["TalentLMS", "Thinkific", "Docebo", "Absorb", "LearnDash"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Internal corporate training", "Learning commerce & course sales", "Enterprise multi-audience training", "Enterprise internal & external training", "WordPress-based course delivery"] },
+        { feature: "Best For", values: ["Employee onboarding, compliance", "Academies, customer ed, learning businesses", "Enterprise learning ops", "Enterprise training programs", "WordPress-native course creators"] },
+        { feature: "Multi-Tenancy", values: ["Strong (branches)", "Not available", "Strong", "Strong", "Via multisite"] },
+        { feature: "SCORM/xAPI", values: ["Full support", "Not supported", "Full support", "Full support", "Via plugins"] },
+        { feature: "eCommerce", values: ["Limited (integrations)", "Strong native", "Limited", "Limited", "Via plugins"] },
+        { feature: "AI Features", values: ["TalentCraft suite", "Thinker AI assistant", "AI features", "AI features", "Limited"] },
+        { feature: "Content Library", values: ["1,000+ courses included", "Not included", "Varies", "Varies", "Not included"] },
+        { feature: "Ease of Setup", values: ["Fast, managed hosting", "Fast, managed hosting", "Implementation required", "Implementation required", "Requires WordPress setup"] },
+        { feature: "Community", values: ["Basic forums", "Built-in communities", "Available", "Limited", "Via plugins"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "TalentLMS vs Thinkific", href: "/compare/talentlms-vs-thinkific", description: "Corporate training vs learning commerce: which platform fits your needs?" },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for customer education and learning businesses." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience training and complex learning operations." },
+    { title: "LearnWorlds Review", href: "/reviews/learnworlds", description: "Learning commerce platform with strong site-building and white-label control." }
+  ]} />
+
+</ReviewLayout>

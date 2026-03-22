@@ -1,0 +1,321 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Thinkific vs Teachable (2026): Which Course Platform Fits Your Business",
+    "description": "Thinkific and Teachable both serve course creators, but they diverge on pricing structure, product limits, and mobile strategy. This comparison breaks down which platform fits solo experts, academies, and companies building customer education.",
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lms-guide.com/compare/thinkific-vs-teachable"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is cheaper: Thinkific or Teachable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkific offers better value for most creators. Thinkific charges 0% transaction fees on all paid plans and gives you unlimited courses. Teachable charges 7.5% transaction fees on its Starter plan and caps published products at 5–100 depending on your tier. However, Teachable includes a native mobile app on all plans while Thinkific charges $199/month for a branded app add-on."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Teachable have transaction fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable charges a 7.5% transaction fee on its Starter plan ($29/month annual). From the Builder plan ($69/month annual) upward, transaction fees drop to 0%. All plans still incur standard payment processing fees of approximately 2.9% + $0.30 per transaction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform has better mobile apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable includes native iOS and Android apps for students on all plans at no extra cost, with offline viewing capability. Thinkific does not include a mobile app on standard plans; a branded mobile app is available as a $199/month add-on. Without the add-on, Thinkific students access courses through a mobile-responsive website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I sell unlimited courses on Teachable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Teachable caps published products at 5 on Starter, 10 on Builder, 50 on Growth, and 100 on Advanced. Only the Enterprise plan (custom pricing) offers unlimited products. Thinkific, by contrast, allows unlimited courses on every paid plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Thinkific or Teachable handle taxes better?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teachable has stronger automated tax handling. It automatically collects and remits U.S. sales tax, EU/UK VAT, and GST on all plans. Thinkific offers tax handling through its TCommerce features when using Thinkific Payments, but the automation is not as comprehensive for international sales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform is better for customer education?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkific is generally stronger for customer education programs. It offers SCORM compliance (Plus plan), group orders, invoicing, and deeper B2B sales features. Teachable works for customer education but lacks SCORM support and advanced enterprise features like SSO on standard plans."
+        }
+      }
+    ]
+  }
+];
+
+const comparisonRows = [
+  { feature: "Platform type", values: ["Learning commerce platform", "Learning commerce platform"] },
+  { feature: "Best for", values: ["Academies, unlimited courses, B2B sales, community-driven learning", "Solo experts, mobile-first creators, simple product mixes"] },
+  { feature: "Transaction fees", values: ["0% on all paid plans", "7.5% on Starter; 0% on Builder+"] },
+  { feature: "Published courses/products", values: ["Unlimited on all plans", "5–100 depending on plan (unlimited on Enterprise)"] },
+  { feature: "Mobile app", values: ["$199/mo add-on (branded)", "Included free on all plans (Teachable-branded)"] },
+  { feature: "Tax handling", values: ["Via TCommerce (Thinkific Payments)", "Automatic US sales tax, VAT, GST"] },
+  { feature: "SCORM compliance", values: ["Available on Plus plan", "Not available"] },
+  { feature: "Student limits", values: ["10,000 on Basic–Grow; unlimited on Plus", "100–5,000 depending on plan"] },
+  { feature: "Community features", values: ["Spaces, DMs, live events, structured communities", "Basic forum-style discussions"] },
+  { feature: "Certificates & affiliates", values: ["Start plan ($74/mo) and up", "All paid plans"] },
+];
+
+const faqItems = [
+  {
+    question: "Which is cheaper: Thinkific or Teachable?",
+    answer: "Thinkific offers better value for most creators. Thinkific charges 0% transaction fees on all paid plans and gives you unlimited courses. Teachable charges 7.5% transaction fees on its Starter plan and caps published products at 5–100 depending on your tier. However, Teachable includes a native mobile app on all plans while Thinkific charges $199/month for a branded app add-on."
+  },
+  {
+    question: "Does Teachable have transaction fees?",
+    answer: "Teachable charges a 7.5% transaction fee on its Starter plan ($29/month annual). From the Builder plan ($69/month annual) upward, transaction fees drop to 0%. All plans still incur standard payment processing fees of approximately 2.9% + $0.30 per transaction."
+  },
+  {
+    question: "Which platform has better mobile apps?",
+    answer: "Teachable includes native iOS and Android apps for students on all plans at no extra cost, with offline viewing capability. Thinkific does not include a mobile app on standard plans; a branded mobile app is available as a $199/month add-on. Without the add-on, Thinkific students access courses through a mobile-responsive website."
+  },
+  {
+    question: "Can I sell unlimited courses on Teachable?",
+    answer: "No. Teachable caps published products at 5 on Starter, 10 on Builder, 50 on Growth, and 100 on Advanced. Only the Enterprise plan (custom pricing) offers unlimited products. Thinkific, by contrast, allows unlimited courses on every paid plan."
+  },
+  {
+    question: "Does Thinkific or Teachable handle taxes better?",
+    answer: "Teachable has stronger automated tax handling. It automatically collects and remits U.S. sales tax, EU/UK VAT, and GST on all plans. Thinkific offers tax handling through its TCommerce features when using Thinkific Payments, but the automation is not as comprehensive for international sales."
+  },
+  {
+    question: "Which platform is better for customer education?",
+    answer: "Thinkific is generally stronger for customer education programs. It offers SCORM compliance (Plus plan), group orders, invoicing, and deeper B2B sales features. Teachable works for customer education but lacks SCORM support and advanced enterprise features like SSO on standard plans."
+  }
+];
+
+const relatedPages = [
+  { title: "Thinkific vs Docebo", href: "/compare/thinkific-vs-docebo", description: "How Thinkific compares to Docebo for learning commerce vs enterprise LMS use cases." },
+  { title: "Thinkific vs LearnWorlds", href: "/compare/thinkific-vs-learnworlds", description: "Two learning commerce platforms compared on features, pricing, and ideal use cases." },
+  { title: "Thinkific vs Absorb LMS", href: "/compare/thinkific-vs-absorb", description: "How Thinkific compares to Absorb for customer training and enterprise learning." },
+  { title: "Best LMS for Customer Training", href: "/guides/best-lms-customer-training", description: "Our guide to the top platforms for customer education and external training." },
+];
+---
+
+<ComparisonLayout
+  title="Thinkific vs Teachable (2026): Which Course Platform Fits Your Business"
+  description="Thinkific and Teachable both serve course creators, but they diverge on pricing structure, product limits, and mobile strategy. This comparison breaks down which platform fits solo experts, academies, and companies building customer education."
+  platform1="Thinkific"
+  platform2="Teachable"
+  breadcrumbs={[{ label: 'Comparisons', href: '/compare' }, { label: 'Thinkific vs Teachable' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1>Thinkific vs Teachable: Two Approaches to Learning Commerce</h1>
+
+  <p class="text-lg text-slate-600 mt-4 mb-8">
+    Thinkific and Teachable are the two most directly comparable platforms for building and selling online courses. Both let you create, market, and deliver courses without writing code. Both target experts, entrepreneurs, and training businesses. But their pricing models, product limits, and strategic priorities diverge in ways that matter significantly for your bottom line. Thinkific offers unlimited courses with 0% transaction fees but charges extra for mobile apps. Teachable caps your products and hits you with fees on lower tiers, but includes a native mobile app and handles tax compliance automatically. The right choice depends on your catalog size, audience behavior, and operational priorities.
+  </p>
+
+  <section class="my-8">
+    <h2>Who This Comparison Is For</h2>
+    <p>
+      This comparison is for solo experts launching their first course, academy builders scaling a training catalog, and companies evaluating platforms for customer education. If you are deciding between these two platforms — or trying to understand whether product limits, transaction fees, or mobile strategy should drive your decision — this breakdown will help you choose based on your actual business needs rather than marketing claims.
+    </p>
+  </section>
+
+  <KeyTakeaways items={[
+    "Thinkific offers unlimited courses and 0% transaction fees on all paid plans; Teachable caps products at 5–100 and charges 7.5% on its Starter plan.",
+    "Teachable includes native iOS and Android apps on every plan; Thinkific charges $199/month for a branded mobile app add-on.",
+    "Teachable handles US sales tax, VAT, and GST automatically; Thinkific requires using their payment processor for comparable tax features.",
+    "Thinkific wins on assessment tools, SCORM compliance, and community features; Teachable wins on AI content tools and ease of setup.",
+    "Thinkific's Start plan ($74/month annual) is the practical entry point for most; Teachable's Builder plan ($69/month annual) removes transaction fees but limits you to 10 products.",
+    "Both platforms eliminated free plans in 2025; Thinkific offers a 30-day trial, Teachable offers 7 days."
+  ]} />
+
+  <section class="my-10">
+    <h2>Why This Comparison Matters</h2>
+    <p>
+      Thinkific and Teachable appear on almost every shortlist for online course platforms — often as the final two contenders. They occupy similar positions in the market: hosted learning commerce platforms that handle the technical infrastructure so you can focus on content and sales. But beneath the surface similarities, they have made different strategic bets.
+    </p>
+    <p class="mt-3">
+      Thinkific has optimized for value and scalability. Unlimited courses, zero transaction fees, and stronger learning tools make it attractive for creators planning to build large catalogs or operate training businesses. The trade-off is that mobile apps cost extra and the platform can feel more complex.
+    </p>
+    <p class="mt-3">
+      Teachable has optimized for simplicity and mobile experience. The platform is widely regarded as easier to set up, includes native mobile apps on every plan, and handles international tax compliance automatically. The trade-offs are product limits, transaction fees on lower tiers, and less flexibility in site design and assessments.
+    </p>
+    <p class="mt-3">
+      Neither platform is objectively superior. They serve different business models and operational preferences. The risk is paying for the wrong structure — either hitting product limits that force premature upgrades, or paying for a mobile app add-on when Teachable would have included it free.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Quick Comparison</h2>
+    <ComparisonTable
+      headers={["Thinkific", "Teachable"]}
+      rows={comparisonRows}
+      highlight={0}
+    />
+  </section>
+
+  <section class="my-10">
+    <h2>Where Thinkific Wins</h2>
+
+    <h3 class="mt-6">Unlimited Courses and 0% Transaction Fees</h3>
+    <p>
+      Thinkific's most significant advantage is its pricing structure. Every paid plan includes unlimited courses with no transaction fees. Teachable caps published products at 5 on Starter, 10 on Builder, 50 on Growth, and 100 on Advanced. For academies building comprehensive catalogs — or experts who like to experiment with multiple offers — these limits can force expensive upgrades. Additionally, Teachable's 7.5% transaction fee on Starter means you give up nearly $75 on every $1,000 in revenue before processing costs.
+    </p>
+
+    <h3 class="mt-6">Superior Assessment and Learning Tools</h3>
+    <p>
+      Thinkific offers more sophisticated learning features across the board. The quiz builder supports more question types, assignments allow file uploads, and the Start plan includes completion certificates and course compliance tools. SCORM compliance is available on the Plus plan for organizations importing interactive e-learning content. Teachable's assessments are limited to basic multiple choice and short answer questions, with no file upload capability.
+    </p>
+
+    <h3 class="mt-6">Stronger Community Features</h3>
+    <p>
+      Thinkific's community product is more mature and feature-rich. Spaces, threaded discussions, direct messaging, mentions, and live events create genuine engagement opportunities. Communities can be bundled with courses or sold as standalone memberships. Teachable's community feature is functional but described by users as a "quiet forum" — adequate for discussion but lacking the engagement tools of Thinkific's offering.
+    </p>
+
+    <h3 class="mt-6">B2B Sales Features</h3>
+    <p>
+      For companies selling training to other businesses, Thinkific offers group orders, invoicing, and more advanced commerce workflows. These features support bulk purchases with seat assignments and corporate procurement processes. Teachable's commerce features are more consumer-oriented, with less infrastructure for B2B sales scenarios.
+    </p>
+
+    <h3 class="mt-6">Site Customization and Flexibility</h3>
+    <p>
+      Thinkific provides more control over site design and branding. Custom HTML/CSS editing is available on the Start plan, allowing you to differentiate your academy visually. Teachable's site builder is more rigid — functional but limited, with all schools looking broadly similar. For brand-conscious businesses, Thinkific's flexibility matters.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>Where Teachable Wins</h2>
+
+    <h3 class="mt-6">Native Mobile Apps Included Free</h3>
+    <p>
+      Teachable's most decisive advantage is mobile. Native iOS and Android apps are included on every plan at no extra cost, with offline viewing, progress sync, and screenshot prevention. Thinkific charges $199/month for a branded mobile app add-on — a significant expense that can more than double your platform costs. For creators whose students primarily consume content on mobile, this difference alone can determine the right choice.
+    </p>
+
+    <h3 class="mt-6">Automatic Tax Compliance</h3>
+    <p>
+      Teachable handles US sales tax, EU/UK VAT, and GST collection and remittance automatically on all plans. This eliminates a major administrative burden for creators selling internationally. Thinkific offers tax handling through its TCommerce features, but the automation is less comprehensive unless you use their payment processor. For global sellers, Teachable's tax infrastructure reduces compliance risk and operational overhead.
+    </p>
+
+    <h3 class="mt-6">AI-Powered Content Tools</h3>
+    <p>
+      Teachable invests heavily in AI-assisted content creation. The platform offers course outline generators, lesson draft generators, quiz generators, and sales page writers. Most notably, automatic subtitle generation and translation into 70+ languages is included — a unique feature that significantly expands global reach. Thinkific has AI tools too, but Teachable's subtitle and translation capabilities are genuinely differentiated.
+    </p>
+
+    <h3 class="mt-6">Ease of Setup and Use</h3>
+    <p>
+      Teachable consistently receives praise for being beginner-friendly. The course builder is intuitive, the interface is clean, and most creators can launch their first course within hours. Thinkific offers more power and flexibility, but with a steeper learning curve. For solo experts who want to minimize technical friction, Teachable's simplicity is a genuine advantage.
+    </p>
+
+    <h3 class="mt-6">Certificates and Affiliates on All Plans</h3>
+    <p>
+      Teachable includes completion certificates and affiliate program access on every paid plan. Thinkific gates certificates and affiliates behind the Start plan ($74/month annual). For creators on tight budgets who need these features immediately, Teachable's Starter plan delivers where Thinkific's Basic plan does not.
+    </p>
+  </section>
+
+  <section class="my-10">
+    <h2>The Decision Framework</h2>
+    <p class="mb-6">
+      Rather than comparing features line by line, use these three buyer forks to clarify which platform fits your situation.
+    </p>
+
+    <div class="space-y-6">
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 1: Large Catalog vs Curated Selection</h3>
+        <p class="text-slate-600 mb-3">
+          If you plan to build many courses — whether a comprehensive academy, tiered learning paths, or multiple product variations — <strong>choose Thinkific</strong>. Unlimited courses on every plan means you never hit artificial limits. If you sell a focused mix of a few premium products (courses, coaching, downloads), <strong>Teachable's product caps may not constrain you</strong>, and you benefit from included mobile apps.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 2: Mobile-First vs Desktop-First Audience</h3>
+        <p class="text-slate-600 mb-3">
+          If your students primarily learn on mobile devices — fitness, language learning, commuter-friendly content — <strong>Teachable is the clear choice</strong>. Native apps included free on every plan, with offline viewing, create a superior mobile experience. If your audience learns primarily on desktop or you are willing to pay $199/month for a branded app, <strong>Thinkific's other advantages may outweigh this gap</strong>.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-2">Fork 3: Transaction Fee Sensitivity</h3>
+        <p class="text-slate-600 mb-3">
+          If you are starting with lower revenue or selling lower-priced courses, transaction fees matter. Teachable's 7.5% fee on Starter is punitive — on a $100 course, you lose $7.50 to Teachable plus processing fees before seeing any money. <strong>Thinkific's 0% fees on all paid plans provide better economics for most creators</strong>. Only choose Teachable Starter if you specifically need its included features and expect rapid growth to Builder.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-10">
+    <h2>Who Should Choose Which</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Thinkific if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Plan to build a large course catalog or comprehensive academy</li>
+          <li>Want 0% transaction fees and unlimited courses from day one</li>
+          <li>Need robust assessment tools, assignments, or SCORM compliance</li>
+          <li>Value community features with spaces, DMs, and live events</li>
+          <li>Sell B2B and need group orders, invoicing, and enterprise features</li>
+          <li>Want more control over site design and branding</li>
+          <li>Are building customer education programs that require compliance tracking</li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-lg p-6">
+        <h3 class="text-navy font-semibold mb-3">Choose Teachable if you:</h3>
+        <ul class="space-y-2 text-slate-600">
+          <li>Want native mobile apps included without extra cost</li>
+          <li>Sell internationally and need automatic tax compliance</li>
+          <li>Value AI-powered content creation and automatic subtitles/translation</li>
+          <li>Prefer a simpler, faster setup process with less technical complexity</li>
+          <li>Sell a focused mix of courses, coaching, and digital downloads</li>
+          <li>Need certificates and affiliate programs on lower-tier plans</li>
+          <li>Want the easiest path to launching your first course</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Still deciding between Thinkific and Teachable?"
+    ctaDescription="Tell us about your course business and we'll recommend the right platform based on your catalog size, audience, and revenue model."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={faqItems} />
+
+  <RelatedPages pages={relatedPages} />
+
+</ComparisonLayout>

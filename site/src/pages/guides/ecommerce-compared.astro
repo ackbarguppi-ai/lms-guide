@@ -1,0 +1,140 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS E-Commerce & Sales Features Compared (2026)",
+    "description": "How eight major platforms handle payments, checkout, upsells, coupons, taxes, and affiliate programs — and which ones actually help you sell more.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/ecommerce-compared" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which LMS has the best e-commerce features?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific (TCommerce) and Kajabi offer the most complete sales stacks for experts. TCommerce includes zero transaction fees, automated tax remittance, order bumps, and one-click upsells. Kajabi adds built-in sales funnels and email marketing. For enterprise B2B sales, Docebo and Absorb have purpose-built e-commerce modules." } },
+      { "@type": "Question", "name": "Which LMS platforms charge transaction fees?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific (paid plans), Kajabi, and Docebo charge no transaction fees. Teachable charges 5-10% on lower plans (none on Pro+). Podia charges 8% on the free plan (none on paid). LearnWorlds charges $5/sale on Starter only. All platforms also incur standard Stripe/PayPal processing fees." } },
+      { "@type": "Question", "name": "Which LMS handles tax automatically?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific TCommerce and Teachable:pay both handle automated tax calculation AND remittance — they collect taxes and pay them to authorities on your behalf. Other platforms calculate taxes but leave remittance to you." } },
+      { "@type": "Question", "name": "Which LMS has built-in affiliate programs?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific (Growth+), Kajabi (Growth+), Teachable (Pro+), LearnWorlds, and Podia all have native affiliate programs. Enterprise platforms (Docebo, Absorb, TalentLMS) do not include affiliate features." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS E-Commerce & Sales Features Compared (2026)"
+  description="How eight major platforms handle payments, checkout, upsells, coupons, taxes, and affiliate programs — and which ones actually help you sell more."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'E-Commerce Compared' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS E-Commerce & Sales Features Compared (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>If you're building a learning business, the course content is only half the equation.</strong> The other half is getting paid — smoothly, reliably, and in ways that maximize revenue per customer. Not every LMS treats e-commerce equally. Some platforms were built as sales engines from day one. Others bolted on payment processing as an afterthought.
+  </p>
+
+  <KeyTakeaways items={[
+    "Best overall e-commerce for experts: Thinkific (TCommerce) and Teachable offer the most complete built-in sales stacks. Kajabi excels with all-in-one marketing + sales.",
+    "Thinkific TCommerce and Teachable:pay are the only platforms that handle automated tax remittance — they collect AND pay taxes on your behalf.",
+    "Order bumps and one-click upsells (Thinkific, Kajabi, Teachable) meaningfully increase average order value.",
+    "Kajabi's built-in sales funnels eliminate the need for third-party funnel software like ClickFunnels.",
+    "Enterprise platforms (Docebo, Absorb) handle B2B purchasing — bulk licensing, invoicing, and organizational billing — but lack consumer-style upsells.",
+    "Transaction fees vary dramatically: 0% (Thinkific, Kajabi) to 10% (Teachable Free plan). At scale, this difference is thousands of dollars."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Payment Processing</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific's TCommerce</strong> processes payments in 130+ currencies via Stripe Connect, supports Apple Pay, Google Pay, and Buy Now Pay Later (Klarna/Afterpay). No platform transaction fees — only standard Stripe rates. <strong>Kajabi Payments</strong> is also Stripe-based with zero transaction fees on any plan. <strong>Teachable</strong> charges 5-10% transaction fees on lower plans (none on Pro+). <strong>LearnWorlds</strong> integrates with Stripe, PayPal, and Shopify Payments with no platform fees on paid plans. <strong>Podia</strong> charges 8% on the free plan.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Checkout Experience & Revenue Maximizers</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific TCommerce</strong> provides a high-converting checkout with order bumps (add-on products with one click) and one-click post-purchase upsells. Thinkific reports TCommerce users sell up to 31% more than basic Stripe users. <strong>Kajabi</strong> offers post-purchase upsells plus a built-in pipeline (funnel) system with multi-step sales sequences. <strong>Teachable</strong> supports one-click upsells and order bumps on Pro+. <strong>LearnWorlds</strong> recently added single-page checkout with shopping cart functionality but lacks native one-click upsells.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Tax Handling</h2>
+    <p class="text-slate-700 mb-4">
+      Tax compliance is a genuine differentiator. <strong>Thinkific TCommerce</strong> handles the full cycle — automatic calculation, collection, AND remittance to tax authorities on your behalf. <strong>Teachable:pay</strong> offers the same automated tax remittance. <strong>Everyone else</strong> (Kajabi, LearnWorlds, Podia, enterprise platforms) calculates taxes but leaves remittance as your responsibility.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Selling courses or training programs?"
+    ctaDescription="Get a platform recommendation based on your sales model — individual courses, subscriptions, corporate licensing, or certification programs."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Feature</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Podia</th>
+            <th class="py-3 px-2 text-navy font-semibold">Docebo</th>
+            <th class="py-3 px-2 text-navy font-semibold">Absorb</th>
+            <th class="py-3 px-2 text-navy font-semibold">TalentLMS</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Transaction Fees</td><td class="py-2 px-2">None</td><td class="py-2 px-2">None</td><td class="py-2 px-2">0-10%</td><td class="py-2 px-2">None*</td><td class="py-2 px-2">0-8%</td><td class="py-2 px-2">None</td><td class="py-2 px-2">None</td><td class="py-2 px-2">None</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Order Bumps</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">One-Click Upsells</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Pro+</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Sales Funnels</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅ Built-in</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Auto Tax Remittance</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Affiliate Program</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">B2B/Bulk Licensing</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mt-2">*LearnWorlds charges $5/sale on Starter plan only.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Bottom Line</h2>
+    <p class="text-slate-700 mb-4">
+      E-commerce capabilities vary dramatically across LMS platforms. Consumer-facing experts need checkout optimization, upsells, and tax automation. Enterprise training organizations need bulk licensing and organizational billing. The platforms that treat e-commerce as a core competency (Thinkific, Kajabi, Teachable) consistently outperform those that treat it as an add-on. If revenue growth is a priority — and it usually is — weight e-commerce capabilities heavily in your platform decision.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Selling courses or training programs?"
+    ctaDescription="Get a platform recommendation based on your sales model."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "Which LMS has the best e-commerce features?", answer: "Thinkific (TCommerce) and Kajabi offer the most complete sales stacks for experts. TCommerce includes zero transaction fees, automated tax remittance, order bumps, and one-click upsells. For enterprise B2B, Docebo and Absorb handle bulk licensing and organizational billing." },
+    { question: "Which LMS platforms charge transaction fees?", answer: "Thinkific (paid plans), Kajabi, and Docebo charge none. Teachable charges 5-10% on lower plans. Podia charges 8% on the free plan. LearnWorlds charges $5/sale on Starter only." },
+    { question: "Which LMS handles tax automatically?", answer: "Thinkific TCommerce and Teachable:pay both handle automated tax calculation AND remittance. Other platforms calculate taxes but leave filing to you." },
+    { question: "Which LMS has built-in affiliate programs?", answer: "Thinkific (Growth+), Kajabi (Growth+), Teachable (Pro+), LearnWorlds, and Podia have native affiliate programs. Enterprise platforms do not." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "Branding & White-Label Compared", href: "/guides/branding-compared", description: "Custom domains, branded apps, and white-label options across eight LMS platforms." },
+    { title: "Best LMS for Training Businesses", href: "/guides/best-lms-for-training-businesses", description: "Top platforms for academies, bootcamps, and certification programs." }
+  ]} />
+
+</GuideLayout>

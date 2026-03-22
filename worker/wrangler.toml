@@ -8,3 +8,7 @@ id = "113dd2a3279a4d3e96f538fecc8b0db3"
 
 [vars]
 GOOGLE_SHEET_ID = "1OjoWG_KuhnlP9EIb-tVzPNPw3tIf8dXTS_-OcH4kJLQ"
+TELEGRAM_CHAT_ID = "8209961243"
+
+# TELEGRAM_BOT_TOKEN should be set as a secret:
+#   wrangler secret put TELEGRAM_BOT_TOKEN

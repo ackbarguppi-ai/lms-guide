@@ -1,0 +1,198 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Teaching Assistants in LMS Platforms: The Complete Comparison (2026)",
+    "description": "Every major LMS now ships an AI assistant — but they're not all doing the same thing. Compare Thinkific Thinker, Docebo Harmony, Absorb Aura, Sana Labs, TalentLMS, LearnWorlds, and 360Learning.",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/ai-teaching-assistants" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the best AI teaching assistant for course experts?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific Thinker is the best learner-facing AI assistant for experts. It answers questions from your course content 24/7, provides personalized recommendations, and scales your support without additional staff. For authoring help, LearnWorlds AI Assistant offers 38+ AI tools for content creation." } },
+      { "@type": "Question", "name": "What's the difference between AI teaching assistants and AI course builders?", "acceptedAnswer": { "@type": "Answer", "text": "AI teaching assistants sit inside the learning experience and interact with learners — answering questions, coaching, and surfacing content. AI course builders help the expert or admin create courses faster. Some platforms like Docebo and Absorb bundle both; others pick a lane." } },
+      { "@type": "Question", "name": "Which AI teaching assistant works best for enterprise training?", "acceptedAnswer": { "@type": "Answer", "text": "For enterprise, Docebo Harmony and Absorb Aura are the most comprehensive. Docebo offers semantic search, admin support, and content creation AI. Absorb uses 17+ specialized AI agents for learner coaching, admin assist, and content discovery. Sana Labs is the most visionary but least proven option." } },
+      { "@type": "Question", "name": "How much do AI teaching assistants cost?", "acceptedAnswer": { "@type": "Answer", "text": "Most AI assistants are included in platform subscriptions. Thinkific Thinker is included on Plus plans (credit-based usage). TalentLMS includes TalentCraft and AI Coach on Pro ($119/month) and Enterprise plans. LearnWorlds includes AI tools on all plans with prompt limits (100-2,000/month by tier). Enterprise platforms like Docebo and Absorb include AI in custom-priced contracts." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="AI Teaching Assistants in LMS Platforms: The Complete Comparison (2026)"
+  description="Every major LMS now ships an AI assistant — but they're not all doing the same thing. Compare Thinkific Thinker, Docebo Harmony, Absorb Aura, Sana Labs, TalentLMS, LearnWorlds, and 360Learning."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'AI Teaching Assistants' }]}
+  lastUpdated="2026-03-22"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">AI Teaching Assistants in LMS Platforms: The Complete Comparison (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Every major LMS now ships an AI assistant, but they're not all doing the same thing.</strong> Some answer learner questions from your course content (Thinkific Thinker, Docebo Harmony Search). Others are really AI course builders that help you create content faster (TalentLMS TalentCraft, LearnWorlds AI Assistant). A few are trying to be both (Absorb Aura, Sana Labs). The right choice depends on whether you need AI that helps your <em>learners</em> or AI that helps <em>you</em>.
+  </p>
+
+  <KeyTakeaways items={[
+    "Two distinct categories: learner-facing AI assistants (Thinkific Thinker, Docebo Harmony, Absorb Aura) vs. AI-powered authoring tools (TalentCraft, LearnWorlds AI Assistant).",
+    "Thinkific Thinker is the best learner-facing AI for experts — it answers questions from your content 24/7 and scales support without staff.",
+    "Docebo Harmony and Absorb Aura are the most ambitious enterprise plays, covering content creation, learner search, admin support, and workflow automation.",
+    "Sana Labs AI Tutor is the most visionary: 'Everything doesn't need to be a course anymore.' But it's on waitlist and unproven at scale.",
+    "TalentLMS offers the best value: real AI tools (TalentCraft + AI Coach) that work today at $119/month.",
+    "Most AI assistants launched in the last 12 months — test before you commit, especially features still in beta."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Quick Comparison</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">AI Feature</th>
+            <th class="py-3 px-4 text-navy font-semibold">Primary Function</th>
+            <th class="py-3 px-4 text-navy font-semibold">Who It Helps</th>
+            <th class="py-3 px-4 text-navy font-semibold">Availability</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific Thinker</td><td class="py-2 px-4">Learner-facing AI</td><td class="py-2 px-4">Answers questions from course content</td><td class="py-2 px-4">Learners</td><td class="py-2 px-4">Live (Feb 2026)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo Harmony</td><td class="py-2 px-4">AI copilot suite</td><td class="py-2 px-4">Semantic search, admin support, content creation</td><td class="py-2 px-4">Learners + Admins</td><td class="py-2 px-4">Partially live</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Absorb Aura</td><td class="py-2 px-4">Multi-agent AI system</td><td class="py-2 px-4">17+ agents for coaching, admin, discovery</td><td class="py-2 px-4">Learners + Admins</td><td class="py-2 px-4">Beta</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Sana Labs</td><td class="py-2 px-4">AI-first tutor</td><td class="py-2 px-4">Adaptive tutoring, cross-knowledge Q&A</td><td class="py-2 px-4">Learners</td><td class="py-2 px-4">Waitlist</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">TalentLMS</td><td class="py-2 px-4">TalentCraft + AI Coach</td><td class="py-2 px-4">Course building + learner support</td><td class="py-2 px-4">Experts + Learners</td><td class="py-2 px-4">Live</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">AI authoring toolkit</td><td class="py-2 px-4">Course outlines, eBooks, assessments</td><td class="py-2 px-4">Experts / Admins</td><td class="py-2 px-4">Live</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">360Learning</td><td class="py-2 px-4">AI Companion</td><td class="py-2 px-4">Conversational search across learning content</td><td class="py-2 px-4">Learners</td><td class="py-2 px-4">Live (Search Mode)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Thinkific Thinker</h2>
+    <p class="text-slate-700 mb-4">
+      Thinker is a learner-facing AI assistant that lives inside Thinkific courses. It learns from your proprietary content — courses, media, uploaded assets — and answers learner questions contextually, 24/7. Think of it as a knowledgeable TA who's read all your course material and never sleeps. Key capabilities include <strong>contextual Q&A</strong> from your content, <strong>personalized recommendations</strong>, and <strong>brand customization</strong> so it sounds like your brand.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>What it doesn't do:</strong> Thinker is not a course builder. It won't generate lesson outlines or create quizzes. It also won't pull from external sources — responses come exclusively from your uploaded content, which means answers are accurate to your material but limited to what you've taught.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Available:</strong> February 24, 2026. Included with Thinkific Plus (enterprise tier). Credit-based pricing with monthly allotment.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Experts selling courses at scale who get buried in repetitive learner questions. Academies with large course catalogs where learners need help navigating content.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Docebo Harmony</h2>
+    <p class="text-slate-700 mb-4">
+      Harmony is Docebo's umbrella AI brand and the most ambitious play on this list. Rather than a single assistant, it's an expanding suite: <strong>Harmony Search</strong> (live today) for semantic, conversational search across courses and documents; <strong>Harmony Support</strong> (live) for in-platform admin guidance; plus upcoming content creation, workflow automation, and an AI Agent Marketplace.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Docebo claims Harmony can create content <strong>70x faster</strong> and save admins <strong>80% of their time</strong> on routine tasks — vendor numbers that need real-world validation. The security posture is strong: customer data never trains their models.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Available:</strong> Partially live, rolling out through 2025–2026. Included in all Docebo plans. Custom enterprise pricing ($25,000+/year).
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Companies running employee training, partner enablement, or customer education at enterprise scale. Not ideal for solo experts or small academies.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Absorb Aura</h2>
+    <p class="text-slate-700 mb-4">
+      Absorb takes the most modular approach with <strong>17+ specialized AI agents</strong>, each designed for a specific role. The Aura Learner Agent routes questions to the right agent; the Discovery Agent surfaces personalized content recommendations; the Admin Assist answers how-to questions with verified, sourced responses. Coming soon: Aura Create for AI course building, Aura Q&A, and integrations with Slack, Salesforce, and Teams.
+    </p>
+    <p class="text-slate-700 mb-4">
+      The agent-based architecture is unique — specialized AI outperforms generalist AI for specific tasks. Absorb also emphasizes embedding AI where work happens (Teams integration, soon Slack and Salesforce).
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Available:</strong> Beta (core agents). Custom pricing (~$20,000+/year).
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Companies focused on employee training and performance support, particularly those in the Microsoft ecosystem.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Evaluating AI teaching assistants?"
+    ctaDescription="Get a recommendation based on whether you need AI for learner support, content creation, or both — tailored to your platform size and budget."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Other Contenders</h2>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">Sana Labs AI Tutor</h3>
+    <p class="text-slate-700 mb-4">
+      The most AI-native platform on this list. Sana's AI Tutor provides adaptive tutoring, cross-knowledge Q&A (blending your proprietary knowledge with general knowledge), skill practice with real-time feedback, and curiosity-driven exploration. Its positioning is bold: "Everything doesn't need to be a course anymore." Currently on waitlist. Enterprise pricing (~$13/user/month). <strong>Best for:</strong> Companies that want to rethink their entire approach to employee learning.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">TalentLMS TalentCraft + AI Coach</h3>
+    <p class="text-slate-700 mb-4">
+      The pragmatist's choice. <strong>TalentCraft</strong> generates complete course content including text, AI images, charts, flashcards, and interactive elements — plus 15-language translation with no prompt caps. <strong>AI Coach</strong> provides personalized in-course support for learners 24/7. Both included on Pro ($119/month) and Enterprise ($389/month) plans. <strong>Best for:</strong> Companies running internal training who want real AI tools at practical prices.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">LearnWorlds AI Assistant</h3>
+    <p class="text-slate-700 mb-4">
+      A comprehensive authoring toolkit with <strong>38+ AI tools</strong> — course outline generation, eBook creation, text refinement, assessment design by Bloom's Taxonomy level, and AI feedback generation. Entirely on the creation side — no learner-facing chatbot. Available on all plans with prompt limits (100–2,000/month by tier, starting at $24/month). <strong>Best for:</strong> Experts and academies that need help creating professional course content without an instructional design team.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">360Learning AI Companion</h3>
+    <p class="text-slate-700 mb-4">
+      Surfaces collaborative knowledge — not just formal courses but informal expertise shared by internal subject-matter experts. Search Mode is live; coaching, automation, and insights are coming. Included in 360Learning platform (~$8/user/month). <strong>Best for:</strong> Companies that practice collaborative learning with rich internal knowledge bases.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who Should Use What</h2>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">If You're an Expert Selling Courses</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Best choice: Thinkific Thinker</strong> (if on Plus) for learner support at scale, or <strong>LearnWorlds AI Assistant</strong> for authoring help on any budget. Thinker handles the #1 expert pain point: answering the same questions hundreds of times.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">If You're a Company (Employee Training)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Just getting started:</strong> TalentLMS — affordable, practical, ships today. <strong>Scaling:</strong> Absorb Aura or Docebo Harmony for deeper AI integration. <strong>Rethinking learning entirely:</strong> Sana Labs. <strong>Collaborative culture:</strong> 360Learning AI Companion.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3 mt-6">If You're a Company (Customer/Partner Training)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific Thinker</strong> for course-driven customer education, or <strong>Docebo Harmony</strong> for enterprise customer/partner training with complex multi-audience needs.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Evaluating AI teaching assistants?"
+    ctaDescription="Get a recommendation tailored to your platform size, budget, and whether you need AI for learner support or content creation."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What is the best AI teaching assistant for course experts?", answer: "Thinkific Thinker is the best learner-facing AI assistant for experts. It answers questions from your course content 24/7 and scales support. For authoring help, LearnWorlds AI Assistant offers 38+ AI tools for content creation." },
+    { question: "What's the difference between AI teaching assistants and AI course builders?", answer: "AI teaching assistants interact with learners — answering questions, coaching, and surfacing content. AI course builders help experts create courses faster. Some platforms like Docebo and Absorb bundle both; others pick a lane." },
+    { question: "Which AI teaching assistant works best for enterprise training?", answer: "Docebo Harmony and Absorb Aura are the most comprehensive for enterprise. Docebo offers semantic search, admin support, and content creation AI. Absorb uses 17+ specialized AI agents. Sana Labs is the most visionary but least proven." },
+    { question: "How much do AI teaching assistants cost?", answer: "Most are included in platform subscriptions. Thinkific Thinker is on Plus plans (credit-based). TalentLMS includes TalentCraft + AI Coach on Pro ($119/month). LearnWorlds includes AI on all plans (100-2,000 prompts/month). Enterprise platforms include AI in custom contracts." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "LMS AI Features Compared", href: "/guides/ai-features-compared", description: "The complete comparison of AI capabilities across eight major LMS platforms." },
+    { title: "What Buyers Actually Compare", href: "/guides/what-buyers-compare", description: "The 9-pillar evaluation framework for choosing the right LMS platform." }
+  ]} />
+
+</GuideLayout>
