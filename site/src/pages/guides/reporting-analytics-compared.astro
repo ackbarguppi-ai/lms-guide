@@ -1,0 +1,181 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Reporting & Analytics Compared (2026)",
+    "description": "How ten major learning platforms handle dashboards, learner progress tracking, completion reports, custom reporting, API data export, and enterprise analytics.",
+    "datePublished": "2026-03-23",
+    "dateModified": "2026-03-23",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/reporting-analytics-compared" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which LMS has the best reporting and analytics?", "acceptedAnswer": { "@type": "Answer", "text": "Docebo and Absorb lead for enterprise analytics with customizable dashboards, xAPI/SCORM tracking, and predictive insights. Thinkific and LearnWorlds offer strong expert-focused reporting with revenue analytics and learner progress tracking. Moodle provides the most flexible reporting through custom SQL queries and plugins." } },
+      { "@type": "Question", "name": "Which LMS platforms support xAPI and SCORM reporting?", "acceptedAnswer": { "@type": "Answer", "text": "Docebo, Absorb, TalentLMS, Moodle, and LearnWorlds all support xAPI (Tin Can) and SCORM reporting. Thinkific, Kajabi, Teachable, and Podia focus on simpler completion tracking without full xAPI support. Enterprise platforms generally provide deeper eLearning standard compliance." } },
+      { "@type": "Question", "name": "Can I export LMS data to external analytics tools?", "acceptedAnswer": { "@type": "Answer", "text": "All major platforms offer some form of data export. Docebo, Absorb, and Skilljar have robust APIs and pre-built integrations with BI tools. Thinkific, Kajabi, and Teachable provide CSV exports and API access on higher-tier plans. Moodle offers the most direct database access for custom reporting." } },
+      { "@type": "Question", "name": "Which LMS tracks revenue and business metrics?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific TCommerce, Kajabi, Teachable, and LearnWorlds all include revenue reporting as core features. Podia provides basic sales analytics. Enterprise platforms like Docebo and Absorb offer commerce modules but typically focus on learning metrics rather than revenue optimization." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Reporting & Analytics Compared (2026)"
+  description="How ten major learning platforms handle dashboards, learner progress tracking, completion reports, custom reporting, API data export, and enterprise analytics."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Reporting & Analytics Compared' }]}
+  lastUpdated="2026-03-23"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Reporting & Analytics Compared (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Data without insight is just noise.</strong> The best LMS platforms don't just collect learner data — they surface actionable intelligence that helps you improve completion rates, identify at-risk learners, and demonstrate ROI. But analytics capabilities vary dramatically. Some platforms offer surface-level completion percentages; others provide predictive modeling, custom dashboards, and real-time business intelligence.
+  </p>
+
+  <KeyTakeaways items={[
+    "Enterprise platforms (Docebo, Absorb) lead on custom dashboards, xAPI/SCORM compliance, and predictive analytics for large-scale training operations.",
+    "Thinkific and LearnWorlds provide the strongest revenue + learning analytics combination for experts selling courses.",
+    "Real-time dashboards matter less than actionable alerts — the best platforms proactively flag at-risk learners and completion bottlenecks.",
+    "API access and data export capabilities determine whether you can build custom reports or are limited to platform-provided metrics.",
+    "Moodle offers the most flexible reporting through direct database access and custom SQL, but requires technical expertise.",
+    "Most platforms over-report vanity metrics (logins, time spent) and under-report business impact (skill acquisition, behavior change)."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Dashboard & Visualization</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> offers the most sophisticated dashboard experience with customizable widgets, role-based views, and drag-and-drop report building. Managers see team progress; learners see personal achievements. <strong>Absorb</strong> matches closely with intuitive visualizations and scheduled report delivery. <strong>Thinkific</strong> provides clean, expert-friendly dashboards showing enrollment trends, completion rates, and revenue — all exportable. <strong>Kajabi</strong> excels at combining marketing and learning metrics in unified dashboards, showing the full customer journey from lead to completion.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>LearnWorlds</strong> offers solid native reporting with visual progress tracking. <strong>Teachable</strong> provides simpler analytics focused on revenue and basic completion metrics. <strong>TalentLMS</strong> and <strong>Skilljar</strong> both offer clean, functional dashboards aimed at training administrators. <strong>Moodle</strong> requires configuration or plugins for effective visualization — the raw data is there, but presentation requires effort.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Learner Progress & Completion Tracking</h2>
+    <p class="text-slate-700 mb-4">
+      All platforms track completion, but the depth varies. <strong>Docebo</strong> and <strong>Absorb</strong> track granular interactions — time per module, video engagement, assessment attempts, and content revisits. They support xAPI (Tin Can) for capturing learning experiences beyond the LMS. <strong>Thinkific</strong> and <strong>LearnWorlds</strong> provide detailed video analytics showing exactly where learners drop off — critical for experts optimizing content. <strong>Kajabi</strong> tracks completion across courses, communities, and email sequences.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable</strong> and <strong>Podia</strong> offer basic completion tracking suitable for smaller catalogs. <strong>TalentLMS</strong> provides strong progress tracking with certification status and compliance deadline alerts. <strong>Moodle</strong> tracks everything by default — activity completion, grades, forum participation — but surfacing insights requires report configuration.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Custom Reports & Data Export</h2>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> and <strong>Absorb</strong> lead with visual report builders, scheduled reports, and extensive filtering. Both support custom fields and allow drilling from high-level summaries to individual learner records. <strong>Skilljar</strong> offers strong custom reporting with particular strength in customer training analytics — tracking learner progression to business outcomes.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> provides pre-built reports plus CSV exports for custom analysis. Growth and Plus plans include the Thinkific App Store with analytics integrations. <strong>LearnWorlds</strong> offers native reports plus API access for custom extraction. <strong>Moodle</strong> is unmatched for custom reporting — direct database access means any query is possible, though SQL skills are required.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong>, <strong>Teachable</strong>, and <strong>Podia</strong> focus on pre-built reports with limited customization — sufficient for most experts but potentially limiting for complex organizations. <strong>TalentLMS</strong> offers customizable reports with filtering and export options.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Enterprise & Compliance Analytics</h2>
+    <p class="text-slate-700 mb-4">
+      For regulated industries, audit trails and compliance reporting are non-negotiable. <strong>Docebo</strong> and <strong>Absorb</strong> provide comprehensive audit logs, version control for certifications, and automated compliance dashboards. Both support SCORM 1.2/2004 and xAPI for standardized tracking. <strong>TalentLMS</strong> offers strong compliance features including certification expiry tracking and retraining automation.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Skilljar</strong> specializes in customer training analytics, connecting learning data to Salesforce and other CRMs to demonstrate training impact on customer retention and expansion. <strong>Moodle</strong> can achieve enterprise-grade compliance reporting through configuration and plugins, though this requires implementation expertise.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need better visibility into your learning programs?"
+    ctaDescription="Get a platform recommendation based on your analytics requirements — from basic completion tracking to enterprise BI integration."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Feature</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Docebo</th>
+            <th class="py-3 px-2 text-navy font-semibold">Absorb</th>
+            <th class="py-3 px-2 text-navy font-semibold">TalentLMS</th>
+            <th class="py-3 px-2 text-navy font-semibold">Moodle</th>
+            <th class="py-3 px-2 text-navy font-semibold">Podia</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Custom Dashboards</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅*</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Revenue Reporting</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Video Analytics</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅*</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">xAPI/SCORM</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Custom Reports</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">API Access</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Compliance Audit</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅*</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Predictive Analytics</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mt-2">*Requires configuration, plugins, or technical expertise.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Revenue & Business Analytics</h2>
+    <p class="text-slate-700 mb-4">
+      For experts and training businesses, learning metrics must connect to business outcomes. <strong>Thinkific TCommerce</strong> provides comprehensive revenue analytics — sales by product, cohort retention, refund rates, and subscription health. The dashboard connects learner engagement to purchase behavior, showing which content drives upgrades and renewals.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> excels at unified business intelligence, tracking the entire customer lifecycle from email open to course completion to upsell conversion. <strong>Teachable</strong> offers solid revenue reporting with affiliate tracking and coupon performance. <strong>LearnWorlds</strong> provides detailed sales analytics plus the ability to track user segments and their learning-to-purchase correlation.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms treat revenue as secondary. <strong>Docebo</strong> and <strong>Absorb</strong> offer commerce modules with basic sales reporting, but the focus is on learning administration rather than revenue optimization.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Bottom Line</h2>
+    <p class="text-slate-700 mb-4">
+      Analytics requirements should drive platform selection more than they typically do. If you need to demonstrate training ROI to executive stakeholders, enterprise platforms provide the audit trails and compliance reporting that satisfy regulators and boards. If you're optimizing a learning business for revenue and retention, expert-focused platforms connect learning data to purchase behavior more effectively.
+    </p>
+    <p class="text-slate-700 mb-4">
+      The gap between basic completion tracking and predictive analytics is massive — and often invisible during vendor demos. Ask specific questions: Can I track video drop-off by timestamp? Can I create custom reports without IT support? Can I export raw data to our data warehouse? The answers separate platforms that support data-driven decisions from those that merely collect data.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need better visibility into your learning programs?"
+    ctaDescription="Get a platform recommendation based on your analytics requirements."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "Which LMS has the best reporting and analytics?", answer: "Docebo and Absorb lead for enterprise analytics with customizable dashboards, xAPI/SCORM tracking, and predictive insights. Thinkific and LearnWorlds offer strong expert-focused reporting with revenue analytics and learner progress tracking. Moodle provides the most flexible reporting through custom SQL queries and plugins." },
+    { question: "Which LMS platforms support xAPI and SCORM reporting?", answer: "Docebo, Absorb, TalentLMS, Moodle, and LearnWorlds all support xAPI (Tin Can) and SCORM reporting. Thinkific, Kajabi, Teachable, and Podia focus on simpler completion tracking without full xAPI support." },
+    { question: "Can I export LMS data to external analytics tools?", answer: "All major platforms offer some form of data export. Docebo, Absorb, and Skilljar have robust APIs and pre-built integrations with BI tools. Thinkific, Kajabi, and Teachable provide CSV exports and API access on higher-tier plans. Moodle offers the most direct database access for custom reporting." },
+    { question: "Which LMS tracks revenue and business metrics?", answer: "Thinkific TCommerce, Kajabi, Teachable, and LearnWorlds all include revenue reporting as core features. Podia provides basic sales analytics. Enterprise platforms like Docebo and Absorb offer commerce modules but typically focus on learning metrics rather than revenue optimization." }
+  ]} />
+
+  <RelatedPages pages={[
+    { title: "E-Commerce Compared", href: "/guides/ecommerce-compared", description: "Payment processing, checkout optimization, and sales features across eight LMS platforms." },
+    { title: "APIs Compared", href: "/guides/apis-compared", description: "Developer tools, webhooks, and integration capabilities for custom reporting and automation." },
+    { title: "AI Features Compared", href: "/guides/ai-features-compared", description: "How different platforms use AI for analytics, recommendations, and learner insights." }
+  ]} />
+
+</GuideLayout>
