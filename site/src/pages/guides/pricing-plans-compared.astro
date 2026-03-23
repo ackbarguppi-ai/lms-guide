@@ -1,0 +1,357 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Pricing & Plans Compared (2026)",
+    "description": "Complete pricing comparison of ten major LMS platforms — pricing tiers, free plans, transaction fees, per-user vs flat pricing, enterprise pricing, hidden costs, and which plan fits which business size.",
+    "datePublished": "2026-03-23",
+    "dateModified": "2026-03-23",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/pricing-plans-compared" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which LMS offers the best value for small businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific's Start plan ($74/month) offers the best value for small businesses building their first courses — unlimited students, no transaction fees, and core commerce features. TalentLMS Starter ($89/month for up to 40 users) is excellent for small team training. For those wanting to start free, Thinkific Free and TalentLMS Free allow up to 5 users with core features." } },
+      { "@type": "Question", "name": "What are the hidden costs in LMS pricing?", "acceptedAnswer": { "@type": "Answer", "text": "Common hidden costs include transaction fees (Teachable charges 5-10% on lower plans, Podia charges 8% on free), payment processing (typically 2.9% + $0.30 per transaction), app marketplace purchases, overage charges when exceeding user limits, premium support tiers, implementation fees for enterprise platforms (often $10K-$50K), and custom development for specialized features." } },
+      { "@type": "Question", "name": "Is per-user pricing or flat pricing better?", "acceptedAnswer": { "@type": "Answer", "text": "Flat pricing (Thinkific, Kajabi, Teachable) works best for selling courses to unlimited external learners — your costs don't increase with student growth. Per-user pricing (TalentLMS, Skilljar, enterprise platforms) works better for internal employee or customer training where user counts are predictable. At small scales, per-user pricing often appears cheaper; at large scales, flat pricing usually wins." } },
+      { "@type": "Question", "name": "Which LMS has the lowest total cost of ownership?", "acceptedAnswer": { "@type": "Answer", "text": "For course creators selling to external learners, Thinkific often has the lowest TCO due to no transaction fees on paid plans, included tax remittance, and comprehensive built-in features. For internal training, TalentLMS offers predictable per-user pricing with no surprise fees. Moodle has the lowest direct costs (free software) but requires hosting and maintenance investment." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Pricing & Plans Compared (2026)"
+  description="Complete pricing comparison of ten major LMS platforms — pricing tiers, free plans, transaction fees, per-user vs flat pricing, enterprise pricing, hidden costs, and which plan fits which business size."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'Pricing & Plans Compared' }]}
+  lastUpdated="2026-03-23"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Pricing & Plans Compared (2026)</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>LMS pricing is deliberately confusing.</strong> Published prices rarely tell the full story. Transaction fees, user limits, feature gating, and hidden costs can turn an affordable-looking plan into an expensive mistake. Worse, pricing models differ fundamentally — some charge flat monthly rates, others per active user, still others as a percentage of revenue. This guide cuts through the confusion with actual pricing, real-world cost scenarios, and guidance on which platform makes financial sense for your specific situation.
+  </p>
+
+  <KeyTakeaways items={[
+    "Thinkific offers the best value for growing course businesses — no transaction fees on paid plans, unlimited students, and comprehensive features starting at $74/month.",
+    "Transaction fees vary dramatically: 0% on Thinkific (paid), Kajabi, and Docebo; up to 10% on Teachable's free plan and 8% on Podia's free plan.",
+    "Flat pricing (Thinkific, Kajabi, Teachable) beats per-user pricing when selling to external learners at scale.",
+    "Enterprise platforms (Docebo, Absorb) typically require custom quotes starting at $15,000-$25,000 annually with implementation fees.",
+    "Free plans from Thinkific and TalentLMS are genuinely usable for testing and small pilots — most competitors' free tiers are too limited for real use.",
+    "Total cost of ownership includes not just subscription fees but transaction fees, payment processing, apps, support tiers, and implementation costs."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Models Explained</h2>
+    <p class="text-slate-700 mb-4">
+      Before comparing specific platforms, understand the three fundamental pricing models in the LMS market:
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Flat Monthly Pricing:</strong> Pay a fixed amount regardless of user count. Thinkific, Kajabi, Teachable, and LearnWorlds use this model. Best for selling courses to external learners where student numbers can vary dramatically month to month. Predictable costs scale with your revenue, not your user base.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Per-User Pricing:</strong> Pay based on active users or registered learners. TalentLMS, Skilljar, and most enterprise platforms (Docebo, Absorb) use this approach. Best for internal employee training or customer education with predictable user counts. Can become expensive at scale but offers cost certainty for smaller deployments.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Revenue Share / Transaction Fees:</strong> Pay a percentage of course sales. Common on free or lower-tier plans (Teachable 5-10%, Podia 8%, LearnWorlds $5/sale on Starter). Avoid these if you're serious about selling — they quickly exceed subscription costs. All platforms also charge standard payment processing fees (typically 2.9% + $0.30) on top of any platform fees.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Expert-Focused Platforms: Detailed Pricing</h2>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Free:</strong> $0 — 1 course, 1 community, 5 digital downloads, unlimited students, 0% transaction fee. Genuinely usable for testing and tiny operations.<br/>
+      <strong>Start:</strong> $74/month (annual) or $99/month (monthly) — 1 community, 10 digital downloads, unlimited courses, unlimited students, 0% transaction fee, affiliate program, live lessons.<br/>
+      <strong>Grow:</strong> $149/month (annual) or $199/month (monthly) — 3 communities, unlimited digital downloads, assignments, advanced course building, phone support.<br/>
+      <strong>Thinkific Plus:</strong> Custom pricing — enterprise features, SSO, white-label, dedicated support, multiple admins.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Course creators who want predictable costs and zero transaction fees. The Free plan is the most generous in the industry.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Kajabi</h3>
+    <p class="text-slate-700 mb-4">
+      <strong> Kickstarter:</strong> $69/month (annual) — 1 product, 1 funnel, 250 contacts, 1,250 marketing emails, 1 admin, 0% transaction fee.<br/>
+      <strong>Basic:</strong> $149/month (annual) or $199/month (monthly) — 3 products, 3 funnels, 10,000 contacts, unlimited landing pages, 1 admin, 0% transaction fee.<br/>
+      <strong>Growth:</strong> $199/month (annual) or $299/month (monthly) — 15 products, 15 funnels, 25,000 contacts, affiliate program, remove Kajabi branding, 3 admins.<br/>
+      <strong>Pro:</strong> $399/month (annual) or $599/month (monthly) — 100 products, 100 funnels, 100,000 contacts, custom code editor, 5 admins.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> All-in-one businesses that want email marketing, funnels, and courses in one platform. Higher base cost but eliminates separate email tool expenses.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Teachable</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Free:</strong> $0 + $1 + 10% per transaction — 1 course, 1 admin, unlimited students, basic features.<br/>
+      <strong>Basic:</strong> $59/month (annual) or $79/month (monthly) + 5% transaction fee — 5 courses, 2 admins, product bundles, coupon codes, affiliate program.<br/>
+      <strong>Pro:</strong> $159/month (annual) or $199/month (monthly), 0% transaction fee — unlimited courses, 5 admins, graded quizzes, certificates, course compliance.<br/>
+      <strong>Pro+:</strong> $249/month (annual) or $299/month (monthly), 0% transaction fee — unlimited courses, 25 admins, custom user roles, advanced reporting.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Beginners who want to start free and upgrade as they grow. Watch out for those transaction fees on lower tiers — they add up fast.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">LearnWorlds</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Starter:</strong> $29/month + $5 fee per course sale — 1 admin, 3 funnels, 4 payment gateways, basic features.<br/>
+      <strong>Pro Trainer:</strong> $99/month (annual), 0% transaction fee — 5 admins, unlimited courses, unlimited popups, subscriptions/memberships, affiliate management.<br/>
+      <strong>Learning Center:</strong> $299/month (annual), 0% transaction fee — 20 admins, 10 seats for managers, interactive video, white-label options, SSO.
+      <br/>
+      <strong>High Volume & Corporate:</strong> Custom pricing — premium support, dedicated account manager, SLA guarantees.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Professional educators who need interactive content features. Avoid the Starter plan — that $5/sale fee is painful.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Podia</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Free:</strong> $0 + 8% transaction fee — 1 community, 1 download, 1 coaching product, limited features.<br/>
+      <strong>Mover:</strong> $39/month (annual) or $49/month (monthly), 0% transaction fee — unlimited courses, unlimited downloads, 1 community, email marketing.<br/>
+      <strong>Shaker:</strong> $89/month (annual) or $119/month (monthly), 0% transaction fee — everything in Mover plus affiliates, blog, offsite buy buttons, third-party code.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Simple digital product businesses on a tight budget. Limited features compared to competitors.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Enterprise & Training Platforms: Detailed Pricing</h2>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">TalentLMS</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Free:</strong> $0 — up to 5 users, 10 courses, unlimited email support.<br/>
+      <strong>Starter:</strong> $89/month (annual) — up to 40 users, unlimited courses, custom branding, basic integrations.<br/>
+      <strong>Basic:</strong> $189/month (annual) — up to 100 users, single sign-on (SSO), custom reports, live chat support.<br/>
+      <strong>Plus:</strong> $369/month (annual) — up to 500 users, custom domain, automation, priority support.<br/>
+      <strong>Premium:</strong> Custom pricing — 1,000+ users, dedicated account manager, SLA, API access.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Small to medium businesses needing affordable, predictable per-user pricing. Excellent value for employee training.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Docebo</h3>
+    <p class="text-slate-700 mb-4">
+      Docebo does not publish pricing. Based on industry data, plans typically start at:
+      <strong>Essentials:</strong> ~$25,000/year — up to 300 users, core LMS features, standard support.<br/>
+      <strong>Growth:</strong> ~$50,000/year — up to 1,000 users, advanced features, dedicated CSM.<br/>
+      <strong>Enterprise:</strong> Custom pricing — unlimited users, white-label, API access, premium support, custom integrations.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Implementation fees typically range from $10,000-$50,000 depending on complexity. <strong>Best for:</strong> Large organizations with 300+ users who need enterprise features and can absorb implementation costs.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Absorb LMS</h3>
+    <p class="text-slate-700 mb-4">
+      Absorb does not publish pricing. Estimated ranges based on market data:
+      <strong>Absorb LMS:</strong> ~$800-$1,500/month for up to 500 users, scaling with user count.<br/>
+      <strong>Absorb Infuse:</strong> Custom pricing — headless LMS for embedding in existing applications.<br/>
+      <strong>Enterprise:</strong> Custom pricing — unlimited users, advanced security, custom development.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Implementation and setup fees apply. <strong>Best for:</strong> Mid-market to enterprise organizations prioritizing user experience and ease of administration.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Skilljar</h3>
+    <p class="text-slate-700 mb-4">
+      Skilljar does not publish pricing. Estimated based on customer reports:
+      <strong>Essentials:</strong> ~$1,500-$2,500/month — up to 1,000 active users, core customer education features.<br/>
+      <strong>Growth:</strong> ~$3,000-$5,000/month — up to 5,000 users, advanced analytics, Salesforce integration.<br/>
+      <strong>Enterprise:</strong> Custom pricing — unlimited users, premium support, custom integrations, SLA.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Customer education teams at SaaS companies who need deep CRM integration and customer success analytics.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Moodle</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Self-hosted:</strong> Free (open source) — you pay only for hosting, maintenance, and any paid plugins. Hosting ranges from $10/month (shared) to $500+/month (dedicated) depending on scale.<br/>
+      <strong>MoodleCloud:</strong> Free plan — 45 users max, 200MB storage, ads displayed. Not suitable for production.<br/>
+      <strong>MoodleCloud Starter:</strong> ~$120/year — 100 users, 1GB storage, no ads.<br/>
+      <strong>MoodleCloud Standard:</strong> ~$370/year — 500 users, 5GB storage.<br/>
+      <strong>MoodleCloud Premium:</strong> Custom pricing — unlimited users, dedicated support.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Best for:</strong> Organizations with technical resources who want maximum control and lowest direct costs. Factor in maintenance labor for true TCO.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Not sure which plan fits your budget?"
+    ctaDescription="Get a personalized recommendation based on your user count, revenue goals, and required features."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Comparison Table</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-2 text-navy font-semibold">Entry Price</th>
+            <th class="py-3 px-2 text-navy font-semibold">Transaction Fee</th>
+            <th class="py-3 px-2 text-navy font-semibold">Pricing Model</th>
+            <th class="py-3 px-2 text-navy font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-2">Free / $74/mo</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Flat</td><td class="py-2 px-2">Course creators</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-2">$69/mo</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Flat</td><td class="py-2 px-2">All-in-one businesses</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-2">Free / $59/mo</td><td class="py-2 px-2">0-10%</td><td class="py-2 px-2">Flat + %</td><td class="py-2 px-2">Beginners</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-2">$29/mo*</td><td class="py-2 px-2">$5/sale*</td><td class="py-2 px-2">Flat + %</td><td class="py-2 px-2">Professional educators</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia</td><td class="py-2 px-2">Free / $39/mo</td><td class="py-2 px-2">0-8%</td><td class="py-2 px-2">Flat + %</td><td class="py-2 px-2">Simple digital products</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">TalentLMS</td><td class="py-2 px-2">Free / $89/mo</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Per-user</td><td class="py-2 px-2">SMB training</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo</td><td class="py-2 px-2">~$25K/yr</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Per-user</td><td class="py-2 px-2">Enterprise</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Absorb</td><td class="py-2 px-2">Custom</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Per-user</td><td class="py-2 px-2">Mid-market+</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Skilljar</td><td class="py-2 px-2">~$1.5K/mo</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Per-user</td><td class="py-2 px-2">Customer education</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Moodle</td><td class="py-2 px-2">Free</td><td class="py-2 px-2">0%</td><td class="py-2 px-2">Open source</td><td class="py-2 px-2">Technical teams</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mt-2">*LearnWorlds Starter plan only. Higher tiers have 0% fees. Prices shown are annual billing unless noted.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Cost at Scale: Real-World Scenarios</h2>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 1: Solo Course Creator ($100K/year revenue)</h3>
+    <p class="text-slate-700 mb-4">
+      Selling $100K in courses annually with 500 students:<br/>
+      • <strong>Thinkific Start:</strong> $74/month = $888/year. No transaction fees. <strong>Total: ~$888/year</strong>.<br/>
+      • <strong>Teachable Basic:</strong> $59/month + 5% transaction fee ($5,000) = $708 + $5,000. <strong>Total: ~$5,708/year</strong>.<br/>
+      • <strong>Kajabi Growth:</strong> $199/month = $2,388/year. No transaction fees. <strong>Total: ~$2,388/year</strong>.<br/>
+      • <strong>Podia Shaker:</strong> $89/month = $1,068/year. No transaction fees. <strong>Total: ~$1,068/year</strong>.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> Thinkific or Podia for pure cost. Kajabi if you value the all-in-one features.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 2: Training Academy (2,000 active students)</h3>
+    <p class="text-slate-700 mb-4">
+      External students taking professional development courses:<br/>
+      • <strong>Thinkific Grow:</strong> $149/month = $1,788/year. Unlimited students. <strong>Total: ~$1,788/year</strong>.<br/>
+      • <strong>LearnWorlds Pro:</strong> $99/month = $1,188/year. Unlimited students. <strong>Total: ~$1,188/year</strong>.<br/>
+      • <strong>TalentLMS Plus:</strong> $369/month for 500 users. Would need Premium tier for 2,000. <strong>Total: ~$5,000+/year</strong>.<br/>
+      • <strong>Teachable Pro:</strong> $159/month = $1,908/year. Unlimited students. <strong>Total: ~$1,908/year</strong>.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> LearnWorlds or Thinkific. Per-user pricing (TalentLMS) becomes painful at this scale for external learners.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 3: Company Training (500 employees)</h3>
+    <p class="text-slate-700 mb-4">
+      Internal employee training with predictable user count:<br/>
+      • <strong>TalentLMS Plus:</strong> $369/month = $4,428/year. Covers 500 users. <strong>Total: ~$4,428/year</strong>.<br/>
+      • <strong>Thinkific Grow:</strong> $149/month = $1,788/year. Unlimited users. <strong>Total: ~$1,788/year</strong>.<br/>
+      • <strong>Docebo:</strong> ~$25,000/year minimum. <strong>Total: ~$25,000/year+</strong>.<br/>
+      • <strong>Absorb:</strong> Estimated $12,000-$18,000/year for 500 users. <strong>Total: ~$15,000/year</strong>.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> Thinkific for cost, Docebo/Absorb if you need enterprise compliance and SSO features.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Hidden Costs to Watch For</h2>
+    <p class="text-slate-700 mb-4">
+      Beyond subscription fees, budget for these common add-ons:
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Payment Processing:</strong> Every platform passes through Stripe/PayPal fees (~2.9% + $0.30 per transaction). This is unavoidable but often forgotten in pricing calculations.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>App Marketplace Purchases:</strong> Thinkific's app marketplace includes free and paid apps. Popular paid apps range from $10-$50/month. Factor these into your budget if you need specific functionality.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Overage Charges:</strong> Per-user platforms may charge overage fees when exceeding plan limits. Some platforms (Skilljar) charge significantly for overages; others (TalentLMS) prompt upgrades.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Implementation & Setup:</strong> Enterprise platforms (Docebo, Absorb) typically charge $10,000-$50,000 for implementation. Even some mid-market platforms charge setup fees for SSO or custom integrations.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Premium Support:</strong> Most platforms include email support; phone, priority, or dedicated support often costs extra. Thinkific includes phone on Grow+; Docebo requires higher tiers for dedicated CSMs.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Custom Development:</strong> Moodle's "free" price tag ignores the cost of hosting, maintenance, and any custom development. Budget $5,000-$20,000 annually for quality Moodle hosting and support.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Which Plan Fits Your Business Size?</h2>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Just Starting (0-100 students)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific Free</strong> or <strong>TalentLMS Free</strong> — both allow real testing without commitment. Thinkific Free is better for selling courses; TalentLMS Free is better for internal training pilots.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Growing Business (100-1,000 students)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific Start/Grow</strong> — best value with no transaction fees and room to scale. <strong>LearnWorlds Pro Trainer</strong> is a strong alternative with interactive features.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Established Academy (1,000-10,000 students)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific Plus</strong>, <strong>LearnWorlds Learning Center</strong>, or <strong>Kajabi Pro</strong> depending on feature needs. Consider custom pricing negotiations at this scale.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Enterprise (10,000+ students or 500+ employees)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong>, <strong>Absorb</strong>, or <strong>Thinkific Plus</strong> for customer education. Custom pricing required — negotiate implementation fees and annual discounts.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Bottom Line</h2>
+    <p class="text-slate-700 mb-4">
+      LMS pricing is about more than the monthly fee — it's about total cost of ownership aligned with your business model. Flat pricing (Thinkific, Kajabi, Teachable) wins for external course sales where student numbers fluctuate. Per-user pricing (TalentLMS, enterprise platforms) can work for internal training with predictable user counts. Most importantly, avoid transaction fees once you're selling seriously — that 5-10% fee on Teachable's lower tiers or Podia's free plan will cost you more than any subscription upgrade.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Not sure which plan fits your budget?"
+    ctaDescription="Get a personalized recommendation based on your user count, revenue goals, and required features."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "Which LMS offers the best value for small businesses?", answer: "Thinkific's Start plan ($74/month) offers the best value for small businesses building their first courses — unlimited students, no transaction fees, and core commerce features. TalentLMS Starter ($89/month for up to 40 users) is excellent for small team training." },
+    { question: "What are the hidden costs in LMS pricing?", answer: "Common hidden costs include transaction fees (Teachable 5-10% on lower plans, Podia 8% on free), payment processing (typically 2.9% + $0.30 per transaction), app marketplace purchases, overage charges, implementation fees for enterprise platforms (often $10K-$50K), and custom development." },
+    { question: "Is per-user pricing or flat pricing better?", answer: "Flat pricing works best for selling courses to unlimited external learners. Per-user pricing works better for internal employee or customer training where user counts are predictable. At small scales, per-user pricing often appears cheaper; at large scales, flat pricing usually wins." },
+    { question: "Which LMS has the lowest total cost of ownership?", answer: "For course creators selling to external learners, Thinkific often has the lowest TCO due to no transaction fees on paid plans, included tax remittance, and comprehensive built-in features. For internal training, TalentLMS offers predictable per-user pricing. Moodle has the lowest direct costs but requires hosting investment." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://www.thinkific.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Pricing</a> — Official pricing page with plan comparisons</li>
+      <li><a href="https://kajabi.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Kajabi Pricing</a> — Plan details and feature comparisons</li>
+      <li><a href="https://teachable.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Teachable Pricing</a> — Transaction fees and plan features</li>
+      <li><a href="https://www.learnworlds.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">LearnWorlds Pricing</a> — Monthly and annual pricing options</li>
+      <li><a href="https://www.podia.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Podia Pricing</a> — Free plan limitations and paid features</li>
+      <li><a href="https://www.talentlms.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">TalentLMS Pricing</a> — Per-user pricing tiers</li>
+      <li><a href="https://www.docebo.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Docebo Pricing</a> — Enterprise pricing information</li>
+      <li><a href="https://www.absorblms.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Absorb Pricing</a> — Request pricing for your organization</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "E-Commerce Features Compared", href: "/guides/ecommerce-compared", description: "Payment processing, upsells, taxes, and affiliate programs across LMS platforms." },
+    { title: "Integrations Compared", href: "/guides/integrations-compared", description: "CRM, marketing, and third-party integration costs and capabilities." }
+  ]} />
+
+</GuideLayout>

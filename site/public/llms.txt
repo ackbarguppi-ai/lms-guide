@@ -15,6 +15,9 @@
 - [LMS Reporting & Analytics Compared (2026)](https://lms-guide.com/guides/reporting-analytics-compared): Dashboards, learner progress tracking, business metrics, and analytics capabilities across leading LMS platforms.
 - [LMS Mobile Learning Compared (2026)](https://lms-guide.com/guides/mobile-learning-compared): Native apps, responsive design, offline access, and mobile learning features compared across top platforms.
 - [LMS Integrations Compared (2026)](https://lms-guide.com/guides/integrations-compared): CRM, marketing, HR, and third-party integrations across leading LMS platforms.
+- [LMS Compliance & Certifications Compared (2026)](https://lms-guide.com/guides/compliance-certifications-compared): Certificate generation, SCORM/xAPI support, audit trails, CE/CPD credits, HIPAA/SOC 2 compliance, and proctoring features.
+- [LMS Gamification & Engagement Compared (2026)](https://lms-guide.com/guides/gamification-engagement-compared): Badges, points, leaderboards, progress tracking, communities, assignments, drip content, and live lessons.
+- [LMS Pricing & Plans Compared (2026)](https://lms-guide.com/guides/pricing-plans-compared): Pricing tiers, transaction fees, per-user vs flat pricing, enterprise costs, hidden fees, and cost at scale analysis.
 
 ### Platform Reviews
 - [Thinkific Review 2026](https://lms-guide.com/reviews/thinkific): In-depth review of Thinkific as a learning commerce platform for customer education, branded academies, and course businesses.
