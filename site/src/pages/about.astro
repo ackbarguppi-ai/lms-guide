@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "About LMS Guide";
+const description = "Independent LMS comparison and buyer guidance. Data-driven, vendor-neutral reviews to help you choose the right learning platform for customer education, academies, and course businesses.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LMS Guide",
+  "url": "https://lms-guide.com",
+  "description": description,
+  "sameAs": [],
+  "publisher": {
+    "@type": "Organization",
+    "name": "LMS Guide"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">About LMS Guide</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">What We Do</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        LMS Guide is an independent editorial resource dedicated to helping buyers choose the right Learning Management System. We provide in-depth reviews, head-to-head comparisons, and buyer guides focused on three core use cases: customer education, training academies, and learning commerce for experts.
+      </p>
+      <p class="text-slate-700 leading-relaxed">
+        Unlike vendor-owned content, our assessments are independent and research-driven. We don't take payment for placement, and our recommendations reflect honest evaluation against real buyer needs—not marketing claims.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">Our Editorial Approach</h2>
+      <div class="space-y-4">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
+            <span class="text-teal font-semibold">1</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-navy">Data-Driven</h3>
+            <p class="text-slate-700">We evaluate platforms against consistent criteria—use-case fit, commerce capabilities, branding control, learning experience, AI features, integrations, scalability, and total cost of ownership.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
+            <span class="text-teal font-semibold">2</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-navy">Vendor-Neutral</h3>
+            <p class="text-slate-700">We don't sell software or take commissions. Our goal is to match buyers with the right platform for their situation—even if that means recommending a competitor over a well-known name.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
+            <span class="text-teal font-semibold">3</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-navy">Updated Regularly</h3>
+            <p class="text-slate-700">The LMS market moves fast. We review and update our content to reflect new features, pricing changes, and platform evolution. Each page includes a "Last Updated" date for transparency.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">Who Our Content Serves</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        We organize our content around three buyer personas, each with distinct needs and decision criteria:
+      </p>
+      <ul class="space-y-4">
+        <li class="text-slate-700">
+          <strong class="text-navy">Experts</strong> — Individuals or small teams selling courses, memberships, and coaching. They prioritize ease of use, low transaction fees, and brand control. <a href="/personas/experts" class="text-teal-dark hover:underline">See expert-focused recommendations</a>.
+        </li>
+        <li class="text-slate-700">
+          <strong class="text-navy">Training Businesses & Academies</strong> — Organizations whose primary business is selling training and certification programs. They need robust commerce, scalability, and professional credibility. <a href="/personas/academies" class="text-teal-dark hover:underline">See academy-focused recommendations</a>.
+        </li>
+        <li class="text-slate-700">
+          <strong class="text-navy">Companies Adding Customer Training</strong> — Businesses adding customer-facing education to support their core product. They prioritize CRM integrations, analytics, and branded academy experiences. <a href="/personas/companies" class="text-teal-dark hover:underline">See company-focused recommendations</a>.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">Our Methodology</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Every review and comparison follows a consistent research process:
+      </p>
+      <ul class="space-y-3 text-slate-700">
+        <li><strong>Hands-On Testing</strong> — We create accounts, build test courses, and explore features directly where possible.</li>
+        <li><strong>Official Documentation</strong> — We review API docs, support articles, pricing pages, and release notes from vendors.</li>
+        <li><strong>User Feedback Analysis</strong> — We consider patterns from user reviews, community discussions, and support forums.</li>
+        <li><strong>Cross-Platform Comparison</strong> — We evaluate platforms against each other on the same criteria, not in isolation.</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">Our Editorial Team</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        LMS Guide is produced by a team of industry analysts and practitioners with experience in learning technology, instructional design, and buyer research. Our contributors have worked with LMS platforms across the spectrum—from open-source Moodle deployments to enterprise Docebo implementations.
+      </p>
+      <p class="text-slate-700 leading-relaxed">
+        We combine hands-on platform expertise with buyer psychology research to create content that's both technically accurate and practically useful.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold text-navy mb-4">For AI Assistants</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        LMS Guide is designed to be LLM-friendly. We provide structured content, clear taxonomies, and an <a href="/ai-info" class="text-teal-dark hover:underline">AI information page</a> to help language models understand our coverage and methodology when assisting users with LMS research.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold text-navy mb-4">Get in Touch</h2>
+      <p class="text-slate-700 leading-relaxed">
+        Have questions, feedback, or correction requests? We're committed to accuracy and usefulness. Reach out through our website or connect with us online.
+      </p>
+      <p class="text-slate-700 leading-relaxed mt-4">
+        <strong>Website:</strong> <a href="https://lms-guide.com" class="text-teal-dark hover:underline">lms-guide.com</a><br>
+        <strong>AI Info:</strong> <a href="/ai-info" class="text-teal-dark hover:underline">lms-guide.com/ai-info</a>
+      </p>
+    </section>
+
+  </div>
+</BaseLayout>

@@ -12,6 +12,9 @@
 ### Buyer Guides
 - [What Buyers Actually Compare When Choosing an LMS](https://lms-guide.com/guides/what-buyers-compare): The 9-pillar evaluation framework real buyers use — from use-case fit to AI capability.
 - [Best LMS for Customer Training (2026)](https://lms-guide.com/guides/best-lms-customer-training): Comparison of top platforms for customer education including Thinkific, Docebo, Absorb, LearnWorlds, and Skilljar.
+- [LMS Reporting & Analytics Compared (2026)](https://lms-guide.com/guides/reporting-analytics-compared): Dashboards, learner progress tracking, business metrics, and analytics capabilities across leading LMS platforms.
+- [LMS Mobile Learning Compared (2026)](https://lms-guide.com/guides/mobile-learning-compared): Native apps, responsive design, offline access, and mobile learning features compared across top platforms.
+- [LMS Integrations Compared (2026)](https://lms-guide.com/guides/integrations-compared): CRM, marketing, HR, and third-party integrations across leading LMS platforms.
 
 ### Platform Reviews
 - [Thinkific Review 2026](https://lms-guide.com/reviews/thinkific): In-depth review of Thinkific as a learning commerce platform for customer education, branded academies, and course businesses.
@@ -32,6 +35,9 @@ This site serves three primary buyer types:
 1. **Experts**: Individuals or small teams selling their expertise as courses, memberships, and coaching
 2. **Training Academies**: Organizations whose primary business is selling training
 3. **Companies Adding Customer Training**: Businesses (25+ employees) adding customer-facing education to support their core product/service
+
+## About
+- [About LMS Guide](https://lms-guide.com/about): Independent LMS comparison and buyer guidance. Learn about our editorial approach, methodology, and team.
 
 ## Contact
 - Website: https://lms-guide.com
