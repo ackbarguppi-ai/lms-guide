@@ -1,0 +1,344 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Branding & White-Label: The Complete Guide for 2026",
+    "description": "A comprehensive guide to white-label LMS capabilities including custom domains, branded mobile apps, theme customization, and removing platform branding across major learning platforms.",
+    "datePublished": "2026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-branding-white-label-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does white-label LMS mean?", "acceptedAnswer": { "@type": "Answer", "text": "A white-label LMS allows you to completely remove the platform vendor's branding and replace it with your own. This includes custom domains (learn.yourbrand.com), your logo and color scheme throughout the interface, branded email notifications, and in some cases a fully branded mobile app published under your name in the App Store and Google Play. The goal is that students never see the underlying platform — they experience your brand exclusively." } },
+      { "@type": "Question", "name": "Which LMS platforms offer branded mobile apps?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific, Kajabi, and LearnWorlds all offer branded mobile apps published under your own name in the Apple App Store and Google Play Store. Thinkific's Branded Mobile app is built and maintained by Thinkific's team — you provide your brand assets and they handle the development, submission, and ongoing updates. Kajabi includes a branded app on higher-tier plans. LearnWorlds offers a white-label app as an add-on. Enterprise platforms like Docebo and Absorb also provide branded mobile experiences." } },
+      { "@type": "Question", "name": "How much does a custom domain cost for an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Custom domain support is included at no additional cost on most LMS platforms, including Thinkific (all paid plans), Kajabi, Teachable, and LearnWorlds. You simply point your domain's DNS records to the platform. The domain registration itself (typically $10-15/year) is separate. Some platforms also support SSL certificates automatically, ensuring your custom domain loads securely with HTTPS." } },
+      { "@type": "Question", "name": "Can I completely remove 'Powered by' branding from my LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but it typically requires a higher-tier plan. Thinkific removes all platform branding on paid plans. Teachable removes 'Powered by Teachable' on Pro plans and above. Kajabi never shows platform branding on any plan. LearnWorlds removes branding on Learning Center plans and above. Free plans on most platforms display vendor branding as a trade-off for the zero cost." } },
+      { "@type": "Question", "name": "What branding elements can I customize in an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Comprehensive LMS branding covers: custom domain and subdomain, logo and favicon, color schemes and typography, login page design, course player interface, email notification templates, certificate designs, checkout pages, mobile app icon and splash screen, and community spaces. The most advanced platforms like Thinkific offer a Site Builder with drag-and-drop customization, custom CSS injection, and theme templates that give you full control over every student-facing page." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Branding & White-Label: The Complete Guide for 2026"
+  description="A comprehensive guide to white-label LMS capabilities including custom domains, branded mobile apps, theme customization, and removing platform branding across major learning platforms."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS Branding & White-Label Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Branding & White-Label: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Your learning platform should feel like an extension of your brand — not an advertisement for someone else's.</strong> When students log in to take your course, join your community, or earn a certificate, the experience should reinforce your credibility and professionalism. A "Powered by [Platform Name]" footer undermines that perception and signals that you're renting space rather than owning it.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide examines how major LMS platforms approach branding and white-labeling in 2026. We'll cover the full spectrum — from basic logo placement to fully branded mobile apps — and explain which customization capabilities matter most for independent experts, training academies, and companies building customer education programs. The differences between platforms are significant, and choosing wrong can lock you into a brand experience that doesn't match your standards.
+  </p>
+
+  <KeyTakeaways items={[
+    "Custom domains are table stakes — every major LMS supports them on paid plans, but SSL configuration and subdomain flexibility vary significantly.",
+    "Branded mobile apps are the ultimate white-label differentiator. Thinkific, Kajabi, and LearnWorlds offer apps published under your name in the App Store and Google Play.",
+    "Theme customization depth ranges from basic color pickers (Teachable) to full drag-and-drop site builders with custom CSS (Thinkific, LearnWorlds).",
+    "Removing 'Powered by' branding typically requires mid-tier plans or higher — budget accordingly if brand purity matters.",
+    "Enterprise platforms (Docebo, Absorb) offer the deepest white-labeling including custom login portals, branded admin interfaces, and multi-tenant branding for different client organizations.",
+    "Email notification branding is often overlooked — check whether your platform lets you customize transactional emails (enrollment confirmations, progress reminders) with your brand identity."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What White-Label Actually Means in 2026</h2>
+    <p class="text-slate-700 mb-4">
+      "White-label" has become a marketing buzzword that platforms interpret very differently. At its most basic, white-labeling means slapping your logo on a template. At its most comprehensive, it means every pixel your student sees — from the first marketing page through course completion and certification — carries your brand identity exclusively.
+    </p>
+    <p class="text-slate-700 mb-4">
+      True white-label capability in 2026 encompasses seven distinct layers:
+    </p>
+    <ol class="list-decimal pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Domain & URL structure</strong> — Your domain, your SSL, your URL paths</li>
+      <li><strong>Visual identity</strong> — Colors, typography, logos, favicons across all pages</li>
+      <li><strong>Site architecture</strong> — Custom page layouts, landing pages, navigation</li>
+      <li><strong>Learning experience</strong> — Course player, progress indicators, completion screens</li>
+      <li><strong>Communications</strong> — Email templates, notification styling, sender addresses</li>
+      <li><strong>Commerce</strong> — Checkout pages, receipts, invoices bearing your brand</li>
+      <li><strong>Mobile experience</strong> — Branded app in app stores with your icon and splash screen</li>
+    </ol>
+    <p class="text-slate-700 mb-4">
+      Most platforms handle the first three layers reasonably well. The differentiation happens in layers four through seven, where the student experience either feels seamlessly branded or reveals the underlying platform.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Custom Domains: The Foundation of Brand Identity</h2>
+    <p class="text-slate-700 mb-4">
+      A custom domain is the most fundamental branding element. Students should access your learning platform at <code>learn.yourbrand.com</code> or <code>academy.yourbrand.com</code> — never at <code>yourbrand.thinkific.com</code>.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">How Custom Domains Work</h3>
+    <p class="text-slate-700 mb-4">
+      Every major LMS platform supports custom domains through DNS configuration. You register your domain (or use a subdomain of your existing domain), point the DNS records to your LMS provider, and the platform serves your learning site from that address. Most platforms handle SSL certificate provisioning automatically, ensuring your custom domain loads securely.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Platform Domain Support</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Custom Domain</th>
+            <th class="py-3 px-4 text-navy font-semibold">Plan Required</th>
+            <th class="py-3 px-4 text-navy font-semibold">Auto SSL</th>
+            <th class="py-3 px-4 text-navy font-semibold">Multiple Domains</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All paid plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">Via multi-site (Expand+)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">Up to 3 (Growth+)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All paid plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All paid plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">✅ Multi-tenant</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Absorb</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">✅</td><td class="py-2 px-4">✅ Multi-portal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      The key differentiator isn't whether custom domains are supported — everyone offers them — but how they handle <strong>multiple domains and multi-site architectures</strong>. If you run separate training programs for different audiences (e.g., customer training and partner certification), you may need distinct branded experiences on separate domains. Enterprise platforms like Docebo and Absorb excel here with multi-tenant architectures. Thinkific supports this through its Expand plan with multi-site management.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Branded Mobile Apps: The Premium Differentiator</h2>
+    <p class="text-slate-700 mb-4">
+      A branded mobile app — published under your name in the Apple App Store and Google Play Store — represents the highest level of white-label branding. When students download "YourBrand Academy" from their app store, the platform vendor is completely invisible. This creates a professional impression that a mobile-responsive website simply cannot match.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific Branded Mobile</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's Branded Mobile offering is a fully managed service. You provide your brand assets — logo, colors, app icon, splash screen — and Thinkific's team builds, submits, and maintains your app. The app appears in both the Apple App Store and Google Play Store under your brand name. Students access courses, communities, and content through an experience that looks and feels entirely like your product.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Key features of Thinkific Branded Mobile include:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Push notifications</strong> — Re-engage students with branded push messages</li>
+      <li><strong>Offline content access</strong> — Students can download lessons for offline viewing</li>
+      <li><strong>Community integration</strong> — Full community access within the branded app</li>
+      <li><strong>In-app purchases</strong> — Students can buy courses directly within the app</li>
+      <li><strong>Custom app icon and splash screen</strong> — Complete visual brand control</li>
+      <li><strong>Automatic updates</strong> — Thinkific handles all maintenance and OS compatibility updates</li>
+    </ul>
+    <p class="text-slate-700 mb-4">
+      The managed approach is significant — building and maintaining a native mobile app yourself would cost $50,000-150,000+ in development and require ongoing updates for iOS and Android version changes. Thinkific handles all of this as part of the Branded Mobile service.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Kajabi Mobile Apps</h3>
+    <p class="text-slate-700 mb-4">
+      Kajabi offers branded mobile apps on its higher-tier plans. The app includes course delivery, community access, and coaching functionality. Like Thinkific, Kajabi handles the app submission and maintenance. The primary limitation is that Kajabi's app customization is more constrained — you control colors and branding assets, but the overall interface structure follows Kajabi's design patterns more rigidly.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">LearnWorlds Mobile App Builder</h3>
+    <p class="text-slate-700 mb-4">
+      LearnWorlds provides a no-code mobile app builder that gives you more design control than Kajabi but requires more hands-on configuration than Thinkific. You can customize navigation, layout, and branding elements through a visual editor. The app is then published under your brand name. LearnWorlds charges this as an add-on to your subscription.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Enterprise Mobile Options</h3>
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms like <strong>Docebo</strong> and <strong>Absorb</strong> offer branded mobile apps as part of their enterprise packages. These apps often include advanced features like biometric authentication, offline SCORM content playback, and integration with enterprise mobility management (EMM) solutions. If your organization has MDM (Mobile Device Management) requirements, enterprise platforms are the only realistic option.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Building a branded learning experience?"
+    ctaDescription="Get a personalized recommendation based on your branding requirements, audience size, and budget."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Theme Customization: From Templates to Full Design Control</h2>
+    <p class="text-slate-700 mb-4">
+      The depth of visual customization varies dramatically across platforms. Here's how they stack up:
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Full Site Builders (Most Flexible)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> offers a drag-and-drop Site Builder that lets you design landing pages, course catalogs, and marketing pages without code. You can customize layouts section by section, add custom sections, and inject custom CSS for pixel-perfect control. Thinkific also provides pre-built theme templates as starting points, which you can then modify extensively.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>LearnWorlds</strong> provides a similarly powerful site builder with a large library of templates and sections. LearnWorlds is particularly strong on interactive elements — animated counters, parallax scrolling, and video backgrounds are built into the builder.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Template-Based Customization (Moderate Flexibility)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> uses a theme-based approach with customizable templates. You select a theme and modify colors, fonts, images, and layout elements. The templates are well-designed and professional, but you're working within the constraints of predefined structures. Custom CSS is available for further modifications.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable</strong> offers a page editor with block-based customization. It's adequate for basic branding (colors, logo, fonts) but lacks the sophistication of Thinkific's or LearnWorlds' site builders. Custom CSS is supported for additional styling.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Enterprise Design Systems (Deepest Control)</h3>
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms like <strong>Docebo</strong> offer configurable design systems where administrators can control branding across every interface element — from the learner portal to the admin dashboard to manager views. Multi-brand support means a single Docebo instance can present different visual identities to different user groups. <strong>Absorb</strong> offers similar depth with its portal customization engine.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Course Player Customization</h3>
+    <p class="text-slate-700 mb-4">
+      The course player — where students actually consume content — is often harder to customize than marketing pages. Key considerations include:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Thinkific</strong> — Customizable course player with your branding, sidebar navigation options, and configurable completion requirements</li>
+      <li><strong>Kajabi</strong> — Clean player design with limited customization beyond colors and logo</li>
+      <li><strong>LearnWorlds</strong> — Interactive player with branded overlays, note-taking, and social sharing options</li>
+      <li><strong>Teachable</strong> — Simple player with minimal customization options</li>
+      <li><strong>Enterprise platforms</strong> — Typically offer the most player customization including custom progress bars, branded completion animations, and configurable navigation</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Removing Platform Branding: Plan Requirements</h2>
+    <p class="text-slate-700 mb-4">
+      One of the most common branding questions is: "How do I remove the 'Powered by [Platform]' badge?" The answer depends on your plan level:
+    </p>
+
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Branding Removed On</th>
+            <th class="py-3 px-4 text-navy font-semibold">What's Removed</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">All paid plans</td><td class="py-2 px-4">All "Thinkific" references removed from student-facing pages</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">No vendor branding on any plan</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-4">Pro plan+</td><td class="py-2 px-4">"Powered by Teachable" footer and branding elements</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">Learning Center+</td><td class="py-2 px-4">Footer branding, login page references</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia</td><td class="py-2 px-4">Mover plan+</td><td class="py-2 px-4">"Powered by Podia" branding</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">Complete white-label by default</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Absorb</td><td class="py-2 px-4">All plans</td><td class="py-2 px-4">Complete white-label by default</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 mb-4">
+      Beyond the visible "Powered by" badge, check for platform branding in less obvious places: email notification footers, certificate templates, checkout confirmation pages, password reset pages, and error screens. The best platforms let you brand every student touchpoint; others leave residual platform references in transactional communications.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Email and Communication Branding</h2>
+    <p class="text-slate-700 mb-4">
+      Students receive numerous automated emails from your LMS — enrollment confirmations, progress reminders, certificate notifications, community activity alerts, and payment receipts. Each of these is a brand touchpoint that should carry your identity.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">What to Look For</h3>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Custom sender address</strong> — Emails should come from yourname@yourdomain.com, not noreply@platform.com</li>
+      <li><strong>Email template customization</strong> — Logo, colors, footer, and content should match your brand guidelines</li>
+      <li><strong>Custom email domains (SPF/DKIM)</strong> — Proper email authentication prevents your branded emails from landing in spam</li>
+      <li><strong>Transactional email control</strong> — Ability to edit the content of system-generated emails, not just the visual template</li>
+    </ul>
+
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> supports custom email sender addresses, branded email templates, and custom email domain configuration with SPF/DKIM records. <strong>Kajabi</strong> excels here because its built-in email marketing means all communications — both marketing and transactional — flow through one branded system. Enterprise platforms like <strong>Docebo</strong> offer the most granular email branding control, including per-branch email customization for multi-tenant deployments.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Certificate and Credential Branding</h2>
+    <p class="text-slate-700 mb-4">
+      Certificates and credentials are among the most shared brand assets your LMS produces. When a student earns a certificate, they're likely to share it on LinkedIn, add it to their resume, and show it to colleagues. Every share is brand exposure — but only if the certificate carries your brand, not the platform's.
+    </p>
+
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Thinkific</strong> — Fully customizable certificate templates with your logo, colors, and custom fields. Certificates include unique verification URLs on your domain.</li>
+      <li><strong>Kajabi</strong> — Basic certificate customization with logo and color options.</li>
+      <li><strong>LearnWorlds</strong> — Advanced certificate builder with multiple templates and custom fields. Supports digital credential badges.</li>
+      <li><strong>Teachable</strong> — Simple certificate with logo customization. Limited design flexibility.</li>
+      <li><strong>Docebo</strong> — Enterprise certificate management with custom templates, digital signatures, and integration with credential platforms like Credly and Accredible.</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Multi-Brand and Multi-Tenant Scenarios</h2>
+    <p class="text-slate-700 mb-4">
+      Some organizations need to present different brands to different audiences from a single platform instance. Common scenarios include:
+    </p>
+
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>Training companies</strong> that white-label courses for corporate clients — each client sees their own brand</li>
+      <li><strong>Franchise organizations</strong> that need consistent training with localized branding per region</li>
+      <li><strong>Companies</strong> running separate portals for employee training, customer education, and partner certification</li>
+      <li><strong>Academies</strong> with multiple sub-brands or program verticals</li>
+    </ul>
+
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> leads this category with its multi-domain, multi-brand architecture. A single Docebo instance can power dozens of uniquely branded learning portals. <strong>Absorb</strong> offers similar multi-portal capabilities. <strong>Thinkific</strong> addresses this with its Expand plan, which supports multiple Thinkific sites managed from a single account — each with its own domain, branding, and course catalog. Consumer platforms like Kajabi and Teachable are limited to a single brand identity per account.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Branding Recommendations by Use Case</h2>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Independent Experts</h3>
+    <p class="text-slate-700 mb-4">
+      You need a clean, professional presence that builds trust with prospective students. Priorities: custom domain, branded course player, customized certificates, and removal of platform branding. A branded mobile app is a powerful credibility booster if your budget allows it. <strong>Thinkific</strong> offers the best balance of design flexibility and professional presentation for individual experts.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Training Academies</h3>
+    <p class="text-slate-700 mb-4">
+      Academies serving multiple audiences need design flexibility and potentially multi-site support. Priorities: robust site builder, customizable email templates, professional certificate design, and the ability to create distinct landing pages for different programs. <strong>Thinkific</strong> and <strong>LearnWorlds</strong> excel here with their site builders. If you're white-labeling for clients, consider <strong>Docebo</strong>'s multi-tenant capabilities.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Companies (Customer Training)</h3>
+    <p class="text-slate-700 mb-4">
+      Companies building customer education portals need the deepest white-labeling — the learning experience must feel like a native extension of the product. Priorities: complete vendor branding removal, custom domain with SSO integration, branded mobile app, multi-portal support for different customer segments. <strong>Docebo</strong>, <strong>Absorb</strong>, and <strong>Thinkific</strong> (Expand plan) are the top contenders.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help building your branded learning experience?"
+    ctaDescription="Tell us about your branding requirements and we'll recommend the platform that delivers the white-label experience your brand deserves."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What does white-label LMS mean?", answer: "A white-label LMS allows you to completely remove the platform vendor's branding and replace it with your own. This includes custom domains (learn.yourbrand.com), your logo and color scheme throughout the interface, branded email notifications, and in some cases a fully branded mobile app published under your name in the App Store and Google Play. The goal is that students never see the underlying platform — they experience your brand exclusively." },
+    { question: "Which LMS platforms offer branded mobile apps?", answer: "Thinkific, Kajabi, and LearnWorlds all offer branded mobile apps published under your own name in the Apple App Store and Google Play Store. Thinkific's Branded Mobile app is built and maintained by Thinkific's team — you provide your brand assets and they handle the development, submission, and ongoing updates. Kajabi includes a branded app on higher-tier plans. LearnWorlds offers a white-label app as an add-on. Enterprise platforms like Docebo and Absorb also provide branded mobile experiences." },
+    { question: "How much does a custom domain cost for an LMS?", answer: "Custom domain support is included at no additional cost on most LMS platforms, including Thinkific (all paid plans), Kajabi, Teachable, and LearnWorlds. You simply point your domain's DNS records to the platform. The domain registration itself (typically $10-15/year) is separate. Some platforms also support SSL certificates automatically, ensuring your custom domain loads securely with HTTPS." },
+    { question: "Can I completely remove 'Powered by' branding from my LMS?", answer: "Yes, but it typically requires a higher-tier plan. Thinkific removes all platform branding on paid plans. Teachable removes 'Powered by Teachable' on Pro plans and above. Kajabi never shows platform branding on any plan. LearnWorlds removes branding on Learning Center plans and above. Free plans on most platforms display vendor branding as a trade-off for the zero cost." },
+    { question: "What branding elements can I customize in an LMS?", answer: "Comprehensive LMS branding covers: custom domain and subdomain, logo and favicon, color schemes and typography, login page design, course player interface, email notification templates, certificate designs, checkout pages, mobile app icon and splash screen, and community spaces. The most advanced platforms like Thinkific offer a Site Builder with drag-and-drop customization, custom CSS injection, and theme templates that give you full control over every student-facing page." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/13166713617431" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Branded Mobile App Documentation</a> — Complete guide to Thinkific's white-label mobile app offering</li>
+      <li><a href="https://www.thinkific.com/blog/white-label-lms/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">The 14 Best White-Label LMS in 2026</a> — Thinkific's comprehensive comparison of white-label platforms</li>
+      <li><a href="https://www.d2l.com/blog/white-label-lms/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Eight Best White-Label LMS Platforms (D2L)</a> — D2L's perspective on customizable learning platforms</li>
+      <li><a href="https://www.thinkific.com/features/branded-mobile/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Branded Mobile Features</a> — Feature overview and pricing for branded mobile apps</li>
+      <li><a href="https://oasis-lms.com/post/the-7-best-white-label-lms-platforms-for-selling-courses-in-2026" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Best White-Label LMS for Selling Courses (Oasis)</a> — Independent review of white-label course platforms</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS Mobile Learning: The Complete Guide for 2026", href: "/guides/lms-mobile-learning-complete-guide", description: "Mobile-first learning design, offline access, and responsive course delivery across devices." },
+    { title: "LMS Pricing & Plans: The Complete Guide for 2026", href: "/guides/lms-pricing-complete-guide", description: "Compare pricing structures, plan tiers, and total cost of ownership across major LMS platforms." },
+    { title: "Branding & White-Label Compared", href: "/guides/branding-compared", description: "Side-by-side comparison of customization, white-labeling, and branding features across eight LMS platforms." }
+  ]} />
+
+</GuideLayout>
