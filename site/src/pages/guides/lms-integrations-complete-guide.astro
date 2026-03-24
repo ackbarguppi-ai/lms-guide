@@ -1,0 +1,352 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Integrations: The Complete Guide for 2026",
+    "description": "A comprehensive guide to LMS integration capabilities — Zapier, CRM, marketing tools, SSO/SAML, LTI, webhooks, and API access across major platforms.",
+    "datePublished": "2026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-integrations-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What integrations should I look for in an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "The essential integrations depend on your use case. For independent experts selling courses, prioritize email marketing (Mailchimp, ConvertKit), payment processing (Stripe), analytics (Google Analytics), and automation (Zapier). For academies, add CRM (HubSpot, Salesforce), webinar tools (Zoom), and advanced API access. For companies running training programs, SSO/SAML, LTI compliance, SCIM provisioning, and HRIS connections (Workday, BambooHR) are critical." } },
+      { "@type": "Question", "name": "Which LMS has the best Zapier integration?", "acceptedAnswer": { "@type": "Answer", "text": "Kajabi and Thinkific lead for Zapier integration depth among expert-focused platforms. Kajabi offers triggers for purchases, contacts, tags, and forms with actions for creating contacts and granting access. Thinkific supports triggers for enrollments, orders, and lesson completions with actions for creating users and enrollments. Both connect to 6,000+ apps through Zapier, but Kajabi's trigger variety is slightly broader." } },
+      { "@type": "Question", "name": "Do I need SSO for my LMS?", "acceptedAnswer": { "@type": "Answer", "text": "SSO (Single Sign-On) is essential for companies deploying training to employees who already use corporate identity providers like Okta, Azure AD, or Google Workspace. It eliminates separate passwords, improves security, and simplifies IT management. For independent experts selling to consumers, SSO is less critical — social login (Google, Facebook, Apple) provides adequate convenience. SSO typically requires higher-tier plans: Thinkific Plus, Docebo, Absorb, or TalentLMS." } },
+      { "@type": "Question", "name": "What is LTI and does my LMS need it?", "acceptedAnswer": { "@type": "Answer", "text": "LTI (Learning Tools Interoperability) is a standard that allows learning platforms to share content and data seamlessly. It matters most for educational institutions connecting to tools like Turnitin, virtual labs, or other LMS platforms. Docebo, Absorb, and TalentLMS support LTI 1.1/1.3. Expert-focused platforms (Thinkific, Kajabi, Teachable) do not support LTI — they focus on direct integrations instead. If you're selling courses to consumers, you don't need LTI." } },
+      { "@type": "Question", "name": "How important is API access for an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "API access becomes important as your learning business scales. With a REST API, you can automate enrollment workflows, sync student data with your CRM, build custom reporting dashboards, and create white-labeled experiences. Docebo offers the most comprehensive API with hundreds of endpoints. Thinkific's V2 API is well-documented and developer-friendly. Kajabi's API is newer but expanding. Podia has no public API, making it the most limited for custom development." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Integrations: The Complete Guide for 2026"
+  description="A comprehensive guide to LMS integration capabilities — Zapier, CRM, marketing tools, SSO/SAML, LTI, webhooks, and API access across major platforms."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS Integrations Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Integrations: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Your LMS doesn't operate in a vacuum.</strong> It connects to your email marketing platform, your CRM, your payment processor, your analytics tools, your webinar software, and — for enterprise deployments — your identity provider, HR system, and compliance infrastructure. The depth and breadth of these connections determines whether your learning platform is the productive hub of your tech stack or an isolated silo that creates more work than it saves.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide examines integration capabilities across the LMS landscape — from no-code automation through Zapier and Make, to native app ecosystems, REST APIs, webhooks, CRM connections, SSO/SAML authentication, and LTI learning standards. Whether you're an independent expert connecting Mailchimp to automate welcome emails or a company deploying Salesforce-connected training across thousands of employees, understanding these capabilities will determine whether your platform choice accelerates or constrains your growth.
+  </p>
+
+  <KeyTakeaways items={[
+    "Zapier is the universal integration backbone — Thinkific and Kajabi offer the deepest Zapier support among expert-focused platforms, connecting to 6,000+ apps without code.",
+    "Native integration counts vary dramatically: Kajabi (185+), Thinkific (96+ via App Store), Docebo (400+ via Connect), while Podia offers just ~15.",
+    "SSO/SAML is a non-negotiable requirement for corporate training — available on Thinkific Plus, Docebo, Absorb, and TalentLMS.",
+    "LTI support separates enterprise platforms (Docebo, Absorb, TalentLMS) from expert-focused tools — critical for educational institutions, irrelevant for course sellers.",
+    "API depth determines scalability: Docebo leads with hundreds of endpoints, Thinkific's V2 API is solid for course businesses, Podia has no public API at all.",
+    "The integration gap between expert-focused platforms (marketing tools) and enterprise platforms (HR, CRM, SSO, LTI) is intentional — choose based on your actual needs."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">No-Code Automation: Zapier and Make</h2>
+    <p class="text-slate-700 mb-4">
+      For teams without dedicated developers, Zapier and Make (formerly Integromat) are the integration backbone that connects your LMS to thousands of other applications. These platforms use triggers (events that start a workflow) and actions (tasks that execute in response) to automate repetitive processes.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Why Zapier Integration Quality Matters</h3>
+    <p class="text-slate-700 mb-4">
+      Not all Zapier integrations are equal. A platform might technically "support Zapier" but offer only two triggers and one action, severely limiting what you can automate. The difference between a shallow and deep Zapier integration is the difference between automating one workflow and automating your entire student lifecycle.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific's Zapier Ecosystem</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> offers a well-rounded Zapier integration with triggers for new enrollments, completed orders, lesson completions, and course completions. Actions include creating new users and enrollments programmatically. This covers the most common automation scenarios: sending a welcome email when someone enrolls, adding customers to a CRM when they purchase, tagging contacts based on course progress, and triggering certification workflows on completion.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Practical examples that Thinkific experts use daily:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>New purchase → CRM contact creation</strong> — automatically add buyers to HubSpot or ActiveCampaign with purchase details as custom fields</li>
+      <li><strong>Course completion → certificate email</strong> — trigger a personalized congratulations email with next-step recommendations</li>
+      <li><strong>Enrollment → Slack notification</strong> — alert your team when high-value customers enroll</li>
+      <li><strong>Lesson completion → drip sequence</strong> — advance students through email sequences based on actual progress, not arbitrary time delays</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Kajabi's Zapier Depth</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> arguably has the deepest Zapier integration among expert-focused platforms. Beyond standard purchase and enrollment triggers, Kajabi offers triggers for new contacts, tag additions, form submissions, and offer purchases — with actions for creating contacts, adding/removing tags, and granting offer access. This granularity enables sophisticated marketing automation without leaving Zapier.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Enterprise Platforms and Zapier</h3>
+    <p class="text-slate-700 mb-4">
+      Enterprise LMS platforms like <strong>Docebo</strong> and <strong>Absorb</strong> focus less on Zapier and more on direct enterprise integrations. Their buyers typically have development teams that build custom connections through APIs rather than no-code tools. <strong>TalentLMS</strong> is an exception — it maintains a solid Zapier presence alongside its enterprise features, making it accessible to smaller teams deploying corporate training.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Native Integration Ecosystems</h2>
+    <p class="text-slate-700 mb-4">
+      Native integrations — pre-built connections that work without Zapier or custom code — provide the most reliable and feature-rich connectivity. They're maintained by the platform vendor, receive updates alongside the core product, and typically offer deeper functionality than Zapier equivalents.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific App Store: 96+ Integrations</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's App Store is a curated marketplace of purpose-built integrations. Key categories include:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Email Marketing:</strong> Mailchimp, ConvertKit, ActiveCampaign, AWeber — sync student data and trigger campaigns based on enrollment and progress events</li>
+      <li><strong>Analytics:</strong> Google Analytics, Facebook Pixel, Google Tag Manager — track conversions, retarget visitors, and measure marketing ROI</li>
+      <li><strong>Live Learning:</strong> Zoom — native integration for live lessons, webinars, and coaching sessions on all paid plans</li>
+      <li><strong>E-Commerce:</strong> TCommerce (native), Stripe, PayPal — payment processing with varying levels of feature access</li>
+      <li><strong>Customer Support:</strong> Intercom, Crisp — embedded chat and support tools within your learning site</li>
+      <li><strong>Automation:</strong> Zapier, Make — connect to thousands of additional apps</li>
+    </ul>
+    <p class="text-slate-700 mb-4">
+      The App Store model means integrations are vetted and maintained, reducing the risk of broken connections that plague DIY webhook setups.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Kajabi: 185+ Native Connections</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> leads expert-focused platforms in native integration count. Its all-in-one philosophy means many features that require integrations on other platforms — email marketing, sales funnels, community — are built in. When external connections are needed, Kajabi's integration directory covers marketing, analytics, payment, and productivity tools comprehensively.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Docebo Connect: 400+ Enterprise Connectors</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> dominates the enterprise integration landscape with over 400 native connectors through its Connect platform. These include deep, bi-directional integrations with Salesforce, Workday, Microsoft Teams, Slack, SAP SuccessFactors, BambooHR, and virtually every major enterprise software system. For companies deploying training alongside existing HR and CRM infrastructure, Docebo's integration depth is unmatched.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">The Integration-Sparse Platforms</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Podia</strong> sits at the opposite end with approximately 15 native integrations and no public API. This severely limits what you can build beyond basic email marketing connections. <strong>Teachable</strong> offers roughly 30 integrations — adequate for simple course businesses but limiting as you scale. If integrations are a priority, these platforms will become bottlenecks faster than alternatives.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">CRM Integration: Connecting Learning to Revenue</h2>
+    <p class="text-slate-700 mb-4">
+      Your CRM holds your customer relationships. Your LMS holds their learning journeys. Connecting the two creates a complete picture of customer engagement — from initial lead through purchase, learning, certification, and upsell.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">HubSpot Integration</h3>
+    <p class="text-slate-700 mb-4">
+      HubSpot is the most common CRM for growing learning businesses. <strong>Thinkific</strong> connects to HubSpot through both its native App Store integration and Zapier, enabling automatic contact creation on purchase, enrollment status syncing, and lifecycle stage updates based on course progress. <strong>Kajabi</strong> offers similar HubSpot connectivity through Zapier. Enterprise platforms like <strong>Docebo</strong> provide deeper HubSpot integration with bi-directional data sync.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Salesforce Integration</h3>
+    <p class="text-slate-700 mb-4">
+      Salesforce integration separates enterprise LMS platforms from expert-focused tools. <strong>Skilljar</strong> offers the deepest Salesforce integration, purpose-built for tracking customer education within the Salesforce ecosystem. <strong>Docebo</strong> and <strong>Absorb</strong> both provide robust native Salesforce connectors with bi-directional synchronization — training completions flow into Salesforce contact records, while Salesforce opportunities can trigger enrollment workflows.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Expert-focused platforms like <strong>Thinkific</strong>, <strong>Kajabi</strong>, and <strong>LearnWorlds</strong> connect to Salesforce through Zapier, which handles basic scenarios (contact creation, enrollment updates) but lacks the depth of native enterprise connectors. If Salesforce is your system of record, this is a meaningful capability gap.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Marketing Automation Platforms</h3>
+    <p class="text-slate-700 mb-4">
+      Beyond traditional CRMs, marketing automation platforms like <strong>ActiveCampaign</strong>, <strong>ConvertKit</strong>, and <strong>Drip</strong> are essential for course businesses. These tools manage the email sequences, lead scoring, and behavioral triggers that drive enrollment and re-engagement.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific</strong> offers native integrations with ActiveCampaign and ConvertKit, plus Zapier connectivity to virtually every email platform. <strong>Kajabi</strong> includes its own email marketing system, reducing the need for external tools but limiting flexibility for teams committed to specialized platforms. The trade-off is simplicity (Kajabi) versus power (Thinkific + your preferred marketing stack).
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Building your integration stack?"
+    ctaDescription="Get a personalized platform recommendation based on your existing tools — CRM, email, payment, and authentication requirements."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Authentication: SSO, SAML, and Social Login</h2>
+    <p class="text-slate-700 mb-4">
+      How learners sign in affects both user experience and security. The three authentication tiers in the LMS market reflect fundamentally different use cases.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Social Login (All Platforms)</h3>
+    <p class="text-slate-700 mb-4">
+      Every major LMS supports social login — sign in with Google, Facebook, or Apple. For consumer-facing course businesses, this is often sufficient. It reduces friction (no new password to remember), increases conversion rates, and provides basic identity verification. Thinkific, Kajabi, Teachable, and LearnWorlds all support social login on their standard plans.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">SAML/SSO (Enterprise Requirement)</h3>
+    <p class="text-slate-700 mb-4">
+      SAML-based Single Sign-On connects your LMS to corporate identity providers like <strong>Okta, Azure Active Directory, OneLogin,</strong> and <strong>Google Workspace</strong>. This is non-negotiable for companies deploying training to employees — IT departments won't approve a platform that requires separate credentials outside their identity management system.
+    </p>
+    <p class="text-slate-700 mb-4">
+      SSO availability across platforms:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Thinkific:</strong> SAML SSO on Plus plan (custom pricing)</li>
+      <li><strong>Docebo:</strong> Full SAML 2.0 SSO with SCIM provisioning on all plans</li>
+      <li><strong>Absorb:</strong> SAML SSO with advanced IdP support</li>
+      <li><strong>TalentLMS:</strong> SAML SSO on Premium and Enterprise plans</li>
+      <li><strong>Kajabi:</strong> Limited SSO support — no full SAML implementation</li>
+      <li><strong>Teachable:</strong> No SAML SSO</li>
+      <li><strong>Podia:</strong> No SSO capabilities</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">SCIM Provisioning: Automated User Management</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>SCIM (System for Cross-domain Identity Management)</strong> automates user lifecycle management — when an employee joins your company and is added to your IdP, they're automatically provisioned in your LMS. When they leave, access is revoked. <strong>Docebo</strong> leads here with full SCIM support. <strong>Absorb</strong> also supports SCIM. Expert-focused platforms don't offer SCIM because their users manage individual student accounts, not organizational directories.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Learning Standards: LTI, SCORM, and xAPI</h2>
+    <p class="text-slate-700 mb-4">
+      Learning interoperability standards allow platforms to share content and data. Their relevance depends entirely on your use case.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">LTI (Learning Tools Interoperability)</h3>
+    <p class="text-slate-700 mb-4">
+      LTI is a standard developed by IMS Global Learning Consortium that allows learning tools to connect seamlessly to LMS platforms. A university using Moodle can embed a Turnitin plagiarism checker via LTI. A corporate training team can connect their LMS to a virtual lab environment.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo, Absorb, TalentLMS, and Moodle</strong> support LTI 1.1 and/or 1.3 as both providers and consumers. <strong>Thinkific, Kajabi, Teachable, and Podia</strong> do not support LTI at all — these platforms focus on direct integrations rather than learning standards compliance. If your use case involves connecting to academic tools or embedding third-party learning content, LTI support is essential. If you're selling courses to consumers, you'll never need it.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">SCORM and xAPI</h3>
+    <p class="text-slate-700 mb-4">
+      SCORM (Sharable Content Object Reference Model) and xAPI (Experience API) are content packaging standards that allow you to import interactive courseware created in tools like Articulate Storyline, Adobe Captivate, or iSpring. Enterprise platforms (<strong>Docebo, Absorb, TalentLMS, Moodle</strong>) support both standards. Among expert-focused platforms, <strong>Thinkific</strong> offers SCORM support on its Plus plan, while <strong>LearnWorlds</strong> supports SCORM on higher tiers. <strong>Kajabi, Teachable, and Podia</strong> have no SCORM/xAPI support.
+    </p>
+    <p class="text-slate-700 mb-4">
+      This matters if you have existing SCORM content from a previous LMS or if you're creating compliance training with tools that export to SCORM format. For course businesses building content natively, SCORM support is irrelevant.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">REST APIs and Webhooks: Building Custom Integrations</h2>
+    <p class="text-slate-700 mb-4">
+      When pre-built integrations don't cover your needs, APIs and webhooks let you build exactly what you want. The quality of a platform's API determines how much custom development is possible.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">API Depth Comparison</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo</strong> has the most comprehensive API in the LMS market — hundreds of endpoints covering users, courses, learning plans, reports, branches, certifications, gamification, e-commerce, skills, and more. Anything you can do in the admin UI, you can do via API.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific's V2 API</strong> covers users, courses, enrollments, orders, webhooks, products, groups, and coupons — well-documented at developers.thinkific.com. It's not as extensive as Docebo's but handles the core scenarios that course businesses need: automating enrollments, syncing customer data, and building custom checkout flows.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi's Public API</strong> is newer and still expanding, currently covering contacts, offers, products, webhooks, and tags. <strong>LearnWorlds</strong> covers users, courses, enrollments, payments, certificates, and bundles. <strong>Podia</strong> has no public API — a significant limitation that makes custom development impossible.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Webhook Events</h3>
+    <p class="text-slate-700 mb-4">
+      Webhooks push real-time event data to your systems when things happen — purchases, enrollments, completions. They're the foundation of event-driven architecture.
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Webhook Events</th>
+            <th class="py-3 px-4 text-navy font-semibold">Key Event Types</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo</td><td class="py-2 px-4">40+</td><td class="py-2 px-4">Users, courses, enrollments, learning plans, certifications, e-commerce</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">10+</td><td class="py-2 px-4">Orders, enrollments, users, lesson/course completions</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">8+</td><td class="py-2 px-4">Purchases, contacts, tags, enrollments</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">10+</td><td class="py-2 px-4">Users, enrollments, completions, payments, certificates</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia</td><td class="py-2 px-4">2-3</td><td class="py-2 px-4">Purchases, subscriptions (basic)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison: Integration Capabilities</h2>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Capability</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Docebo</th>
+            <th class="py-3 px-2 text-navy font-semibold">Absorb</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Native Integrations</td><td class="py-2 px-2">96+</td><td class="py-2 px-2">185+</td><td class="py-2 px-2">~30</td><td class="py-2 px-2">50+</td><td class="py-2 px-2">400+</td><td class="py-2 px-2">50+</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Zapier Support</td><td class="py-2 px-2">✅ Strong</td><td class="py-2 px-2">✅ Best</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️ Limited</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">REST API</td><td class="py-2 px-2">✅ V2</td><td class="py-2 px-2">✅ Growing</td><td class="py-2 px-2">✅ Basic</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Full</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Webhooks</td><td class="py-2 px-2">✅ V2</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ 40+</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">SSO/SAML</td><td class="py-2 px-2">✅ Plus</td><td class="py-2 px-2">⚠️ Limited</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ + SCIM</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LTI Support</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅ 1.3</td><td class="py-2 px-2">✅ 1.3</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">SCORM/xAPI</td><td class="py-2 px-2">⚠️ Plus</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️ Higher</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Salesforce</td><td class="py-2 px-2">Zapier</td><td class="py-2 px-2">Zapier</td><td class="py-2 px-2">Zapier</td><td class="py-2 px-2">Zapier</td><td class="py-2 px-2">✅ Native</td><td class="py-2 px-2">✅ Native</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Email Marketing</td><td class="py-2 px-2">✅ Native</td><td class="py-2 px-2">✅ Built-in</td><td class="py-2 px-2">✅ Basic</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Integration Strategy by Business Type</h2>
+    <p class="text-slate-700 mb-4">
+      The right integration strategy depends on who you are and what you're building:
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Independent Experts</h3>
+    <p class="text-slate-700 mb-4">
+      You need your LMS connected to your marketing engine. The essential stack is: <strong>email marketing</strong> (ConvertKit or ActiveCampaign for automation), <strong>analytics</strong> (Google Analytics + Facebook Pixel for conversion tracking), <strong>payments</strong> (Stripe via TCommerce or Kajabi Payments), and <strong>automation</strong> (Zapier for connecting everything else). Thinkific and Kajabi both excel here. Choose Thinkific if you want to pick your own marketing tools; choose Kajabi if you want marketing built in.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Training Academies</h3>
+    <p class="text-slate-700 mb-4">
+      Academies running training as their primary business need deeper connections: <strong>CRM integration</strong> (HubSpot for lead tracking and student lifecycle management), <strong>webinar tools</strong> (Zoom for live cohort sessions), <strong>advanced API access</strong> (for custom enrollment workflows and white-labeled experiences), and <strong>affiliate tracking</strong> (for partner-driven enrollment). Thinkific's Grow or Plus plans provide the API access and integration depth that academies need. LearnWorlds is also strong in this category.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">For Companies Deploying Training</h3>
+    <p class="text-slate-700 mb-4">
+      Corporate training requires enterprise-grade connections: <strong>SSO/SAML</strong> (mandatory for IT approval), <strong>HRIS integration</strong> (Workday, BambooHR for automated provisioning), <strong>Salesforce or CRM sync</strong> (linking training to customer success metrics), <strong>SCIM provisioning</strong> (automated user lifecycle), and <strong>LTI/SCORM compliance</strong> (for importing existing content). Docebo is the clear winner here. Absorb and TalentLMS are strong alternatives. Thinkific Plus can serve companies that need SSO with course-selling capabilities.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help mapping your integration requirements?"
+    ctaDescription="Tell us about your existing tech stack and we'll recommend the LMS platform that connects best with your tools."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What integrations should I look for in an LMS?", answer: "The essential integrations depend on your use case. For independent experts selling courses, prioritize email marketing (Mailchimp, ConvertKit), payment processing (Stripe), analytics (Google Analytics), and automation (Zapier). For academies, add CRM (HubSpot, Salesforce), webinar tools (Zoom), and advanced API access. For companies running training programs, SSO/SAML, LTI compliance, SCIM provisioning, and HRIS connections (Workday, BambooHR) are critical." },
+    { question: "Which LMS has the best Zapier integration?", answer: "Kajabi and Thinkific lead for Zapier integration depth among expert-focused platforms. Kajabi offers triggers for purchases, contacts, tags, and forms with actions for creating contacts and granting access. Thinkific supports triggers for enrollments, orders, and lesson completions with actions for creating users and enrollments. Both connect to 6,000+ apps through Zapier, but Kajabi's trigger variety is slightly broader." },
+    { question: "Do I need SSO for my LMS?", answer: "SSO (Single Sign-On) is essential for companies deploying training to employees who already use corporate identity providers like Okta, Azure AD, or Google Workspace. It eliminates separate passwords, improves security, and simplifies IT management. For independent experts selling to consumers, SSO is less critical — social login (Google, Facebook, Apple) provides adequate convenience. SSO typically requires higher-tier plans: Thinkific Plus, Docebo, Absorb, or TalentLMS." },
+    { question: "What is LTI and does my LMS need it?", answer: "LTI (Learning Tools Interoperability) is a standard that allows learning platforms to share content and data seamlessly. It matters most for educational institutions connecting to tools like Turnitin, virtual labs, or other LMS platforms. Docebo, Absorb, and TalentLMS support LTI 1.1/1.3. Expert-focused platforms (Thinkific, Kajabi, Teachable) do not support LTI — they focus on direct integrations instead. If you're selling courses to consumers, you don't need LTI." },
+    { question: "How important is API access for an LMS?", answer: "API access becomes important as your learning business scales. With a REST API, you can automate enrollment workflows, sync student data with your CRM, build custom reporting dashboards, and create white-labeled experiences. Docebo offers the most comprehensive API with hundreds of endpoints. Thinkific's V2 API is well-documented and developer-friendly. Kajabi's API is newer but expanding. Podia has no public API, making it the most limited for custom development." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://support.thinkific.com/hc/en-us/categories/360001941533" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Integrations & Developer Tools</a> — Official documentation for all Thinkific integrations</li>
+      <li><a href="https://zapier.com/apps/thinkific/integrations" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific + Zapier Integration Directory</a> — All available triggers and actions</li>
+      <li><a href="https://developers.thinkific.com" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Developer Portal</a> — V2 API reference and documentation</li>
+      <li><a href="https://apps.thinkific.com" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific App Store</a> — Browse all 96+ native integrations</li>
+      <li><a href="https://www.docebo.com/learning-technology/integrations/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Docebo Connect Platform</a> — Enterprise integration ecosystem with 400+ connectors</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS E-Commerce: The Complete Guide for 2026", href: "/guides/lms-ecommerce-complete-guide", description: "Payment processing, tax automation, and revenue optimization across major LMS platforms." },
+    { title: "LMS Pricing & Plans: The Complete Guide for 2026", href: "/guides/lms-pricing-complete-guide", description: "Plan comparisons, hidden costs, and value analysis to find the right LMS at the right price." },
+    { title: "Integrations & API Compared", href: "/guides/integrations-compared", description: "Side-by-side comparison of integration capabilities across ten major LMS platforms." }
+  ]} />
+
+</GuideLayout>

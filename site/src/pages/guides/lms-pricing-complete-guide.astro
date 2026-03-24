@@ -1,0 +1,468 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Pricing & Plans: The Complete Guide for 2026",
+    "description": "A comprehensive comparison of LMS pricing — plan tiers, transaction fees, hidden costs, annual discounts, and total cost of ownership across Thinkific, Kajabi, Teachable, LearnWorlds, Podia, and enterprise platforms.",
+    "datePublished": "2026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-pricing-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the cheapest LMS for selling courses?", "acceptedAnswer": { "@type": "Answer", "text": "The cheapest LMS depends on your revenue. For beginners with low revenue, Teachable's free plan (10% transaction fee) or Podia's free plan (8% fee) have no monthly cost. However, as revenue grows, these transaction fees become expensive fast. Thinkific's Basic plan at $36/month (annual) with 0% transaction fees via TCommerce becomes cheaper once you exceed ~$720/month in sales compared to Teachable's free plan." } },
+      { "@type": "Question", "name": "Are there hidden fees with LMS platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, several costs aren't immediately obvious. Transaction fees range from 0-10% depending on platform and plan. Payment processor fees (Stripe's 2.9% + 30¢) apply on all platforms. Thinkific charges 1-5% surcharges if you use your own Stripe instead of TCommerce. Student caps (Thinkific's 10,000 on standard plans) force upgrades. Branded mobile apps, SSO/SAML, and SCORM typically require enterprise plans. Add-on costs for email marketing, landing pages, and advanced analytics should be factored into total cost." } },
+      { "@type": "Question", "name": "Is Thinkific or Kajabi a better value?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on what you need. Thinkific ($36-149/month annual) is better value for experts focused on course delivery and e-commerce — its TCommerce system includes tax remittance and 0% platform fees. Kajabi ($69-319/month annual) costs more but includes email marketing, sales funnels, and a website builder that would otherwise require separate tools costing $50-200/month. If you'd otherwise pay for ConvertKit + ClickFunnels + a website builder, Kajabi's all-in-one approach may save money despite the higher sticker price." } },
+      { "@type": "Question", "name": "How much does an enterprise LMS cost?", "acceptedAnswer": { "@type": "Answer", "text": "Enterprise LMS platforms like Docebo and Absorb use custom pricing, typically starting at $10,000-25,000 per year depending on user count, features, and support level. Per-user pricing models range from $2-8 per active user per month. TalentLMS is the most accessible enterprise option with published pricing starting at $69/month for up to 40 users. Thinkific Plus offers enterprise features at custom pricing that bridges the gap between expert-focused and full enterprise platforms." } },
+      { "@type": "Question", "name": "Should I pay monthly or annually for my LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Annual billing saves 20-30% across all major platforms. Thinkific saves 25-27% annually ($156-600/year depending on plan). Kajabi saves up to 20%. Teachable saves roughly 33%. The only reason to pay monthly is if you're testing a platform and might switch within a few months. Once committed, annual billing is almost always the right financial decision — the savings compound significantly over time." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Pricing & Plans: The Complete Guide for 2026"
+  description="A comprehensive comparison of LMS pricing — plan tiers, transaction fees, hidden costs, annual discounts, and total cost of ownership across Thinkific, Kajabi, Teachable, LearnWorlds, Podia, and enterprise platforms."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS Pricing & Plans Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Pricing & Plans: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>The sticker price of an LMS is rarely the real price.</strong> Transaction fees, payment processor surcharges, student caps, feature gates, and add-on costs can double your effective monthly spend. A platform that looks cheap at $29/month might cost more than one priced at $149/month once you factor in the 5% transaction fee eating into every sale.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide breaks down the true cost of every major LMS platform in 2026 — not just monthly subscription prices, but the full financial picture including transaction fees, hidden costs, feature availability by tier, annual billing discounts, and total cost of ownership at different revenue levels. Whether you're an expert launching your first course or a company evaluating enterprise training platforms, understanding these economics will prevent costly surprises.
+  </p>
+
+  <KeyTakeaways items={[
+    "Transaction fees are the biggest hidden cost — ranging from 0% (Thinkific paid plans, Kajabi) to 10% (Teachable Free), these can exceed subscription costs at scale.",
+    "Thinkific charges 1-5% surcharges if you use your own Stripe instead of TCommerce — a cost most pricing comparisons miss.",
+    "Annual billing saves 20-30% across all platforms. Thinkific's Basic drops from $49 to $36/month; Kajabi's Kickstarter drops from $89 to $69/month.",
+    "Student caps are a hidden scaling cost: Thinkific limits all standard plans to 10,000 students, forcing an upgrade to Plus (custom pricing) for larger audiences.",
+    "The cheapest option at $0/month revenue is different from the cheapest at $10,000/month — always model your costs at projected revenue, not current revenue.",
+    "Enterprise platforms (Docebo, Absorb) start at $10,000-25,000/year but eliminate per-transaction costs and include features that would require multiple add-ons on expert-focused platforms."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">LMS Pricing Overview: 2026 Plans Compared</h2>
+    <p class="text-slate-700 mb-4">
+      Here's every major LMS platform's pricing structure — monthly and annual — with the critical details that determine real cost.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific: $36-149/month (Annual)</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fee (TCommerce)</th>
+            <th class="py-3 px-4 text-navy font-semibold">Own Stripe Surcharge</th>
+            <th class="py-3 px-4 text-navy font-semibold">Student Cap</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Basic</td><td class="py-2 px-4">$49/mo</td><td class="py-2 px-4">$36/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">5%</td><td class="py-2 px-4">10,000</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Start</td><td class="py-2 px-4">$99/mo</td><td class="py-2 px-4">$74/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">2%</td><td class="py-2 px-4">10,000</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Grow</td><td class="py-2 px-4">$199/mo</td><td class="py-2 px-4">$149/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">1%</td><td class="py-2 px-4">10,000</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Plus</td><td class="py-2 px-4" colspan="2">Custom</td><td class="py-2 px-4">Custom</td><td class="py-2 px-4">Custom</td><td class="py-2 px-4">Unlimited</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Key insight:</strong> Thinkific eliminated its free plan, replacing it with a 14-day trial. All paid plans offer unlimited courses. The critical distinction is whether you use TCommerce (0% platform fee) or your own Stripe (1-5% surcharge). At $5,000/month revenue, that 5% surcharge on Basic costs $250/month — more than the subscription itself.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Kajabi: $69-319/month (Annual)</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fee</th>
+            <th class="py-3 px-4 text-navy font-semibold">Key Limits</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kickstarter</td><td class="py-2 px-4">$89/mo</td><td class="py-2 px-4">$69/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">1 product, 50 contacts, 250 email sends</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Basic</td><td class="py-2 px-4">$149/mo</td><td class="py-2 px-4">$119/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">3 products, 10K contacts</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Growth</td><td class="py-2 px-4">$199/mo</td><td class="py-2 px-4">$159/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">15 products, 25K contacts</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Pro</td><td class="py-2 px-4">$399/mo</td><td class="py-2 px-4">$319/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">100 products, 100K contacts</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Key insight:</strong> Kajabi's higher sticker price includes email marketing, sales funnels, and website building that competitors charge extra for. The Kickstarter plan's 1-product/50-contact limits make it more of a trial than a usable plan. The real starting point for most businesses is Basic at $119/month annual.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Teachable: Free-$249/month</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fee</th>
+            <th class="py-3 px-4 text-navy font-semibold">Key Features</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Free</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">10% + Stripe</td><td class="py-2 px-4">1 course, basic features</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Basic</td><td class="py-2 px-4">$29/mo</td><td class="py-2 px-4">5% + Stripe</td><td class="py-2 px-4">Unlimited courses, custom domain</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Pro</td><td class="py-2 px-4">$79/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">Certificates, graded quizzes, upsells</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Pro+</td><td class="py-2 px-4">$249/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">Custom user roles, advanced reports</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Key insight:</strong> Teachable's free plan lures beginners but the 10% transaction fee is brutal at scale. At $2,000/month revenue, you're paying $200/month in fees on a "free" plan. The crossover point where Teachable Pro ($79/month, 0% fee) becomes cheaper than Teachable Basic ($29/month + 5%) is around $1,000/month in revenue.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">LearnWorlds: $24-249/month (Annual)</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fee</th>
+            <th class="py-3 px-4 text-navy font-semibold">Key Features</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Starter</td><td class="py-2 px-4">$24/mo</td><td class="py-2 px-4">$5/sale</td><td class="py-2 px-4">Unlimited courses, custom domain</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Pro Trainer</td><td class="py-2 px-4">$79/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">Subscriptions, certificates, SCORM</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Learning Center</td><td class="py-2 px-4">$249/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">Branded app, bulk actions, SSO</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Key insight:</strong> LearnWorlds' Starter plan charges a flat $5 per sale rather than a percentage — better for high-priced courses ($200+), worse for low-priced ones ($20). At $20/course, $5/sale is effectively a 25% fee.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Podia: Free-$75/month</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fee</th>
+            <th class="py-3 px-4 text-navy font-semibold">Key Features</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Free</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">8% + Stripe</td><td class="py-2 px-4">Unlimited products, email marketing</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Mover</td><td class="py-2 px-4">$33/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">Custom domain, affiliates</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Shaker</td><td class="py-2 px-4">$75/mo</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">White-label, priority support</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Key insight:</strong> Podia is the simplest and most affordable option but has the most limited feature set. No public API, ~15 native integrations, no SCORM support, and no native mobile app. The 8% free plan fee makes the $33/month Mover plan a better deal once you exceed ~$412/month in sales.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Hidden Costs Most Comparisons Miss</h2>
+    <p class="text-slate-700 mb-4">
+      The subscription price is just the starting point. Here are the costs that blindside course sellers:
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">1. Transaction Fees at Scale</h3>
+    <p class="text-slate-700 mb-4">
+      Transaction fees are the single biggest variable cost in LMS pricing. Let's model the impact at $10,000/month revenue:
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform & Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Subscription</th>
+            <th class="py-3 px-4 text-navy font-semibold">Tx Fees/mo</th>
+            <th class="py-3 px-4 text-navy font-semibold">Total/mo</th>
+            <th class="py-3 px-4 text-navy font-semibold">Total/year</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific Basic (TCommerce)</td><td class="py-2 px-4">$36</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$36</td><td class="py-2 px-4">$432</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific Basic (own Stripe)</td><td class="py-2 px-4">$36</td><td class="py-2 px-4">$500</td><td class="py-2 px-4">$536</td><td class="py-2 px-4">$6,432</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi Basic</td><td class="py-2 px-4">$119</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$119</td><td class="py-2 px-4">$1,428</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Free</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$1,000</td><td class="py-2 px-4">$1,000</td><td class="py-2 px-4">$12,000</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Basic</td><td class="py-2 px-4">$29</td><td class="py-2 px-4">$500</td><td class="py-2 px-4">$529</td><td class="py-2 px-4">$6,348</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Pro</td><td class="py-2 px-4">$79</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$79</td><td class="py-2 px-4">$948</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia Free</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$800</td><td class="py-2 px-4">$800</td><td class="py-2 px-4">$9,600</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia Mover</td><td class="py-2 px-4">$33</td><td class="py-2 px-4">$0</td><td class="py-2 px-4">$33</td><td class="py-2 px-4">$396</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mb-4">*Excludes Stripe/PayPal processing fees (~2.9% + 30¢) which apply to all platforms</p>
+    <p class="text-slate-700 mb-4">
+      The lesson is stark: <strong>Teachable's "free" plan costs $12,000/year at $10K monthly revenue.</strong> Thinkific Basic with TCommerce costs $432/year for the same revenue — a $11,568 difference. Free plans are only free when you have no revenue.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">2. Payment Processor Surcharges</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's pricing page emphasizes 0% transaction fees, but there's an asterisk: that's only with TCommerce. If you use your own Stripe account, Thinkific adds a surcharge — 5% on Basic, 2% on Start, 1% on Grow. This catches businesses that already have established Stripe accounts with history, dispute management, and custom configurations.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>The strategic move:</strong> Use TCommerce. The 0% platform fee plus integrated tax remittance outweighs the convenience of keeping your existing Stripe account for most businesses. The exception is if you need Stripe features that TCommerce doesn't support (like Stripe Billing for complex subscription logic).
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">3. Student Caps and Forced Upgrades</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific caps all standard plans (Basic, Start, Grow) at <strong>10,000 students</strong>. This isn't 10,000 active students — it's total students ever enrolled, including those who took a free lead magnet course three years ago. High-volume businesses hit this cap faster than expected, forcing an upgrade to the custom-priced Plus plan.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Kajabi uses contact limits instead: Kickstarter (50), Basic (10,000), Growth (25,000), Pro (100,000). LearnWorlds and Teachable offer unlimited students on all paid plans. Podia has no student limits.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">4. Feature Gates That Force Plan Upgrades</h3>
+    <p class="text-slate-700 mb-4">
+      Critical features locked behind higher tiers create pressure to upgrade:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Thinkific Basic:</strong> No certificates, assignments, payment plans, memberships, or advanced HTML/CSS editing</li>
+      <li><strong>Thinkific Start/Grow:</strong> No SSO/SAML, no SCORM, no branded mobile app</li>
+      <li><strong>Kajabi Kickstarter:</strong> 1 product limit, 50 contacts, 250 email sends — barely functional</li>
+      <li><strong>Teachable Basic:</strong> 5% transaction fee, no certificates, no graded quizzes</li>
+      <li><strong>LearnWorlds Starter:</strong> $5/sale fee, no subscriptions, no certificates, no SCORM</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">5. External Tool Costs</h3>
+    <p class="text-slate-700 mb-4">
+      Some platforms include tools that others require as paid add-ons:
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Need</th>
+            <th class="py-3 px-4 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-4 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-4 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-4 text-navy font-semibold">External Cost</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Email Marketing</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">❌ Need add-on</td><td class="py-2 px-4">❌ Need add-on</td><td class="py-2 px-4">$29-79/mo</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Sales Funnels</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">❌ Need add-on</td><td class="py-2 px-4">❌ Need add-on</td><td class="py-2 px-4">$49-297/mo</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Website Builder</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">⚠️ Basic</td><td class="py-2 px-4">$12-33/mo</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Tax Remittance</td><td class="py-2 px-4">❌</td><td class="py-2 px-4">✅ TCommerce</td><td class="py-2 px-4">✅ Teachable:pay</td><td class="py-2 px-4">$50-500/mo</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Community</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">✅ Included</td><td class="py-2 px-4">❌ Need add-on</td><td class="py-2 px-4">$29-99/mo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      Kajabi's $119/month Basic plan includes $100-400/month worth of tools that Thinkific and Teachable users need to purchase separately. However, if you already have preferred tools in these categories, you're paying for Kajabi features you won't use.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Not sure which plan fits your budget?"
+    ctaDescription="Tell us your monthly revenue and growth targets, and we'll calculate the true cost of each platform for your specific situation."
+    ctaButtonText="Get My Cost Analysis"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Total Cost of Ownership: Three Revenue Scenarios</h2>
+    <p class="text-slate-700 mb-4">
+      The right platform depends on where you are financially. Here's the true annual cost at three common revenue levels:
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 1: Early Stage ($1,000/month revenue)</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Best Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Sub</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Tx Fees</th>
+            <th class="py-3 px-4 text-navy font-semibold">Total/Year</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b bg-teal-50"><td class="py-2 px-4 font-medium">Thinkific Basic</td><td class="py-2 px-4">Basic (TCommerce)</td><td class="py-2 px-4">$432</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$432</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia Mover</td><td class="py-2 px-4">Mover</td><td class="py-2 px-4">$396</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$396</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Pro</td><td class="py-2 px-4">Pro</td><td class="py-2 px-4">$948</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$948</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi Kickstarter</td><td class="py-2 px-4">Kickstarter</td><td class="py-2 px-4">$828</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$828</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds Pro</td><td class="py-2 px-4">Pro Trainer</td><td class="py-2 px-4">$948</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$948</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> Podia Mover is cheapest, but Thinkific Basic offers significantly more features (unlimited courses, e-commerce optimization, tax remittance) for just $36 more per year. At this stage, Thinkific Basic is the best value.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 2: Growing ($10,000/month revenue)</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Best Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Sub</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Tx Fees</th>
+            <th class="py-3 px-4 text-navy font-semibold">Total/Year</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b bg-teal-50"><td class="py-2 px-4 font-medium">Thinkific Start</td><td class="py-2 px-4">Start (TCommerce)</td><td class="py-2 px-4">$888</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$888</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Pro</td><td class="py-2 px-4">Pro</td><td class="py-2 px-4">$948</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$948</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi Basic</td><td class="py-2 px-4">Basic</td><td class="py-2 px-4">$1,428</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$1,428</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds Pro</td><td class="py-2 px-4">Pro Trainer</td><td class="py-2 px-4">$948</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$948</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> Thinkific Start at $888/year is the clear value leader. But factor in external tool costs — if you need email marketing ($30/mo) and a funnel builder ($50/mo), that's $960/year extra, making Kajabi's $1,428 all-in cost competitive.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Scenario 3: Scaling ($50,000/month revenue)</h3>
+    <p class="text-slate-700 mb-4">
+      At $50K/month, transaction fees and feature access dominate the calculation:
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Best Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Sub</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Tx Fees</th>
+            <th class="py-3 px-4 text-navy font-semibold">Total/Year</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b bg-teal-50"><td class="py-2 px-4 font-medium">Thinkific Grow</td><td class="py-2 px-4">Grow (TCommerce)</td><td class="py-2 px-4">$1,788</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$1,788</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi Growth</td><td class="py-2 px-4">Growth</td><td class="py-2 px-4">$1,908</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$1,908</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable Pro+</td><td class="py-2 px-4">Pro+</td><td class="py-2 px-4">$2,988</td><td class="py-2 px-4">$0</td><td class="py-2 px-4 font-bold">$2,988</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Winner:</strong> At $50K/month, all serious platforms charge 0% transaction fees. The difference comes down to features, not cost. Thinkific Grow is cheapest in raw subscription, but you may be approaching the 10,000 student cap. Kajabi Growth includes marketing tools. The decision here should be capability-driven, not price-driven.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Enterprise LMS Pricing</h2>
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms operate in a different pricing universe. Instead of published plan pages, they use sales-negotiated contracts based on user count, features, support level, and deployment complexity.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Docebo</h3>
+    <p class="text-slate-700 mb-4">
+      Custom pricing starting around <strong>$10,000-25,000/year</strong> depending on configuration. Per-user pricing models typically range from $4-8 per active user per month. Includes deep Salesforce integration, LTI support, SCIM provisioning, and 400+ native connectors. Best for companies with 500+ learners and complex integration requirements.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Absorb LMS</h3>
+    <p class="text-slate-700 mb-4">
+      Custom pricing, typically <strong>$800+/month</strong> with per-user pricing models. Known for clean UI and strong mobile support. Includes SCORM/xAPI, LTI 1.3, Salesforce integration, and branded mobile apps. Best for mid-market companies that want enterprise features without enterprise complexity.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">TalentLMS</h3>
+    <p class="text-slate-700 mb-4">
+      The most transparent enterprise pricing: <strong>$69/month (Core)</strong> for up to 40 users, scaling to $459/month (Premium) for up to 1,000 users. Unlimited users available on Enterprise. The most accessible entry point for companies needing LTI, SCORM, SSO, and corporate training features without five-figure annual commitments.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific Plus</h3>
+    <p class="text-slate-700 mb-4">
+      Custom pricing that bridges expert-focused and enterprise markets. Adds unlimited students, SCORM support, SSO/SAML, branded mobile app, and dedicated support. Ideal for training businesses and academies that need enterprise authentication and compliance features alongside Thinkific's course-selling capabilities.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Annual vs. Monthly Billing: The Savings</h2>
+    <p class="text-slate-700 mb-4">
+      Every platform rewards annual commitment with meaningful discounts:
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Monthly Cost</th>
+            <th class="py-3 px-4 text-navy font-semibold">Annual Cost</th>
+            <th class="py-3 px-4 text-navy font-semibold">Savings</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific Start</td><td class="py-2 px-4">$99/mo ($1,188/yr)</td><td class="py-2 px-4">$74/mo ($888/yr)</td><td class="py-2 px-4 font-bold text-green-700">$300/yr (25%)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific Grow</td><td class="py-2 px-4">$199/mo ($2,388/yr)</td><td class="py-2 px-4">$149/mo ($1,788/yr)</td><td class="py-2 px-4 font-bold text-green-700">$600/yr (25%)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi Basic</td><td class="py-2 px-4">$149/mo ($1,788/yr)</td><td class="py-2 px-4">$119/mo ($1,428/yr)</td><td class="py-2 px-4 font-bold text-green-700">$360/yr (20%)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds Pro</td><td class="py-2 px-4">$99/mo ($1,188/yr)</td><td class="py-2 px-4">$79/mo ($948/yr)</td><td class="py-2 px-4 font-bold text-green-700">$240/yr (20%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 mb-4">
+      <strong>Recommendation:</strong> Use a monthly plan for the first 1-2 months while you evaluate the platform. Once you're committed, switch to annual billing immediately. Every month you stay on monthly billing after the evaluation period is money left on the table.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Making Your Pricing Decision</h2>
+    <p class="text-slate-700 mb-4">
+      Here's the decision framework based on who you are:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>Independent experts launching their first course:</strong> Thinkific Basic ($36/month annual) with TCommerce. Best feature-to-price ratio with 0% transaction fees and tax remittance included. Upgrade to Start when you need certificates and memberships.</li>
+      <li><strong>Experts who want an all-in-one solution:</strong> Kajabi Basic ($119/month annual). Higher price, but includes email marketing and sales funnels. Worth it if you'd otherwise spend $50-100/month on external tools.</li>
+      <li><strong>Budget-conscious experts with simple needs:</strong> Podia Mover ($33/month). Cheapest option with 0% fees, but limited features and integrations. Outgrow it fast if your business succeeds.</li>
+      <li><strong>Training academies with growing student bases:</strong> Thinkific Start or Grow. The 0% fee + tax remittance combination maximizes margin. Watch the 10,000 student cap and plan for Plus when you approach it.</li>
+      <li><strong>Companies deploying corporate training:</strong> TalentLMS ($69-459/month) for transparent pricing. Docebo or Absorb for larger deployments where the annual contract model makes sense.</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Want a personalized cost comparison?"
+    ctaDescription="Share your revenue targets and tool requirements — we'll build a true cost-of-ownership analysis for your top platform choices."
+    ctaButtonText="Get My Cost Analysis"
+  />
+
+  <FAQ items={[
+    { question: "What is the cheapest LMS for selling courses?", answer: "The cheapest LMS depends on your revenue. For beginners with low revenue, Teachable's free plan (10% transaction fee) or Podia's free plan (8% fee) have no monthly cost. However, as revenue grows, these transaction fees become expensive fast. Thinkific's Basic plan at $36/month (annual) with 0% transaction fees via TCommerce becomes cheaper once you exceed ~$720/month in sales compared to Teachable's free plan." },
+    { question: "Are there hidden fees with LMS platforms?", answer: "Yes, several costs aren't immediately obvious. Transaction fees range from 0-10% depending on platform and plan. Payment processor fees (Stripe's 2.9% + 30¢) apply on all platforms. Thinkific charges 1-5% surcharges if you use your own Stripe instead of TCommerce. Student caps (Thinkific's 10,000 on standard plans) force upgrades. Branded mobile apps, SSO/SAML, and SCORM typically require enterprise plans. Add-on costs for email marketing, landing pages, and advanced analytics should be factored into total cost." },
+    { question: "Is Thinkific or Kajabi a better value?", answer: "It depends on what you need. Thinkific ($36-149/month annual) is better value for experts focused on course delivery and e-commerce — its TCommerce system includes tax remittance and 0% platform fees. Kajabi ($69-319/month annual) costs more but includes email marketing, sales funnels, and a website builder that would otherwise require separate tools costing $50-200/month. If you'd otherwise pay for ConvertKit + ClickFunnels + a website builder, Kajabi's all-in-one approach may save money despite the higher sticker price." },
+    { question: "How much does an enterprise LMS cost?", answer: "Enterprise LMS platforms like Docebo and Absorb use custom pricing, typically starting at $10,000-25,000 per year depending on user count, features, and support level. Per-user pricing models range from $2-8 per active user per month. TalentLMS is the most accessible enterprise option with published pricing starting at $69/month for up to 40 users. Thinkific Plus offers enterprise features at custom pricing that bridges the gap between expert-focused and full enterprise platforms." },
+    { question: "Should I pay monthly or annually for my LMS?", answer: "Annual billing saves 20-30% across all major platforms. Thinkific saves 25-27% annually ($156-600/year depending on plan). Kajabi saves up to 20%. Teachable saves roughly 33%. The only reason to pay monthly is if you're testing a platform and might switch within a few months. Once committed, annual billing is almost always the right financial decision — the savings compound significantly over time." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://www.thinkific.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Pricing Page</a> — Official plan details and feature comparison</li>
+      <li><a href="https://kajabi.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Kajabi Pricing Page</a> — All-in-one platform plans and included features</li>
+      <li><a href="https://teachable.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Teachable Pricing Page</a> — Plans including transaction fee structure</li>
+      <li><a href="https://www.learnworlds.com/pricing/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">LearnWorlds Pricing Page</a> — Plan comparison and per-sale fees</li>
+      <li><a href="https://www.talentlms.com/pricing" target="_blank" rel="noopener" class="text-teal-600 hover:underline">TalentLMS Pricing</a> — Transparent enterprise pricing tiers</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS E-Commerce: The Complete Guide for 2026", href: "/guides/lms-ecommerce-complete-guide", description: "Payment processing, tax automation, and revenue optimization features that directly impact your revenue." },
+    { title: "LMS Integrations: The Complete Guide for 2026", href: "/guides/lms-integrations-complete-guide", description: "Zapier, CRM, SSO, and API capabilities — the integration features that justify higher plan tiers." },
+    { title: "LMS Mobile Learning: The Complete Guide for 2026", href: "/guides/lms-mobile-learning-complete-guide", description: "Native apps, responsive design, and offline access — mobile capabilities across platforms and plans." }
+  ]} />
+
+</GuideLayout>
