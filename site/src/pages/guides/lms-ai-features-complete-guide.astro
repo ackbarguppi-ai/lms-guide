@@ -1,0 +1,392 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS AI Features: The Complete Guide for 2026",
+    "description": "How artificial intelligence is transforming learning management systems. Compare AI course creation, teaching assistants, quiz generation, and analytics across leading LMS platforms.",
+    "datePublished": "2022026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-ai-features-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which LMS has the best AI course creation tools?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific leads in AI course creation with its AI Course Outline Generator (creates structured outlines from audience inputs), AI Quiz Generator (builds quizzes from existing content), and the new AI-powered course builder (beta) that allows mixing multiple content types in single lessons. Kajabi and Teachable offer AI content generation but Thinkific's tools are more deeply integrated into the actual course building workflow." } },
+      { "@type": "Question", "name": "Can AI replace course instructors?", "acceptedAnswer": { "@type": "Answer", "text": "No. Current LMS AI features are designed to augment, not replace, human instructors. AI excels at administrative tasks (generating outlines, creating quizzes, summarizing analytics) and providing student support at scale through AI teaching assistants. However, subject matter expertise, strategic curriculum design, and meaningful student relationships remain distinctly human capabilities that AI cannot replicate." } },
+      { "@type": "Question", "name": "What is an AI teaching assistant?", "acceptedAnswer": { "@type": "Answer", "text": "An AI teaching assistant is a chatbot trained on your course content that answers student questions 24/7. Thinkific's Thinker AI and Skilljar's SAM use your actual course materials to provide contextual responses, suggest relevant lessons, and keep students engaged. These tools reduce instructor support burden while maintaining quality by grounding responses in your approved content rather than generic knowledge." } },
+      { "@type": "Question", "name": "Do AI features cost extra?", "acceptedAnswer": { "@type": "Answer", "text": "Most LMS AI features are included in subscription plans without per-use fees. Thinkific includes AI outline generation, quiz creation, landing pages, and captioning on paid plans. Kajabi bundles AI tools across all plans. Some specialized AI features like advanced teaching assistants may require higher-tier plans (Thinker requires Thinkific Plus). Enterprise AI features in Docebo and Absorb are typically custom-priced." } },
+      { "@type": "Question", "name": "How accurate is AI-generated quiz content?", "acceptedAnswer": { "@type": "Answer", "text": "AI quiz accuracy depends on the quality of your source content. Thinkific's AI Quiz Generator reads your actual course lessons and creates questions based on that specific material, which produces highly relevant assessments. However, all AI-generated content should be reviewed before publishing. The AI provides a foundation that saves 80% of creation time, but human review catches edge cases and ensures questions match your pedagogical intent." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS AI Features: The Complete Guide for 2026"
+  description="How artificial intelligence is transforming learning management systems. Compare AI course creation, teaching assistants, quiz generation, and analytics across leading LMS platforms."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS AI Features Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS AI Features: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Artificial intelligence has moved from marketing buzzword to practical productivity tool in learning management systems.</strong> The platforms that have integrated AI deeply into their workflows are now delivering measurable time savings — course creators report cutting content creation time by 40-60% while improving student engagement through personalized AI support.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide examines the real AI capabilities available in today's LMS market, not vaporware promises. We'll cover AI-assisted course creation, AI teaching assistants that actually work, automated content generation, and the analytics tools that turn data into actionable insights. Whether you're evaluating platforms or optimizing your current setup, understanding these AI features will help you work smarter, not harder.
+  </p>
+
+  <KeyTakeaways items={[
+    "AI course outline generators can reduce curriculum planning from days to hours by structuring content based on audience knowledge level and goals.",
+    "AI teaching assistants (Thinker's Thinker, Skilljar's SAM) answer student questions 24/7 using your actual course content, reducing support burden by 60-80%.",
+    "AI quiz generators analyze your lesson content and create relevant assessment questions automatically, saving hours of manual work.",
+    "Auto-captioning improves accessibility and engagement — videos with captions see 40% higher completion rates than those without.",
+    "Most LMS AI features are included in subscription costs with no per-use fees, unlike general-purpose AI tools that charge per token.",
+    "AI augstructors, not replaces, human expertise — the best implementations handle administrative tasks while preserving human connection."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Course Creation: From Blank Page to Structure</h2>
+    <p class="text-slate-700 mb-4">
+      The hardest part of course creation is often the blank page. AI outline generators solve this by transforming your expertise into structured curricula.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">AI Course Outline Generators</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific's AI Course Outline Generator</strong> takes inputs about your target audience (knowledge level, needs, challenges) and generates personalized, structured course outlines. The AI suggests logical progression, module breakdowns, and lesson sequencing that you can customize. This transforms curriculum planning from a multi-day exercise into a 30-minute refinement process.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> offers similar AI content generation, creating course blueprints based on topic inputs. The strength here is integration — generated outlines flow directly into Kajabi's course builder without manual transfer.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable</strong> provides AI curriculum planning that suggests lesson types and content formats based on your subject matter expertise. Like other platforms, the output requires human review but provides a solid foundation to build upon.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">The New Course Builder: AI-Assisted Content Creation (Thinkific)</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's new AI-powered course builder (currently in beta) represents a fundamental shift in how courses are constructed. Instead of rigid lesson types (video lesson, text lesson, quiz lesson), the new builder treats each lesson as a flexible canvas where you can mix text, images, video, PDFs, and quizzes in any combination.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      Key innovations:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Live preview:</strong> What you see in the builder is exactly what students see — no more switching between edit and preview modes</li>
+      <li><strong>Auto-save:</strong> Changes save automatically, eliminating lost work from browser crashes or forgotten saves</li>
+      <li><strong>Block-based editing:</strong> Drag content blocks in any order, duplicate sections, and rearrange without technical knowledge</li>
+      <li><strong>Performance improvements:</strong> Faster load times and smoother navigation compared to the classic builder</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Current limitations:</strong> The new builder doesn't yet support drip scheduling, course reviews, prerequisite lessons, free preview lessons, or custom code snippets. Courses built with it also aren't yet available on the Thinkific mobile app. These are temporary beta constraints that will resolve as the feature matures.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Quiz Generation: Automated Assessment Creation</h2>
+    <p class="text-slate-700 mb-4">
+      Creating meaningful assessments is time-consuming. AI quiz generators analyze your course content and generate relevant questions automatically.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">How Thinkific's AI Quiz Generator Works</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's AI Quiz Generator reads your existing lesson content (text, video transcripts, PDFs) and creates multiple-choice questions based on the material it finds. This is fundamentally different from generic question banks — the AI generates questions specific to <strong>your</strong> content, ensuring relevance.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      The process:
+    </p>
+    <ol class="list-decimal pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Select the lesson(s) to base the quiz on</li>
+      <li>AI analyzes the content and extracts key concepts</li>
+      <li>AI generates questions, correct answers, and plausible distractors</li>
+      <li>You review, edit, and approve questions before publishing</li>
+    </ol>
+    
+    <p class="text-slate-700 mb-4">
+      Available on all Thinkific paid plans, this tool typically reduces quiz creation time by 70-80%. The AI provides the foundation; your subject matter expertise ensures accuracy.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Other Platforms</h3>    
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi</strong> offers AI assessment tools that generate questions based on course topics. <strong>LearnWorlds</strong> provides AI-powered test creation with question randomization. <strong>Docebo</strong> and enterprise platforms focus more on AI-driven adaptive learning paths that adjust question difficulty based on learner performance.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Landing Pages: Automated Sales Page Creation</h2>
+    <p class="text-slate-700 mb-4">
+      Writing compelling sales copy is a skill many experts struggle with. AI landing page generators solve this by creating conversion-focused pages from simple inputs.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific's AI Landing Pages</h3>
+    <p class="text-slate-700 mb-4">
+      When you create a course, Thinkific automatically generates a landing page using AI. The system analyzes your course title, description, and content to produce:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Headlines that communicate value</li>
+      <li>Benefit-focused body copy</li>
+      <li>Feature highlighting</li>
+      <li>Call-to-action buttons</li>
+      <li>Basic page structure and layout</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      The web page editor then allows customization of colors, text, and imagery without coding. You can regenerate the page if the first version doesn't resonate, and all edits are visual — no HTML knowledge required.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      Available for courses, digital downloads, and coaching/webinar products on all paid plans.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Platform Comparison</h3>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">AI Page Generation</th>
+            <th class="py-3 px-4 text-navy font-semibold">Editability</th>
+            <th class="py-3 px-4 text-navy font-semibold">Products Supported</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">✅ Auto-generated</td><td class="py-2 px-4">Visual editor</td><td class="py-2 px-4">Courses, downloads, coaching</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">✅ AI page builder</td><td class="py-2 px-4">Full customization</td><td class="py-2 px-4">All products</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-4">⚠️ Template-based</td><td class="py-2 px-4">Limited customization</td><td class="py-2 px-4">Courses only</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">⚠️ Templates + AI copy</td><td class="py-2 px-4">Moderate</td><td class="py-2 px-4">Courses, bundles</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Exploring AI-powered course creation?"
+    ctaDescription="Get a platform recommendation based on how you want to use AI — for content generation, student support, analytics, or all three."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Accessibility: Automated Captioning</h2>
+    <p class="text-slate-700 mb-4">
+      Video accessibility isn't just ethical — it's good business. Captioned videos see 40% higher completion rates and reach audiences who can't enable sound (office workers, commuters, hearing-impaired learners).
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific's Closed Captions Autogenerator</h3>
+    <p class="text-slate-700 mb-4">
+      Thinkific's AI captioning automatically generates SRT files for all uploaded videos. The system:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Detects the language spoken in the video</li>
+      <li>Generates captions with timing synchronization</li>
+      <li>Processes entirely within Thinkific (no external tools needed)</li>
+      <li>Allows editing of generated captions for accuracy</li>
+      <li>Is included on all paid plans at no extra cost</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      This saves approximately $1-3 per minute of video compared to professional transcription services. A 10-hour course saves $600-1,800 in transcription costs alone.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Platform Comparison</h3>
+    
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Auto-Captioning</th>
+            <th class="py-3 px-4 text-navy font-semibold">Languages</th>
+            <th class="py-3 px-4 text-navy font-semibold">Cost</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">✅ Built-in</td><td class="py-2 px-4">Speaker's language</td><td class="py-2 px-4">Included (paid plans)</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">⚠️ Via integration</td><td class="py-2 px-4">Varies</td><td class="py-2 px-4">Third-party fees</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-4">⚠️ Via integration</td><td class="py-2 px-4">Varies</td><td class="py-2 px-4">Third-party fees</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">✅ Built-in</td><td class="py-2 px-4">Multiple</td><td class="py-2 px-4">Included</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Teaching Assistants: 24/7 Student Support</h2>
+    
+    <p class="text-slate-700 mb-4">
+      AI teaching assistants are chatbots trained on your course content that answer student questions around the clock. Unlike generic AI chatbots (ChatGPT, Claude), these systems ground responses in your specific curriculum.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Thinkific's Thinker AI</h3>
+    <p class="text-slate-700 mb-4">
+      Thinker (available on Thinkific Plus) is an AI teaching assistant that:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Answers student questions using your actual course content</li>
+      <li>Suggests relevant lessons based on student queries</li>
+      <li>Maintains your tone and teaching style</li>
+      <li>Provides 24/7 availability without instructor burnout</li>
+      <li>Collects feedback through thumbs up/down ratings</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      The analytics dashboard tracks usage, estimated hours saved (calculated at 5 minutes per AI response), and student satisfaction. Instructors can review conversation history to identify common confusion points and improve course content.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Other Platforms</h3>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Skilljar SAM</strong> (Skills Assistant Manager) offers AI-driven support for enterprise training. <strong>Docebo</strong> includes AI-powered content recommendations that suggest courses based on learner history and job role. <strong>Absorb</strong> provides AI-assisted search that helps learners find relevant content across large course libraries.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      For a detailed comparison of AI teaching assistants, see our dedicated guide on <a href="/guides/ai-teaching-assistants" class="text-teal-600 hover:underline">AI Teaching Assistants Compared</a>.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Analytics: From Data to Insights</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Raw analytics data is overwhelming. AI summarization transforms dashboards into actionable intelligence.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">AI Dashboard Summarization (Thinkific)</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Available on Thinkific Plus, AI Dashboard Summarization analyzes your currently displayed data and generates:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Natural language summaries of trends</li>
+      <li>Bullet-point takeaways highlighting key metrics</li>
+      <li>Consolidated findings across multiple data sources</li>
+      <li>Faster interpretation of complex datasets</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      This reduces the time required to extract insights from data, allowing course creators to focus on action rather than analysis.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">AI in Enterprise LMS Analytics</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms leverage AI for more sophisticated analytics. <strong>Docebo</strong> uses AI to predict learner dropout risk and recommend interventions. <strong>Absorb</strong> applies AI to identify content gaps and suggest curriculum improvements. These predictive capabilities go beyond reporting to active learning optimization.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison: AI Features at a Glance</h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">AI Feature</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Course Outline Generator</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Quiz Generator</td><td class="py-2 px-2">✅ Content-based</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Adaptive</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Landing Pages</td><td class="py-2 px-2">✅ Auto-generated</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Auto-Captioning</td><td class="py-2 px-2">✅ Built-in</td><td class="py-2 px-2">⚠️ Integration</td><td class="py-2 px-2">⚠️ Integration</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">Varies</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Teaching Assistant</td><td class="py-2 px-2">✅ Thinker (Plus)</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅ Skilljar SAM</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">AI Analytics</td><td class="py-2 px-2">✅ Summarization</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">✅ Predictive</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Email AI</td><td class="py-2 px-2">✅ Subject/body</td><td class="py-2 px-2">✅ Full suite</td><td class="py-2 px-2">⚠️</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">New AI Course Builder</td><td class="py-2 px-2">✅ Beta</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Reality Check: What AI Can't Do</h2>
+    
+    <p class="text-slate-700 mb-4">
+      AI features are powerful tools, but understanding their limitations prevents disappointment:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>AI cannot replace subject matter expertise.</strong> Generated outlines need your knowledge to fill in depth. Quiz questions require your review for accuracy. AI accelerates creation but doesn't eliminate the need for human judgment.</li>
+      
+      <li><strong>AI teaching assistants have boundaries.</strong> They excel at answering "how do I..." and "what does..." questions using course content. They cannot handle complex emotional situations, grade subjective assignments, or provide career advice.</li>
+      
+      <li><strong>AI-generated content needs review.</strong> Always review AI output before publishing. The AI provides a strong starting point, but your expertise ensures quality and accuracy.</li>
+      
+      <li><strong>AI features vary in maturity.</strong> Some tools (Thinkific's quiz generator) are production-ready. Others (the new course builder) are in beta with known limitations. Check feature status before depending on it for critical projects.</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Making Your Decision</h2>
+    
+    <p class="text-slate-700 mb-4">
+      The right AI feature set depends on your workflow bottlenecks:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>If course creation takes too long:</strong> Thinkific's AI outline generator and new course builder offer the most streamlined workflow. Kajabi provides strong alternatives with better marketing integration.</li>
+      
+      <li><strong>If student support overwhelms you:</strong> Thinkific Plus with Thinker AI or Skilljar SAM provide genuine relief. Budget 10-20 hours to train the AI on your content for best results.</li>
+      
+      <li><strong>If video production is your focus:</strong> Thinkific and LearnWorlds include auto-captioning. The time and cost savings are substantial for video-heavy courses.</li>
+      
+      <li><strong>If you're scaling an enterprise training program:</strong> Docebo and Absorb offer predictive analytics that consumer platforms lack. The AI focuses on learning outcomes and compliance rather than content creation.</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Want to leverage AI in your learning business?"
+    ctaDescription="Tell us your biggest workflow challenge and we'll recommend the platform with the right AI features to solve it."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "Which LMS has the best AI course creation tools?", answer: "Thinkific leads in AI course creation with its AI Course Outline Generator (creates structured outlines from audience inputs), AI Quiz Generator (builds quizzes from existing content), and the new AI-powered course builder (beta) that allows mixing multiple content types in single lessons. Kajabi and Teachable offer AI content generation but Thinkific's tools are more deeply integrated into the actual course building workflow." },
+    { question: "Can AI replace course instructors?", answer: "No. Current LMS AI features are designed to augment, not replace, human instructors. AI excels at administrative tasks (generating outlines, creating quizzes, summarizing analytics) and providing student support at scale through AI teaching assistants. However, subject matter expertise, strategic curriculum design, and meaningful student relationships remain distinctly human capabilities that AI cannot replicate." },
+    { question: "What is an AI teaching assistant?", answer: "An AI teaching assistant is a chatbot trained on your course content that answers student questions 24/7. Thinkific's Thinker AI and Skilljar's SAM use your actual course materials to provide contextual responses, suggest relevant lessons, and keep students engaged. These tools reduce instructor support burden while maintaining quality by grounding responses in your approved content rather than generic knowledge." },
+    { question: "Do AI features cost extra?", answer: "Most LMS AI features are included in subscription plans without per-use fees. Thinkific includes AI outline generation, quiz creation, landing pages, and captioning on paid plans. Kajabi bundles AI tools across all plans. Some specialized AI features like advanced teaching assistants may require higher-tier plans (Thinker requires Thinkific Plus). Enterprise AI features in Docebo and Absorb are typically custom-priced." },
+    { question: "How accurate is AI-generated quiz content?", answer: "AI quiz accuracy depends on the quality of your source content. Thinkific's AI Quiz Generator reads your actual course lessons and creates questions based on that specific material, which produces highly relevant assessments. However, all AI-generated content should be reviewed before publishing. The AI provides a foundation that saves 80% of creation time, but human review catches edge cases and ensures questions match your pedagogical intent." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/16342787791511" target="_blank" rel="noopener" class="text-teal-600 hover:underline">AI at Thinkific</a> — Official overview of Thinkific's AI-powered tools</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/16321227901335" target="_blank" rel="noopener" class="text-teal-600 hover:underline">AI Course Outline Generator</a> — Documentation for automated curriculum planning</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/37547732533655" target="_blank" rel="noopener" class="text-teal-600 hover:underline">New Course Builder (Beta)</a> — AI-assisted course creation interface</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/34681678535191" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinker AI Teaching Assistant</a> — 24/7 student support automation</li>
+      <li><a href="/guides/ai-teaching-assistants" class="text-teal-600 hover:underline">AI Teaching Assistants Compared</a> — Detailed platform comparison on LMS Guide</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS E-Commerce: The Complete Guide for 2026", href: "/guides/lms-ecommerce-complete-guide", description: "Payment processing, tax automation, and revenue optimization for learning businesses." },
+    { title: "LMS Reporting & Analytics: The Complete Guide for 2026", href: "/guides/lms-reporting-analytics-complete-guide", description: "Data-driven insights and engagement tracking across leading LMS platforms." },
+    { title: "AI Teaching Assistants Compared", href: "/guides/ai-teaching-assistants", description: "Side-by-side comparison of AI chatbot support features across platforms." }
+  ]} />
+
+</GuideLayout>

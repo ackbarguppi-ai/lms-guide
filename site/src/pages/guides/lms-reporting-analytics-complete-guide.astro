@@ -1,0 +1,535 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS Reporting & Analytics: The Complete Guide for 2026",
+    "description": "A comprehensive guide to learning analytics and reporting features in modern LMS platforms. Compare engagement tracking, student progress, revenue analytics, and data export capabilities.",
+    "datePublished": "2026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-reporting-analytics-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What LMS metrics matter most for course creators?", "acceptedAnswer": { "@type": "Answer", "text": "The four essential metrics are: (1) Enrollment-to-completion rate — shows course effectiveness; (2) Lesson engagement by content type — identifies what resonates; (3) Revenue per student — indicates pricing optimization; and (4) Cohort comparison — reveals whether changes improve outcomes. Thinkific's Engagement Dashboards track all four, while basic platforms often only provide enrollment counts." } },
+      { "@type": "Question", "name": "How do I track student progress in an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Most LMS platforms offer multiple progress tracking methods: (1) Individual student dashboards showing lessons viewed/completed; (2) Course-level completion percentages; (3) Cohort reports comparing groups by start date; (4) Time-on-content metrics; and (5) Quiz/assignment scores. Thinkific Plus provides the most comprehensive tracking with Student Performance Dashboards showing detailed interaction history per lesson." } },
+      { "@type": "Question", "name": "Which LMS has the best analytics for enterprise training?", "acceptedAnswer": { "@type": "Answer", "text": "Docebo and Absorb lead enterprise analytics with predictive capabilities that consumer platforms lack. Docebo's AI identifies at-risk learners before they drop out. Absorb provides compliance tracking and certification management. Thinkific Plus offers a middle ground with role-based access for team members, SCORM reporting, and engagement heatmaps suitable for mid-market training businesses." } },
+      { "@type": "Question", "name": "Can I export LMS data to external analytics tools?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All major platforms support CSV exports of enrollment, engagement, and revenue data. Thinkific, Kajabi, and Teachable also offer native integrations with Google Analytics, Meta Pixel, and Zapier for automated data flow. Enterprise platforms (Docebo, Absorb) provide REST APIs and webhooks for real-time data synchronization with business intelligence tools like Tableau and Power BI." } },
+      { "@type": "Question", "name": "What is SCORM reporting and do I need it?", "acceptedAnswer": { "@type": "Answer", "text": "SCORM reporting tracks compliance-focused learning metrics like pass/fail rates, time spent, and completion status for SCORM-compliant content. You need it if: (1) Your industry requires compliance documentation (healthcare, finance, aviation); (2) You purchase pre-built training content that uses SCORM; or (3) You need detailed interaction tracking for regulatory audits. Thinkific Plus includes SCORM reporting; standard plans and most consumer platforms do not." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS Reporting & Analytics: The Complete Guide for 2026"
+  description="A comprehensive guide to learning analytics and reporting features in modern LMS platforms. Compare engagement tracking, student progress, revenue analytics, and data export capabilities."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS Reporting & Analytics Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS Reporting & Analytics: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Data transforms intuition into strategy.</strong> The most successful learning businesses don't just create content — they measure its impact, identify friction points, and continuously optimize based on evidence. Yet many course creators fly blind, relying on enrollment counts and completion rates that tell only a fraction of the story.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide examines the full spectrum of analytics capabilities available in today's LMS market. We'll explore engagement dashboards that reveal how students actually interact with your content, progress tracking that identifies at-risk learners before they drop out, revenue analytics that connect learning metrics to business outcomes, and the export capabilities that let you analyze data in specialized tools. Whether you're optimizing a single course or managing enterprise training at scale, understanding these features will help you make decisions based on facts rather than assumptions.
+  </p>
+
+  <KeyTakeaways items={[
+    "Engagement dashboards reveal not just completion rates, but which specific lessons and content types drive the most interaction.",
+    "Cohort analysis compares student groups by start date to measure whether curriculum changes actually improve outcomes.",
+    "Revenue analytics should connect to learning metrics — the most valuable students often aren't the ones who complete fastest.",
+    "Role-based dashboard access lets team members see relevant data without overwhelming them with irrelevant metrics.",
+    "Data export capabilities matter — even the best LMS analytics are limited compared to dedicated BI tools.",
+    "Real-time analytics are rare; most platforms update daily, which is sufficient for strategic decisions but not immediate interventions."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Four Pillars of Learning Analytics</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Effective learning analytics rest on four foundational pillars. Understanding these categories helps you evaluate whether a platform provides surface-level metrics or genuine insight.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">1. Engagement Analytics</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Engagement analytics answer: <strong>Are students actively participating?</strong> This goes beyond completion rates to measure interaction depth. Key metrics include:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Time spent per lesson and per course</li>
+      <li>Video play rates and drop-off points</li>
+      <li>Discussion forum participation</li>
+      <li>Resource downloads and interactions</li>
+      <li>Repeat visits and session frequency</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">2. Progress Tracking</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Progress tracking answers: <strong>How far have students advanced?</strong> This pillar measures advancement through curriculum:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Lessons viewed vs. lessons completed</li>
+      <li>Percentage of course completed</li>
+      <li>Quiz and assessment scores</li>
+      <li>Assignment submission status</li>
+      <li>Estimated completion dates</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">3. Performance Analytics</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Performance analytics answer: <strong>What are students learning?</strong> This pillar focuses on educational outcomes:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Assessment scores and distributions</li>
+      <li>Question-level performance (which questions are missed most)</li>
+      <li>Skill mastery indicators</li>
+      <li>Certification pass rates</li>
+      <li>Learning outcome achievement</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">4. Business Analytics</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Business analytics answer: <strong>Is this financially viable?</strong> This pillar connects learning to business outcomes:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Revenue per student and per course</li>
+      <li>Customer acquisition cost (CAC) vs. lifetime value (LTV)</li>
+      <li>Refund and churn rates</li>
+      <li>Conversion funnel analysis</li>
+      <li>Feature usage correlating with retention</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Engagement Dashboards: The Thinkific Approach</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Thinkific's Engagement Dashboards (available on Grow, Expand, and Plus plans) provide the most comprehensive engagement analytics among consumer-focused platforms. The system is organized into specialized dashboards for different aspects of the learning experience.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Overview Dashboard</h3>
+    
+    <p class="text-slate-700 mb-4">
+      The Engagement Overview provides high-level trends across your entire learning business:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Engagement trends:</strong> Unique student engagement over time (daily, weekly, monthly, quarterly, yearly views)</li>
+      <li><strong>Engagement by product:</strong> Courses and communities ranked by student activity</li>
+      <li><strong>Active enrollments vs. active users:</strong> Distinguishes between seats purchased and actual participation</li>
+      <li><strong>Engagement by student:</strong> Ranking table identifying your most engaged learners</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Data refresh:</strong> Engagement data updates daily at 4:00 AM PDT. Recent activity may take up to 24 hours to appear.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Course Dashboard</h3>
+    
+    <p class="text-slate-700 mb-4">
+      The Course Dashboard reveals granular insights into how students interact with specific courses:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Total/Active/Expired enrollments:</strong> Track the lifecycle of course access</li>
+      <li><strong>Enrollments not engaged:</strong> Identify students who enrolled but never started — prime candidates for re-engagement campaigns</li>
+      <li><strong>Completion percentage distribution:</strong> See how many students are 0-25%, 25-50%, 50-75%, 75-99%, or 100% complete</li>
+      <li><strong>Monthly cohort progress:</strong> Compare completion rates across enrollment months</li>
+      <li><strong>Bundle and Group progress:</strong> Analyze completion by product bundling and organizational groups</li>
+      <li><strong>Lesson engagement:</strong> Views, completions, and time spent per individual lesson</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Video Dashboard</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Video content requires specialized analytics. The Video Dashboard reveals:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Play rates by video (which videos attract viewers)</li>
+      <li>Drop-off points (where students stop watching)</li>
+      <li>Average watch time per video</li>
+      <li>Completion rates by video length</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      This data helps identify which videos need editing (high drop-off points) and optimal video lengths for your audience.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Quiz and Survey Dashboards</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Assessment analytics help optimize both learning outcomes and instructional design:
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Quiz Dashboard metrics:</strong>
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Average score across all quiz attempts</li>
+      <li>Score distribution (0-10%, 10-20%, etc.)</li>
+      <li>Most completed quizzes</li>
+      <li>Number of attempts distribution (how many students retry)</li>
+      <li>Question-level performance (which specific questions are missed)</li>
+      <li>Pass rates by quiz</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Survey Dashboard metrics:</strong>
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Completion rates over time</li>
+      <li>Response distribution by question</li>
+      <li>Individual response details</li>
+      <li>Survey engagement trends</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need better visibility into your learning business?"
+    ctaDescription="Get a platform recommendation based on your analytics requirements — from basic progress tracking to enterprise-grade business intelligence."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Community and Social Learning Analytics</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Communities represent a different engagement model than courses — they're ongoing rather than linear. Thinkific's Community Dashboard tracks:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Contributing members:</strong> Unique members posting, commenting, or reacting</li>
+      <li><strong>Total contributions:</strong> Posts, comments, replies, and likes</li>
+      <li><strong>Cross-member contributions:</strong> Interactions between members (not just broadcast posts)</li>
+      <li><strong>Contribution trends:</strong> Activity over time by type</li>
+      <li><strong>Contribution heatmap:</strong> 52-week view showing which days drive most activity</li>
+      <li><strong>Space performance:</strong> Activity breakdown by community space</li>
+      <li><strong>Top contributors:</strong> Members ranked by engagement</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      The heatmap is particularly valuable — it reveals patterns like "weekends are dead" or "Tuesday afternoons drive peak engagement" that inform community management strategy.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Student Performance Tracking</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Individual student visibility is essential for intervention and support. Thinkific's Student Performance Dashboard provides:
+    </p>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Student Information Panel</h3>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Name, email, sign-up date, last sign-in</li>
+      <li>Total course and community enrollments</li>
+      <li>Completed enrollments count</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Course Engagement Details</h3>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Progress percentage per course</li>
+      <li>Enrollment date and course start date</li>
+      <li>Completion date (if finished)</li>
+      <li>Approximate time spent per lesson</li>
+      <li>Individual lesson completion status</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      This granularity enables targeted interventions. When you see a student stuck at 45% completion for two weeks, you can reach out with specific support rather than generic encouragement.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Cohort Analysis: Measuring Improvement Over Time</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Cohort analysis groups students by start date and compares their outcomes. This is the only way to measure whether your improvements actually work.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Example scenario:</strong> You revise your course introduction in March. By comparing the February cohort (old intro) to the April cohort (new intro), you can measure whether completion rates improved.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      Thinkific's Cohort Reports display:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Number of students per cohort (by enrollment month)</li>
+      <li>Average completion percentage per cohort</li>
+      <li>Timeline view showing progress over weeks/months</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      This feature is available on all Thinkific plans, unlike engagement dashboards which require Grow+.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">SCORM Reporting: Compliance and Enterprise Requirements</h2>
+    
+    <p class="text-slate-700 mb-4">
+      SCORM (Shareable Content Object Reference Model) reporting is essential for regulated industries and enterprise training. Thinkific Plus includes SCORM Dashboard capabilities that track:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Completion rates:</strong> Not Attempted, Incomplete, Complete, Unknown</li>
+      <li><strong>Success rates:</strong> Pass, Fail, Unknown</li>
+      <li><strong>Score tracking:</strong> Average scores (0-100), score distributions</li>
+      <li><strong>Detailed interactions:</strong> Attempts per question, accuracy rates</li>
+      <li><strong>Time spent:</strong> Average duration per SCORM course</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      SCORM reporting matters if:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>You're in a regulated industry requiring compliance documentation</li>
+      <li>You purchase third-party training content that uses SCORM</li>
+      <li>You need audit trails for certification programs</li>
+      <li>Your enterprise clients require SCORM compatibility</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      Standard Thinkific plans and most consumer LMS platforms do not include SCORM reporting. Enterprise platforms (Docebo, Absorb, Saba) provide more sophisticated SCORM support with broader compliance frameworks.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">AI Teaching Assistant Analytics</h2>
+    
+    <p class="text-slate-700 mb-4">
+      If you use Thinkific's Thinker AI teaching assistant (Plus plans), the Thinker Dashboard provides unique insights:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Total responses:</strong> Volume of AI interactions</li>
+      <li><strong>Estimated hours saved:</strong> Calculated at 5 minutes per human response replaced</li>
+      <li><strong>Users interacting:</strong> How many students use the AI</li>
+      <li><strong>Usage trends:</strong> Messages and responses over time</li>
+      <li><strong>Reaction breakdown:</strong> Thumbs up/down ratings on AI responses</li>
+      <li><strong>Message history:</strong> Complete conversation logs for review</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      These analytics help optimize your AI assistant. If students consistently rate responses poorly on a specific topic, that's a signal to improve course content in that area.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Revenue and Business Analytics</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Learning metrics only tell half the story. Revenue analytics connect education to business sustainability.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Revenue Dashboard (Thinkific)</h3>
+    
+    <p class="text-slate-700 mb-4">
+      Thinkific's Revenue Dashboard (part of Thinkific Analytics on Grow+ plans) tracks:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li>Revenue trends over time</li>
+      <li>Revenue by product (courses, communities, bundles)</li>
+      <li>TCommerce feature breakdown (Order Bump revenue, etc.)</li>
+      <li>Transaction volume and average order value</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Conversion Tracking</h3>
+    
+    <p class="text-slate-700 mb-4">
+      All major platforms support third-party analytics integration:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Google Analytics 4:</strong> Track visitor behavior, conversion funnels, and traffic sources</li>
+      <li><strong>Meta Pixel:</strong> Measure ad campaign effectiveness and retargeting audiences</li>
+      <li><strong>Google Tag Manager:</strong> Deploy and manage multiple tracking pixels</li>
+      <li><strong>Zapier:</strong> Connect LMS events to CRMs, email tools, and spreadsheets</li>
+    </ul>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Data Export and Integration</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Even the best LMS analytics have limitations. Export capabilities let you analyze data in specialized business intelligence tools.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Export Capabilities (Thinkific)</h3>
+    
+    <p class="text-slate-700 mb-4">
+      All Thinkific dashboards support:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Full dataset export:</strong> All data from any dashboard</li>
+      <li><strong>Partial export:</strong> Filtered data based on date ranges, products, or groups</li>
+      <li><strong>CSV format:</strong> Universal compatibility with spreadsheet and BI tools</li>
+      <li><strong>Email delivery:</strong> Large exports sent via email link</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">API and Webhook Access</h3>
+    
+    <p class="text-slate-700 mb-4">
+      For real-time data needs, Thinkific offers:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>REST API:</strong> Programmatic access to courses, enrollments, users, and products</li>
+      <li><strong>Webhooks:</strong> Real-time event notifications (enrollment created, course completed, etc.)</li>
+    </ul>
+    
+    <p class="text-slate-700 mb-4">
+      <strong>Note:</strong> Courses created with the new course builder are excluded from most REST API endpoints (except enrollments). The lesson.completed webhook does not work with new builder courses.
+    </p>
+    
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms (Docebo, Absorb) provide more extensive API capabilities designed for enterprise integration with HR systems, BI tools, and custom applications.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Role-Based Access: Sharing Insights Safely</h2>
+    
+    <p class="text-slate-700 mb-4">
+      As teams grow, you need to share data without exposing everything. Thinkific's role-based access controls provide:
+    </p>
+    
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Role</th>
+            <th class="py-3 px-4 text-navy font-semibold">Analytics Access</th>
+            <th class="py-3 px-4 text-navy font-semibold">Data Scope</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Site Owner</td><td class="py-2 px-4">Full access</td><td class="py-2 px-4">All data</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Site Admin</td><td class="py-2 px-4">All dashboards</td><td class="py-2 px-4">All data</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Course Admin</td><td class="py-2 px-4">Engagement, Enrollment, Progress</td><td class="py-2 px-4">Assigned courses only</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Group Analyst</td><td class="py-2 px-4">Engagement, Enrollment</td><td class="py-2 px-4">Assigned group only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <p class="text-slate-700 mb-4">
+      This structure allows you to give instructors visibility into their course performance without exposing revenue data or other instructors' results.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Capability</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Engagement Dashboards</td><td class="py-2 px-2">✅ Grow+</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Video Analytics</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">⚠️ Basic</td><td class="py-2 px-2">⚠️ Basic</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Quiz Performance</td><td class="py-2 px-2">✅ Detailed</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Adaptive</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Community Analytics</td><td class="py-2 px-2">✅ Heatmap</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Cohort Analysis</td><td class="py-2 px-2">✅ All plans</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">SCORM Reporting</td><td class="py-2 px-2">✅ Plus</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">⚠️ Limited</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Role-Based Access</td><td class="py-2 px-2">✅ Plus</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Granular</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">API Access</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Extensive</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Predictive Analytics</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅ Docebo/Absorb</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Making Your Decision</h2>
+    
+    <p class="text-slate-700 mb-4">
+      Your analytics requirements depend on your scale and goals:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>For new course creators:</strong> Basic progress reports and enrollment tracking (available on all plans) are sufficient. Focus on creating content before optimizing based on data.</li>
+      
+      <li><strong>For growing learning businesses:</strong> Engagement dashboards (Thinkific Grow+, Kajabi, Teachable) reveal optimization opportunities. Look for video analytics and cohort analysis.</li>
+      
+      <li><strong>For academies and bootcamps:</strong> Student Performance Dashboards and role-based access let instructors support students without exposing sensitive business data.</li>
+      
+      <li><strong>For certification programs:</strong> SCORM reporting is essential for compliance documentation. Thinkific Plus or enterprise platforms provide this.</li>
+      
+      <li><strong>For enterprise training:</strong> Predictive analytics and extensive API access (Docebo, Absorb) support integration with existing business systems.</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Want better insights into your learning business?"
+    ctaDescription="Tell us what you need to track and we'll recommend the platform with analytics that match your requirements."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What LMS metrics matter most for course creators?", answer: "The four essential metrics are: (1) Enrollment-to-completion rate — shows course effectiveness; (2) Lesson engagement by content type — identifies what resonates; (3) Revenue per student — indicates pricing optimization; and (4) Cohort comparison — reveals whether changes improve outcomes. Thinkific's Engagement Dashboards track all four, while basic platforms often only provide enrollment counts." },
+    { question: "How do I track student progress in an LMS?", answer: "Most LMS platforms offer multiple progress tracking methods: (1) Individual student dashboards showing lessons viewed/completed; (2) Course-level completion percentages; (3) Cohort reports comparing groups by start date; (4) Time-on-content metrics; and (5) Quiz/assignment scores. Thinkific Plus provides the most comprehensive tracking with Student Performance Dashboards showing detailed interaction history per lesson." },
+    { question: "Which LMS has the best analytics for enterprise training?", answer: "Docebo and Absorb lead enterprise analytics with predictive capabilities that consumer platforms lack. Docebo's AI identifies at-risk learners before they drop out. Absorb provides compliance tracking and certification management. Thinkific Plus offers a middle ground with role-based access for team members, SCORM reporting, and engagement heatmaps suitable for mid-market training businesses." },
+    { question: "Can I export LMS data to external analytics tools?", answer: "Yes. All major platforms support CSV exports of enrollment, engagement, and revenue data. Thinkific, Kajabi, and Teachable also offer native integrations with Google Analytics, Meta Pixel, and Zapier for automated data flow. Enterprise platforms (Docebo, Absorb) provide REST APIs and webhooks for real-time data synchronization with business intelligence tools like Tableau and Power BI." },
+    { question: "What is SCORM reporting and do I need it?", answer: "SCORM reporting tracks compliance-focused learning metrics like pass/fail rates, time spent, and completion status for SCORM-compliant content. You need it if: (1) Your industry requires compliance documentation (healthcare, finance, aviation); (2) You purchase pre-built training content that uses SCORM; or (3) You need detailed interaction tracking for regulatory audits. Thinkific Plus includes SCORM reporting; standard plans and most consumer platforms do not." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/360040037093" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Analytics Overview</a> — Comprehensive guide to engagement dashboards and reporting</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/15795863469463" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Engagement Dashboards</a> — Deep dive into course, community, and video analytics</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/360030369974" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Progress Reports</a> — Student tracking and cohort analysis documentation</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/24607412212119" target="_blank" rel="noopener" class="text-teal-600 hover:underline">SCORM Course Reporting</a> — Compliance and enterprise tracking features</li>
+      <li><a href="/guides/reporting-analytics-compared" class="text-teal-600 hover:underline">Reporting & Analytics Compared</a> — Platform-by-platform feature comparison on LMS Guide</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS E-Commerce: The Complete Guide for 2026", href: "/guides/lms-ecommerce-complete-guide", description: "Payment processing, tax automation, and revenue optimization for learning businesses." },
+    { title: "LMS AI Features: The Complete Guide for 2026", href: "/guides/lms-ai-features-complete-guide", description: "How artificial intelligence is transforming course creation and student engagement." },
+    { title: "Reporting & Analytics Compared", href: "/guides/reporting-analytics-compared", description: "Side-by-side comparison of analytics capabilities across eight major LMS platforms." }
+  ]} />
+
+</GuideLayout>

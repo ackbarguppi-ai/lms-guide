@@ -1,0 +1,285 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LMS E-Commerce: The Complete Guide for 2026",
+    "description": "A comprehensive guide to e-commerce capabilities in learning management systems. Compare payment processing, tax automation, upsells, and revenue optimization features.",
+    "datePublished": "2026-03-24",
+    "dateModified": "2026-03-24",
+    "author": { "@type": "Organization", "name": "LMS Guide Editorial Team" },
+    "publisher": { "@type": "Organization", "name": "LMS Guide" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://lms-guide.com/guides/lms-ecommerce-complete-guide" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is the most important e-commerce feature for selling courses online?", "acceptedAnswer": { "@type": "Answer", "text": "Automated tax remittance is the most critical e-commerce feature for course sellers. Only Thinkific TCommerce and Teachable:pay automatically calculate, collect, AND remit sales tax to tax authorities. Other platforms calculate taxes but leave you responsible for filing and payment, creating compliance risk and administrative burden." } },
+      { "@type": "Question", "name": "How do order bumps increase course sales?", "acceptedAnswer": { "@type": "Answer", "text": "Order bumps allow you to offer complementary products during checkout with a single checkbox. Thinkific reports that TCommerce users with order bumps sell up to 31% more than basic Stripe users. The technique works because it captures buyers at peak motivation without requiring them to re-enter payment information." } },
+      { "@type": "Question", "name": "Which LMS has the lowest transaction fees?", "acceptedAnswer": { "@type": "Answer", "text": "Thinkific, Kajabi, and enterprise platforms like Docebo charge 0% platform transaction fees. Teachable charges 5-10% on lower-tier plans (Free and Basic), while Podia charges 8% on its free plan. Remember that all platforms pass through standard Stripe/PayPal processing fees (typically 2.9% + 30¢)." } },
+      { "@type": "Question", "name": "What payment methods should an LMS support?", "acceptedAnswer": { "@type": "Answer", "text": "At minimum, your LMS should support credit/debit cards via Stripe or PayPal. Advanced e-commerce platforms also support Apple Pay, Google Pay, and Buy Now Pay Later options (Klarna, Afterpay). These alternative payment methods can increase conversion rates by 20-30% by removing friction at checkout." } },
+      { "@type": "Question", "name": "Can I sell corporate training through an LMS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but you'll need B2B-specific e-commerce features. Enterprise platforms like Docebo, Absorb, and TalentLMS support bulk licensing, organizational billing, and invoicing. Thinkific offers group orders for selling multiple seats, though dedicated corporate LMS platforms provide more sophisticated procurement workflows and custom pricing negotiation tools." } }
+    ]
+  }
+];
+---
+
+<GuideLayout
+  title="LMS E-Commerce: The Complete Guide for 2026"
+  description="A comprehensive guide to e-commerce capabilities in learning management systems. Compare payment processing, tax automation, upsells, and revenue optimization features."
+  breadcrumbs={[{ label: 'Guides', href: '/guides' }, { label: 'LMS E-Commerce Guide' }]}
+  lastUpdated="2026-03-24"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-6">LMS E-Commerce: The Complete Guide for 2026</h1>
+
+  <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+    <strong>Choosing an LMS without evaluating its e-commerce capabilities is like opening a store without checking if the cash registers work.</strong> The best course content in the world won't generate revenue if your payment processing is clunky, your checkout abandonment is high, or you're spending weekends calculating sales tax for seventeen different jurisdictions.
+  </p>
+
+  <p class="text-slate-700 mb-6 leading-relaxed">
+    This guide examines the e-commerce infrastructure that powers successful online learning businesses. We'll cover payment processing, tax automation, revenue optimization techniques like order bumps and upsells, and the specific features that separate consumer-focused course platforms from enterprise training solutions. Whether you're an independent expert selling your first course or an academy processing millions in annual revenue, understanding these capabilities will directly impact your bottom line.
+  </p>
+
+  <KeyTakeaways items={[
+    "Automated tax remittance is the single most important differentiator — only Thinkific TCommerce and Teachable:pay handle calculation, collection, AND remittance automatically.",
+    "Order bumps and one-click upsells can increase revenue per transaction by 20-31% by capturing buyers at peak motivation.",
+    "Transaction fees range from 0% (Thinkific paid plans, Kajabi, Docebo) to 10% (Teachable Free plan) — at scale, this difference represents thousands of dollars monthly.",
+    "Buy Now Pay Later options (Klarna, Afterpay) significantly improve conversion rates for higher-priced courses and programs.",
+    "B2B sales require fundamentally different e-commerce features: bulk licensing, organizational billing, and invoicing workflows that consumer platforms lack.",
+    "Your LMS should support 130+ currencies and localized payment methods if you plan to sell internationally."
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">The Foundation: Payment Processing</h2>
+    <p class="text-slate-700 mb-4">
+      Every LMS e-commerce system rests on a payment processing foundation. There are three primary architectures in the market today:
+    </p>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Native Payment Processing (TCommerce, Kajabi Payments, Teachable:pay)</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Thinkific's TCommerce</strong> represents the gold standard for native payment processing. Built on Stripe Connect, it processes payments in 130+ currencies and includes Apple Pay, Google Pay, and Buy Now Pay Later (Klarna/Afterpay) support without additional configuration. The key advantage is tight integration — checkout happens on your domain, student data stays in one system, and advanced features like order bumps work seamlessly.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi Payments</strong> offers similar Stripe-based processing with zero transaction fees. The primary limitation is geographic availability — Kajabi Payments isn't available in all countries where Thinkific TCommerce operates.
+    </p>
+    <p class="text-slate-700 mb-4">
+      <strong>Teachable:pay</strong> matches Thinkific's feature set closely, including the critical automated tax remittance feature. However, Teachable charges 5-10% transaction fees on lower-tier plans, making it expensive for businesses just starting out.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Third-Party Gateway Integration</h3>
+    <p class="text-slate-700 mb-4">
+      Platforms like <strong>LearnWorlds</strong> and <strong>Podia</strong> integrate with Stripe and PayPal rather than offering native processing. This provides flexibility — you can use your existing Stripe account — but limits access to platform-specific optimizations. LearnWorlds recently added single-page checkout with shopping cart functionality, but lacks native one-click upsells that require deep payment integration.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Enterprise Procurement Systems</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Docebo, Absorb, and TalentLMS</strong> approach e-commerce differently. Their buyers are typically HR departments and training managers using organizational budgets rather than personal credit cards. These platforms emphasize invoicing, purchase orders, and bulk licensing over consumer checkout optimization. If your primary market is corporate training, these B2B features matter more than order bumps and upsells.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Tax Automation: The Hidden Compliance Risk</h2>
+    <p class="text-slate-700 mb-4">
+      Tax compliance separates amateur course sellers from professional education businesses. The moment you sell to customers in multiple states or countries, you create tax obligations that can overwhelm small teams.
+    </p>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">The Full Remittance Advantage</h3>
+    <p class="text-slate-700 mb-4">
+      Only two platforms handle the complete tax lifecycle: <strong>Thinkific TCommerce</strong> and <strong>Teachable:pay</strong>. Both automatically calculate the correct tax rate based on customer location, collect the tax at checkout, and — critically — remit those taxes to the appropriate authorities on your behalf.
+    </p>
+    <p class="text-slate-700 mb-4">
+      For US and Canadian sales, this means Thinkific calculates state and local sales tax, collects it from customers, and files the returns for you. This isn't just convenient — it eliminates the risk of missed filings, late penalties, and the accounting overhead of tracking tax liabilities across jurisdictions.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Partial Tax Solutions</h3>
+    <p class="text-slate-700 mb-4">
+      <strong>Kajabi, LearnWorlds, Podia, and enterprise platforms</strong> calculate taxes at checkout but leave remittance as your responsibility. You'll receive the tax money as part of your payout, but you must file returns and make payments yourself. This creates a cash flow timing issue (you hold money that belongs to tax authorities) and administrative burden (quarterly filings in multiple jurisdictions).
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">International VAT Complexity</h3>
+    <p class="text-slate-700 mb-4">
+      Selling to the UK and EU adds Value Added Tax (VAT) complexity. Thinkific's VAT solution calculates and collects the appropriate VAT rate, but you remain responsible for remittance under your own company tax return. This is standard across the industry — no LMS platform currently handles EU VAT remittance automatically due to the requirement for local business registration.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Revenue Optimization: Order Bumps and Upsells</h2>
+    <p class="text-slate-700 mb-4">
+      The most profitable learning businesses maximize revenue per customer, not just customer count. Two techniques dominate this optimization:
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Order Bumps: The Single-Click Add-On</h3>
+    <p class="text-slate-700 mb-4">
+      An order bump presents a complementary product during checkout, added with a single checkbox click. The customer has already entered payment information; the bump requires zero additional friction. Thinkific's data shows TCommerce users with order bumps sell up to <strong>31% more</strong> than those using basic Stripe integration.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Effective order bumps include:
+    </p>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+      <li><strong>Digital workbooks</strong> that complement video courses</li>
+      <li><strong>Coaching sessions</strong> that provide personalized implementation help</li>
+      <li><strong>Template libraries</strong> that accelerate student results</li>
+      <li><strong>Community access</strong> for ongoing peer support</li>
+    </ul>
+    <p class="text-slate-700 mb-4">
+      Thinkific allows one order bump per primary product with custom pricing and strikethrough display to emphasize the discount. The feature requires TCommerce and is available on all paid plans.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">One-Click Upsells: Post-Purchase Revenue</h3>
+    <p class="text-slate-700 mb-4">
+      One-click upsells appear immediately after checkout but before the thank-you page. The customer has already committed to buying; the upsell captures expanded interest without requiring re-entry of payment details. Thinkific, Kajabi, and Teachable all support this feature on higher-tier plans.
+    </p>
+    <p class="text-slate-700 mb-4">
+      Upsells work best when logically related to the initial purchase — a beginner course buyer might upgrade to a comprehensive bundle, or a course buyer might add a certification exam. The key is relevance; unrelated upsells convert poorly and damage trust.
+    </p>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Optimizing your course revenue?"
+    ctaDescription="Get a personalized platform recommendation based on your sales volume, target market, and e-commerce complexity."
+    ctaButtonText="Get My Recommendation"
+    variant="inline"
+  />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Transaction Fees: The Hidden Cost</h2>
+    <p class="text-slate-700 mb-4">
+      Platform transaction fees often surprise course sellers. These are separate from Stripe/PayPal processing fees (typically 2.9% + 30¢) and represent pure margin loss.
+    </p>
+    
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Platform</th>
+            <th class="py-3 px-4 text-navy font-semibold">Free Plan</th>
+            <th class="py-3 px-4 text-navy font-semibold">Entry Paid</th>
+            <th class="py-3 px-4 text-navy font-semibold">Mid-Tier</th>
+            <th class="py-3 px-4 text-navy font-semibold">Top Tier</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Thinkific</td><td class="py-2 px-4">N/A*</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Kajabi</td><td class="py-2 px-4">N/A</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Teachable</td><td class="py-2 px-4">10%</td><td class="py-2 px-4">5%</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Podia</td><td class="py-2 px-4">8%</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">LearnWorlds</td><td class="py-2 px-4">N/A</td><td class="py-2 px-4">$5/sale</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Docebo</td><td class="py-2 px-4">N/A</td><td class="py-2 px-4">Contact</td><td class="py-2 px-4">0%</td><td class="py-2 px-4">0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-500 mb-4">*Thinkific's free plan doesn't include checkout functionality</p>
+    
+    <p class="text-slate-700 mb-4">
+      At $10,000 monthly revenue, a 5% transaction fee costs $500/month ($6,000/year). At $50,000 monthly revenue, it's $2,500/month ($30,000/year). These fees often exceed the platform subscription cost, making zero-fee platforms significantly cheaper at scale despite higher monthly prices.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">B2B E-Commerce: Corporate Training Sales</h2>
+    <p class="text-slate-700 mb-4">
+      Selling to businesses requires different e-commerce capabilities than selling to individuals. Corporate buyers need:
+    </p>
+    
+    <h3 class="text-xl font-semibold text-navy mb-3">Bulk Licensing and Group Orders</h3>
+    <p class="text-slate-700 mb-4">
+      Enterprise platforms like <strong>Docebo and Absorb</strong> offer sophisticated bulk licensing — organizations purchase 500 seats and distribute enrollment codes to employees. <strong>Thinkific</strong> offers Group Orders as a middle-ground solution, allowing bulk purchases without the full complexity of enterprise procurement systems.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Invoicing and Purchase Orders</h3>
+    <p class="text-slate-700 mb-4">
+      Corporate procurement typically requires invoicing with net-30 payment terms, not immediate credit card charges. Enterprise LMS platforms support these workflows natively. Consumer-focused platforms require workarounds like manual invoicing through accounting software.
+    </p>
+
+    <h3 class="text-xl font-semibold text-navy mb-3">Custom Pricing Negotiation</h3>
+    <p class="text-slate-700 mb-4">
+      Large training contracts often involve negotiated pricing based on volume. Enterprise platforms include quote generation and custom pricing tools. This is absent from consumer course platforms where list pricing is fixed.
+    </p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Platform Comparison Summary</h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="border-b-2 border-navy">
+            <th class="py-3 px-4 text-navy font-semibold">Capability</th>
+            <th class="py-3 px-2 text-navy font-semibold">Thinkific</th>
+            <th class="py-3 px-2 text-navy font-semibold">Kajabi</th>
+            <th class="py-3 px-2 text-navy font-semibold">Teachable</th>
+            <th class="py-3 px-2 text-navy font-semibold">LearnWorlds</th>
+            <th class="py-3 px-2 text-navy font-semibold">Podia</th>
+            <th class="py-3 px-2 text-navy font-semibold">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Native Payment Processing</td><td class="py-2 px-2">✅ TCommerce</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Teachable:pay</td><td class="py-2 px-2">⚠️ Stripe/PayPal</td><td class="py-2 px-2">⚠️ Stripe/PayPal</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Auto Tax Remittance</td><td class="py-2 px-2">✅ US/CA</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅ US/CA</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Order Bumps</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">One-Click Upsells</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Pro+</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Affiliate Program</td><td class="py-2 px-2">✅ Growth+</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅ Pro+</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">✅</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Buy Now Pay Later</td><td class="py-2 px-2">✅ Klarna/Afterpay</td><td class="py-2 px-2">⚠️ Limited</td><td class="py-2 px-2">⚠️ Limited</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">B2B Bulk Licensing</td><td class="py-2 px-2">⚠️ Group Orders</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td></tr>
+          <tr class="border-b"><td class="py-2 px-4 font-medium">Invoicing / POs</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">❌</td><td class="py-2 px-2">✅</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Making Your Decision</h2>
+    <p class="text-slate-700 mb-4">
+      The right e-commerce setup depends on your business model:
+    </p>
+    
+    <ul class="list-disc pl-6 text-slate-700 space-y-3 mb-4">
+      <li><strong>For independent experts selling courses:</strong> Thinkific TCommerce offers the best combination of zero transaction fees, automated tax remittance, and conversion-optimizing features like order bumps.</li>
+      <li><strong>For coaching/consulting businesses:</strong> Kajabi's built-in sales funnels and email marketing integration reduce the need for separate marketing tools.</li>
+      <li><strong>For certification programs:</strong> Thinkific's combination of proctored exams, certificates, and e-commerce provides a complete stack.</li>
+      <li><strong>For corporate training providers:</strong> Docebo or Absorb handle B2B procurement workflows that consumer platforms cannot match.</li>
+      <li><strongFor membership communities:</strong> Kajabi and Thinkific both handle recurring subscriptions well; choose based on whether you prioritize marketing automation or learning experience.</li>
+    </ul>
+  </section>
+
+  <LeadFormModal
+    ctaTitle="Need help choosing the right e-commerce setup?"
+    ctaDescription="Tell us about your sales model and we'll recommend the platform that maximizes your revenue while minimizing administrative overhead."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <FAQ items={[
+    { question: "What is the most important e-commerce feature for selling courses online?", answer: "Automated tax remittance is the most critical e-commerce feature for course sellers. Only Thinkific TCommerce and Teachable:pay automatically calculate, collect, AND remit sales tax to tax authorities. Other platforms calculate taxes but leave you responsible for filing and payment, creating compliance risk and administrative burden." },
+    { question: "How do order bumps increase course sales?", answer: "Order bumps allow you to offer complementary products during checkout with a single checkbox. Thinkific reports that TCommerce users with order bumps sell up to 31% more than basic Stripe users. The technique works because it captures buyers at peak motivation without requiring them to re-enter payment information." },
+    { question: "Which LMS has the lowest transaction fees?", answer: "Thinkific, Kajabi, and enterprise platforms like Docebo charge 0% platform transaction fees. Teachable charges 5-10% on lower-tier plans (Free and Basic), while Podia charges 8% on its free plan. Remember that all platforms pass through standard Stripe/PayPal processing fees (typically 2.9% + 30¢)." },
+    { question: "What payment methods should an LMS support?", answer: "At minimum, your LMS should support credit/debit cards via Stripe or PayPal. Advanced e-commerce platforms also support Apple Pay, Google Pay, and Buy Now Pay Later options (Klarna, Afterpay). These alternative payment methods can increase conversion rates by 20-30% by removing friction at checkout." },
+    { question: "Can I sell corporate training through an LMS?", answer: "Yes, but you'll need B2B-specific e-commerce features. Enterprise platforms like Docebo, Absorb, and TalentLMS support bulk licensing, organizational billing, and invoicing. Thinkific offers group orders for selling multiple seats, though dedicated corporate LMS platforms provide more sophisticated procurement workflows and custom pricing negotiation tools." }
+  ]} />
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Sources & Further Reading</h2>
+    <ul class="list-disc pl-6 text-slate-700 space-y-2">
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/4410781476631" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Order Bumps Documentation</a> — Complete setup guide and best practices</li>
+      <li><a href="https://support.thinkific.com/hc/en-us/articles/13769059862551" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Thinkific Sales Tax and VAT Solution</a> — Tax automation details and compliance coverage</li>
+      <li><a href="https://www.thinkific.com/blog/how-tcommerce-helps-you-sell-more/" target="_blank" rel="noopener" class="text-teal-600 hover:underline">How TCommerce Helps You Sell More</a> — Thinkific's data on revenue optimization</li>
+      <li><a href="https://help.kajabi.com/en/articles/12695443-why-kajabi-payments" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Kajabi Payments Overview</a> — Kajabi's integrated payment solution</li>
+      <li><a href="https://support.teachable.com/en/articles/11682555-teachable-pay" target="_blank" rel="noopener" class="text-teal-600 hover:underline">Teachable:pay Documentation</a> — Payment processing and tax features</li>
+    </ul>
+  </section>
+
+  <RelatedPages pages={[
+    { title: "LMS AI Features: The Complete Guide for 2026", href: "/guides/lms-ai-features-complete-guide", description: "How artificial intelligence is transforming course creation, student engagement, and learning outcomes." },
+    { title: "LMS Reporting & Analytics: The Complete Guide for 2026", href: "/guides/lms-reporting-analytics-complete-guide", description: "Data and insights that drive learning business growth — from engagement tracking to revenue analytics." },
+    { title: "E-Commerce Features Compared", href: "/guides/ecommerce-compared", description: "Side-by-side comparison of payment processing, fees, and sales features across eight major LMS platforms." }
+  ]} />
+
+</GuideLayout>
