@@ -1,0 +1,399 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is Lessonly by Seismic?",
+    answer: "Lessonly is a training platform focused on sales enablement and customer-facing teams. Originally founded in 2012 as a standalone learning platform, Lessonly was acquired by Seismic in 2021 for approximately $500 million. The platform specializes in practice-based learning, role-play simulations, and coaching tools designed to improve performance of customer-facing teams."
+  },
+  {
+    question: "How much does Lessonly cost?",
+    answer: "Lessonly uses quote-based pricing typical of enterprise sales enablement platforms. Pricing is not publicly disclosed but generally starts in the $15-25 per user per month range for teams of 100+. The platform is positioned as a premium solution compared to general-purpose LMS options, reflecting its specialized focus on sales training and enablement."
+  },
+  {
+    question: "Is Lessonly an LMS or a sales enablement platform?",
+    answer: "Lessonly functions as both, though it primarily positions itself as a sales enablement and readiness platform. It includes core LMS features like course creation, assessments, and tracking, but its differentiation comes from sales-specific capabilities: practice scenarios, video role-plays, coaching workflows, and tight CRM integrations. For organizations prioritizing sales training over broad learning management, Lessonly fits the enablement category better than traditional LMS."
+  },
+  {
+    question: "What happened to Lessonly after the Seismic acquisition?",
+    answer: "Following the 2021 acquisition, Lessonly has been integrated into Seismic's broader enablement ecosystem. It now connects more deeply with Seismic's content management, buyer engagement, and analytics tools. The combined offering positions Seismic as an end-to-end enablement platform spanning content, training, and engagement. Lessonly operates as a distinct product within the Seismic portfolio, not a merged or discontinued solution."
+  },
+  {
+    question: "How does Lessonly compare to Thinkific?",
+    answer: "Lessonly and Thinkific serve fundamentally different purposes. Lessonly is built for enterprise sales teams needing practice-based training, coaching workflows, and CRM integrations. Thinkific targets experts, academies, and businesses creating and selling online courses. Lessonly focuses on internal team readiness; Thinkific focuses on external learning commerce. Organizations with customer-facing teams needing enablement should evaluate Lessonly; those building learning businesses should evaluate Thinkific."
+  },
+  {
+    question: "Does Lessonly offer certifications or compliance tracking?",
+    answer: "Lessonly includes basic certification and completion tracking, but it is not designed for heavy compliance or regulatory training. The platform excels at skills-based, practice-oriented learning rather than formal certification programs with audit trails. Organizations needing robust compliance features, SCORM/xAPI support, or regulatory documentation should evaluate dedicated LMS platforms rather than sales enablement tools."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Lessonly",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.7",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of Lessonly by Seismic for sales training and customer-facing team enablement. Strengths, limitations, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Lessonly Review 2026: Sales Enablement Training Platform"
+  description="An honest review of Lessonly by Seismic for sales training and customer-facing team enablement. Strengths, limitations, and who it's best for."
+  platformName="Lessonly"
+  rating={3.7}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Lessonly' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Lessonly Review 2026: Sales Enablement Training Platform</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.7 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~70% filled for 3.7 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-lessonly">
+            <stop offset="70%" stop-color="#fbbf24" />
+            <stop offset="70%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-lessonly)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.7 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Lessonly excels at training customer-facing teams through practice-based learning and role-play scenarios. Its integration with Seismic's broader enablement ecosystem creates a compelling offering for sales organizations. However, its narrow focus on sales enablement, lack of robust compliance features, and enterprise-only pricing make it unsuitable for general learning management or smaller teams.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for sales enablement leaders, revenue operations teams, and customer success managers evaluating training platforms for customer-facing teams. If your priority is improving sales performance through practice and coaching rather than broad organizational learning, Lessonly deserves consideration.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Lessonly specializes in practice-based learning for sales and customer-facing teams, with strong role-play and coaching capabilities.",
+    "The 2021 Seismic acquisition integrated Lessonly into a broader enablement ecosystem spanning content, training, and buyer engagement.",
+    "Video role-play and simulation features differentiate Lessonly from general-purpose LMS platforms.",
+    "Tight CRM integrations (Salesforce, HubSpot) enable training contextualized to real sales situations and opportunities.",
+    "Limited compliance and certification features make Lessonly unsuitable for regulated industries or formal credentialing programs.",
+    "Enterprise-focused pricing and positioning exclude smaller teams and organizations with general training needs."
+  ]} />
+
+  <!-- What is Lessonly? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Lessonly?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Lessonly is a training platform purpose-built for customer-facing teams. Founded in 2012 by Max Yoder and Connor Burt in Indianapolis, the company grew steadily before being acquired by Seismic in 2021 for approximately $500 million. The platform now serves as Seismic's training and coaching solution within its broader enablement suite.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike traditional LMS platforms designed for broad organizational learning, Lessonly focuses specifically on improving performance of sales, customer success, and support teams. Its core philosophy centers on practice-based learning—rather than just consuming content, learners engage with simulations, role-plays, and scenario-based assessments that mirror real customer interactions.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform includes course creation tools, assessment builders, video recording capabilities for role-play practice, coaching workflows, and analytics tied to performance outcomes. Integration with Seismic's content management system enables training to be delivered alongside the actual sales materials reps use in the field.
+    </p>
+  </section>
+
+  <!-- Who is Lessonly Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Lessonly Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Lessonly's specialized focus means it fits specific use cases better than others. Here is where it delivers the most value:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Sales Teams and Sales Enablement</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with formal sales enablement functions seeking to improve rep performance through structured practice and coaching. Lessonly's role-play features and CRM integration support onboarding, skill development, and continuous improvement for sales professionals.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Customer Success Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          CS teams needing training on customer conversations, escalation handling, and relationship management. The platform's scenario-based practice helps CSMs prepare for challenging customer interactions before they occur.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Revenue Operations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          RevOps teams seeking to operationalize training as part of their enablement tech stack. The Seismic integration allows Lessonly to fit naturally into existing revenue technology ecosystems rather than functioning as a standalone tool.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-Market to Enterprise Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with 100+ customer-facing employees who can justify the enterprise pricing model. The platform's value increases with scale—organizations with small teams will find the cost difficult to justify relative to simpler alternatives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Practice-Based Learning</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Lessonly's signature feature is its focus on practice over passive consumption. Learners engage with video role-plays where they record themselves responding to customer scenarios. Managers and peers can provide time-stamped feedback, creating a coaching loop that reinforces desired behaviors. This approach addresses the common gap between knowing what to do and actually doing it in high-stakes customer conversations.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation and Content</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform includes a drag-and-drop course builder supporting text, video, images, quizzes, and interactive elements. Content can be organized into learning paths and assigned based on role, seniority, or performance gaps. While functional, the authoring tools are less sophisticated than dedicated course platforms—Lessonly prioritizes deployment speed over creative flexibility.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Coaching Workflows</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Structured coaching features enable managers to review practice submissions, provide feedback, and track improvement over time. Coaching can be assigned based on performance triggers—if a rep struggles with a specific skill area, targeted practice and coaching can be automatically assigned to address the gap.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">CRM Integration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native integrations with Salesforce and HubSpot connect training to actual sales activities. Training completion can trigger CRM actions; conversely, CRM events can trigger training assignments. This contextual integration ensures reps receive relevant training based on their pipeline, deal stage, or performance metrics.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Seismic Ecosystem Integration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      As part of Seismic, Lessonly integrates with content management, buyer engagement, and analytics tools. Training can be accessed alongside sales content, and engagement data flows into unified reporting. Organizations already using Seismic for content management will find the Lessonly integration particularly seamless.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics and Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Dashboards track completion rates, assessment scores, practice submission quality, and coaching activity. While comprehensive for training metrics, the platform lacks advanced learning analytics like skill correlation or predictive modeling. Reports focus on training activity rather than learning outcomes or business impact.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Practice-Based Methodology</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The emphasis on role-play and scenario practice addresses a genuine gap in sales training. Most platforms focus on content delivery; Lessonly focuses on skill application. This approach aligns with adult learning principles and produces more durable behavior change than passive consumption alone.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Video Role-Play Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The video recording and feedback system is well-designed for sales scenarios. Learners can practice pitches, objection handling, and discovery calls in a low-stakes environment before facing real customers. Time-stamped feedback and rubric-based scoring provide structured coaching.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Seismic Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          For organizations using Seismic's content platform, the Lessonly integration creates a cohesive enablement experience. Training and content live in the same ecosystem, reducing friction for reps and providing unified analytics for managers.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Sales-Specific Workflows</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Features like pitch practice, objection handling scenarios, and CRM-triggered assignments demonstrate deep understanding of sales team needs. The platform feels designed for sales use cases rather than adapted from general learning management.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Manager Coaching Tools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The coaching workflow features—assignment queues, feedback tools, progress tracking—make it easier for busy managers to engage in structured development conversations with their teams. This addresses the common challenge of coaching consistency across large sales organizations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Lessonly May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Lessonly May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Lessonly's specialization creates clear limitations. Here is where the platform falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">General Learning Management</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations needing broad training capabilities—compliance, onboarding, professional development—will find Lessonly limited. The platform is optimized for customer-facing teams, not enterprise-wide learning. IT, HR, and other functions will likely need separate solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Compliance and Certification</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Lessonly lacks the robust compliance features, audit trails, and certification management required for regulated industries. Organizations needing formal credentialing, regulatory documentation, or SCORM/xAPI compliance should evaluate dedicated LMS platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Small Teams and Budgets</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The enterprise pricing model and minimum seat requirements exclude smaller organizations. Teams with fewer than 100 customer-facing employees will struggle to justify the cost relative to simpler, less expensive alternatives like Gong, Chorus, or even general video platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Creation Sophistication</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The course builder is functional but basic compared to dedicated authoring tools. Organizations wanting rich multimedia, branching scenarios, or sophisticated assessments may find the creation tools limiting.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Standalone Flexibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          As part of the Seismic ecosystem, Lessonly works best when integrated with other Seismic tools. Organizations wanting a standalone training platform or those using competing content management solutions may find the integration emphasis creates friction rather than value.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Lessonly uses quote-based pricing typical of enterprise sales enablement platforms. Pricing is not publicly disclosed but generally falls in the premium tier for training solutions.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Standard</td>
+            <td class="py-3 px-4 text-slate-600">Core training platform with course creation, assessments, and basic analytics for sales teams</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Premium</td>
+            <td class="py-3 px-4 text-slate-600">Advanced coaching workflows, enhanced CRM integrations, and priority support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Estimated Range:</strong> $15-30 per user per month, typically with annual contracts and minimum seat requirements. Organizations should expect to invest significantly more than general-purpose LMS alternatives.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing is quote-based. Contact Seismic for specific pricing based on user count and required features.
+    </p>
+  </section>
+
+  <!-- How Lessonly Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Lessonly Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Lessonly stacks up against other platforms for sales training and enablement:
+    </p>
+
+    <ComparisonTable
+      headers={["Lessonly", "MindTickle", "Gong", "Highspot", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Sales training & coaching", "Sales readiness", "Revenue intelligence", "Sales enablement", "Learning commerce"] },
+        { feature: "Practice Features", values: ["Video role-play, scenarios", "Practice & certification", "Call analysis only", "Limited", "None"] },
+        { feature: "CRM Integration", values: ["Salesforce, HubSpot", "Extensive", "Deep native", "Extensive", "Limited"] },
+        { feature: "Content Management", values: ["Via Seismic", "Built-in", "None", "Built-in", "Built-in"] },
+        { feature: "AI Capabilities", values: ["Limited", "Coaching AI", "Conversation AI", "Content AI", "Basic AI tools"] },
+        { feature: "Best For", values: ["Practice-based training", "Comprehensive readiness", "Call coaching", "Content + training", "Course creation"] },
+        { feature: "Pricing", values: ["Premium enterprise", "Premium enterprise", "Premium enterprise", "Premium enterprise", "Transparent tiers"] },
+        { feature: "Standout Feature", values: ["Role-play practice", "Readiness scoring", "Conversation analytics", "Content guidance", "Ease of use"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Seismic Review", href: "/reviews/seismic", description: "Complete review of Seismic's sales enablement platform and content management." },
+    { title: "MindTickle Review", href: "/reviews/mindtickle", description: "Sales readiness platform with comprehensive training and coaching capabilities." },
+    { title: "Thinkific vs Lessonly", href: "/compare/thinkific-vs-lessonly", description: "Comparing learning commerce platforms with sales enablement training tools." },
+    { title: "Sales Enablement Guide", href: "/guides/sales-enablement", description: "Complete guide to selecting and implementing sales enablement technology." }
+  ]} />
+
+</ReviewLayout>

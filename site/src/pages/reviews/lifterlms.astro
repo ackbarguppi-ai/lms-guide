@@ -1,0 +1,407 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is LifterLMS?",
+    answer: "LifterLMS is a WordPress plugin that adds learning management functionality to WordPress websites. It is the second most popular WordPress LMS plugin after LearnDash. LifterLMS includes a free open-source core with premium add-ons for advanced features. The plugin enables course creation, membership management, eCommerce, and student engagement tools within the WordPress ecosystem."
+  },
+  {
+    question: "How much does LifterLMS cost?",
+    answer: "LifterLMS follows a freemium model. The core plugin is free and open-source, available from the WordPress plugin repository. Premium add-ons are sold individually or in bundles, typically ranging from $99-$999 per year depending on feature selection. This pricing model makes LifterLMS accessible for budget-conscious creators while allowing scaling through add-on purchases."
+  },
+  {
+    question: "Is LifterLMS better than LearnDash?",
+    answer: "LifterLMS and LearnDash are the top two WordPress LMS plugins with different strengths. LifterLMS offers a more generous free core and stronger membership/community features. LearnDash has deeper content protection, more advanced quiz features, and broader third-party integration support. The choice depends on specific requirements: LifterLMS for community-focused learning businesses, LearnDash for content-heavy academic courses."
+  },
+  {
+    question: "Can I sell courses with LifterLMS?",
+    answer: "Yes. LifterLMS includes built-in eCommerce capabilities supporting one-time payments, subscriptions, payment plans, and memberships. The free core supports PayPal; premium add-ons add Stripe, WooCommerce integration, and additional payment processors. Unlike some LMS plugins requiring separate eCommerce solutions, LifterLMS handles course selling natively."
+  },
+  {
+    question: "How does LifterLMS compare to Thinkific?",
+    answer: "LifterLMS is a self-hosted WordPress plugin requiring technical setup, hosting management, and ongoing maintenance. Thinkific is a hosted SaaS platform with no technical requirements. LifterLMS offers unlimited customization through WordPress themes and plugins; Thinkific offers managed infrastructure with less customization flexibility. Technical users preferring control choose LifterLMS; non-technical users prioritizing simplicity choose Thinkific."
+  },
+  {
+    question: "Is LifterLMS good for beginners?",
+    answer: "LifterLMS requires WordPress familiarity. While the plugin itself is user-friendly, the WordPress hosting, security, and maintenance aspects create a learning curve for complete beginners. Non-technical users may find hosted platforms like Teachable or Thinkific easier to start with. However, WordPress-experienced users will find LifterLMS straightforward to set up and customize."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "LifterLMS",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.8",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of LifterLMS WordPress plugin for course creators. Features, pricing, strengths, limitations, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="LifterLMS Review 2026: WordPress LMS Plugin for Course Creators"
+  description="An honest review of LifterLMS WordPress plugin for course creators. Features, pricing, strengths, limitations, and who it's best for."
+  platformName="LifterLMS"
+  rating={3.8}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'LifterLMS' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">LifterLMS Review 2026: WordPress LMS Plugin for Course Creators</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.8 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~80% filled for 3.8 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-lifterlms">
+            <stop offset="80%" stop-color="#fbbf24" />
+            <stop offset="80%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-lifterlms)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.8 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> LifterLMS is a capable WordPress LMS plugin that balances generous free core functionality with scalable premium add-ons. For WordPress-experienced creators wanting full control over their learning platform without recurring SaaS fees, LifterLMS delivers solid value. The trade-offs are technical complexity—hosting, security, and maintenance become your responsibility—and feature gaps compared to hosted platforms. It is the right tool for technically capable creators prioritizing ownership over convenience.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for WordPress users, developers, and technically capable creators evaluating self-hosted LMS solutions. If you are comfortable managing WordPress websites and want full control over your learning platform without ongoing SaaS subscriptions, this analysis is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "LifterLMS is the #2 WordPress LMS plugin, offering a generous free open-source core with premium add-on scaling.",
+    "Self-hosted model provides unlimited customization and no per-student fees, but requires technical management.",
+    "Built-in eCommerce supports one-time purchases, subscriptions, and memberships without third-party plugins.",
+    "Strong community and membership features differentiate LifterLMS from LearnDash's content-focused approach.",
+    "WordPress dependency means accepting hosting costs, security responsibility, and plugin maintenance overhead.",
+    "Premium add-ons can become expensive; total cost may approach hosted platforms depending on feature needs."
+  ]} />
+
+  <!-- What is LifterLMS? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is LifterLMS?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LifterLMS is a WordPress plugin that transforms a standard WordPress website into a learning management system. Founded in 2014 by Chris Badgett and Thomas Levy, the plugin has grown to become the second most popular WordPress LMS solution after LearnDash. The company operates on a freemium model with an open-source core and commercial add-ons.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform's philosophy centers on ownership and control. Unlike hosted SaaS platforms where your data lives on someone else's servers and your customization options are limited, LifterLMS gives you complete control through WordPress. You own your content, your student data, and your platform's functionality—at the cost of managing the technical infrastructure yourself.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      LifterLMS is particularly popular among WordPress developers, agencies, and technically capable creators who want to build custom learning experiences without the constraints of hosted platforms. The plugin ecosystem allows extending functionality through both official add-ons and third-party integrations.
+    </p>
+  </section>
+
+  <!-- Who is LifterLMS Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is LifterLMS Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      LifterLMS fits specific user profiles better than others. Here is where it delivers the most value:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">WordPress Developers and Agencies</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Developers already comfortable with WordPress theming, custom post types, and plugin development will find LifterLMS a natural fit. The ability to customize every aspect of the learning experience through code and the extensive WordPress ecosystem is a significant advantage for technical users.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Budget-Conscious Creators</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          The free core enables building a functional learning platform without upfront software costs. While hosting and premium add-ons add expenses, the ability to start free and scale incrementally appeals to creators watching their budgets carefully.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Community-Focused Learning Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          LifterLMS has particularly strong community and social learning features through its social learning add-on. Creators building membership communities, cohort-based courses, or peer-learning environments will find the community features well-developed.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">High-Volume Course Sellers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Unlike SaaS platforms that charge per student or take transaction fees, LifterLMS has no usage limits once you have paid for add-ons. High-volume sellers can achieve better economics at scale compared to percentage-based or per-user SaaS pricing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation (Free Core)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The free LifterLMS plugin includes robust course creation capabilities: multi-level course structure (courses, sections, lessons, quizzes), drip content scheduling, prerequisites, and course tracks. The WordPress editor (Gutenberg or Classic) handles content creation, enabling rich multimedia lessons with the full flexibility of WordPress. Course settings control enrollment, pricing, and access rules.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Membership and Access Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LifterLMS includes membership functionality in the free core, allowing bundling multiple courses into membership plans. Access rules can be based on membership level, individual course purchase, or free enrollment. This membership foundation is a strength compared to LMS plugins that require separate membership plugins for subscription functionality.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Native eCommerce (Free Core)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike some LMS plugins requiring WooCommerce for selling, LifterLMS includes native eCommerce. The free version supports PayPal for one-time payments. Premium add-ons add Stripe, authorize.net, and other processors, plus subscriptions, payment plans, and advanced pricing models. This native approach reduces plugin dependencies and simplifies setup.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Quizzes and Assessments</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The quiz builder supports multiple question types: multiple choice, true/false, fill-in-the-blank, short answer, and essay questions. Quiz settings control time limits, attempt limits, passing grades, and question randomization. Advanced quiz features like question banks and detailed analytics require premium add-ons. The quiz functionality is solid for basic assessment needs but less sophisticated than dedicated exam platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Student Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The student dashboard shows enrolled courses, progress, achievements, and certificates. Administrators can view student progress, quiz results, and engagement metrics. Bulk enrollment tools and CSV import/export simplify student management for larger user bases. The WordPress user system handles authentication and profile management.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Premium Add-ons</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The add-on ecosystem extends core functionality: advanced quizzes, assignments, private areas, social learning, groups, custom fields, and integrations with email marketing, CRM, and webinar platforms. Add-ons can be purchased individually or in bundles (Universe Bundle, Infinity Bundle) with varying feature sets and support levels.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Generous Free Core</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike competitors requiring paid licenses for basic functionality, LifterLMS offers substantial capability in the free version. Creators can build and launch courses, accept PayPal payments, and manage students without spending a dollar on software. This accessibility lowers the barrier to entry for new course creators.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">WordPress Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          As a native WordPress plugin, LifterLMS works seamlessly with the WordPress ecosystem: themes, page builders (Elementor, Beaver Builder), SEO plugins, caching solutions, and the vast plugin repository. This integration enables customization that hosted platforms cannot match.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Per-Student Fees</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Once you have paid for hosting and any desired add-ons, there are no per-student costs or transaction fees from LifterLMS. For high-volume sellers, this pricing model becomes increasingly advantageous compared to SaaS platforms that scale costs with enrollment.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Community Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The social learning and groups add-ons enable community features often missing from LMS plugins: student profiles, activity feeds, discussion areas, study groups, and peer interaction. For cohort-based learning and membership communities, these features provide significant value.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ownership and Data Control</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Your data lives on your server, not a third-party platform. You control backups, exports, and data handling. If LifterLMS the company disappeared tomorrow, your courses would continue functioning on your WordPress site. This sovereignty matters to creators building long-term assets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where LifterLMS May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where LifterLMS May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LifterLMS's WordPress foundation creates clear limitations. Here is where the platform falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Non-Technical Users</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Managing a WordPress site requires ongoing attention: updates, security, backups, performance optimization, and troubleshooting. Non-technical users often find this burden overwhelming. Hosted platforms eliminate this complexity at the cost of customization flexibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise or Corporate Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LifterLMS lacks the enterprise features required for corporate learning: SCORM/xAPI support, advanced reporting, HRIS integrations, compliance tracking, and multi-tenant architecture. Organizations needing these capabilities should evaluate enterprise LMS platforms rather than WordPress plugins.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Premium Add-on Costs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While the core is free, comprehensive functionality requires add-ons. A typical setup with Stripe, subscriptions, advanced quizzes, and email integration can cost $300-$999 annually. At this price point, hosted platforms like Teachable or Thinkific become competitive alternatives.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Support Responsibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With self-hosting comes self-support. Hosting issues, plugin conflicts, theme compatibility problems, and performance troubleshooting are your responsibility. While LifterLMS support helps with plugin-specific issues, the broader WordPress maintenance burden falls on you.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Quiz and Assessment Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Advanced assessment features—question banks, adaptive testing, sophisticated analytics—require expensive add-ons or are unavailable. Creators building certification programs or requiring robust testing capabilities may find LifterLMS limiting compared to dedicated exam platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LifterLMS uses a freemium model with the core plugin free and premium features available through add-ons or bundles.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Component</th>
+            <th class="text-left py-3 px-4 font-semibold">Pricing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Core Plugin</td>
+            <td class="py-3 px-4 text-slate-600">Free (open source) via WordPress.org</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Individual Add-ons</td>
+            <td class="py-3 px-4 text-slate-600">$99-$199 per year each</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Universe Bundle</td>
+            <td class="py-3 px-4 text-slate-600">Includes all add-ons, ~$299/year</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Infinity Bundle</td>
+            <td class="py-3 px-4 text-slate-600">All add-ons plus priority support, ~$999/year</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Total Cost Consideration:</strong> Remember to factor in WordPress hosting ($10-$100+/month), premium theme costs if desired, and any additional plugins. The true cost of LifterLMS includes the full WordPress infrastructure, not just the plugin pricing.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing subject to change. Check LifterLMS website for current pricing and bundle details.
+    </p>
+  </section>
+
+  <!-- How LifterLMS Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How LifterLMS Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how LifterLMS stacks up against other WordPress LMS plugins and hosted platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["LifterLMS", "LearnDash", "Teachable", "Thinkific", "Kajabi"]}
+      highlight={0}
+      rows={[
+        { feature: "Type", values: ["WordPress plugin", "WordPress plugin", "Hosted SaaS", "Hosted SaaS", "Hosted SaaS"] },
+        { feature: "Free Option", values: ["Yes (core)", "No", "Limited trial", "Limited free", "No"] },
+        { feature: "Hosting", values: ["Self-hosted", "Self-hosted", "Included", "Included", "Included"] },
+        { feature: "Customization", values: ["Unlimited", "Extensive", "Limited", "Moderate", "Moderate"] },
+        { feature: "Community Features", values: ["Strong", "Moderate", "Basic", "Growing", "Built-in"] },
+        { feature: "Quiz Features", values: ["Good", "Excellent", "Good", "Excellent", "Basic"] },
+        { feature: "Best For", values: ["WordPress users", "Content-heavy courses", "Quick launch", "Learning business", "All-in-one"] },
+        { feature: "Total Cost", values: ["Variable", "Variable", "Predictable", "Predictable", "Premium"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, technical requirements, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "LearnDash Review", href: "/reviews/learndash", description: "Detailed review of the leading WordPress LMS plugin and comparison with LifterLMS." },
+    { title: "WordPress LMS Comparison", href: "/compare/wordpress-lms", description: "Complete comparison of WordPress LMS plugins: LifterLMS, LearnDash, Tutor LMS, and more." },
+    { title: "Self-Hosted vs SaaS LMS", href: "/guides/self-hosted-vs-saas", description: "Guide to choosing between self-hosted WordPress solutions and hosted platforms." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Hosted learning platform alternative for creators prioritizing ease of use." }
+  ]} />
+
+</ReviewLayout>

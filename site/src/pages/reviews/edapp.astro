@@ -1,0 +1,403 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is EdApp by SafetyCulture?",
+    answer: "EdApp is a mobile-first microlearning platform acquired by SafetyCulture in 2020. It focuses on bite-sized, interactive training delivered primarily through smartphones. The platform targets frontline workers, deskless teams, and organizations needing rapid, engaging training deployment. EdApp includes a course library, authoring tools, gamification features, and a free plan for small teams."
+  },
+  {
+    question: "Is EdApp really free?",
+    answer: "EdApp offers a genuinely free plan supporting up to 10 users with unlimited courses and access to the template library. This is not a time-limited trial—it's an ongoing free tier. The paid plans add features like custom branding, advanced analytics, SCORM support, priority support, and increased user limits. For small teams or pilot programs, the free plan provides substantial functionality."
+  },
+  {
+    question: "How much does EdApp cost?",
+    answer: "EdApp pricing starts with a free plan for up to 10 users. Paid plans begin around $2.95-$5.95 per user per month for the Growth tier, with Enterprise pricing available for larger organizations requiring custom features, dedicated support, and advanced integrations. This makes EdApp one of the more affordable options in the mobile learning space."
+  },
+  {
+    question: "What is microlearning and why does it matter?",
+    answer: "Microlearning delivers content in short, focused bursts (typically 2-5 minutes) rather than lengthy courses. EdApp's mobile-first approach assumes learners complete training in brief sessions between tasks. Research supports microlearning for knowledge retention and engagement, particularly for frontline workers who cannot dedicate extended time to training. EdApp's templates and authoring tools are optimized for this format."
+  },
+  {
+    question: "How does EdApp compare to Thinkific?",
+    answer: "EdApp and Thinkific serve different markets. EdApp targets internal employee training for frontline and deskless workers through microlearning. Thinkific focuses on experts and businesses creating and selling online courses. EdApp emphasizes mobile, bite-sized content; Thinkific emphasizes comprehensive course creation and eCommerce. Organizations training employees should evaluate EdApp; those building learning businesses should evaluate Thinkific."
+  },
+  {
+    question: "What happened to EdApp after the SafetyCulture acquisition?",
+    answer: "SafetyCulture acquired EdApp in 2020 to expand beyond safety inspections into training. The integration enables training to be triggered by inspection findings—if an inspection reveals a knowledge gap, relevant EdApp training can be automatically assigned. EdApp operates as a distinct product within the SafetyCulture ecosystem, with deeper integrations enabling connected safety and training workflows."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "EdApp",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.9",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of EdApp by SafetyCulture for mobile microlearning and frontline worker training. Features, pricing, and best use cases."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="EdApp Review 2026: Mobile Microlearning for Frontline Teams"
+  description="An honest review of EdApp by SafetyCulture for mobile microlearning and frontline worker training. Features, pricing, and best use cases."
+  platformName="EdApp"
+  rating={3.9}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'EdApp' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">EdApp Review 2026: Mobile Microlearning for Frontline Teams</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.9 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial - ~90% filled for 3.9 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-edapp">
+            <stop offset="90%" stop-color="#fbbf24" />
+            <stop offset="90%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-edapp)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.9 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> EdApp delivers on its promise of mobile-first microlearning with an accessible free tier and engaging interactive templates. For organizations with deskless, frontline, or time-constrained workforces, the bite-sized approach and smartphone-native design solve real training challenges. The SafetyCulture integration adds value for safety-conscious industries. Limitations in deep customization, advanced reporting, and external training support keep it from scoring higher.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for operations managers, safety leaders, and L&D teams responsible for training deskless or frontline workers. If your workforce lacks regular computer access or cannot dedicate extended time to training, EdApp's mobile microlearning approach merits serious consideration.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "EdApp's mobile-first design prioritizes smartphone learning for deskless and frontline workers.",
+    "The genuinely free plan supports up to 10 users with unlimited courses—rare in the LMS market.",
+    "Microlearning templates enable rapid creation of bite-sized, interactive training content.",
+    "Gamification features (leaderboards, rewards, achievements) drive engagement with competitive teams.",
+    "SafetyCulture integration connects training to inspection workflows for safety-critical industries.",
+    "Limited customization and basic analytics may constrain organizations with sophisticated learning needs."
+  ]} />
+
+  <!-- What is EdApp? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is EdApp?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp is a mobile learning management system founded in 2015 in Sydney, Australia, and acquired by SafetyCulture in 2020. The platform's core thesis is that traditional LMS platforms fail deskless workers—those without regular computer access who cannot complete hour-long training modules during work hours.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp addresses this through microlearning: short lessons (2-5 minutes) designed for smartphone completion during breaks, commutes, or brief downtime. The platform includes a library of interactive templates, a course library with 1,000+ ready-made courses, authoring tools, gamification features, and analytics.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The SafetyCulture acquisition integrated EdApp with iAuditor, SafetyCulture's inspection platform. This enables training to be triggered by inspection findings—if a safety check reveals gaps, relevant training modules can be automatically assigned. The combined offering targets industries where safety and operational compliance are priorities: construction, manufacturing, hospitality, retail, and logistics.
+    </p>
+  </section>
+
+  <!-- Who is EdApp Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is EdApp Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      EdApp's specialization creates clear fit criteria. Here is where it delivers the most value:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Deskless and Frontline Workforces</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Retail associates, warehouse workers, hospitality staff, field technicians, and manufacturing operators who lack regular computer access. EdApp's mobile-first design treats the smartphone as the primary learning device rather than an afterthought.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Safety-Critical Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations where safety training is mandatory and frequent—construction, manufacturing, logistics, utilities. The SafetyCulture integration connects training to inspection workflows, creating closed-loop safety management.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Rapid Deployment Needs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Teams needing to launch training quickly without extensive setup or content development. The template library and ready-made courses enable deployment in days rather than months. The free plan supports pilot programs without budget approval.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Budget-Conscious Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Small teams or pilot programs can leverage the free plan indefinitely. Paid plans are competitively priced compared to enterprise LMS alternatives. For organizations needing basic mobile learning without premium features, EdApp offers strong value.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Microlearning Templates</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp provides 50+ interactive templates optimized for mobile microlearning: multiple choice, image-based questions, swipe-based sorting, scenario branching, video responses, and gamified quizzes. These templates enforce brevity—lessons are designed to be completed in minutes, not hours. The constraint forces content creators to focus on essential concepts rather than comprehensive coverage.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Mobile Learning App</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The EdApp mobile app is the primary learner interface, available for iOS and Android. Push notifications remind learners of pending lessons. Offline mode enables completion without connectivity, with sync when connection is restored. The interface is optimized for small screens with thumb-friendly interactions and minimal text density.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Library</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp includes a library of 1,000+ ready-made courses covering safety, compliance, soft skills, leadership, and industry-specific topics. Courses can be used as-is, customized, or used as starting points for proprietary content. This accelerates deployment for organizations without existing training content or instructional design resources.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Gamification</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Points, badges, leaderboards, and rewards drive engagement, particularly for competitive teams. Real prizes can be configured for top performers. While gamification can feel gimmicky in some contexts, it aligns well with frontline cultures where recognition and competition are cultural norms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">SafetyCulture Integration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      For SafetyCulture customers, EdApp integrates with iAuditor inspections. Failed inspection items can automatically trigger relevant training assignments. This connects training to actual operational issues rather than abstract compliance calendars, making training more relevant and timely.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Authoring Tools</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The built-in authoring tools use a drag-and-drop interface suitable for subject matter experts without instructional design backgrounds. PowerPoint conversion and Canva integration streamline content creation. However, the tools are template-constrained—custom interactions or complex branching require workarounds or are not supported.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Genuinely Free Plan</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The free tier supporting 10 users with unlimited courses is a legitimate offering, not a limited trial. Small teams, pilot programs, or non-profits can use EdApp indefinitely without cost. This accessibility is rare in the LMS market and lowers the barrier to entry for mobile learning.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Mobile-First Design</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike LMS platforms with mobile apps as afterthoughts, EdApp treats smartphones as the primary device. The interface, templates, and user flows are optimized for mobile contexts. For deskless workers, this is the difference between training that happens and training that doesn't.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Microlearning Expertise</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform enforces microlearning principles through template design and lesson structure. This discipline prevents the common trap of simply moving long-form content to mobile devices. The result is training that respects learner time constraints and aligns with attention span realities.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Rapid Deployment</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations can launch training programs in days using template libraries and ready-made courses. The minimal setup requirements and intuitive authoring tools reduce time-to-value compared to enterprise LMS implementations that require months of configuration and content development.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">SafetyCulture Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          For organizations using SafetyCulture for inspections, the EdApp integration creates meaningful workflow automation. Training becomes responsive to actual operational conditions rather than arbitrary schedules. This closed-loop approach is particularly valuable for safety and quality management.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where EdApp May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where EdApp May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp's specialization creates clear limitations. Here is where the platform falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Complex or Deep Learning</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The microlearning format constrains content depth. Topics requiring extended explanation, complex procedures, or deep conceptual understanding may not fit the bite-sized format. Organizations needing comprehensive training programs should evaluate platforms supporting longer-form content.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Customization Requirements</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The template-based approach limits customization. Organizations wanting branded experiences, custom interactions, or unique user flows will find EdApp constraining. The platform prioritizes ease of use over creative flexibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Advanced Analytics</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Reporting covers completion rates, scores, and engagement metrics but lacks learning analytics sophistication. No skill correlation, knowledge retention analysis, or predictive modeling. Organizations wanting data-driven learning optimization will need supplementary analytics tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">External Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          EdApp is designed for employee training, not customer education or partner training. It lacks eCommerce, white-labeling, and extended enterprise features. Organizations needing external training should evaluate dedicated learning business platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Large organizations with complex hierarchies, multiple business units, or sophisticated compliance requirements may find EdApp too simple. The platform is optimized for speed and simplicity rather than enterprise scale and configurability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      EdApp offers transparent, tiered pricing with a genuinely free option. This accessibility is a core differentiator in the mobile learning space.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Free</td>
+            <td class="py-3 px-4 text-slate-600">Up to 10 users, unlimited courses, template library—ideal for small teams or pilots</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Growth</td>
+            <td class="py-3 px-4 text-slate-600">Custom branding, advanced analytics, SCORM support, priority support for growing teams</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">API access, SSO, dedicated support, custom integrations for large organizations</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Pricing Range:</strong> Free plan available indefinitely. Growth plans typically range from $2.95-$5.95 per user per month. Enterprise pricing is custom-quoted based on scale and requirements.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing varies by region and contract terms. Contact EdApp for current pricing specific to your organization.
+    </p>
+  </section>
+
+  <!-- How EdApp Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How EdApp Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how EdApp stacks up against other mobile and microlearning platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["EdApp", "Axonify", "Opus", "TED@Work", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Mobile microlearning", "Frontline training", "Deskless workforce", "Leadership content", "Learning commerce"] },
+        { feature: "Content Format", values: ["Microlearning only", "Microlearning", "Mobile-first", "Video content", "Comprehensive courses"] },
+        { feature: "Free Plan", values: ["Up to 10 users", "No", "No", "No", "Limited trial"] },
+        { feature: "Best For", values: ["Frontline/deskless", "Enterprise frontline", "Hourly workers", "Executive development", "Course creators"] },
+        { feature: "Gamification", values: ["Built-in", "Built-in", "Limited", "None", "Add-ons"] },
+        { feature: "Pricing", values: ["$2.95-5.95/user", "Premium", "Premium", "Subscription", "Transparent tiers"] },
+        { feature: "Content Library", values: ["1,000+ courses", "Extensive", "Limited", "TED content", "Marketplace"] },
+        { feature: "Customization", values: ["Template-based", "Moderate", "Limited", "None", "Extensive"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "SafetyCulture Review", href: "/reviews/safetyculture", description: "Complete review of SafetyCulture's inspection and operations platform." },
+    { title: "Axonify Review", href: "/reviews/axonify", description: "Frontline training platform with reinforcement learning approach." },
+    { title: "Microlearning Guide", href: "/guides/microlearning", description: "Complete guide to implementing microlearning in your organization." },
+    { title: "Frontline Training Solutions", href: "/guides/frontline-training", description: "Comparison of training platforms designed for deskless workers." }
+  ]} />
+
+</ReviewLayout>

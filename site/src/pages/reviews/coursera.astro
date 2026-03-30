@@ -1,0 +1,411 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Coursera an LMS?",
+    answer: "Not in the traditional sense. Coursera is primarily a massive open online course (MOOC) platform that partners with universities and companies to offer courses, certificates, and degrees. However, Coursera for Business and Coursera for Campus provide LMS-like features for organizations and educational institutions to deliver and track learning at scale."
+  },
+  {
+    question: "How much does Coursera cost?",
+    answer: "Coursera offers multiple pricing tiers. Individual courses typically cost $49-$79. Coursera Plus (unlimited access to 7,000+ courses) is $59/month or $399/year. Coursera for Business Team plan starts at $399/user annually. Enterprise pricing is custom. Many university degree programs cost $10,000-$45,000 total. A free audit option exists for most courses without certificates."
+  },
+  {
+    question: "Are Coursera certificates worth it?",
+    answer: "Coursera certificates carry significant credibility because they come from recognized universities (Stanford, Yale, Michigan) and major companies (Google, IBM, Meta). Professional Certificates from Google and IBM have strong job market recognition. However, they are not equivalent to traditional academic degrees, though Coursera does offer accredited Bachelor's and Master's degrees through partner universities."
+  },
+  {
+    question: "What is Coursera for Business?",
+    answer: "Coursera for Business is the enterprise learning solution that gives organizations access to Coursera's full course catalog for employee upskilling. It includes features like skill development dashboards, custom learning programs, LMS integrations, and the ability to blend Coursera content with company-specific training. Used by companies like Adobe, Pfizer, and L'Oréal."
+  },
+  {
+    question: "How does Coursera compare to Thinkific?",
+    answer: "Coursera and Thinkific serve fundamentally different purposes. Coursera is a course marketplace where learners consume content created by universities and corporations. Thinkific is a platform that lets individual experts and organizations create, market, and sell their own courses. Coursera is for learning; Thinkific is for teaching. See our <a href='/compare/coursera-vs-thinkific' class='text-teal-dark hover:underline'>full Coursera vs Thinkific comparison</a>."
+  },
+  {
+    question: "Does Coursera offer a free trial?",
+    answer: "Coursera offers a 7-day free trial for Coursera Plus subscriptions. Most individual courses can be audited for free (access to videos and readings without graded assignments or certificates). Coursera for Business typically offers pilot programs for enterprise evaluation. Financial aid is available for learners who cannot afford course fees."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Coursera",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.0",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Coursera for individual learners, businesses, and academic institutions. Course quality, pricing, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Coursera Review 2026: University-Quality Online Learning at Scale"
+  description="An honest, in-depth review of Coursera for individual learners, businesses, and academic institutions. Course quality, pricing, and who it's best for."
+  platformName="Coursera"
+  rating={4.0}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Coursera' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Coursera Review 2026: University-Quality Online Learning at Scale</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.0 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.0 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Coursera is the gold standard for accessible, university-quality online education. With 148M+ learners, partnerships with 275+ leading universities, and courses from Google, IBM, and Meta, it offers unmatched academic credibility. The trade-offs are limited interactivity, minimal community features, and a learning model that works best for self-motivated individuals rather than collaborative cohorts.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for individual learners seeking career advancement, HR leaders evaluating enterprise learning solutions, academic administrators considering online programs, and anyone comparing Coursera against other online learning platforms. If you value academic rigor and recognized credentials, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Coursera partners with 275+ top universities and companies (Stanford, Yale, Google, IBM) offering courses with genuine academic credibility.",
+    "148M+ learners worldwide make Coursera the largest MOOC platform, with content spanning technology, business, arts, and humanities.",
+    "Coursera for Business enables enterprise upskilling with skill tracking, custom learning paths, and LMS integrations for employee development.",
+    "Professional Certificates from Google and IBM provide job-ready skills with strong employer recognition, often without requiring a degree.",
+    "Coursera Plus ($399/year) offers unlimited access to 7,000+ courses, making it cost-effective for committed learners.",
+    "The platform is primarily self-paced and video-based, with limited live interaction, cohort-based community, or hands-on instructor feedback."
+  ]} />
+
+  <!-- What is Coursera? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Coursera?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Coursera is a publicly traded online learning platform founded in 2012 by Stanford professors Andrew Ng and Daphne Koller. It operates on a fundamentally different model than most LMS platforms: rather than providing tools for creating courses, Coursera partners with universities and companies to distribute their educational content to a global audience.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform hosts 7,000+ courses, 2,000+ guided projects, 300+ specializations, and 40+ degree programs from institutions including Stanford, Yale, Princeton, the University of Michigan, and companies like Google, IBM, Meta, and Microsoft. With 148M+ registered learners, Coursera has achieved massive scale and is available in 190+ countries.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Coursera's business model spans individual learners (B2C), enterprise training (Coursera for Business), academic partnerships (Coursera for Campus), and government workforce development programs. The platform went public in 2021 (NYSE: COUR) and serves over 6,000 institutional customers including Adobe, BCG, L'Oréal, and Pfizer.
+    </p>
+  </section>
+
+  <!-- Who is Coursera Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Coursera Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Coursera serves multiple distinct audiences, but its model works particularly well for these use cases:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Career Changers and Upskillers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Individuals looking to switch careers or advance in their current field. Professional Certificates from Google (IT Support, Data Analytics, UX Design) and IBM (Data Science, Cybersecurity) are designed specifically for job readiness without requiring a traditional degree.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Enterprise L&D Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations needing to upskill employees in technical and business domains. Coursera for Business provides access to the full catalog with skill development dashboards, custom learning programs, and integrations with corporate LMS platforms.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Academic Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Universities and colleges supplementing their curriculum with online courses or offering blended programs. Coursera for Campus allows institutions to integrate Coursera content into their degree programs and provide students with industry-recognized credentials.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Self-Motivated Lifelong Learners</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Individuals who prefer self-paced learning and can stay motivated without live instruction or cohort accountability. The audit option (free access to course materials) makes Coursera accessible to learners worldwide regardless of budget.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Catalog and Content Types</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Coursera offers multiple content formats: individual courses (4-6 weeks), Specializations (series of related courses), Professional Certificates (job-ready credentials), MasterTrack Certificates (portions of Master's degrees), and full Bachelor's and Master's degree programs. Content spans business, computer science, data science, health, arts, and humanities. All content is created by partner universities and companies, ensuring academic rigor.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Experience</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Courses primarily use video lectures, readings, quizzes, and peer-reviewed assignments. Many technical courses include hands-on labs and projects using cloud-based environments (Coursera Labs). The platform supports subtitles in 40+ languages, mobile apps for iOS and Android, and offline content downloads. However, live instructor interaction is minimal—most courses are fully self-paced or follow a scheduled session without real-time engagement.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Enterprise Features (Coursera for Business)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Organizations get admin dashboards for tracking learner progress, skill development analytics, custom learning program creation, and SSO integration. The Team plan supports up to 125 users; Enterprise plans serve larger organizations with API access, advanced reporting, and customer success management. Content can be blended with company-specific materials.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Academic Partnerships</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Coursera for Campus allows universities to integrate Coursera courses into their curriculum, issue academic credit for completed courses, and provide students with verified certificates. The platform also supports online degree programs where partner universities award fully accredited credentials.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Credentials and Accreditation</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Course Certificates are issued by the partner institution (e.g., "University of Michigan" or "Google"), not Coursera itself. Full degree programs are accredited by the partner universities' regional accreditors. Professional Certificates are designed with input from employers and have demonstrated job placement outcomes.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Mobile and Accessibility</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Coursera offers iOS and Android apps with full course access, offline downloads, and mobile-optimized video. The platform meets WCAG 2.1 accessibility standards and supports screen readers. Video subtitles are available in 40+ languages with auto-generated options for many courses.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Academic Credibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Courses from Stanford, Yale, Princeton, and other top-tier institutions carry weight on resumes and LinkedIn profiles. Unlike many online course platforms where anyone can publish content, Coursera's partnership model ensures quality control and recognized credentials.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Scale and Selection</h3>
+        <p class="text-slate-700 leading-relaxed">
+          7,000+ courses across virtually every professional domain means learners can find content for nearly any skill they want to develop. The breadth is unmatched in the online learning space, from programming to psychology to poetry.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Professional Certificate Programs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Google and IBM Professional Certificates have proven job placement outcomes. Google's IT Support certificate has helped thousands transition into tech roles, and the programs are designed with direct employer input rather than purely academic theory.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Affordable Access</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Financial aid is available for all paid content. The audit option provides free access to course materials. Coursera Plus at $399/year offers unlimited access to 7,000+ courses—exceptional value compared to traditional education or even many bootcamps.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Adoption</h3>
+        <p class="text-slate-700 leading-relaxed">
+          6,000+ businesses, governments, and campuses use Coursera for workforce development. The platform has proven enterprise scalability and features tailored to organizational learning needs, including skill analytics and custom program creation.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Degree Programs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Fully accredited Bachelor's and Master's degrees from universities like the University of London, University of Colorado Boulder, and Illinois Tech cost $10,000-$45,000 total—significantly less than on-campus equivalents. This opens degree access to learners who cannot relocate or pay traditional tuition.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Coursera May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Coursera May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Coursera falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Interactivity and Feedback</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Most courses are video lectures with auto-graded quizzes. Live instructor interaction is rare. Peer review assignments provide some feedback but quality varies dramatically. Learners seeking intensive mentorship or hands-on coaching should consider bootcamps or cohort-based programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Minimal Community Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Discussion forums exist but engagement is inconsistent. Most learners never interact with peers or instructors. The platform lacks the cohort accountability and peer relationships that drive completion in more structured programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Low Completion Rates</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Like most MOOCs, Coursera courses have single-digit completion rates for free learners. Even paid enrollments see significant attrition. The self-paced model requires strong intrinsic motivation that many learners struggle to maintain.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Inconsistent Course Quality</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While partner content is generally high-quality, production values and course design vary significantly. Some courses are exceptional; others feel like recorded lectures with minimal interactivity. Course reviews help, but finding the best content requires research.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not for Creating Your Own Courses</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Coursera does not allow individuals or organizations to create and sell their own courses. It is exclusively a content consumption platform. Experts, trainers, and businesses wanting to deliver their own training content need a different solution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Coursera offers multiple pricing tiers depending on the learner type and content format. Individual courses, subscriptions, and enterprise plans each have different cost structures.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Audit (Free)</td>
+            <td class="py-3 px-4 text-slate-600">Access to videos and readings without certificates or graded assignments</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Individual Courses</td>
+            <td class="py-3 px-4 text-slate-600">$49-$79 per course with certificate and full access</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Coursera Plus</td>
+            <td class="py-3 px-4 text-slate-600">$59/month or $399/year for unlimited access to 7,000+ courses</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Team Plan</td>
+            <td class="py-3 px-4 text-slate-600">$399/user annually for 5-125 users with admin dashboard</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">Custom pricing for 125+ users with advanced analytics and integrations</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Degree Programs:</strong> Bachelor's and Master's degrees range from $10,000 to $45,000 total, significantly less than equivalent on-campus programs. Payment plans and financial aid are available.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Financial aid is available for learners who cannot afford course fees. Applications are reviewed within 15 days.
+    </p>
+  </section>
+
+  <!-- How Coursera Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Coursera Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Coursera stacks up against other major learning platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Coursera", "LinkedIn Learning", "Udemy", "edX", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["University courses & degrees", "Professional skills training", "Course marketplace", "University courses", "Course creation platform"] },
+        { feature: "Content Source", values: ["Universities & companies", "LinkedIn + partners", "Individual instructors", "Universities", "User-created"] },
+        { feature: "Credentials", values: ["University certificates & degrees", "Course completion", "Course completion", "University certificates", "N/A - for creators"] },
+        { feature: "Best For", values: ["Academic learning & career change", "Workplace skills", "Specific skill topics", "Academic rigor", "Creating & selling courses"] },
+        { feature: "Pricing", values: ["Free audit, $399/year Plus", "$19.99-$39.99/month", "$12.99-$199.99 per course", "Free audit, $50-$300 courses", "$49-$199/month"] },
+        { feature: "Interaction", values: ["Self-paced, peer review", "Self-paced", "Self-paced, Q&A", "Self-paced", "Creator-defined"] },
+        { feature: "Enterprise", values: ["Coursera for Business", "LinkedIn Learning", "Udemy Business", "edX for Business", "Thinkific Plus"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Not sure if Coursera fits your learning needs?"
+    ctaDescription="Get a personalized recommendation based on your goals, budget, and preferred learning style."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Coursera vs Thinkific", href: "/compare/coursera-vs-thinkific", description: "Learning platform comparison: consuming vs creating educational content." },
+    { title: "LinkedIn Learning Review", href: "/reviews/linkedin-learning", description: "Professional skills training integrated with the LinkedIn network." },
+    { title: "Udemy Review", href: "/reviews/udemy", description: "The largest marketplace for individual instructor-created courses." },
+    { title: "Best LMS for Corporate Training", href: "/guides/corporate-training-lms", description: "Compare top platforms for employee development and upskilling." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,385 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Blackboard still around?",
+    answer: "Yes, but it's undergone major changes. In 2022, Blackboard merged with Anthology, a higher education solutions company. The combined entity operates under the Anthology brand but continues to sell and support Blackboard Learn, now marketed as Blackboard Learn Ultra. The original Blackboard Learn (now called 'Original Experience') is being phased out in favor of the Ultra interface. Anthology also inherited products from the merger including Blackboard Collaborate, Blackboard Ally, and student lifecycle management tools."
+  },
+  {
+    question: "What happened to Blackboard Learn Original?",
+    answer: "Blackboard Learn Original Experience is being sunset. Anthology has been migrating institutions to Blackboard Learn Ultra, a redesigned interface with a more modern look, simplified navigation, and improved mobile responsiveness. The transition has been gradual—many institutions have run both experiences in parallel—but Original is approaching end-of-life. Institutions still on Original should have a migration timeline in place."
+  },
+  {
+    question: "How much does Blackboard cost?",
+    answer: "Blackboard uses quote-based institutional pricing, similar to Canvas and Brightspace. There are no published per-student rates. Pricing depends on institution size (FTE), deployment model (SaaS or managed hosting), contract length, and selected modules. Historically, Blackboard has been perceived as one of the more expensive LMS options, though the Anthology merger has introduced new bundling options that may affect pricing for institutions using multiple Anthology products."
+  },
+  {
+    question: "Is Blackboard better than Canvas?",
+    answer: "For most institutions evaluating in 2026, Canvas is the stronger choice. Canvas offers a more modern interface, better API extensibility (400+ endpoints vs. Blackboard's more limited API), higher faculty satisfaction scores, and a larger market share that's growing rather than declining. However, Blackboard may still be preferable for institutions deeply integrated into the Anthology ecosystem (student lifecycle management, CRM, analytics) or those with significant existing Blackboard customizations where migration costs outweigh benefits."
+  },
+  {
+    question: "Does Blackboard support corporate training?",
+    answer: "Blackboard's primary focus has always been academic institutions. While Anthology offers workforce development solutions, the platform lacks the multi-tenant architecture, advanced compliance automation, and enterprise features found in corporate-focused LMS platforms like Docebo, Absorb, or Cornerstone. Organizations primarily seeking corporate training should look at purpose-built enterprise platforms."
+  },
+  {
+    question: "How does Blackboard compare to Thinkific?",
+    answer: "They serve entirely different markets. Blackboard is an institutional LMS for universities and colleges delivering accredited programs, with features like academic gradebooks, SIS integrations, and institutional analytics. Thinkific is a learning commerce platform for experts and businesses selling courses online. If you're a higher education institution, Blackboard (or Canvas/Brightspace) is the relevant category. If you're monetizing expertise or building customer education programs, Thinkific is purpose-built for that use case."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Blackboard Learn",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.6",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of Blackboard Learn Ultra by Anthology—the legacy LMS giant navigating a major transition. Strengths, limitations, and whether it's still worth choosing in 2026."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Blackboard Review 2026: Legacy LMS Giant in Transition"
+  description="An honest review of Blackboard Learn Ultra by Anthology—the legacy LMS giant navigating a major transition. Strengths, limitations, and whether it's still worth choosing in 2026."
+  platformName="Blackboard Learn"
+  rating={3.6}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Blackboard' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Blackboard Review 2026: Legacy LMS Giant in Transition</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.6 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs><linearGradient id="partial-star-bb4"><stop offset="60%" stop-color="#fbbf24" /><stop offset="60%" stop-color="#cbd5e1" /></linearGradient></defs>
+        <path fill="url(#partial-star-bb4)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.6 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Blackboard was the LMS that defined higher education technology for two decades. After the 2022 Anthology merger, it's a platform in transition—Learn Ultra is a genuine improvement over the Original interface, but years of market share decline, faculty frustration, and competitive pressure from Canvas and Brightspace have left Blackboard fighting to stay relevant. For institutions already deeply embedded in the Anthology ecosystem, staying may make sense. For those evaluating fresh, Canvas and Brightspace are stronger choices in 2026.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for higher education administrators and IT leaders currently on Blackboard considering a migration, institutions evaluating Blackboard against Canvas or Brightspace, and decision-makers trying to understand where Blackboard fits in 2026's LMS landscape.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Blackboard merged with Anthology in 2022, creating a combined higher education technology company. The LMS continues as Blackboard Learn Ultra under the Anthology brand.",
+    "Market share has declined from ~40% dominance to approximately 25% of US higher education institutions, with Canvas now holding the #1 position and Brightspace gaining ground.",
+    "Learn Ultra is a meaningful improvement—modern interface, better mobile experience, AI-powered features—but it arrived years late, after many institutions had already migrated to competitors.",
+    "The Anthology ecosystem (CRM, student lifecycle, analytics, Ally accessibility) provides integration depth that standalone LMS platforms can't match for institutions using multiple Anthology products.",
+    "Faculty satisfaction scores remain lower than Canvas and Brightspace. The legacy reputation for clunky UX persists even though Ultra has addressed many of the worst pain points.",
+    "Institutions should carefully evaluate migration costs vs. staying. If you're on Original, Ultra migration is mandatory. The question is whether to migrate within Blackboard or to a competitor."
+  ]} />
+
+  <!-- What is Blackboard? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Blackboard?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Blackboard Learn is a learning management system with roots going back to 1997, making it one of the oldest commercial LMS platforms. For nearly two decades, Blackboard dominated higher education through a combination of early market entry, aggressive acquisitions (WebCT in 2006, ANGEL in 2009), and deep institutional relationships. At its peak, Blackboard held over 40% of the US higher education LMS market.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      In 2022, Blackboard merged with Anthology, a company focused on student lifecycle management, CRM, and institutional analytics. The combined entity operates under the Anthology brand and positions itself as an end-to-end higher education technology platform—not just an LMS, but a complete institutional solution covering admissions, enrollment, learning, retention, and alumni engagement.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The current LMS product, Blackboard Learn Ultra, is a cloud-native SaaS platform with a redesigned interface, improved mobile experience, and AI-powered features. It represents Anthology's attempt to modernize the Blackboard experience and stem the tide of institutions migrating to Canvas and Brightspace.
+    </p>
+  </section>
+
+  <!-- Who is Blackboard Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Blackboard Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Blackboard's sweet spot has narrowed considerably. Here's where it still makes sense:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Anthology Ecosystem Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Institutions using multiple Anthology products (CRM, student lifecycle, Ally, analytics) get the deepest integration by staying on Blackboard Learn. The unified data model across admissions, learning, and retention is something standalone LMS vendors can't replicate.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Institutions with Heavy Customizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with years of Building Blocks (Blackboard's plugin system), custom integrations, and established workflows may find the cost and disruption of migration to another LMS exceeds the benefit—especially if Ultra addresses their core UX complaints.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Institutions Prioritizing Accessibility</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Blackboard Ally, now part of the Anthology suite, is one of the best accessibility tools in the LMS space. It automatically generates alternative formats for uploaded content (audio, electronic braille, translated versions) and provides instructors with accessibility scores and improvement guidance.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Community Colleges & Smaller Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Anthology has focused on retaining smaller institutions with competitive pricing and bundled solutions. Community colleges that value the all-in-one approach (LMS + CRM + analytics) and don't have large IT teams may find the integrated stack appealing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learn Ultra Interface</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Ultra is a complete redesign of the Blackboard experience. It features a cleaner, mobile-responsive interface with streamlined navigation, an activity stream, a consolidated calendar, and a modern content editor. Courses use an Ultra Course View with drag-and-drop content organization and inline multimedia. The improvement over Original is significant, though it still doesn't match Canvas's UX polish.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI-Powered Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Anthology has invested in AI features including an AI Design Assistant that helps instructors generate course content, learning objectives, and assessments. AI-powered analytics provide early alerts for at-risk students, and predictive models help advisors intervene before students disengage. These features are competitive but arrived later than similar capabilities from competitors.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Blackboard Ally</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Ally is genuinely best-in-class for accessibility. It automatically scans course content, provides accessibility scores, offers specific fix guidance to instructors, and generates alternative formats (HTML, audio, ePub, electronic braille, translated versions) for students. Ally works with Blackboard and can also be integrated with Canvas, Brightspace, and Moodle—it's one of Anthology's most universally respected products.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Collaborate Ultra</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Blackboard's built-in virtual classroom tool for synchronous sessions, webinars, and office hours. It provides screen sharing, breakout groups, polling, recording, and a virtual whiteboard. While functional, many institutions supplement or replace it with Zoom or Microsoft Teams, which offer richer video conferencing features.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment & Grading</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Ultra includes an improved inline grading view (Anthology's answer to SpeedGrader), rubric-based assessment, SafeAssign plagiarism detection, test pools, and question banks. The gradebook supports weighted categories and multiple grading schemas. While improved in Ultra, grading workflows still receive lower satisfaction scores than Canvas's SpeedGrader.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Institutional Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The Anthology ecosystem includes Blackboard Data (analytics warehouse), Illuminate (reporting and visualization), and predictive analytics for student retention. When connected across CRM, SIS, and LMS, these tools provide cross-functional institutional intelligence that standalone LMS analytics can't match.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Integrated Institutional Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No other LMS vendor offers the breadth of institutional products Anthology does. CRM, admissions, student lifecycle management, LMS, accessibility, analytics, and alumni engagement in one vendor creates a unified data model and reduces integration complexity for institutions willing to go all-in.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Blackboard Ally (Accessibility)</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Ally remains one of the best accessibility solutions in edtech. Automatic alternative format generation, instructor coaching on accessibility improvements, and institutional accessibility reporting help institutions meet WCAG compliance requirements and serve diverse student populations.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ultra Is a Real Improvement</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Credit where it's due—Learn Ultra is meaningfully better than Original. The modern interface, mobile responsiveness, streamlined navigation, and improved content authoring address many of the complaints that drove institutions away. It's not Canvas, but it's no longer the clunky experience of the 2010s.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Deep Institutional Relationships</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Decades of relationships with thousands of institutions create switching costs and institutional knowledge that competitors can't easily replicate. Dedicated account management, professional services, and understanding of institutional procurement processes are genuine advantages.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">SafeAssign & Academic Integrity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          SafeAssign plagiarism detection is included at no additional cost (unlike Turnitin, which is a significant add-on expense with other LMS platforms). For institutions where academic integrity tools are essential but budget is tight, this bundled approach has value.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Blackboard May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Blackboard's challenges are well-documented and should be weighed carefully:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Legacy Reputation & Faculty Resistance</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Years of UX frustration created deep faculty resistance to Blackboard. Even though Ultra addresses many complaints, the brand carries baggage. Institutions considering Blackboard should anticipate faculty pushback based on historical experience, even if the current product is improved.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Declining Market Position</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Market share has dropped from ~40% to ~25% and continues to decline. This isn't just a vanity metric—a shrinking user base means fewer community resources, potentially less third-party tool development, and questions about long-term investment in the LMS product vs. other Anthology priorities.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">API Limitations vs. Canvas</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Blackboard's REST API, while improved in Ultra, doesn't match Canvas's 400+ endpoint coverage or developer ecosystem. Institutions with significant custom integration needs or technical teams that build on top of the LMS will find Canvas's API substantially more capable.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ultra Migration Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Migrating from Original to Ultra isn't trivial. Not all Building Blocks (plugins) work in Ultra, some customizations require rework, and faculty need retraining. Institutions face the same migration effort whether they move to Ultra or to a competitor—which makes some choose to switch entirely.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Merger Integration Uncertainty</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Post-merger integrations take years to stabilize. Product roadmap priorities, support quality, and organizational focus can shift as Anthology digests the combined company. Institutions should evaluate current capabilities, not promises about future integration benefits.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Blackboard uses quote-based institutional pricing. There are no published per-student rates. Pricing depends on institution size, contract terms, and which Anthology products are included. The Anthology ecosystem approach means bundled pricing can be competitive when institutions adopt multiple products.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Product</th>
+            <th class="text-left py-3 px-4 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Learn Ultra</td>
+            <td class="py-3 px-4 text-slate-600">Core LMS with course management, gradebook, discussions, assessments, and Collaborate virtual classroom</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Blackboard Ally</td>
+            <td class="py-3 px-4 text-slate-600">Accessibility tool with auto-generated alternative formats and instructor coaching (can be bundled or standalone)</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Anthology Reach</td>
+            <td class="py-3 px-4 text-slate-600">CRM and student lifecycle management integrated with the LMS</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Anthology Illuminate</td>
+            <td class="py-3 px-4 text-slate-600">Analytics, reporting, and predictive modeling across the institutional data ecosystem</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Pricing is quote-based. Contact Anthology for pricing specific to your institution's enrollment and product requirements.
+    </p>
+  </section>
+
+  <!-- Comparison -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Blackboard Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Blackboard stacks up against other institutional LMS platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Blackboard", "Canvas", "Brightspace", "Moodle", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Higher ed (Anthology ecosystem)", "Higher ed & K-12", "Higher ed & K-12", "Higher ed (open source)", "Learning commerce"] },
+        { feature: "US Higher Ed Share", values: ["~25% (declining)", "~33% (#1)", "~12% (growing)", "~15%", "N/A"] },
+        { feature: "Interface Modernity", values: ["Ultra: improved, not best", "Modern, intuitive", "Clean, accessible", "Functional, theme-dependent", "Modern storefront"] },
+        { feature: "Accessibility Tools", values: ["Ally (best-in-class)", "Basic built-in", "Strong native a11y", "Plugin-dependent", "Standard"] },
+        { feature: "Ecosystem Breadth", values: ["Full institutional suite", "LMS + add-ons", "LMS + Brightspace tools", "Plugin ecosystem", "Course platform"] },
+        { feature: "API Extensibility", values: ["REST API (limited)", "400+ REST endpoints", "Valence API", "Web services", "REST API"] },
+        { feature: "Plagiarism Detection", values: ["SafeAssign (included)", "Turnitin (add-on)", "Turnitin (add-on)", "Plugin-dependent", "N/A"] },
+        { feature: "Pricing Model", values: ["Quote-based institutional", "Quote-based institutional", "Quote-based institutional", "Free (self-host) or paid", "Published tiers"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Canvas LMS Review", href: "/reviews/canvas", description: "The #1 LMS in US higher education—modern UX, open API, and growing market share." },
+    { title: "D2L Brightspace Review", href: "/reviews/brightspace", description: "Accessibility-first LMS gaining ground in higher education and K-12." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Purpose-built for learning commerce—a different market than institutional LMS." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for corporate multi-audience training programs." }
+  ]} />
+
+</ReviewLayout>

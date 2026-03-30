@@ -1,0 +1,402 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is Cornerstone OnDemand?",
+    answer: "Cornerstone OnDemand is an enterprise talent management and learning platform that combines LMS, learning experience platform (LXP), skills intelligence, performance management, and HR capabilities in a unified suite. Following its acquisition of Saba Software in 2020 and subsequent take-private by Clearlake Capital in 2022, Cornerstone serves 7,000+ organizations and 125M+ users globally. It's one of the largest and most established players in the enterprise learning and talent management space."
+  },
+  {
+    question: "How much does Cornerstone cost?",
+    answer: "Cornerstone uses custom, quote-based pricing that varies by modules selected, user count, and deployment scope. There are no published prices. Enterprise contracts typically start in the $50,000–$100,000+ annual range for mid-market organizations, with large enterprise deployments reaching several hundred thousand dollars annually. Implementation costs are additional. Expect a consultative sales process with multiple demos and proposals."
+  },
+  {
+    question: "Is Cornerstone better than SAP SuccessFactors for learning?",
+    answer: "Cornerstone generally offers deeper learning-specific functionality than SAP SuccessFactors Learning. Cornerstone's LXP, content marketplace, skills intelligence, and compliance features are more mature. However, organizations already invested in the SAP ecosystem may prefer SuccessFactors for tighter HR integration. The choice often depends on whether learning or broader HCM integration is the higher priority."
+  },
+  {
+    question: "What happened to Saba after Cornerstone acquired it?",
+    answer: "Cornerstone acquired Saba Software in April 2020 for $1.4 billion. Saba's technology was gradually integrated into Cornerstone's platform, with key capabilities like virtual classroom management and social learning absorbed into the core product. Existing Saba customers were migrated to Cornerstone's platform over a multi-year transition period. See our <a href='/reviews/saba' class='text-teal-dark hover:underline'>Saba review</a> for more on the legacy platform and migration path."
+  },
+  {
+    question: "How does Cornerstone compare to Thinkific?",
+    answer: "Cornerstone and Thinkific serve entirely different markets. Cornerstone is an enterprise talent management suite for large organizations managing employee learning, compliance, and skills development. Thinkific is a platform for experts and businesses to create and sell online courses with full brand control. There is minimal overlap—Cornerstone is for internal corporate training, Thinkific is for customer education and learning businesses."
+  },
+  {
+    question: "Does Cornerstone offer a content library?",
+    answer: "Yes. Cornerstone Content Anytime provides access to a curated library of professional content from providers including Skillsoft, LinkedIn Learning, Coursera for Business, and others. The content marketplace aggregates third-party content alongside internally created materials. Organizations can also use Cornerstone's AI to recommend content based on individual skill gaps and career paths."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Cornerstone OnDemand",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.1",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Cornerstone OnDemand for enterprise learning, talent management, and skills intelligence. Who it's best for, strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Cornerstone OnDemand Review 2026: Enterprise Talent Management & Learning"
+  description="An honest, in-depth review of Cornerstone OnDemand for enterprise learning, talent management, and skills intelligence. Who it's best for, strengths, limitations, and pricing."
+  platformName="Cornerstone OnDemand"
+  rating={4.1}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Cornerstone OnDemand' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Cornerstone OnDemand Review 2026: Enterprise Talent Management & Learning</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.1 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-cornerstone">
+            <stop offset="10%" stop-color="#fbbf24" />
+            <stop offset="10%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-cornerstone)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.1 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Cornerstone OnDemand is one of the most comprehensive enterprise talent management and learning platforms available. With 7,000+ customers and 125M+ users, it offers deep capabilities in learning management, skills intelligence, compliance, performance management, and workforce planning. The Saba acquisition (2020) strengthened its position. However, the platform's complexity, lengthy implementations, and premium pricing make it best suited for large enterprises with dedicated L&D and IT teams. Smaller organizations will find it over-engineered for their needs.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for enterprise L&D leaders, CHROs, talent management directors, and IT decision-makers evaluating Cornerstone against other enterprise learning and talent platforms. If you're consolidating HR and learning systems, building a skills-based organization, or managing compliance training at scale, this analysis is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Cornerstone is a full talent management suite—not just an LMS. It combines learning, skills intelligence, performance management, recruiting, and workforce planning in a unified platform.",
+    "Skills intelligence powered by AI maps organizational competencies, identifies skill gaps, and recommends personalized learning paths—a critical capability for workforce transformation initiatives.",
+    "Compliance and regulatory training is a core strength with automated recertification, audit trails, and industry-specific compliance workflows for healthcare, financial services, and manufacturing.",
+    "The Saba acquisition (2020) added virtual classroom management and social learning capabilities, broadening the platform's learning experience features.",
+    "Implementation is complex and resource-intensive. Expect 3–6+ month deployments, dedicated project teams, and significant configuration effort. This is not a quick-deploy solution.",
+    "Pricing is premium and quote-based with no published tiers. Annual contracts typically start at $50,000+ for mid-market, scaling significantly for large enterprises with multiple modules."
+  ]} />
+
+  <!-- What is Cornerstone OnDemand? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Cornerstone OnDemand?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone OnDemand (often simply "Cornerstone" or "CSOD") is a cloud-based talent management and learning platform founded in 1999 and originally headquartered in Santa Monica, California. After going public in 2011, Cornerstone was taken private by Clearlake Capital in 2022 for $5.2 billion. The platform serves 7,000+ organizations and 125M+ users across virtually every industry and geography.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone's scope extends well beyond learning management. The platform encompasses an LMS, learning experience platform (LXP), skills intelligence engine, performance management, succession planning, recruiting, and workforce planning. This breadth makes it a talent management suite rather than a point solution—organizations can manage the entire employee lifecycle from a single platform.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The 2020 acquisition of Saba Software for $1.4 billion was a defining moment, consolidating two of the largest enterprise learning platforms. Saba's virtual classroom capabilities, social learning features, and government/public sector strength complemented Cornerstone's existing corporate training dominance. The combined platform now offers one of the broadest enterprise learning feature sets in the market.
+    </p>
+  </section>
+
+  <!-- Who is Cornerstone Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Cornerstone Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Cornerstone is built for large organizations with complex talent management needs. Here's where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Large Enterprises (1,000+ Employees)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with complex training requirements across multiple departments, locations, and compliance regimes. Cornerstone scales to hundreds of thousands of users and handles the administrative complexity that comes with large, distributed workforces.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Regulated Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Healthcare, financial services, manufacturing, and government organizations with strict compliance and regulatory training requirements. Cornerstone's compliance engine with automated recertification, audit trails, and industry-specific workflows is a top-tier capability.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Skills-Based Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies investing in workforce transformation and skills-based talent strategies. Cornerstone's AI-powered skills intelligence identifies gaps, recommends development paths, and connects learning to career mobility—capabilities essential for future-of-work initiatives.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Unified Talent Management Buyers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations wanting to consolidate learning, performance, succession, and recruiting into one platform. The ROI case is strongest when multiple modules replace disconnected point solutions, reducing integration overhead and creating unified talent data.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Management (LMS + LXP)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone's learning suite combines traditional LMS functionality (course management, SCORM/xAPI, ILT scheduling, compliance tracking) with LXP capabilities (personalized recommendations, social learning, content aggregation). The platform supports blended learning, virtual classrooms, microlearning, and mobile learning. Content can be sourced from internal creation, Cornerstone Content Anytime marketplace, or third-party providers.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Skills Intelligence</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone's AI-powered skills engine uses a taxonomy of 53,000+ skills to map organizational competencies, identify individual skill gaps, and recommend targeted learning. Skills data feeds into career pathing, succession planning, and workforce analytics. This capability is increasingly central to the platform's value proposition as organizations shift to skills-based talent strategies.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Compliance & Regulatory Training</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Deep compliance capabilities include automated assignment rules, recertification workflows, deadline tracking, audit-ready reporting, and electronic signatures. Industry-specific compliance modules address healthcare (HIPAA, Joint Commission), financial services (FINRA, SOX), manufacturing (OSHA, ISO), and government (FedRAMP) requirements. This is one of Cornerstone's strongest competitive differentiators.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Performance Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Goal setting, competency assessments, 360-degree reviews, check-ins, and development plans. Performance data integrates with learning recommendations—if an employee has a skill gap identified in a review, the system automatically suggests relevant training. This closed-loop between performance and learning is a key differentiator versus standalone LMS platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Ecosystem</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone Content Anytime aggregates content from 60+ premium providers including Skillsoft, LinkedIn Learning, Coursera, Harvard Business Publishing, and others. Organizations can blend third-party content with internally created materials, creating a unified catalog. AI-powered recommendations surface relevant content based on skills, role, and learning history.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations & Ecosystem</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Pre-built integrations with major HRIS platforms (Workday, SAP SuccessFactors, ADP, Oracle HCM), collaboration tools (Microsoft Teams, Slack), and content providers. Cornerstone Edge Marketplace offers additional integrations. REST APIs and data connectors support custom integrations for complex enterprise environments.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unified Talent Management</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Few platforms match Cornerstone's breadth across learning, skills, performance, succession, and recruiting. The ability to connect learning data to performance outcomes, career paths, and workforce planning creates strategic value that standalone LMS platforms cannot offer.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Skills Intelligence at Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The AI-powered skills engine with 53,000+ skills taxonomy is one of the most sophisticated in the market. For organizations pursuing skills-based transformation, Cornerstone provides the data infrastructure to map, measure, and develop workforce capabilities systematically.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Compliance Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Industry-specific compliance workflows, automated recertification, audit trails, and regulatory reporting make Cornerstone a natural choice for heavily regulated industries. The depth of compliance features exceeds most competitors, including many dedicated compliance training platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Scale & Stability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          25+ years in market, 7,000+ customers, 125M+ users. Cornerstone has the track record, infrastructure, and financial backing (Clearlake Capital) that enterprise IT teams require. The platform handles massive deployments without the scaling concerns of newer entrants.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Marketplace Breadth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Content Anytime aggregates 60+ premium content providers into a single discovery and delivery experience. This saves organizations from managing multiple content vendor relationships and provides learners with a unified search across all available learning resources.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Cornerstone May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone's enterprise focus creates clear trade-offs:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Complexity and Implementation Time</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Expect 3–6+ months for full deployment with dedicated project teams on both sides. Configuration is extensive, and organizations often need consulting support to optimize the platform for their specific workflows. This is not a "sign up and start" solution.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">User Interface Challenges</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Cornerstone has invested in UX modernization, the admin interface can feel complex and dated compared to newer platforms. The breadth of features means a steeper learning curve for administrators. End-user experience has improved significantly with the LXP layer, but admin workflows remain heavy.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Premium Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Cornerstone is among the most expensive options in the enterprise LMS market. The modular pricing model means costs add up quickly when multiple capabilities are needed. Mid-market organizations may find the total cost of ownership difficult to justify unless they're using multiple modules.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Overkill for Smaller Organizations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations with fewer than 500 employees or straightforward training needs will find Cornerstone over-engineered. The platform's value scales with organizational complexity—simpler operations would be better served by platforms like Litmos, Absorb, or Thinkific depending on use case.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Post-Acquisition Integration Challenges</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Saba acquisition and Clearlake take-private have created some integration and product strategy uncertainty. Some legacy Saba customers have experienced friction during migration, and the platform's roadmap has shifted. Organizations should evaluate the current state of integration, not just the promised vision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Cornerstone uses modular, quote-based pricing. Organizations select the modules they need, and pricing scales with user count and deployment scope.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Module</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Learning (LMS + LXP)</td>
+            <td class="py-3 px-4 text-slate-600">Core learning management, compliance training, and personalized learning experiences</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Skills & Talent Intelligence</td>
+            <td class="py-3 px-4 text-slate-600">AI-powered skills mapping, gap analysis, and workforce planning</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Performance Management</td>
+            <td class="py-3 px-4 text-slate-600">Goals, reviews, 360 feedback, and development plans connected to learning</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Content Anytime</td>
+            <td class="py-3 px-4 text-slate-600">Curated third-party content library from 60+ premium providers</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Extended Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">Training external audiences—customers, partners, franchisees</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      All pricing is custom and quote-based. Contact Cornerstone for current pricing based on your module selection, user count, and deployment requirements. Multi-year contracts are standard.
+    </p>
+  </section>
+
+  <!-- How Cornerstone Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Cornerstone Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Cornerstone stacks up against other enterprise learning and talent platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Cornerstone", "Docebo", "Absorb LMS", "SAP SuccessFactors", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Unified talent management + learning", "Enterprise multi-audience learning", "Corporate training (internal + external)", "HCM suite with learning module", "Learning commerce & customer education"] },
+        { feature: "Best For", values: ["Large enterprise, 1000+ employees", "Mid-large enterprise, 250+ users", "Mid-market to enterprise", "SAP ecosystem organizations", "Experts & learning businesses"] },
+        { feature: "Skills Intelligence", values: ["AI-powered, 53K+ skills taxonomy", "Skills mapping via 365Talents", "Basic skills tracking", "SuccessFactors Skills Cloud", "Not applicable"] },
+        { feature: "Compliance", values: ["Industry-specific, deep", "Strong certifications", "Standard compliance", "SAP-integrated compliance", "Basic certificates"] },
+        { feature: "Performance Mgmt", values: ["Native (full suite)", "Not included", "Not included", "Native (full HCM)", "Not included"] },
+        { feature: "Content Library", values: ["60+ providers via Content Anytime", "30K+ via marketplace", "Limited built-in", "SAP content partners", "Expert-created content"] },
+        { feature: "Implementation", values: ["3–6+ months", "Weeks to months", "Weeks to months", "6–12+ months", "Same day"] },
+        { feature: "Pricing", values: ["Custom, premium", "Quote-based, ~$9/user", "Quote-based", "Custom, part of SAP suite", "Free–$199/mo"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Saba Review (Now Cornerstone)", href: "/reviews/saba", description: "Legacy Saba platform review and migration path to Cornerstone." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience training with AI-powered features." },
+    { title: "Litmos Review", href: "/reviews/litmos", description: "Enterprise LMS known for rapid deployment and 150+ connectors." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Platform for experts building learning businesses with full brand control." }
+  ]} />
+
+</ReviewLayout>

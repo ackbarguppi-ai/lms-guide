@@ -1,0 +1,385 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is LearnDash?",
+    answer: "LearnDash is a WordPress LMS plugin that turns any WordPress site into a full-featured learning management system. It's the most popular WordPress LMS plugin, powering 80,000+ sites including courses from universities, nonprofits, and businesses. In 2022, LearnDash was acquired by StellarWP (a division of Liquid Web), joining a portfolio of WordPress tools including Kadence, The Events Calendar, and GiveWP."
+  },
+  {
+    question: "How much does LearnDash cost?",
+    answer: "LearnDash offers annual licensing starting at $199/year for one site. The Plus package is $399/year for up to 10 sites and includes ProPanel (advanced reporting). The Pro package is $799/year for up to 25 sites. There's no per-user or per-student fee—pricing is per WordPress installation only—which makes LearnDash extremely cost-effective for high-volume course creators. You'll also need to budget for WordPress hosting, theme, and any additional plugins."
+  },
+  {
+    question: "Is LearnDash better than Thinkific?",
+    answer: "It depends on your technical comfort and needs. LearnDash gives you complete control over your site—design, functionality, data ownership—but requires WordPress knowledge, hosting management, and plugin maintenance. Thinkific is a fully managed SaaS platform with hosting, payments, and marketing tools built in, requiring zero technical setup. Choose LearnDash if you want maximum customization and already run WordPress. Choose Thinkific if you want simplicity, managed infrastructure, and built-in commerce tools."
+  },
+  {
+    question: "Does LearnDash work with WooCommerce?",
+    answer: "Yes. WooCommerce is one of the most popular payment integrations for LearnDash, enabling course sales, subscriptions, memberships, bundles, coupons, and any payment gateway WooCommerce supports. LearnDash also has native Stripe integration and supports PayPal. For full eCommerce functionality (cart, checkout, order management), WooCommerce is the recommended approach."
+  },
+  {
+    question: "What happened when StellarWP acquired LearnDash?",
+    answer: "StellarWP (owned by Liquid Web/Newfold Digital) acquired LearnDash in 2022. The acquisition brought LearnDash into a portfolio of WordPress tools, which has led to tighter integrations with other StellarWP products like Kadence (themes/blocks) and SolidWP (security). Development has continued with regular updates. The main concern for some users is long-term strategic direction as corporate ownership can shift priorities away from the independent developer ethos."
+  },
+  {
+    question: "Can LearnDash handle large course catalogs?",
+    answer: "Yes, with proper hosting and optimization. LearnDash powers sites with hundreds of courses and thousands of students. However, performance depends on your WordPress hosting quality, database optimization, and plugin stack. Unlike SaaS platforms where infrastructure is managed for you, LearnDash performance is your responsibility. Budget for quality managed WordPress hosting (WP Engine, Cloudways, Kinsta) if you're running a serious course business."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "LearnDash",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.9",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An in-depth review of LearnDash—the #1 WordPress LMS plugin for course creators. Strengths, limitations, pricing, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="LearnDash Review 2026: The #1 WordPress LMS Plugin"
+  description="An in-depth review of LearnDash—the #1 WordPress LMS plugin for course creators. Strengths, limitations, pricing, and who it's best for."
+  platformName="LearnDash"
+  rating={3.9}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'LearnDash' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">LearnDash Review 2026: The #1 WordPress LMS Plugin</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.9 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs><linearGradient id="partial-star-ld4"><stop offset="90%" stop-color="#fbbf24" /><stop offset="90%" stop-color="#cbd5e1" /></linearGradient></defs>
+        <path fill="url(#partial-star-ld4)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.9 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> LearnDash is the best LMS plugin for WordPress, and for users already invested in the WordPress ecosystem, it's a powerful and cost-effective way to sell courses online. The per-site pricing (no per-user fees) makes it exceptionally affordable at scale, and the WordPress plugin ecosystem gives you near-unlimited customization. The trade-off is real: you're responsible for hosting, security, updates, performance optimization, and plugin compatibility. If you're comfortable managing WordPress, LearnDash gives you more control than any SaaS LMS. If you want a managed experience, look at Thinkific or similar SaaS platforms.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for course creators, online educators, and small businesses evaluating WordPress-based LMS options. If you already run a WordPress site and want to add course delivery, or if you're comparing LearnDash against SaaS platforms like Thinkific, Teachable, or Kajabi, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "LearnDash is the #1 WordPress LMS plugin, powering 80,000+ sites including Fortune 500 training programs, university continuing education, and individual course creators.",
+    "Per-site pricing ($199-$799/year) with no per-user fees makes it one of the most cost-effective LMS options at scale. A site with 10,000 students pays the same as one with 100.",
+    "Acquired by StellarWP (Liquid Web/Newfold Digital) in 2022, bringing tighter integrations with Kadence themes and other WordPress tools, but introducing questions about long-term independent development direction.",
+    "The WordPress plugin ecosystem is LearnDash's biggest strength and weakness—you can extend functionality almost infinitely, but you're responsible for hosting, security, updates, and plugin compatibility.",
+    "Course builder supports lessons, topics, quizzes (8 question types), drip content, certificates, badges, and prerequisites. Focus Mode provides a distraction-free learning experience.",
+    "No built-in video hosting, email marketing, or landing page builder. These require additional plugins or services, adding complexity and potentially cost."
+  ]} />
+
+  <!-- What is LearnDash? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is LearnDash?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnDash is a WordPress plugin that transforms any WordPress website into a learning management system. Founded in 2013 by Justin Ferriman, LearnDash quickly became the most popular WordPress LMS plugin, used by over 80,000 websites including Fortune 500 companies, universities, and independent course creators. In 2022, StellarWP (a division of Liquid Web, itself part of Newfold Digital) acquired LearnDash.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The plugin provides course creation, lesson management, quizzes, certificates, payment processing, and user management—all within the WordPress admin interface. Because it's a WordPress plugin, LearnDash inherits the full WordPress ecosystem: thousands of themes for design, plugins for every conceivable feature, and the SEO advantages of WordPress's architecture.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      LearnDash's value proposition is control and cost-effectiveness. Unlike SaaS platforms that charge per user or per month, LearnDash charges a flat annual fee per site. You own your data, control your hosting, choose your design, and can extend functionality through the vast WordPress plugin ecosystem. The trade-off is that you're responsible for everything a SaaS platform would handle for you: hosting, security, updates, backups, and performance optimization.
+    </p>
+  </section>
+
+  <!-- Who is LearnDash Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is LearnDash Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      LearnDash is ideal for WordPress users who want maximum control over their learning platform:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">WordPress-Native Course Creators</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If you already run a WordPress site—blog, membership, business site—LearnDash adds LMS functionality without migrating to a new platform. Your courses live alongside your existing content, maintaining SEO equity and brand consistency.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Budget-Conscious Educators at Scale</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          At $199-$799/year with no per-student fees, LearnDash is dramatically cheaper than SaaS platforms once you have significant enrollment. A course with 5,000 students costs the same as one with 50—making unit economics extremely favorable at scale.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Technical Users Wanting Customization</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Developers and technically comfortable users who want to customize every aspect of the learning experience. LearnDash's hooks, filters, REST API, and the broader WordPress ecosystem enable customization that SaaS platforms simply can't match.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Small Businesses & Nonprofits</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that need an LMS but can't justify SaaS subscription costs. With affordable hosting ($20-50/month) and LearnDash's annual fee, total cost can be under $500/year—a fraction of SaaS alternatives for equivalent functionality.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Builder</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnDash uses a hierarchical course structure: Courses → Lessons → Topics → Quizzes. The drag-and-drop course builder organizes content visually. Lessons support text, video (embedded from YouTube, Vimeo, or self-hosted), downloads, and assignments. Focus Mode provides a distraction-free learning interface that hides site navigation and sidebars, keeping learners focused on course content.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Quizzes & Assessments</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Eight question types: single choice, multiple choice, free text, sorting, matching, fill-in-the-blank, essay, and survey. Quiz settings include time limits, passing scores, retry limits, question randomization, and question banks. Advanced features include answer explanations, certificate triggers on quiz completion, and prerequisite quizzes. The quiz engine is more capable than most SaaS LMS quiz tools.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Drip Content & Prerequisites</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Content dripping releases lessons on a schedule (days after enrollment, specific dates, or based on completion of prior content). Prerequisites require completion of specific courses or lessons before accessing others. These features enable structured learning paths and prevent students from skipping ahead.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Payment & eCommerce</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native Stripe integration for one-time payments and subscriptions. PayPal support built-in. WooCommerce integration adds full eCommerce: shopping cart, checkout, order management, coupons, bundles, memberships, and support for virtually any payment gateway. The WooCommerce route is recommended for serious course sellers who need flexible commerce capabilities.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Certificates & Badges</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Customizable PDF certificates generated on course or quiz completion. Certificate templates use the WordPress editor with merge fields for student name, course title, date, and score. Badges (via add-ons) provide gamification elements. Certificates can be triggered by quiz scores, course completion, or manual approval.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Groups & Group Leaders</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Group management allows bulk enrollment, group-specific pricing, and Group Leader roles. Group Leaders can view their group's progress, send messages, and manage enrollments without full admin access. This is useful for B2B course sales (sell to a company, give them a Group Leader to manage their learners) and corporate training deployments.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Cost-Effectiveness at Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No per-user pricing is LearnDash's killer economic advantage. A SaaS platform charging $49/month quickly exceeds LearnDash's annual cost, and the gap widens dramatically with per-user fees. For course creators with large audiences, LearnDash can save thousands per year compared to SaaS alternatives.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">WordPress Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The entire WordPress plugin ecosystem is at your disposal. Need email marketing? Integrate with FluentCRM or Mailchimp. Need memberships? Add MemberPress or Paid Memberships Pro. Need advanced forms? Use Gravity Forms. Need SEO? Yoast or Rank Math. No SaaS LMS can match this extensibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Data Ownership & Control</h3>
+        <p class="text-slate-700 leading-relaxed">
+          You own your data completely. It lives in your MySQL database, on your hosting. There's no platform dependency—if you stop using LearnDash, your content and user data remain in WordPress. This level of data ownership and portability is impossible with SaaS platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Quiz Engine Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LearnDash's quiz engine is surprisingly robust—8 question types, question banks, randomization, time limits, retries, and detailed answer explanations. For course creators who rely heavily on assessments, it's more capable than most SaaS LMS quiz tools without requiring add-ons.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">SEO Advantages</h3>
+        <p class="text-slate-700 leading-relaxed">
+          WordPress's SEO architecture, combined with plugins like Yoast or Rank Math, gives LearnDash sites excellent search visibility. Course pages, lesson pages, and blog content all benefit from WordPress's mature SEO ecosystem—an advantage over SaaS platforms with less SEO flexibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where LearnDash May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnDash's WordPress dependency creates real trade-offs:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Technical Maintenance Required</h3>
+        <p class="text-slate-700 leading-relaxed">
+          You're responsible for hosting, SSL certificates, WordPress updates, plugin updates, security patches, backups, and performance optimization. Plugin conflicts are a real risk—a single incompatible plugin can break your LMS. Non-technical users will find this burdensome and potentially risky.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Built-in Video Hosting</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LearnDash doesn't host video. You'll need Vimeo, Wistia, Bunny.net, or YouTube for video content, adding cost and complexity. SaaS platforms like Thinkific include video hosting, which is simpler for video-heavy courses.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Native Marketing Tools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No built-in email marketing, landing page builder, sales funnel tools, or analytics dashboard. These require additional plugins (each with their own learning curve and potential compatibility issues). SaaS platforms bundle these features, reducing setup friction.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Features Gap</h3>
+        <p class="text-slate-700 leading-relaxed">
+          LearnDash lacks enterprise features like multi-tenancy, advanced compliance tracking, SSO (without plugins), SCORM support (limited), and the security certifications (SOC 2, ISO 27001) that enterprise LMS platforms provide. It's a course creator tool, not an enterprise learning platform.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">StellarWP Acquisition Uncertainty</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Corporate acquisitions can shift product priorities. While StellarWP has continued LearnDash development, the long-term direction under Newfold Digital is unclear. Some WordPress community members worry about the consolidation trend where private equity firms acquire popular WordPress plugins.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      LearnDash uses simple annual licensing with no per-user fees. Pricing is per WordPress site, making total cost predictable regardless of student count.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Basic ($199/year, 1 site)</td>
+            <td class="py-3 px-4 text-slate-600">Individual course creators running a single WordPress LMS site with core features</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Plus ($399/year, 10 sites)</td>
+            <td class="py-3 px-4 text-slate-600">Agencies and multi-site operators. Includes ProPanel for advanced reporting and group management</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Pro ($799/year, 25 sites)</td>
+            <td class="py-3 px-4 text-slate-600">Large agencies and organizations managing many client LMS sites with all features included</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Additional costs to budget:</strong> WordPress hosting ($10-100/month), domain, SSL certificate (often free with hosting), video hosting service, email marketing plugin/service, and any premium WordPress plugins or themes.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      All plans include core LMS features, course builder, quizzes, certificates, Stripe/PayPal integration, and one year of updates and support.
+    </p>
+  </section>
+
+  <!-- Comparison -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How LearnDash Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how LearnDash stacks up against other course creation platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["LearnDash", "Thinkific", "Teachable", "LifterLMS", "Kajabi"]}
+      highlight={0}
+      rows={[
+        { feature: "Platform Type", values: ["WordPress plugin", "SaaS (managed)", "SaaS (managed)", "WordPress plugin", "SaaS (all-in-one)"] },
+        { feature: "Pricing Model", values: ["$199-799/year (no per-user)", "Free plan + paid tiers", "Free plan + paid tiers", "$149-399/year", "$149-399/month"] },
+        { feature: "Technical Skill Required", values: ["WordPress knowledge", "None", "None", "WordPress knowledge", "None"] },
+        { feature: "Video Hosting", values: ["External required", "Built-in", "Built-in", "External required", "Built-in"] },
+        { feature: "eCommerce", values: ["WooCommerce integration", "Native storefront", "Native storefront", "WooCommerce integration", "Native storefront"] },
+        { feature: "Customization", values: ["Near-unlimited (WordPress)", "Template-based", "Template-based", "WordPress ecosystem", "Limited templates"] },
+        { feature: "Data Ownership", values: ["Full (self-hosted)", "Platform-hosted", "Platform-hosted", "Full (self-hosted)", "Platform-hosted"] },
+        { feature: "Marketing Tools", values: ["Via plugins", "Built-in", "Built-in", "Via plugins", "Built-in (strong)"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "SaaS alternative to LearnDash with built-in hosting, commerce, and marketing tools." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for organizations needing scale, compliance, and multi-audience training." },
+    { title: "360Learning Review", href: "/reviews/360learning", description: "Collaborative learning platform for internal corporate training." },
+    { title: "Canvas LMS Review", href: "/reviews/canvas", description: "Institutional LMS for higher education—a different category than course creator tools." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,401 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Chamilo free?",
+    answer: "Yes, Chamilo is completely free and open-source. Released under the GNU/GPLv3+ license, it can be downloaded, installed, and used without licensing fees. Organizations pay only for hosting, support, or customization services if they choose not to self-manage."
+  },
+  {
+    question: "What countries use Chamilo?",
+    answer: "Chamilo is used in over 180 countries, with particularly strong adoption in Latin America, Europe, and Francophone Africa. The platform's multi-language support (100+ languages) and lightweight architecture make it popular in regions with limited infrastructure or specific localization needs."
+  },
+  {
+    question: "Is Chamilo better than Moodle?",
+    answer: "Chamilo and Moodle serve different needs. Chamilo prioritizes simplicity and ease of use with a lighter technical footprint. Moodle offers more features and customization but requires more technical expertise. Organizations wanting a streamlined experience often prefer Chamilo; those needing extensive flexibility choose Moodle."
+  },
+  {
+    question: "What are Chamilo's system requirements?",
+    answer: "Chamilo runs on modest hardware: PHP 7.2+, MySQL/MariaDB, and a standard web server (Apache/Nginx). The lightweight architecture allows it to perform well on shared hosting or low-resource servers where Moodle might struggle. This efficiency is a key advantage for budget-conscious deployments."
+  },
+  {
+    question: "Does Chamilo support SCORM?",
+    answer: "Yes, Chamilo supports SCORM 1.2 and SCORM 2004 content packages. It also supports xAPI (Tin Can) for more advanced tracking. This compatibility allows organizations to use content created in standard authoring tools like Articulate, Adobe Captivate, or iSpring."
+  },
+  {
+    question: "Is Chamilo suitable for corporate training?",
+    answer: "Chamilo works for corporate training, particularly for small to mid-sized companies wanting a cost-effective solution. However, it lacks some enterprise features like advanced HRIS integrations, sophisticated reporting, and AI capabilities found in commercial platforms like Docebo or Absorb."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Chamilo",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of Chamilo, the open-source LMS popular in Latin America and Europe. Who it's best for, strengths, limitations, and how it compares to Moodle."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Chamilo Review 2026: Open-Source LMS for Global Education"
+  description="An honest review of Chamilo, the open-source LMS popular in Latin America and Europe. Who it's best for, strengths, limitations, and how it compares to Moodle."
+  platformName="Chamilo"
+  rating={3.5}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Chamilo' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Chamilo Review 2026: Open-Source LMS for Global Education</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.5 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (half filled for 3.5 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-chamilo">
+            <stop offset="50%" stop-color="#fbbf24" />
+            <stop offset="50%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-chamilo)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.5 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Chamilo is a capable open-source LMS that prioritizes simplicity and efficiency over feature depth. Popular in Latin America, Europe, and developing regions, it serves organizations needing a lightweight, cost-effective learning platform. The trade-offs include smaller community size than Moodle, limited enterprise integrations, and fewer advanced features compared to commercial alternatives.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for educators, IT administrators, and organizations evaluating open-source LMS options. If you're comparing Chamilo to Moodle or considering a self-hosted solution for budget or data sovereignty reasons, this will help you understand where Chamilo fits.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Chamilo is a completely free, open-source LMS released under GNU/GPLv3+ with no licensing costs.",
+    "Used in 180+ countries with particular strength in Latin America, Europe, and Francophone regions.",
+    "Lightweight architecture runs efficiently on modest hardware and shared hosting environments.",
+    "Multi-language support includes 100+ languages with active translation community.",
+    "Simpler than Moodle with gentler learning curve but less customization flexibility.",
+    "Limited enterprise features like advanced analytics, AI, and HRIS integrations compared to commercial platforms."
+  ]} />
+
+  <!-- What is Chamilo? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Chamilo?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Chamilo is an open-source Learning Management System and collaboration platform released in 2010. It was created as a fork from the Dokeos project by original developers who wanted to focus on simplicity, stability, and ease of use. The name "Chamilo" comes from the Chilean Spanish slang "chamullo" meaning informal talk or chat, reflecting the platform's communication focus.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The Chamilo Association, a non-profit organization based in Belgium, governs the project. This structure ensures the software remains free and community-driven rather being controlled by a single company. The association provides certification programs, support services, and promotes Chamilo adoption worldwide.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Chamilo's philosophy centers on accessibility. The platform is designed to work well even on low-bandwidth connections and older devices, making it practical for deployment in regions with limited infrastructure. This focus has driven adoption in developing countries and organizations with constrained IT budgets.
+    </p>
+  </section>
+
+  <!-- Who is Chamilo Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Chamilo Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Chamilo serves specific use cases particularly well. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Budget-Conscious Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          With zero licensing costs and modest hardware requirements, Chamilo minimizes total cost of ownership. Organizations paying nothing for software can invest in content development or instructor training instead.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Regions with Infrastructure Constraints</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          The lightweight codebase performs well on shared hosting, slow connections, and older servers. This makes Chamilo practical where enterprise LMS platforms would struggle technically or financially.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Multi-Language Learning</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          With 100+ language translations and an active localization community, Chamilo supports diverse linguistic needs better than many commercial alternatives. Right-to-left languages and character sets are well-supported.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Organizations Wanting Simplicity</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Teams finding Moodle overwhelming often appreciate Chamilo's streamlined interface. The gentler learning curve means faster deployment and less training time for instructors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Chamilo provides tools for creating courses, organizing content into lessons and learning paths, and managing student enrollment. The course builder supports documents, videos, quizzes, assignments, and SCORM packages. While not as feature-rich as Moodle, the essentials are present and accessible.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment and Testing</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The quiz engine supports multiple question types including multiple choice, true/false, matching, open answer, and hotspot. Question categories, randomization, and time limits provide basic assessment security. Surveys and polls complement formal testing.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Collaboration Tools</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Forums, chat, wikis, and group work areas support learner interaction. The social network features allow user profiles, friend connections, and messaging. These tools facilitate community building in online and blended learning environments.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Paths</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Instructors can create structured learning paths with prerequisites, sequencing, and progress tracking. This supports competency-based learning and ensures students complete foundational content before advancing.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting and Tracking</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Basic reporting shows course completion, time spent, quiz results, and progress through learning paths. While functional, the analytics are less sophisticated than commercial platforms. Organizations needing detailed learning analytics may require external tools or custom development.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Zero Licensing Cost</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Completely free under open-source license. No per-user fees, no feature tiers, no subscription required. This makes Chamilo accessible to organizations with minimal budgets.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Lightweight and Efficient</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Runs smoothly on shared hosting and modest servers where Moodle might require dedicated resources. Lower hosting costs extend the total cost advantage beyond just licensing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ease of Use</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The interface is cleaner and more intuitive than Moodle for many users. Instructors can create courses without extensive training, reducing time-to-launch for new programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Global Language Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          100+ language packs with active community translation. Regional variants and less-common languages receive attention that commercial platforms often neglect.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Data Sovereignty</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Self-hosting means data stays within organizational boundaries. For privacy-conscious institutions or those subject to data localization requirements, this control is essential.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Chamilo May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Chamilo May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Chamilo's simplicity comes with limitations. Here is where it falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Organizations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Lacks enterprise features like SSO/SAML, advanced HRIS integrations, sophisticated reporting, and dedicated support. Large organizations typically need commercial platforms with service level agreements.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Complex Customization Needs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Moodle's plugin ecosystem dwarfs Chamilo's. Organizations requiring extensive customization, unique integrations, or specialized workflows may find Chamilo limiting.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Smaller Community</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While growing, Chamilo's community is smaller than Moodle's. Finding developers, plugins, and documentation resources requires more effort. Commercial support options are fewer and less established.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Advanced Analytics</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Reporting capabilities cover basics but lack learning analytics, predictive modeling, and business intelligence integrations found in modern enterprise platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Mobile Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Responsive design provides mobile access, but dedicated mobile apps with offline functionality are less polished than commercial competitors. Mobile-first learners may find the experience lacking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Chamilo software is entirely free. Organizations pay only for hosting, support, customization, or training if they choose not to self-manage. This cost structure is the primary appeal for budget-conscious deployments.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Cost Category</th>
+            <th class="text-left py-3 px-4 font-semibold">Typical Range</th>
+            <th class="text-left py-3 px-4 font-semibold">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Software License</td>
+            <td class="py-3 px-4 text-slate-600">$0</td>
+            <td class="py-3 px-4 text-slate-600">Free under GNU/GPLv3+</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Self-Hosted Server</td>
+            <td class="py-3 px-4 text-slate-600">$10-100/month</td>
+            <td class="py-3 px-4 text-slate-600">VPS or dedicated server depending on scale</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Chamilo Cloud Hosting</td>
+            <td class="py-3 px-4 text-slate-600">Varies</td>
+            <td class="py-3 px-4 text-slate-600">Available from certified providers</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Professional Support</td>
+            <td class="py-3 px-4 text-slate-600">Quote-based</td>
+            <td class="py-3 px-4 text-slate-600">From Chamilo Association certified providers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Total cost of ownership depends primarily on hosting choices and whether external support is engaged.
+    </p>
+  </section>
+
+  <!-- How Chamilo Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Chamilo Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Chamilo stacks up against other open-source LMS options:
+    </p>
+
+    <ComparisonTable
+      headers={["Chamilo", "Moodle", "Canvas Open Source", "Sakai", "ATutor"]}      highlight={0}
+      rows={[
+        { feature: "License", values: ["GPLv3+", "GPLv3", "AGPLv3", "ECLv2", "GPLv2"] },
+        { feature: "Ease of Use", values: ["Easier", "Steeper curve", "Moderate", "Complex", "Moderate"] },
+        { feature: "Plugin Ecosystem", values: ["Limited", "Extensive (2000+)", "Moderate", "Moderate", "Limited"] },
+        { feature: "Hardware Requirements", values: ["Low", "Moderate-High", "Moderate", "Moderate", "Low"] },
+        { feature: "Community Size", values: ["Growing", "Massive", "Large", "Niche", "Small"] },
+        { feature: "Enterprise Features", values: ["Limited", "Available", "Via commercial", "Limited", "Minimal"] },
+        { feature: "Best For", values: ["Simplicity, low resources", "Flexibility, scale", "Modern UI", "Higher ed", "Accessibility"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Considering Chamilo or other open-source LMS options?"
+    ctaDescription="Get a personalized recommendation based on your technical resources, budget, and learning requirements."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Moodle Review", href: "/reviews/moodle", description: "The most popular open-source LMS with extensive customization options." },
+    { title: "Canvas Review", href: "/reviews/canvas", description: "Modern LMS available in both commercial and open-source versions." },
+    { title: "Best Open Source LMS", href: "/guides/best-open-source-lms", description: "Complete guide to free and open-source learning management systems." },
+    { title: "Moodle vs Chamilo", href: "/compare/moodle-vs-chamilo", description: "Detailed comparison of the two popular open-source platforms." }
+  ]} />
+
+</ReviewLayout>

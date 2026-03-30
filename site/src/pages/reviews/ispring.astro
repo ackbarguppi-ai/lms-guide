@@ -1,0 +1,413 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is iSpring Learn a good LMS for compliance training?",
+    answer: "Yes, iSpring Learn is particularly strong for compliance training. The platform includes built-in compliance management features like automated recertification, audit trails, completion tracking, and deadline reminders. iSpring's authoring tool is widely used for creating compliance content, and the tight integration between authoring and LMS streamlines the entire compliance training workflow. This is why iSpring has strong adoption in healthcare, finance, and manufacturing industries."
+  },
+  {
+    question: "How much does iSpring Learn cost?",
+    answer: "iSpring Learn offers transparent, published pricing—rare in the enterprise LMS space. Plans start at $2.29/user/month (billed annually) for up to 100 users. The Business plan at $3.14/user/month adds more advanced features. For organizations with 500+ users, custom enterprise pricing applies. iSpring Suite authoring tool is sold separately ($770/year for the full authoring suite)."
+  },
+  {
+    question: "What is iSpring Suite and how does it relate to iSpring Learn?",
+    answer: "iSpring Suite is iSpring's flagship authoring tool—a PowerPoint-based eLearning authoring solution used by 59,000+ organizations worldwide. iSpring Learn is the LMS that hosts content created in iSpring Suite (and other authoring tools). They are separate products that integrate seamlessly. Many organizations use iSpring Suite with other LMS platforms, or iSpring Learn with other authoring tools, though the combination provides the best experience."
+  },
+  {
+    question: "Does iSpring Learn support SCORM content from other authoring tools?",
+    answer: "Yes, iSpring Learn is fully SCORM 1.2 and 2004 compliant and supports content from any SCORM-compliant authoring tool, including Articulate Storyline, Adobe Captivate, and Lectora. The platform also supports xAPI (Tin Can), AICC, cmi5, and native video and document uploads. Organizations are not locked into the iSpring authoring ecosystem."
+  },
+  {
+    question: "How does iSpring Learn compare to Thinkific?",
+    answer: "iSpring Learn and Thinkific serve different primary markets. iSpring Learn targets corporate training and compliance with features like mandatory assignments, audit trails, and HR integrations. Thinkific focuses on experts and businesses selling courses online, with strong eCommerce, marketing, and student engagement features. iSpring is for internal employee training; Thinkific is for external course sales. See our <a href='/compare/ispring-vs-thinkific' class='text-teal-dark hover:underline'>full iSpring vs Thinkific comparison</a>."
+  },
+  {
+    question: "Is iSpring Learn suitable for small businesses?",
+    answer: "Yes, iSpring Learn is accessible to small businesses with its published pricing and relatively low user minimums (plans start at 50-100 users). The platform scales up to enterprise deployments but doesn't require enterprise-scale commitments. Small businesses benefit from iSpring's ease of use, though organizations under 50 employees may find per-user pricing less economical than platforms with flat-rate plans."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "iSpring Learn",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.1",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of iSpring Learn for corporate training and compliance. Authoring tool integration, pricing transparency, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="iSpring Learn Review 2026: Authoring-First Corporate LMS"
+  description="An honest, in-depth review of iSpring Learn for corporate training and compliance. Authoring tool integration, pricing transparency, and who it's best for."
+  platformName="iSpring Learn"
+  rating={4.1}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'iSpring Learn' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">iSpring Learn Review 2026: Authoring-First Corporate LMS</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.1 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial - ~10% filled for 4.1 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-ispring">
+            <stop offset="10%" stop-color="#fbbf24" />
+            <stop offset="10%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-ispring)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.1 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> iSpring Learn is a well-designed corporate LMS that benefits from tight integration with iSpring Suite, one of the most popular eLearning authoring tools. With transparent pricing, strong compliance features, and 59,000+ customers, it is a practical choice for organizations prioritizing content creation and regulatory training. The trade-offs are limited advanced LMS features compared to enterprise platforms and a learning experience that is functional but not cutting-edge.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for L&D managers, training coordinators, compliance officers, and HR leaders evaluating LMS platforms for employee development. If your organization creates significant custom training content or operates in a regulated industry, iSpring Learn deserves serious consideration.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "iSpring Learn integrates seamlessly with iSpring Suite, a PowerPoint-based authoring tool used by 59,000+ organizations worldwide.",
+    "Transparent published pricing ($2.29/user/month starting) is rare in the enterprise LMS space and simplifies budgeting.",
+    "Strong compliance management features include automated recertification, audit trails, and completion tracking for regulated industries.",
+    "The platform supports SCORM, xAPI, AICC, and cmi5 content from any authoring tool—no vendor lock-in.",
+    "iSpring Learn is designed for corporate training, not external course sales—it lacks eCommerce and marketing features.",
+    "The learning experience is straightforward and functional but lacks the sophistication of modern LXP or AI-powered platforms."
+  ]} />
+
+  <!-- What is iSpring Learn? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is iSpring Learn?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      iSpring Learn is a cloud-based learning management system developed by iSpring Solutions, a company best known for iSpring Suite—one of the world's most widely used eLearning authoring tools. Founded in 2005 and headquartered in Alexandria, Virginia, with development offices in Russia, iSpring serves 59,000+ customers globally including Microsoft, SAP, Amazon, and Procter & Gamble.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike many LMS platforms that evolved from academic or corporate training roots, iSpring Learn was built specifically for organizations that create their own training content. The platform's design philosophy prioritizes content authoring and management, reflecting iSpring's heritage as an authoring tool company. This makes it particularly popular among L&D teams who develop custom eLearning rather than purchasing off-the-shelf content libraries.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      iSpring Learn supports the full training lifecycle: content creation (via iSpring Suite or third-party tools), course delivery, learner management, compliance tracking, and reporting. While primarily used for employee training, the platform also supports extended enterprise scenarios including customer and partner training, though without the eCommerce focus of platforms built for external audiences.
+    </p>
+  </section>
+
+  <!-- Who is iSpring Learn Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is iSpring Learn Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      iSpring Learn fits several distinct organizational profiles:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Content-Creating Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that develop significant custom eLearning content and need an LMS that integrates smoothly with their authoring workflow. The iSpring Suite to iSpring Learn pipeline is streamlined, but the platform also works well with Articulate Storyline, Adobe Captivate, and other authoring tools.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Compliance-Regulated Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Healthcare, finance, manufacturing, and other regulated industries requiring audit trails, automated recertification, and completion tracking. iSpring Learn's compliance features are purpose-built for these scenarios, with deadline management, reminder systems, and detailed reporting.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-Market Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with 100-5,000 employees seeking a functional, affordable LMS without enterprise complexity. Published pricing and reasonable minimums make iSpring Learn accessible to organizations that find enterprise platforms like Cornerstone or Saba overwhelming or overpriced.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">PowerPoint-Fluent Training Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Training teams comfortable with PowerPoint who want to leverage that skill for eLearning development. iSpring Suite's PowerPoint integration allows rapid content creation without learning complex new authoring environments, making iSpring Learn a natural hosting choice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Support</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      iSpring Learn supports SCORM 1.2 and 2004, xAPI (Tin Can), AICC, and cmi5 content packages. Native video hosting accepts MP4, AVI, MOV, and WMV files. Documents (PDF, Word, PowerPoint, Excel) can be uploaded directly. The platform also supports HTML5 content, web links, and embedded resources. This broad compatibility ensures organizations can migrate existing content without re-authoring.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Compliance Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      iSpring Learn includes robust compliance features: mandatory course assignments with deadlines, automated email reminders, recertification scheduling, completion certificates with expiration dates, and detailed audit trails. Administrators can track compliance status by individual, department, or organization-wide. These features are particularly valuable for OSHA, HIPAA, GDPR, and industry-specific regulatory requirements.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Authoring Integration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      While iSpring Learn works with any SCORM-compliant authoring tool, the integration with iSpring Suite is particularly tight. Courses published from iSpring Suite can be uploaded directly to iSpring Learn with one click. Quiz results, interaction data, and course structure transfer seamlessly. Organizations heavily invested in iSpring Suite authoring should strongly consider iSpring Learn for hosting.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learner Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      User management supports manual entry, bulk CSV upload, and automated provisioning via API. Organizational hierarchies can be mirrored with departments, groups, and reporting structures. Role-based permissions control admin access. Self-registration options are available for external training scenarios. The user interface is straightforward and requires minimal training for administrators.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment and Certification</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform supports quizzes, surveys, and assessments created in iSpring Suite or other tools. Completion certificates are automatically generated and can be customized with organization branding. Certificate expiration and recertification workflows are built-in. Detailed quiz analytics show individual question performance and learner progress.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting and Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Standard reports cover learner activity, course completion, compliance status, and quiz results. Custom report builders allow filtering by date range, department, course, and other attributes. Reports can be exported to Excel or PDF. Real-time dashboards provide at-a-glance visibility into training metrics. API access enables data extraction for integration with business intelligence tools.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Transparent Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Published pricing ($2.29/user/month starting) eliminates the friction of enterprise sales processes. Organizations can estimate costs without lengthy consultations or quote requests. This transparency is refreshing in an industry dominated by opaque pricing and lengthy procurement cycles.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Authoring Tool Synergy</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The seamless integration with iSpring Suite creates an efficient content development workflow. Training teams can author in PowerPoint, publish to SCORM, and deploy to iSpring Learn without technical complexity. This efficiency is valuable for organizations producing high volumes of custom content.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Compliance Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Purpose-built compliance management with automated recertification, audit trails, and deadline tracking addresses the needs of regulated industries. These features are included at all pricing tiers, not gated behind enterprise editions as with some competitors.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ease of Implementation</h3>
+        <p class="text-slate-700 leading-relaxed">
+          iSpring Learn can be deployed quickly with minimal IT involvement. The cloud-hosted model requires no infrastructure, and the interface is intuitive enough that administrators can be productive within hours rather than weeks. This reduces time-to-value compared to complex enterprise LMS implementations.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Portability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Full SCORM and xAPI support means organizations are not locked into the iSpring ecosystem. Content created for iSpring Learn can be exported to other LMS platforms if needed. This reduces long-term vendor risk and preserves training investments.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Customer Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          iSpring has a reputation for responsive customer support, including live chat, email, and phone options. Support is included at all pricing tiers, with priority support for higher-tier plans. The company's smaller size compared to enterprise LMS vendors often translates to more personalized service.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where iSpring Learn May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where iSpring Learn May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where iSpring Learn falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Advanced LMS Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Compared to enterprise LMS platforms, iSpring Learn lacks sophisticated features like skills management, social learning, AI-powered recommendations, and advanced gamification. Organizations wanting cutting-edge learning experience features may find the platform basic.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No eCommerce for Course Sales</h3>
+        <p class="text-slate-700 leading-relaxed">
+          iSpring Learn is designed for internal training, not selling courses online. There are no shopping cart, payment processing, or marketing automation features. Organizations wanting to monetize training content need a different platform or external eCommerce integration.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Smaller Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          iSpring's integration ecosystem is smaller than platforms like Cornerstone or Docebo. Pre-built connectors to HRIS, CRM, and other enterprise systems are limited. Organizations with complex integration requirements may need custom development.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Experience Design</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The learner interface is functional but not modern or visually engaging compared to LXP platforms. Mobile apps exist but receive less development attention than the web interface. Learner engagement features like social learning and peer interaction are minimal.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Scale Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While iSpring Learn supports thousands of users, it is not designed for the scale and complexity of Fortune 500 global deployments. Very large organizations with complex organizational structures, multiple languages, and advanced security requirements may outgrow the platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      iSpring Learn offers transparent, published pricing—a significant differentiator from most enterprise LMS platforms. Plans are priced per user per month, billed annually.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Pricing</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Start</td>
+            <td class="py-3 px-4 text-slate-600">$2.29/user/month</td>
+            <td class="py-3 px-4 text-slate-600">Up to 100 users, basic LMS features, compliance tracking</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Business</td>
+            <td class="py-3 px-4 text-slate-600">$3.14/user/month</td>
+            <td class="py-3 px-4 text-slate-600">Up to 500 users, advanced features, API access, custom domain</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">Custom pricing</td>
+            <td class="py-3 px-4 text-slate-600">500+ users, unlimited storage, dedicated support, SLA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>iSpring Suite (Authoring Tool):</strong> Sold separately from $370/year for the basic version to $770/year for the full Suite with all features. Volume discounts available for multiple licenses.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      All plans include unlimited courses, SSL security, and standard support. Annual billing is required; monthly billing is not available.
+    </p>
+  </section>
+
+  <!-- How iSpring Learn Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How iSpring Learn Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how iSpring Learn stacks up against other corporate LMS platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["iSpring Learn", "Thinkific", "Docebo", "TalentLMS", "Cornerstone"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Corporate training", "Course sales & academies", "Enterprise multi-audience", "Small-mid business", "Large enterprise"] },
+        { feature: "Best For", values: ["Compliance & custom content", "Experts selling courses", "Customer education", "Quick deployment", "Complex global orgs"] },
+        { feature: "Pricing", values: ["$2.29/user/month (published)", "$49-$199/month", "Quote-based", "$69-$459/month", "Enterprise contract"] },
+        { feature: "Authoring Integration", values: ["iSpring Suite native", "Built-in course builder", "Docebo Creator", "Built-in editor", "Content Anytime library"] },
+        { feature: "Compliance Features", values: ["Strong", "Basic", "Advanced", "Good", "Enterprise"] },
+        { feature: "eCommerce", values: ["None", "Strong", "Available", "Available", "Limited"] },
+        { feature: "Ease of Setup", values: ["Easy", "Very easy", "Moderate", "Very easy", "Complex"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Considering iSpring Learn for your training program?"
+    ctaDescription="Get a personalized recommendation based on your content needs, compliance requirements, and budget."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "iSpring vs Thinkific", href: "/compare/ispring-vs-thinkific", description: "Corporate training LMS vs course creation platform: understanding which fits your use case." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Modern enterprise LMS with strong multi-audience and AI capabilities." },
+    { title: "TalentLMS Review", href: "/reviews/talentlms", description: "Lightweight LMS focused on quick deployment and ease of use." },
+    { title: "Best LMS for Compliance Training", href: "/guides/compliance-training-lms", description: "Compare top platforms for regulatory and mandatory training requirements." }
+  ]} />
+
+</ReviewLayout>

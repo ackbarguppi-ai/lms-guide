@@ -1,0 +1,414 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is Thought Industries?",
+    answer: "Thought Industries is a learning platform purpose-built for customer and partner education. Unlike general-purpose LMS platforms, it focuses specifically on external training use cases—helping B2B SaaS companies, manufacturers, and professional services firms train their customers, partners, and extended enterprise. The platform includes a native commerce engine, multi-tenant architecture, and deep integrations with CRM and marketing systems."
+  },
+  {
+    question: "How much does Thought Industries cost?",
+    answer: "Thought Industries uses enterprise quote-based pricing. Plans typically start in the $1,500-$2,500 per month range and scale based on active learners, feature requirements, and implementation complexity. The platform is designed for mid-market to enterprise organizations with established customer education programs. Contact Thought Industries for specific pricing based on your learner volume and use case."
+  },
+  {
+    question: "Is Thought Industries good for customer education?",
+    answer: "Yes—customer education is Thought Industries' core focus and strongest use case. The platform was built specifically for this purpose, with features like native eCommerce, subscription billing, course bundling, certifications, and CRM integrations that tie learning data to customer health scores. Customers include Toast, ZoomInfo, Github, and Intercom—all running customer education programs at scale."
+  },
+  {
+    question: "What is the Panorama learning experience?",
+    answer: "Panorama is Thought Industries' modern learner experience framework. It provides a Netflix-like interface with personalized content recommendations, progress tracking, and seamless navigation across courses. Panorama supports multiple learning formats including self-paced courses, live sessions, virtual labs, and embedded content. The experience is fully white-labeled and can be customized to match your brand."
+  },
+  {
+    question: "Does Thought Industries support multi-tenancy?",
+    answer: "Yes. Thought Industries offers native multi-tenant capabilities, allowing you to create distinct learning environments for different audiences (customers, partners, resellers) or even separate branded instances for different product lines or geographic regions. Each tenant can have its own branding, content catalog, user base, and administrative permissions while sharing the underlying platform infrastructure."
+  },
+  {
+    question: "How does Thought Industries compare to Thinkific?",
+    answer: "Thought Industries and Thinkific serve different segments. Thought Industries is an enterprise platform for B2B SaaS companies with mature customer education programs, offering multi-tenancy, advanced analytics, and deep CRM integrations. Thinkific targets a broader market including individual creators, small businesses, and mid-market companies with a focus on ease of use and learning commerce. For enterprise customer education at scale, Thought Industries offers more specialized capabilities; for faster time-to-value and broader use cases, Thinkific may be preferable. See our <a href='/compare/thinkific-vs-thought-industries' class='text-teal-dark hover:underline'>full Thinkific vs Thought Industries comparison</a>."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Thought Industries",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Thought Industries for customer education and partner training. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Thought Industries Review 2026: Customer Education at Enterprise Scale"
+  description="An honest, in-depth review of Thought Industries for customer education and partner training. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Thought Industries"
+  rating={4.2}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Thought Industries' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Thought Industries Review 2026: Customer Education at Enterprise Scale</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.2 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial - ~20% filled for 4.2 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-thought">
+            <stop offset="20%" stop-color="#fbbf24" />
+            <stop offset="20%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-thought)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.2 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Thought Industries is the platform of choice for B2B SaaS companies and enterprises serious about customer education. Purpose-built for external training, it offers capabilities that general-purpose LMS platforms lack: native commerce, multi-tenancy, CRM integrations, and the Panorama learner experience. The trade-offs are enterprise pricing, implementation complexity, and a narrower focus that may not suit organizations with diverse training needs. If customer education is a strategic priority with dedicated budget and resources, Thought Industries delivers specialized value.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for customer education leaders, VP of Customer Success, and learning strategists at B2B companies evaluating platforms for customer and partner training. If you're building or scaling a customer academy, certification program, or partner enablement initiative, this review will help you assess whether Thought Industries fits your requirements.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Thought Industries is purpose-built for customer and partner education—everything else is secondary.",
+    "The Panorama learner experience provides a modern, Netflix-style interface with personalized recommendations.",
+    "Native commerce engine supports subscriptions, one-time purchases, bundles, and complex B2B sales.",
+    "Multi-tenant architecture enables distinct learning environments for different audiences or product lines.",
+    "Deep CRM integrations (Salesforce, HubSpot) connect learning data to customer health and renewal metrics.",
+    "Enterprise pricing and implementation requirements exclude smaller organizations and simpler use cases."
+  ]} />
+
+  <!-- What is Thought Industries? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Thought Industries?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thought Industries is a learning business platform founded in 2012 and headquartered in Boston. Unlike general-purpose LMS vendors, the company has maintained a sharp focus on external training use cases—specifically customer education, partner enablement, and extended enterprise learning. This specialization has made it the platform of choice for B2B SaaS companies including Toast, ZoomInfo, Github, Intercom, and Asana.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform combines learning delivery, content management, commerce, and analytics in a unified system designed for businesses that treat education as a strategic function. Thought Industries' core philosophy is that customer education should drive measurable business outcomes—product adoption, retention, expansion revenue, and customer satisfaction—rather than being a cost center or afterthought.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Key differentiators include the Panorama learning experience (a modern, personalized learner interface), native eCommerce with subscription management, multi-tenant architecture for managing multiple audiences, and extensive integration capabilities with CRM, marketing automation, and business intelligence tools. The platform is cloud-native and scales to support millions of learners.
+    </p>
+  </section>
+
+  <!-- Who is Thought Industries Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Thought Industries Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Thought Industries targets a specific market segment. Here's where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">B2B SaaS Companies</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Software companies where customer education directly impacts adoption, retention, and expansion. Thought Industries' integrations with CRM systems enable connecting learning data to customer health scores, renewal likelihood, and expansion opportunities.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Customer Education Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with dedicated customer education functions and budgets. The platform's sophistication requires investment in implementation, content creation, and ongoing management—best suited to teams with resources to match.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Complex Multi-Audience Programs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies that need to train multiple distinct audiences—customers, partners, resellers, internal teams—with different content, branding, and business models. The multi-tenant architecture supports this complexity natively.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Training-as-Revenue Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that monetize training through subscriptions, certifications, or paid courses. The native commerce engine supports sophisticated pricing models including B2B bulk licensing, tiered subscriptions, and certification programs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Panorama Learning Experience</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Panorama is Thought Industries' modern learner interface designed to maximize engagement and completion rates. It features a personalized dashboard with recommended content, progress tracking across learning paths, a Netflix-style content discovery experience, and seamless navigation between courses. The interface is fully responsive and white-labeled to match your brand. Learners can access self-paced content, live sessions, and virtual labs from a unified experience.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Management and Delivery</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform supports diverse content types including SCORM and xAPI packages, video (with auto-transcription and translation), embedded content, documents, assessments, and virtual labs. The content authoring environment allows creation of interactive assessments, surveys, and knowledge checks. Content can be organized into courses, learning paths, certifications, and resource libraries. Version control and multilingual support enable global deployments.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Commerce Engine</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thought Industries' native commerce capabilities go beyond simple course sales. Features include subscription management (monthly/annual), one-time purchases, course bundles, tiered pricing, coupon codes, and B2B bulk licensing. The platform supports multiple currencies and payment gateways. For B2B sales, training credits and enterprise licensing workflows streamline procurement processes. eCommerce analytics provide visibility into revenue, conversion rates, and customer lifetime value.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Multi-Tenant Architecture</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform supports multiple learning environments (tenants) from a single instance. Each tenant can have distinct branding, content catalogs, user bases, admin permissions, and business rules. This enables scenarios like separate academies for different product lines, branded training portals for major partners, or geographic-specific instances—all managed centrally. Users can belong to multiple tenants with unified credentials.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations and Data</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thought Industries integrates deeply with business systems including Salesforce, HubSpot, Marketo, Gainsight, and various business intelligence tools. Learning data flows into CRM records, enabling customer success teams to see training engagement alongside product usage and support tickets. The platform supports SSO via SAML 2.0 and OAuth, API access for custom integrations, and webhooks for real-time data sync. Learning Record Store (LRS) capabilities support xAPI for detailed learning analytics.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics and Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Reporting capabilities span learner progress, content performance, and business metrics. Dashboards track completion rates, time-to-completion, assessment scores, and certification status. Business analytics connect learning to revenue, retention, and customer health. Custom reports and data exports enable integration with BI tools for advanced analysis. The platform provides both pre-built reports and customizable reporting capabilities.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Purpose-Built for Customer Education</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike platforms that added customer training as an afterthought, Thought Industries was designed for this use case from day one. Every feature—from commerce to CRM integrations—reflects an understanding of how B2B companies use education to drive business outcomes.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Panorama Learner Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The modern, personalized interface drives higher engagement than traditional LMS experiences. Netflix-style content discovery, progress visualization, and seamless navigation reduce friction and increase completion rates.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Sophisticated Commerce Engine</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The native eCommerce goes beyond basic course sales to support complex B2B scenarios: subscriptions, bulk licensing, training credits, and enterprise procurement workflows. For training-as-revenue businesses, this is a genuine differentiator.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Multi-Tenant Flexibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The ability to run multiple branded learning environments from a single instance is powerful for complex organizations. Manage customer academies, partner portals, and internal training—each with distinct branding and content—without platform sprawl.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">CRM Integration Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Deep Salesforce and HubSpot integrations connect learning activity to customer records. Customer success teams can see training engagement, certification status, and course completions alongside other customer data, enabling proactive engagement.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform is proven at scale—customers run programs with millions of learners. Infrastructure, security, and performance meet enterprise requirements including SOC 2 compliance, data residency options, and high availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Thought Industries May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Thought Industries May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Thought Industries falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With pricing starting in the $1,500-$2,500 per month range and scaling from there, Thought Industries is inaccessible to smaller organizations and individual creators. The total cost of ownership including implementation and content development is significant.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Implementation Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform's sophistication requires substantial implementation effort. Typical deployments involve multiple months of setup, integration work, content migration, and training. Organizations wanting quick time-to-value may find this burdensome.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Narrow Focus</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The customer education specialization is a strength and a limitation. Organizations with diverse training needs—including heavy employee compliance training, field service training, or other use cases—may find the platform less well-suited than general-purpose alternatives.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Authoring Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While the platform supports various content types, it doesn't include advanced authoring tools. Most customers create content in external tools (Articulate, Camtasia, etc.) and import. Organizations wanting built-in authoring should look elsewhere.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Sales-Led Buying Process</h3>
+        <p class="text-slate-700 leading-relaxed">
+          There's no self-serve option—evaluation requires engaging with sales, attending demos, and navigating a consultative buying process. This creates friction for organizations wanting to evaluate quickly or make rapid decisions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Thought Industries uses enterprise quote-based pricing that scales with your learner volume, feature requirements, and implementation complexity. Plans typically start in the $1,500-$2,500 per month range.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan Tier</th>
+            <th class="text-left py-3 px-4 font-semibold">Typical Range</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Growth</td>
+            <td class="py-3 px-4 text-slate-600">$1,500-$2,500/month</td>
+            <td class="py-3 px-4 text-slate-600">Growing customer education programs with moderate learner volumes</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Scale</td>
+            <td class="py-3 px-4 text-slate-600">$2,500-$5,000/month</td>
+            <td class="py-3 px-4 text-slate-600">Mature programs with higher volumes and advanced integration needs</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">$5,000+/month</td>
+            <td class="py-3 px-4 text-slate-600">Large-scale deployments with multi-tenancy, custom requirements, and dedicated support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>What's Included:</strong> All plans include the Panorama learner experience, content management, assessments, basic commerce, and standard integrations. Advanced features like multi-tenancy, Salesforce integration, and premium support may be tier-dependent or add-ons.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing is quote-based. Contact Thought Industries for current pricing specific to your learner volume and requirements.
+    </p>
+  </section>
+
+  <!-- How Thought Industries Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Thought Industries Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Thought Industries stacks up against other platforms in the customer education space:
+    </p>
+
+    <ComparisonTable
+      headers={["Thought Industries", "Thinkific", "Docebo", "Skilljar", "Northpass"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Customer education", "Learning commerce", "Enterprise LMS", "Customer training", "Customer education"] },
+        { feature: "Best For", values: ["B2B SaaS companies", "Course businesses", "Multi-audience enterprise", "Mid-market SaaS", "Enterprise customer ed"] },
+        { feature: "Commerce Engine", values: ["Native—advanced", "Native—excellent", "Add-on", "Native—good", "Native—good"] },
+        { feature: "Multi-Tenancy", values: ["Native", "Limited", "Extended Enterprise add-on", "Limited", "Available"] },
+        { feature: "CRM Integration", values: ["Deep (SFDC, HubSpot)", "Good", "Extensive", "Good", "Good"] },
+        { feature: "Learner Experience", values: ["Panorama—modern", "Polished", "Professional", "Clean", "Modern"] },
+        { feature: "Pricing Model", values: ["Quote-based", "Published tiers", "Quote-based", "Quote-based", "Quote-based"] },
+        { feature: "Implementation", values: ["Months", "Days-weeks", "Months", "Weeks-months", "Months"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your customer education goals, team size, and budget."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Thought Industries", href: "/compare/thinkific-vs-thought-industries", description: "Learning commerce vs customer education specialization: which fits your B2B training needs?" },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for course creators and customer education programs." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS with multi-audience capabilities for customer, partner, and employee training." },
+    { title: "Skilljar Review", href: "/reviews/skilljar", description: "Customer training platform focused on mid-market SaaS companies." }
+  ]} />
+
+</ReviewLayout>

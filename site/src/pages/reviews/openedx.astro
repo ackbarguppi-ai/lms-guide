@@ -1,0 +1,425 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is Open edX?",
+    answer: "Open edX is an open-source learning platform originally developed by edX, the online education initiative founded by Harvard and MIT. It powers edX.org and thousands of other learning sites worldwide. As open-source software, it's freely available to download, customize, and host yourself, or you can use managed hosting providers. Open edX is designed for delivering courses at scale—it's used by over 100 million learners globally."
+  },
+  {
+    question: "Is Open edX free to use?",
+    answer: "The Open edX software itself is free and open-source under the AGPL license. However, running Open edX requires hosting infrastructure, which has costs. You can self-host on your own servers (requiring technical expertise) or use managed hosting providers like Appsembler, eduNEXT, or OpenCraft. Managed hosting typically costs $500-$5,000+ per month depending on scale and support needs."
+  },
+  {
+    question: "What is XBlock in Open edX?",
+    answer: "XBlock is Open edX's architecture for creating custom learning components. It's an extensibility framework that allows developers to build new types of course content beyond the built-in options. Organizations can create custom XBlocks for specialized interactions, simulations, assessments, or integrations. The XBlock ecosystem includes hundreds of community-contributed components for everything from interactive diagrams to virtual labs."
+  },
+  {
+    question: "Who uses Open edX?",
+    answer: "Open edX is used by a diverse range of organizations: universities (Harvard, MIT, Stanford, Oxford), corporations (Microsoft, IBM, McKinsey), governments (French government, Mexican government), NGOs, and startups. edX.org itself runs on Open edX, serving over 100 million learners. The platform is particularly popular for MOOCs, university online programs, and corporate training at scale."
+  },
+  {
+    question: "How does Open edX compare to Thinkific?",
+    answer: "Open edX and Thinkific serve fundamentally different markets. Open edX is an open-source platform designed for technical teams and organizations needing maximum customization and scale. Thinkific is a hosted, commercial platform designed for ease of use and rapid deployment. Open edX offers unlimited flexibility but requires technical resources; Thinkific offers faster time-to-value with less customization. If you need complete control and have technical resources, Open edX is compelling. If you want to launch quickly without engineering, Thinkific is the better choice. See our <a href='/compare/thinkific-vs-openedx' class='text-teal-dark hover:underline'>full Thinkific vs Open edX comparison</a>."
+  },
+  {
+    question: "What are the hosting options for Open edX?",
+    answer: "You have three main options: (1) Self-hosting on your own infrastructure—free software but requires significant DevOps expertise; (2) Managed hosting providers like Appsembler, eduNEXT, or OpenCraft—paid services that handle technical operations; (3) edX.org's Open edX Marketplace—connects you with certified providers. Most organizations without dedicated technical teams choose managed hosting for reliability and support."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Open edX",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.0",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Open edX for organizations needing an open-source learning platform. Who it's best for, key strengths, limitations, and hosting options."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Open edX Review 2026: Open-Source Learning at Global Scale"
+  description="An honest, in-depth review of Open edX for organizations needing an open-source learning platform. Who it's best for, key strengths, limitations, and hosting options."
+  platformName="Open edX"
+  rating={4.0}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Open edX' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Open edX Review 2026: Open-Source Learning at Global Scale</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.0 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.0 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Open edX is the platform of choice for organizations that need maximum control, customization, and scale without vendor lock-in. Proven at massive scale—powering edX.org with 100M+ learners and used by Harvard, MIT, Microsoft, and governments worldwide—it offers unmatched flexibility for technical teams. The trade-offs are significant: you need technical expertise to run it, the user experience is functional but not polished, and support depends on community or paid providers. If you have the technical resources and value open source, it's compelling. If you want simplicity, look elsewhere.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for technical decision-makers, educational technologists, and organizations evaluating open-source learning platforms. If you're considering Open edX against commercial alternatives, or deciding between self-hosting and managed hosting, this review will help you understand the platform's strengths, limitations, and total cost of ownership.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Open edX is open-source software—free to use but requires hosting infrastructure and technical expertise.",
+    "The platform powers edX.org and serves 100+ million learners, proving scale and reliability.",
+    "XBlock architecture enables unlimited extensibility through custom content components and integrations.",
+    "Self-hosting requires DevOps capabilities; managed hosting providers offer easier deployment at a cost.",
+    "The learner experience is functional but not as polished as commercial platforms.",
+    "Strong community support, extensive documentation, and proven use cases at major universities and enterprises."
+  ]} />
+
+  <!-- What is Open edX? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Open edX?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Open edX is an open-source learning management system originally developed by edX, the nonprofit online education platform founded by Harvard University and MIT in 2012. Released as open source in 2013, it has grown into one of the most widely deployed learning platforms globally, serving over 100 million learners across thousands of sites.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike commercial LMS platforms, Open edX is freely available under the AGPL license. Organizations can download, modify, and host the software without licensing fees. This openness has created a vibrant ecosystem of contributors, service providers, and users spanning universities, corporations, governments, and nonprofits.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform is built on a modern architecture using Python and Django, with React-based frontend components. It's designed for scale—edX.org runs on the same codebase, handling millions of concurrent learners. Key features include course authoring, video delivery, assessments, discussion forums, progress tracking, and certificates. The XBlock framework enables unlimited customization and extension of platform capabilities.
+    </p>
+  </section>
+
+  <!-- Who is Open edX Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Open edX Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Open edX appeals to specific types of organizations. Here's where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Universities and Academic Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Open edX's origins in higher education make it a natural fit for universities. It supports the pedagogical models, assessment types, and credentialing needs of academic programs. Institutions like Harvard, MIT, Stanford, and Oxford use it for MOOCs and online degree programs.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Organizations with Technical Resources</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with DevOps teams who can self-host and customize the platform benefit from Open edX's flexibility. The ability to modify code, create custom XBlocks, and integrate with internal systems appeals to technically sophisticated organizations.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Large-Scale Training Programs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations needing to train hundreds of thousands or millions of learners need proven scale. Open edX has demonstrated this capability on edX.org and enterprise deployments. The architecture handles massive concurrent user loads.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Open Source Advocates</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations committed to open source principles—avoiding vendor lock-in, contributing to community development, and maintaining control over their technology stack—find Open edX aligns with their values and operational preferences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Authoring (Studio)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Open edX Studio provides a web-based authoring environment for creating courses. Instructors can build course structures, add content units, upload videos, create assessments, and configure grading policies. The platform supports various content types including HTML, video, problems (assessments), discussions, and advanced components via XBlocks. Course content is organized into sections, subsections, and units, providing a structured learning path.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">XBlock Extensibility</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      XBlock is Open edX's architecture for creating custom learning components. It's similar to WordPress plugins or Drupal modules—developers can create reusable components that extend platform functionality. The XBlock ecosystem includes components for interactive simulations, virtual labs, peer assessments, game-based learning, and integrations with external tools. Organizations can develop custom XBlocks for proprietary needs or use community-contributed options.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Video Delivery</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Open edX includes a sophisticated video player with features like closed captions, transcripts, variable speed playback, and clickable transcripts that sync with video. The platform supports integration with multiple video hosting providers including YouTube, AWS S3, and dedicated video CDNs. Video analytics track engagement, drop-off points, and completion rates.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessments and Grading</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform supports diverse assessment types: multiple choice, checkbox, text input, numerical input, drag-and-drop, peer assessment, and staff-graded assignments. Advanced problem types via XBlocks include chemical equation editors, circuit simulators, and code execution environments. Grading policies are highly configurable with support for weighted components, drop lowest scores, and grade boundaries.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Discussion and Collaboration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Built-in discussion forums enable peer interaction within courses. Features include threaded discussions, voting, following, and moderation tools. Discussions can be structured (associated with specific content) or course-wide. The platform also supports wiki pages and collaborative annotations for social learning.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Certificates and Credentials</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Open edX supports various credential types: verified certificates for individual courses, program certificates for series of courses, and XSeries/micro-credentials. Certificates are digitally signed and verifiable. The platform supports integration with digital credential platforms like Credly for badge issuance.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics and Insights</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Built-in analytics track enrollment, engagement, progress, and completion. The Insights tool provides visualizations of learner activity, problem performance, and video engagement. For advanced analytics, the platform supports integration with learning record stores (LRS) and business intelligence tools via APIs and data exports.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Vendor Lock-In</h3>
+        <p class="text-slate-700 leading-relaxed">
+          As open-source software, Open edX gives you complete control. You're not dependent on a vendor's business decisions, pricing changes, or product direction. You own your data, your customizations, and your destiny. This is valuable for long-term strategic planning.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unlimited Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With access to source code and the XBlock framework, you can customize virtually anything. Create unique learning experiences, integrate with proprietary systems, and adapt the platform to your exact requirements. No commercial platform offers this level of flexibility.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Proven at Massive Scale</h3>
+        <p class="text-slate-700 leading-relaxed">
+          edX.org runs on Open edX, handling millions of learners and courses from the world's top universities. This proven scale provides confidence for large deployments. The architecture is designed for horizontal scaling and high availability.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Strong Academic Pedigree</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Developed by Harvard and MIT, Open edX reflects higher education's approach to learning design. Assessment types, grading schemes, and course structures align with academic needs. For universities and research institutions, this is a natural fit.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Active Community</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Open edX community includes thousands of developers, educators, and service providers. Regular conferences, active forums, and extensive documentation provide support. The codebase is actively maintained with regular releases.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Total Cost Control</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While not free to run, Open edX gives you transparency and control over costs. You're not subject to per-user pricing that escalates with success. For large deployments, this can result in significant savings compared to commercial platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Open edX May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Open edX May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Open edX falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Technical Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Self-hosting Open edX requires significant technical expertise. You need DevOps capabilities for deployment, maintenance, security updates, and scaling. Even with managed hosting, customization and theming require developer resources. Organizations without technical teams struggle.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">User Experience Polish</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The learner interface is functional but lacks the polish of commercial platforms. Navigation can feel dated, mobile experience is adequate but not optimized, and the overall aesthetic is utilitarian. Creating a premium branded experience requires significant customization.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Hosting Costs and Responsibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While the software is free, running it isn't. Self-hosting requires servers, CDN, video storage, backup systems, and security measures. Managed hosting ranges from $500-$5,000+ per month. Factor in these real costs when comparing to commercial platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Out-of-Box Commerce</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Open edX has basic eCommerce capabilities but lacks sophisticated monetization features. If selling courses is your primary business model, commercial platforms offer better checkout experiences, marketing tools, and revenue optimization features.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Slower Time-to-Value</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Deploying Open edX—even with managed hosting—takes longer than spinning up a commercial platform. Setup, customization, content creation, and testing extend time-to-launch. If speed matters, commercial platforms offer faster deployment.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Support Variability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Community support is free but variable in quality and response time. Commercial support from providers costs extra. You're responsible for staying current with updates and security patches unless you pay for managed services.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Open edX software is free and open-source. Costs come from hosting, maintenance, and optional services.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Option</th>
+            <th class="text-left py-3 px-4 font-semibold">Typical Cost</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Self-Hosting</td>
+            <td class="py-3 px-4 text-slate-600">$200-$2,000+/month infrastructure</td>
+            <td class="py-3 px-4 text-slate-600">Organizations with DevOps teams wanting maximum control</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Managed Hosting (Basic)</td>
+            <td class="py-3 px-4 text-slate-600">$500-$1,500/month</td>
+            <td class="py-3 px-4 text-slate-600">Small to mid-size deployments without dedicated technical staff</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Managed Hosting (Enterprise)</td>
+            <td class="py-3 px-4 text-slate-600">$2,000-$5,000+/month</td>
+            <td class="py-3 px-4 text-slate-600">Large-scale deployments with high availability and support needs</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">edX Online Campus</td>
+            <td class="py-3 px-4 text-slate-600">Varies (university-focused)</td>
+            <td class="py-3 px-4 text-slate-600">Academic institutions wanting a turnkey solution</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Major Hosting Providers:</strong> Appsembler, eduNEXT, OpenCraft, and Raccoon Gang are among the established providers offering managed Open edX hosting with varying levels of support and customization.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Software is free (AGPL license). Budget for hosting, customization, content development, and ongoing maintenance.
+    </p>
+  </section>
+
+  <!-- How Open edX Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Open edX Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Open edX stacks up against other platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Open edX", "Thinkific", "Moodle", "Canvas", "TalentLMS"]}
+      highlight={0}
+      rows={[
+        { feature: "Model", values: ["Open source", "Commercial SaaS", "Open source", "Commercial/open", "Commercial SaaS"] },
+        { feature: "Best For", values: ["Technical teams, scale", "Course creators", "Education institutions", "Universities", "Small-mid business"] },
+        { feature: "Customization", values: ["Unlimited (code access)", "Limited theming", "Extensive plugins", "Limited", "Limited"] },
+        { feature: "Ease of Setup", values: ["Complex", "Fast", "Moderate", "Moderate", "Fast"] },
+        { feature: "Hosting", values: ["Self or managed", "Fully hosted", "Self or hosted", "Self or hosted", "Fully hosted"] },
+        { feature: "Total Cost (Large Scale)", values: ["Often lower", "Per-user pricing", "Often lower", "Varies", "Per-user pricing"] },
+        { feature: "Learner Experience", values: ["Functional", "Polished", "Functional", "Good", "Good"] },
+        { feature: "Commerce Features", values: ["Basic", "Excellent", "Plugins available", "Limited", "Good"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your technical resources, scale requirements, and customization needs."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Open edX", href: "/compare/thinkific-vs-openedx", description: "Commercial SaaS vs open source: which approach fits your organization?" },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for course creators and learning businesses." },
+    { title: "Moodle Review", href: "/reviews/moodle", description: "Open-source LMS with deep education features and extensive plugin ecosystem." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience training with AI features." }
+  ]} />
+
+</ReviewLayout>

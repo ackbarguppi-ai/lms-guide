@@ -1,0 +1,421 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is Gumroad?",
+    answer: "Gumroad is a simple e-commerce platform for selling digital products including courses, ebooks, software, music, and more. Founded in 2011, it gained popularity among creators for its straightforward approach to selling digital goods. While not a traditional LMS, Gumroad includes basic course delivery features, making it a viable option for creators who want to sell simple video courses without the complexity of a full learning platform."
+  },
+  {
+    question: "How much does Gumroad cost?",
+    answer: "Gumroad uses a flat-fee pricing model with no monthly costs. The platform takes a 10% commission on each sale (plus credit card processing fees of approximately 3-4%). This means you only pay when you make a sale. For creators just starting out or with inconsistent sales, this is significantly more affordable than monthly subscription platforms. Gumroad also offers a premium tier (Gumroad Premium) with lower fees (8.5% + monthly fee) for high-volume sellers."
+  },
+  {
+    question: "Is Gumroad good for selling courses?",
+    answer: "Gumroad works for simple video-based courses but lacks the features of dedicated LMS platforms. You can upload videos, organize them into a product, and deliver them to buyers. However, Gumroad doesn't offer quizzes, progress tracking, certificates, drip content, or community features. It's best for straightforward video courses where learners purchase, download or stream, and consume at their own pace. For structured learning experiences, a dedicated LMS is more appropriate."
+  },
+  {
+    question: "What can I sell on Gumroad?",
+    answer: "Gumroad supports virtually any digital product: video courses, ebooks, PDFs, audio files, software, design assets, photography, music, memberships, and more. You can also sell physical products (with shipping calculations) and subscriptions with recurring billing. The platform is particularly popular among independent creators, writers, designers, and musicians."
+  },
+  {
+    question: "Does Gumroad handle VAT/tax?",
+    answer: "Yes. Gumroad automatically collects and remits VAT for EU customers, handles sales tax for US customers, and manages GST for Australian customers. This is a significant value-add for creators who don't want to deal with international tax complexity. Gumroad acts as the merchant of record, handling the paperwork and remittance."
+  },
+  {
+    question: "How does Gumroad compare to Thinkific?",
+    answer: "Gumroad and Thinkific serve different creator needs. Gumroad is a simple commerce platform for selling digital products including basic courses. Thinkific is a dedicated learning platform with course authoring, student management, assessments, and learning features. Choose Gumroad if you want to sell simple video courses alongside other digital products with minimal overhead. Choose Thinkific if you're building a dedicated learning business with structured courses, student engagement, and learning outcomes. See our <a href='/compare/thinkific-vs-gumroad' class='text-teal-dark hover:underline'>full Thinkific vs Gumroad comparison</a>."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Gumroad",
+      "applicationCategory": "E-commerce Platform",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.4",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Gumroad for selling digital products and simple courses. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Gumroad Review 2026: Simple Digital Sales for Creators"
+  description="An honest, in-depth review of Gumroad for selling digital products and simple courses. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Gumroad"
+  rating={3.4}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Gumroad' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Gumroad Review 2026: Simple Digital Sales for Creators</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.4 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~40% filled for 3.4 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-gumroad">
+            <stop offset="40%" stop-color="#fbbf24" />
+            <stop offset="40%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-gumroad)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.4 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Gumroad is the platform for creators who want to sell digital products with minimal friction and zero upfront costs. With over $500M in creator earnings, it has proven that simple works for a certain segment. The 10% transaction fee model aligns Gumroad's success with yours, making it accessible for beginners. The trade-offs are significant: it's not a real LMS, lacking quizzes, progress tracking, community, and structured learning features. If you're selling a simple video course or bundle of content, Gumroad works. If you're building a learning business with student success as a goal, look elsewhere.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for independent creators, writers, designers, and entrepreneurs evaluating Gumroad for selling digital products including simple courses. If you're deciding between Gumroad and a dedicated LMS, or considering it alongside other simple commerce tools, this review will help you understand where it fits and where it falls short.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Gumroad is a digital product marketplace, not an LMS—think commerce-first, learning-second.",
+    "Zero monthly fees and 10% transaction pricing make it accessible for creators just starting out.",
+    "Automatic VAT/tax handling for EU, US, and Australia reduces international selling complexity.",
+    "Simple product setup—upload files, set a price, and start selling in minutes.",
+    "No learning features: no quizzes, progress tracking, certificates, or student management.",
+    "Over $500M paid out to creators proves the model works for digital product sales."
+  ]} />
+
+  <!-- What is Gumroad? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Gumroad?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad is an e-commerce platform designed specifically for creators to sell digital products directly to their audience. Founded in 2011 by Sahil Lavingia (former Pinterest designer), Gumroad emerged from the simple insight that selling digital products online was unnecessarily complicated. The platform stripped away the complexity, allowing creators to upload a file, set a price, and share a link.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      While not purpose-built for courses, Gumroad has become a popular choice for creators selling video-based educational content. The platform supports video streaming, PDFs, audio files, and bundled products. Creators can organize content into "courses" as digital products, and customers purchase access to download or stream the materials.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Gumroad's growth has been driven by its creator-friendly approach. The company has paid out over $500 million to creators and built a loyal following among independent writers, designers, musicians, and educators. The platform emphasizes direct creator-to-audience relationships, with features like email newsletters, audience analytics, and membership subscriptions.
+    </p>
+  </section>
+
+  <!-- Who is Gumroad Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Gumroad Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Gumroad appeals to a specific type of creator. Here's where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Beginning Creators</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If you're just starting out and don't want to commit to monthly fees, Gumroad's pay-as-you-earn model removes financial risk. You can experiment with different products without worrying about covering subscription costs during slow months.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Multi-Product Creators</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Creators who sell various digital products—courses, ebooks, templates, design assets—benefit from Gumroad's flexibility. One platform handles all your digital sales, simplifying operations and giving customers a unified storefront.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Simple Video Courses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If your course is primarily video content without complex learning features—no quizzes, no assignments, no certification needs—Gumroad delivers. Students buy, stream or download, and learn at their own pace without platform complexity.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Audience-First Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Creators with established audiences (email lists, social followings, communities) who want direct sales without platform intermediaries. Gumroad facilitates the transaction while you maintain the customer relationship.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Digital Product Sales</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad supports virtually any digital product type. Upload files up to 16GB each, organize multiple files into a single product, and set pricing (fixed, pay-what-you-want, or free). Products can be set to stream (for video), download, or both. The checkout process is streamlined—customers can purchase without creating an account, reducing friction.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Basic Course Delivery</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      For courses, Gumroad allows you to upload videos and organize them in a sequence. Customers see a list of videos and can stream or download each one. Video quality is adaptive based on connection speed. However, there are no structured learning paths, progress tracking, or completion markers. It's essentially a video playlist with purchase gating.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Subscriptions and Memberships</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad supports recurring revenue models with subscription products. Set monthly, quarterly, or annual billing. Offer tiered memberships with different content access levels. Subscription management includes dunning (failed payment recovery), upgrade/downgrade handling, and cancellation flows.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Audience and Email</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Every customer is added to your Gumroad audience with their email address. Built-in email tools let you send broadcasts or automated workflows to your customers. This creates a direct line to your buyers without third-party email marketing costs. Analytics show audience growth, engagement, and purchase behavior.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Tax and Compliance</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad acts as the merchant of record, handling sales tax and VAT automatically. For EU customers, VAT is calculated, collected, and remitted. US sales tax is handled similarly. Australian GST is also supported. This removes a significant burden for creators selling internationally.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics and Insights</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Dashboard analytics show sales, revenue, conversion rates, and audience growth. You can see which products perform best, where customers come from, and how your business trends over time. Export data for deeper analysis in other tools.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad integrates with common tools through Zapier, including email platforms, CRMs, and analytics tools. A JavaScript API allows embedding purchase buttons on your own website. Webhooks enable custom integrations for advanced users.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Zero Upfront Costs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No monthly fees means you can start selling immediately without financial risk. This is ideal for creators testing ideas or with inconsistent sales. You only pay when you earn, making Gumroad accessible to anyone.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Simplicity and Speed</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Creating a product takes minutes. Upload files, write a description, set a price, and you're selling. There's no complex course builder, no lengthy setup, no technical configuration. For creators who value speed, this is a genuine advantage.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Automatic Tax Handling</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Gumroad's handling of VAT, sales tax, and GST removes a major headache for international sellers. You don't need to register for tax numbers, file returns, or calculate rates. This alone saves hours of administrative work and potential compliance issues.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Built-In Audience Tools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The integrated email functionality means you don't need a separate email marketing platform for basic communication. Send updates, new product announcements, and automated workflows directly from Gumroad, reducing your tool stack and costs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Creator Community</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Gumroad has cultivated a strong creator community with resources, workshops, and success stories. The "Gumroad Creators" group provides peer support, and the company's transparency about its own journey resonates with independent creators.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Proven Track Record</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With $500M+ in creator earnings and over a decade in operation, Gumroad has proven staying power. It's not a startup that might disappear—it's an established platform with a sustainable business model.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Gumroad May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Gumroad May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Gumroad falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not an LMS</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is the biggest limitation. Gumroad has no quizzes, assessments, progress tracking, completion certificates, student management, or learning analytics. If your course requires structure, accountability, or student success measurement, Gumroad cannot deliver.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Drip Content</h3>
+        <p class="text-slate-700 leading-relaxed">
+          All course content is available immediately upon purchase. You cannot schedule content release over time, which is a common requirement for cohort-based courses or structured learning programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Community Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          There's no built-in community, discussion forums, or student interaction. Students purchase, consume content in isolation, and have no way to connect with you or each other within the platform.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Course Structure</ch3>
+        <p class="text-slate-700 leading-relaxed">
+          Courses are essentially file bundles. There's no module organization, prerequisite management, or learning path construction. The student experience is a simple list of videos, not a structured learning journey.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Transaction Fee Economics</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The 10% fee plus processing costs (~13-14% total) becomes expensive at scale. Once you're selling consistently, dedicated platforms with monthly fees often work out cheaper. The no-monthly-fee model favors beginners over established businesses.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Basic Video Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Video streaming is functional but lacks features like speed control, chapter markers, note-taking, or interactive elements found in dedicated learning platforms. The video player is adequate, not exceptional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Gumroad's pricing is straightforward: no monthly fees, just a percentage of sales.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Tier</th>
+            <th class="text-left py-3 px-4 font-semibold">Fee Structure</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Free</td>
+            <td class="py-3 px-4 text-slate-600">10% + payment processing (~3-4%)</td>
+            <td class="py-3 px-4 text-slate-600">Most creators—no monthly commitment, pay only when you sell</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Premium</td>
+            <td class="py-3 px-4 text-slate-600">$10/month + 8.5% + payment processing</td>
+            <td class="py-3 px-4 text-slate-600">High-volume sellers where 1.5% savings exceeds the monthly fee</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Effective Cost:</strong> Most creators pay approximately 13-14% total (Gumroad fee + credit card processing). Compare this to the total cost of ownership for subscription platforms when evaluating.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing as of March 2026. Check Gumroad's website for current rates.
+    </p>
+  </section>
+
+  <!-- How Gumroad Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Gumroad Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Gumroad stacks up against other platforms for selling courses and digital products:
+    </p>
+
+    <ComparisonTable
+      headers={["Gumroad", "Thinkific", "Teachable", "Kajabi", "Sellfy"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Purpose", values: ["Digital product sales", "Learning platform", "Course platform", "All-in-one business", "Digital storefront"] },
+        { feature: "Monthly Fee", values: ["$0", "$49-$199", "$39-$199", "$149-$399", "$0-$89"] },
+        { feature: "Transaction Fee", values: ["10% + processing", "0%", "0-5%", "0%", "0-2%"] },
+        { feature: "Learning Features", values: ["None", "Full LMS", "Full LMS", "Good", "None"] },
+        { feature: "Best For", values: ["Simple products, beginners", "Learning businesses", "Course creators", "Established businesses", "Digital downloads"] },
+        { feature: "Tax Handling", values: ["Automatic", "You handle", "You handle", "You handle", "You handle"] },
+        { feature: "Setup Speed", values: ["Minutes", "Days", "Days", "Days", "Minutes"] },
+        { feature: "Video Quality", values: ["Basic streaming", "HD adaptive", "HD adaptive", "HD adaptive", "Basic"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your course complexity, business model, and growth goals."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Gumroad", href: "/compare/thinkific-vs-gumroad", description: "Full LMS vs simple commerce: which fits your course business?" },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for dedicated learning businesses." },
+    { title: "Teachable Review", href: "/reviews/teachable", description: "Course platform with strong marketing features for creators." },
+    { title: "Kajabi Review", href: "/reviews/kajabi", description: "All-in-one platform for courses, marketing, and community." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,399 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Paylocity LMS a standalone product?",
+    answer: "No. Paylocity LMS is a module within the broader Paylocity HCM (Human Capital Management) platform. It is not available as a standalone product—you must be a Paylocity payroll or HR customer to access the LMS. This integration is a strength for existing Paylocity users but a barrier for organizations using other payroll or HR systems."
+  },
+  {
+    question: "How much does Paylocity LMS cost?",
+    answer: "Paylocity does not publish standalone LMS pricing. The LMS is typically bundled with HR and payroll packages or available as an add-on module. Pricing is quote-based and varies based on organization size, module selection, and contract terms. Organizations should expect enterprise HR software pricing rather than standalone LMS rates."
+  },
+  {
+    question: "What features does Paylocity LMS include?",
+    answer: "Paylocity LMS covers core learning management functionality: course creation and management, assignment and tracking, compliance training, certification management, and basic reporting. The mobile-first design emphasizes accessibility for deskless workers. Integration with Paylocity's HR data enables automated training assignments based on role, location, and tenure."
+  },
+  {
+    question: "Is Paylocity LMS mobile-friendly?",
+    answer: "Yes. Paylocity emphasizes mobile-first design across its platform, including the LMS module. This reflects their focus on deskless and frontline workers who may not have regular computer access. The mobile app enables learning completion, notifications, and basic management functions from smartphones and tablets."
+  },
+  {
+    question: "How does Paylocity LMS compare to dedicated LMS platforms?",
+    answer: "Paylocity LMS prioritizes integration and simplicity over feature depth. It lacks the advanced authoring tools, gamification, social learning, and extensive customization options of dedicated LMS platforms. However, for organizations already using Paylocity for payroll and HR, the unified data and simplified administration may outweigh these limitations."
+  },
+  {
+    question: "Can I use Paylocity LMS for customer training?",
+    answer: "Paylocity LMS is designed for employee training, not external audiences like customers or partners. It lacks the extended enterprise capabilities, white-labeling, and eCommerce features required for customer education. Organizations needing customer training should evaluate dedicated learning platforms rather than HR-integrated solutions."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Paylocity LMS",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of Paylocity LMS for employee training and compliance. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Paylocity LMS Review 2026: HR-Integrated Employee Training"
+  description="An honest review of Paylocity LMS for employee training and compliance. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Paylocity LMS"
+  rating={3.5}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Paylocity LMS' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Paylocity LMS Review 2026: HR-Integrated Employee Training</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.5 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~50% filled for 3.5 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-paylocity">
+            <stop offset="50%" stop-color="#fbbf24" />
+            <stop offset="50%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-paylocity)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.5 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Paylocity LMS delivers functional employee training capabilities with the key advantage of seamless HR data integration. For the 36,000+ organizations already using Paylocity for payroll and HR, the LMS module provides adequate learning management without adding another vendor relationship. However, feature limitations, lack of external training support, and dependency on the broader Paylocity ecosystem make it unsuitable for organizations with sophisticated learning needs or customer training requirements.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for HR leaders, payroll administrators, and operations teams evaluating Paylocity's learning capabilities. If you are already a Paylocity customer considering their LMS module—or evaluating whether to consolidate learning with your HR platform—this analysis is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Paylocity LMS is a module within the broader Paylocity HCM platform, not a standalone product.",
+    "Integration with payroll and HR data enables automated training assignments based on role, location, and tenure.",
+    "Mobile-first design supports deskless and frontline workers who lack regular computer access.",
+    "Feature set covers basics (compliance, assignments, tracking) but lacks advanced capabilities of dedicated LMS platforms.",
+    "36,000+ customer base reflects Paylocity's strength in payroll and HR, not learning management specialization.",
+    "Not suitable for customer training, partner education, or external audiences—employee-only focus."
+  ]} />
+
+  <!-- What is Paylocity LMS? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Paylocity LMS?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Paylocity LMS is the learning management module within Paylocity's cloud-based Human Capital Management (HCM) platform. Founded in 1997 and headquartered in Schaumburg, Illinois, Paylocity serves over 36,000 customers with payroll, HR, benefits, talent management, and workforce management solutions. The LMS module extends this ecosystem to include employee training and development.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform is designed for mid-market organizations—typically 50 to 5,000 employees—that want integrated HR and learning solutions rather than best-of-breed point solutions. Paylocity's value proposition centers on unified data: employee information, payroll records, benefits enrollment, time tracking, and training history all live in one system rather than requiring integration between separate vendors.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The LMS module reflects Paylocity's broader product philosophy: prioritize integration and ease of use over feature depth. It handles core learning management functions without the complexity or customization options of dedicated LMS platforms. For organizations with straightforward training needs—compliance, onboarding, policy acknowledgment—this simplicity is a feature, not a limitation.
+    </p>
+  </section>
+
+  <!-- Who is Paylocity LMS Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Paylocity LMS Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Paylocity LMS fits specific organizational profiles better than others. Here is where it delivers the most value:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Existing Paylocity Customers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations already using Paylocity for payroll and HR will find the LMS module integrates seamlessly with existing employee data, workflows, and permissions. The unified administration and single vendor relationship simplify operations and may reduce total cost of ownership.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Deskless and Frontline Workforces</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies with mobile-first workforces—retail, hospitality, manufacturing, healthcare—benefit from Paylocity's mobile-optimized design. Workers without regular computer access can complete training on smartphones, with offline capabilities for limited connectivity environments.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Compliance-Focused Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Industries with heavy compliance training requirements—healthcare, financial services, manufacturing—can leverage automated assignments tied to HR data. New hires automatically receive required training; expiring certifications trigger renewal assignments without manual administration.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-Market Simplicity Seekers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that prioritize simplicity over sophistication will appreciate Paylocity's straightforward approach. If your training needs are basic—deliver content, track completion, report on compliance—the LMS module delivers without the learning curve of more complex platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Paylocity LMS supports SCORM-compliant content, video uploads, documents, and assessments. The course builder is basic compared to dedicated authoring tools but functional for standard compliance and policy training. Content can be organized into curricula and learning paths assigned to specific employee groups or roles.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Automated Assignments</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Integration with Paylocity's HR database enables rules-based training assignments. New hires automatically receive onboarding courses; employees in specific locations get localized compliance training; role changes trigger skill development assignments. This automation reduces administrative burden and ensures consistent training delivery.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Compliance and Certification</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform tracks certification status, expiration dates, and renewal requirements. Automated notifications alert employees and managers when certifications approach expiration. Audit-ready reporting supports regulatory compliance documentation for industries with strict training requirements.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Mobile Learning</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The Paylocity mobile app includes LMS functionality, enabling employees to complete training, view assignments, and track progress from smartphones. Push notifications remind learners of pending courses. Offline completion allows training in environments without reliable connectivity, with sync when connection is restored.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting and Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Standard reports cover completion rates, compliance status, overdue assignments, and time spent learning. Reports can be filtered by department, location, role, and other HR attributes. While adequate for compliance tracking, the analytics lack the depth of dedicated learning platforms—no skill correlation, engagement metrics, or learning outcome analysis.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Third-Party Content</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Paylocity LMS integrates with popular content libraries including BizLibrary, OpenSesame, and LinkedIn Learning. Organizations can supplement internally created content with off-the-shelf courses covering compliance, soft skills, technical training, and industry-specific topics.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">HR Data Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The seamless connection between HR records and learning management eliminates manual user management, ensures training assignments reflect current roles and locations, and provides unified reporting across HR and learning data. For organizations already in the Paylocity ecosystem, this integration is the primary value driver.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Mobile-First Design</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Paylocity's mobile capabilities are well-developed, supporting the reality of frontline work where desktop computer access is limited. The mobile app's learning functionality enables training completion during shifts, breaks, or commutes without requiring dedicated training time.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unified Vendor Relationship</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Consolidating payroll, HR, benefits, time tracking, and learning with a single vendor simplifies procurement, contracting, support, and administration. For resource-constrained mid-market organizations, this operational simplicity has real value beyond feature comparisons.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Compliance Automation</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The rules engine for training assignments reduces the administrative overhead of compliance programs. HR teams can set up assignment rules once and trust that new hires, transfers, and role changes will receive appropriate training automatically.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Established Customer Base</h3>
+        <p class="text-slate-700 leading-relaxed">
+          With 36,000+ customers and a 25+ year track record, Paylocity offers stability that reduces vendor risk. The company is publicly traded (PCTY) with consistent financial performance, providing confidence in long-term viability and continued product investment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Paylocity LMS May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Paylocity LMS May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Paylocity LMS has clear limitations that make it unsuitable for certain use cases. Here is where the platform falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Non-Paylocity Customers</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The LMS is only available to Paylocity payroll and HR customers. Organizations using ADP, Workday, or other HR platforms cannot access the LMS module. This lock-in limits the addressable market and creates switching costs for existing Paylocity customers considering alternative HR solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Customer or Partner Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Paylocity LMS is designed exclusively for employee training. It lacks extended enterprise capabilities, white-labeling, eCommerce, and external user management required for customer education, partner training, or other external learning use cases.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Advanced Learning Needs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations requiring sophisticated learning features—gamification, social learning, competency mapping, skill assessments, learning paths with complex logic—will find Paylocity LMS limiting. The platform prioritizes simplicity over capability depth.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Creation</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The built-in authoring tools are basic. Organizations wanting to create rich, interactive learning content will need external authoring tools or content providers. SCORM upload works but adds workflow complexity compared to platforms with native authoring.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Analytics</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Reporting covers compliance and completion metrics but lacks learning analytics depth. No engagement analysis, learning outcome correlation, skill progression tracking, or predictive insights. Organizations wanting data-driven learning optimization will need supplementary analytics tools.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Paylocity does not publish standalone LMS pricing. The module is typically bundled with HR and payroll packages or available as an add-on for existing customers.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Component</th>
+            <th class="text-left py-3 px-4 font-semibold">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Base Platform</td>
+            <td class="py-3 px-4 text-slate-600">Paylocity HCM (payroll + HR) required as foundation</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">LMS Module</td>
+            <td class="py-3 px-4 text-slate-600">Available as add-on to core platform, pricing quote-based</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Pricing Model:</strong> Per-employee-per-month (PEPM) pricing typical of HCM platforms. LMS module pricing varies based on organization size, feature selection, and contract terms. Expect enterprise HR software pricing rather than standalone LMS rates.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing is quote-based. Contact Paylocity for specific pricing based on your organization size and module requirements.
+    </p>
+  </section>
+
+  <!-- How Paylocity LMS Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Paylocity LMS Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Paylocity LMS stacks up against other employee training solutions:
+    </p>
+
+    <ComparisonTable
+      headers={["Paylocity LMS", "Workday Learning", "Cornerstone", "Docebo", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Employee training", "Enterprise HR/Learning", "Talent management", "Multi-audience LMS", "Learning commerce"] },
+        { feature: "Integration", values: ["Paylocity ecosystem", "Workday ecosystem", "Multiple HR systems", "400+ integrations", "Standalone"] },
+        { feature: "Mobile", values: ["Strong", "Good", "Good", "Native apps", "Responsive"] },
+        { feature: "External Training", values: ["Not supported", "Limited", "Extended enterprise", "Native support", "Primary focus"] },
+        { feature: "Best For", values: ["Paylocity customers", "Workday customers", "Large enterprises", "Multi-audience training", "Customer education"] },
+        { feature: "Feature Depth", values: ["Basic", "Comprehensive", "Extensive", "Advanced", "Moderate"] },
+        { feature: "Pricing Model", values: ["PEPM bundled", "PEPM enterprise", "License-based", "Quote-based", "Transparent tiers"] },
+        { feature: "Compliance", values: ["Good", "Excellent", "Excellent", "Excellent", "Limited"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Paylocity HCM Review", href: "/reviews/paylocity", description: "Complete review of Paylocity's payroll and HR platform." },
+    { title: "Workday Learning Review", href: "/reviews/workday-learning", description: "Enterprise learning solution for Workday HCM customers." },
+    { title: "Cornerstone Review", href: "/reviews/cornerstone", description: "Comprehensive talent management and learning platform." },
+    { title: "HR-Integrated Learning Guide", href: "/guides/hr-learning", description: "Guide to selecting learning platforms integrated with HR systems." }
+  ]} />
+
+</ReviewLayout>

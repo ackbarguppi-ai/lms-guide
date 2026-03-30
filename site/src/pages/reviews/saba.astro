@@ -1,0 +1,404 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Saba still available as a standalone product?",
+    answer: "No. Saba Software was acquired by Cornerstone OnDemand in April 2020 for $1.4 billion. The Saba platform has been gradually integrated into Cornerstone's product suite. Existing Saba customers have been or are being migrated to the Cornerstone platform. New customers cannot purchase Saba as a standalone product—Cornerstone is the successor platform."
+  },
+  {
+    question: "What happens to existing Saba customers?",
+    answer: "Cornerstone has been migrating Saba customers to the Cornerstone platform since the 2020 acquisition. Migration timelines have varied—some customers transitioned within months, others have taken years depending on complexity. Cornerstone provides migration support including data transfer, configuration mapping, and training. Customers should engage with their Cornerstone account team to understand their specific migration timeline and options."
+  },
+  {
+    question: "What Saba features were kept in Cornerstone?",
+    answer: "Key Saba capabilities absorbed into Cornerstone include virtual classroom management (Saba Meeting), social and collaborative learning features, advanced ILT scheduling, and government/public sector compliance workflows. Cornerstone integrated these into its broader platform, though some niche Saba features may have been deprecated or re-architected. The combined platform is generally more capable than either predecessor alone."
+  },
+  {
+    question: "How does the Saba to Cornerstone migration work?",
+    answer: "Migration typically involves data migration (user records, learning histories, compliance records), configuration mapping (translating Saba workflows to Cornerstone equivalents), integration updates (reconnecting HRIS, SSO, and other systems), user training, and parallel running periods. Cornerstone provides dedicated migration project managers, but organizations should budget for internal IT and change management resources as well."
+  },
+  {
+    question: "Was Saba better than Cornerstone in any areas?",
+    answer: "Saba had particular strengths in virtual classroom management (Saba Meeting was well-regarded), social learning features, and government/public sector deployments. Some legacy Saba customers found Saba's admin interface more intuitive for certain ILT-heavy workflows. However, Cornerstone's broader talent management suite, skills intelligence, and investment in AI have generally made the combined platform stronger than either was independently."
+  },
+  {
+    question: "Should I still consider Saba for my organization?",
+    answer: "No. Saba no longer exists as a standalone product. If you're evaluating learning platforms, review <a href='/reviews/cornerstone' class='text-teal-dark hover:underline'>Cornerstone OnDemand</a> as the successor. For organizations that were considering Saba's strengths in virtual classrooms and social learning, Cornerstone now incorporates those capabilities. For simpler needs, consider alternatives like Absorb, Litmos, or Thinkific depending on your use case."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Saba Software",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.9",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "Review of Saba Software (now Cornerstone OnDemand). Legacy platform assessment, acquisition context, migration guidance, and what former Saba customers need to know."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Saba Review 2026: Legacy LMS Now Part of Cornerstone OnDemand"
+  description="Review of Saba Software (now Cornerstone OnDemand). Legacy platform assessment, acquisition context, migration guidance, and what former Saba customers need to know."
+  platformName="Saba"
+  rating={3.9}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Saba' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Saba Review 2026: Legacy LMS Now Part of Cornerstone OnDemand</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.9 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-saba">
+            <stop offset="90%" stop-color="#fbbf24" />
+            <stop offset="90%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-saba)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.9 / 5</span>
+  </div>
+
+  <!-- Acquisition Notice -->
+  <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 mb-6">
+    <p class="text-amber-800 leading-relaxed">
+      <strong>⚠️ Important:</strong> Saba Software was acquired by Cornerstone OnDemand in April 2020 for $1.4 billion. Saba is no longer available as a standalone product. This review covers the legacy platform for reference and provides migration guidance for former Saba customers. For the current platform, see our <a href="/reviews/cornerstone" class="text-teal-dark hover:underline font-semibold">Cornerstone OnDemand review</a>.
+    </p>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Saba was a respected enterprise learning and talent management platform with particular strength in virtual classrooms, social learning, ILT management, and government/public sector deployments. At its peak, Saba served 4,000+ organizations and 33M+ users globally. The 2020 acquisition by Cornerstone consolidated two major enterprise learning platforms. Legacy Saba customers should be actively planning or executing migration to Cornerstone, which now incorporates Saba's strongest capabilities into a broader talent management suite. This review serves as historical reference and migration guidance.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for former Saba customers navigating migration to Cornerstone, organizations that encounter Saba in vendor comparisons or legacy documentation, and decision-makers who want to understand the platform's history and how its capabilities live on in Cornerstone. If you're evaluating new platforms, start with our <a href="/reviews/cornerstone" class="text-teal-dark hover:underline">Cornerstone review</a>.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Saba was acquired by Cornerstone OnDemand in April 2020 and is no longer available as a standalone product. All new customers should evaluate Cornerstone directly.",
+    "Saba's strongest capabilities—virtual classroom management, social learning, advanced ILT scheduling, and public sector compliance—have been integrated into the Cornerstone platform.",
+    "Legacy Saba customers should be actively migrating to Cornerstone. Migration involves data transfer, configuration mapping, integration updates, and user training—budget 3–6 months for complex deployments.",
+    "Saba's historical rating of 3.9/5 reflects its strong feature set at time of acquisition. The combined Cornerstone platform rates higher (4.1/5) due to broader capabilities and continued investment.",
+    "Organizations previously evaluating Saba for its government/public sector strength should know that Cornerstone maintains FedRAMP authorization and public sector compliance capabilities.",
+    "The acquisition created short-term disruption for some Saba customers, but the long-term outcome is a more capable platform with deeper AI, skills intelligence, and talent management features."
+  ]} />
+
+  <!-- What Was Saba? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What Was Saba Software?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba Software was founded in 1997 in Redwood Shores, California, as one of the pioneering enterprise learning management system providers. The company went public in 2000 and was subsequently taken private by Vector Capital in 2015. Over its 23-year independent history, Saba built a substantial enterprise customer base across corporate, government, and healthcare sectors, serving 4,000+ organizations and 33M+ users globally.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba's platform evolved from a traditional LMS into a broader talent management suite encompassing learning management, talent development, workforce planning, and social collaboration. The platform was particularly well-regarded for its instructor-led training (ILT) management capabilities, virtual classroom technology (Saba Meeting), and social learning features that predated many competitors' community offerings.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      In April 2020, Cornerstone OnDemand acquired Saba for $1.4 billion, creating one of the largest enterprise learning and talent management platforms in the world. The acquisition brought together two companies with complementary strengths—Cornerstone's corporate training dominance and Saba's government/public sector expertise and virtual classroom technology.
+    </p>
+  </section>
+
+  <!-- Who Was Saba Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who Was Saba Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Saba served a specific set of enterprise customers particularly well:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Government & Public Sector</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Saba had deep roots in government agencies, military training programs, and public sector organizations. FedRAMP authorization, Section 508 accessibility compliance, and government-specific workflows made it a preferred vendor for federal, state, and local government training programs.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">ILT-Heavy Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with significant instructor-led training operations valued Saba's advanced scheduling, resource management, virtual classroom integration, and blended learning orchestration. The ILT management capabilities were among the strongest in the market.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Healthcare Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Hospitals, health systems, and pharmaceutical companies used Saba for clinical training, continuing medical education, and regulatory compliance. The platform's compliance tracking and certification management were well-suited to healthcare's complex regulatory environment.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Social Learning Adopters</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations wanting collaborative, social learning experiences. Saba's social features—communities, knowledge sharing, peer learning, and mentoring tools—were ahead of their time and attracted organizations looking beyond traditional course-based learning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities (Legacy) -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities (Legacy Platform)</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba's LMS supported SCORM 1.2/2004, AICC, and xAPI content standards. Blended learning combined online courses, instructor-led training, virtual classrooms, and on-the-job training. Automated compliance tracking, recertification workflows, and audit reporting served regulated industries. The platform handled complex enrollment rules, waitlists, and resource scheduling for ILT programs.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Virtual Classrooms (Saba Meeting)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba Meeting was an integrated virtual classroom solution that combined web conferencing with LMS tracking. Sessions were automatically recorded, attendance tracked, and completion data fed back into learner records. This tight integration between virtual delivery and learning management was a differentiator—most competitors required third-party integrations for virtual classroom functionality.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Social & Collaborative Learning</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba's social learning capabilities included communities of practice, knowledge sharing, peer recommendations, mentoring tools, and collaborative workspaces. These features encouraged informal learning alongside formal training programs—an approach that was forward-thinking when first introduced and is now standard across modern LXP platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Talent Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Beyond learning, Saba offered performance management, succession planning, competency management, and career development tools. The integration of learning with talent management allowed organizations to connect training to performance outcomes and career progression—capabilities that Cornerstone has expanded significantly post-acquisition.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting & Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Saba provided standard and custom reporting for learning completion, compliance status, training effectiveness, and talent metrics. The analytics were functional but not as advanced as modern AI-powered platforms. Cornerstone has significantly upgraded analytics capabilities for migrated Saba customers.
+    </p>
+  </section>
+
+  <!-- What Saba Did Well -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What Saba Did Well</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Virtual Classroom Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Saba Meeting's native integration with the LMS was genuinely differentiated. Automatic attendance tracking, recording, and completion logging without third-party tools simplified virtual training administration and improved data accuracy.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">ILT Management Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Complex instructor-led training operations—room scheduling, instructor availability, equipment booking, waitlist management, and multi-session programs—were handled with more sophistication than most competitors. Organizations running hundreds of ILT sessions per month valued this operational depth.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Government & Public Sector Compliance</h3>
+        <p class="text-slate-700 leading-relaxed">
+          FedRAMP authorization, Section 508 compliance, and government-specific workflows gave Saba credibility in a market segment that demands rigorous security and accessibility standards. This public sector strength was a key strategic asset in the Cornerstone acquisition.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Social Learning (Ahead of Its Time)</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Saba's community and social learning features anticipated the LXP trend by several years. Peer learning, knowledge sharing, and informal learning alongside formal programs created a more holistic learning experience than pure course-delivery platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Scalability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          33M+ users across 4,000+ organizations demonstrated Saba's ability to handle large-scale deployments. The platform performed reliably for major government agencies, global enterprises, and healthcare systems with complex, distributed workforces.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations & Migration Considerations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Limitations & Migration Considerations</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Understanding Saba's historical limitations helps contextualize the migration to Cornerstone:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Platform No Longer Independent</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The most significant limitation: Saba no longer exists as a standalone product. Legacy customers must migrate to Cornerstone. Delaying migration means operating on a platform without independent roadmap investment—feature development now happens within the Cornerstone ecosystem.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Migration Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Moving from Saba to Cornerstone involves data migration, workflow reconfiguration, integration updates, and user retraining. Organizations with heavily customized Saba deployments face the most complex migrations. Budget 3–6+ months and dedicated project resources.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">UI Modernization Gaps (Legacy)</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Saba's user interface, while functional, showed its age compared to modern platforms. The admin experience was powerful but complex. Cornerstone's platform offers a more modern UX, though the transition can be jarring for long-time Saba administrators accustomed to specific workflows.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Feature Parity Gaps</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Not every Saba feature has a direct equivalent in Cornerstone. Some niche capabilities may have been deprecated, re-architected, or replaced with different approaches. Organizations should conduct a detailed feature mapping exercise before migration to identify gaps and plan workarounds.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Change Management Challenges</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Long-time Saba users and administrators may resist change, especially when familiar workflows operate differently in Cornerstone. Invest in change management, comprehensive training, and a phased rollout to minimize disruption and maintain user adoption.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration Path -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Migration Path: Saba to Cornerstone</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      For organizations still operating on the Saba platform or planning migration, here's what to expect:
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Phase</th>
+            <th class="text-left py-3 px-4 font-semibold">Key Activities</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">1. Assessment</td>
+            <td class="py-3 px-4 text-slate-600">Audit current Saba configuration, customizations, integrations, and content. Identify feature dependencies and compliance requirements.</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">2. Planning</td>
+            <td class="py-3 px-4 text-slate-600">Map Saba features to Cornerstone equivalents. Identify gaps and plan workarounds. Build migration timeline and resource plan.</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">3. Data Migration</td>
+            <td class="py-3 px-4 text-slate-600">Transfer user records, learning histories, compliance records, certifications, and content. Validate data integrity.</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">4. Configuration & Testing</td>
+            <td class="py-3 px-4 text-slate-600">Configure Cornerstone to match organizational workflows. Update integrations (SSO, HRIS, etc.). UAT with key stakeholders.</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">5. Training & Go-Live</td>
+            <td class="py-3 px-4 text-slate-600">Train administrators and end users. Run parallel for critical workflows. Phased cutover with support resources in place.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Migration timelines vary from 3–12 months depending on deployment complexity. Engage your Cornerstone account team early for dedicated migration support.
+    </p>
+  </section>
+
+  <!-- How Saba Compared -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Saba Compared (Historical)</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      For historical context, here's how Saba compared to other platforms at the time of its acquisition:
+    </p>
+
+    <ComparisonTable
+      headers={["Saba (Legacy)", "Cornerstone (Successor)", "Docebo", "Absorb LMS", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Status", values: ["Acquired (2020)", "Active (successor)", "Active", "Active", "Active"] },
+        { feature: "Primary Focus", values: ["Enterprise learning + talent", "Unified talent management", "Multi-audience enterprise learning", "Corporate training", "Learning commerce"] },
+        { feature: "Best For", values: ["Gov't, ILT-heavy orgs", "Large enterprise, 1000+", "Mid-large enterprise, 250+", "Mid-market to enterprise", "Experts & learning businesses"] },
+        { feature: "Virtual Classrooms", values: ["Native (Saba Meeting)", "Integrated (from Saba)", "Third-party", "Third-party", "Third-party"] },
+        { feature: "Social Learning", values: ["Strong native features", "Enhanced (from Saba)", "Communities add-on", "Limited", "Community features"] },
+        { feature: "Gov't/FedRAMP", values: ["Yes", "Yes (inherited)", "FedRAMP Moderate", "No", "No"] },
+        { feature: "Skills Intelligence", values: ["Basic competencies", "AI-powered, 53K+ taxonomy", "AI-powered", "Basic", "Not applicable"] },
+        { feature: "Current Availability", values: ["Migration only", "Active", "Active", "Active", "Active"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Navigating your platform migration?"
+    ctaDescription="Get a personalized recommendation for your next LMS based on your specific use case, team size, and current platform."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Cornerstone OnDemand Review", href: "/reviews/cornerstone", description: "The successor platform: full review of Cornerstone's talent management and learning suite." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS alternative for multi-audience training with AI features." },
+    { title: "Litmos Review", href: "/reviews/litmos", description: "Enterprise LMS known for rapid deployment—a simpler alternative to legacy platforms." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Platform for experts building learning businesses with full brand control." }
+  ]} />
+
+</ReviewLayout>

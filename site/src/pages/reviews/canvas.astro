@@ -1,0 +1,396 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Canvas LMS free?",
+    answer: "Canvas offers a free version called Canvas Free-for-Teacher, which lets individual instructors create courses with up to 100 students. However, institutional deployments require a paid license through Instructure. Canvas is also open source under the AGPLv3 license, so technically anyone can host their own instance—though self-hosting requires significant technical infrastructure and you lose Instructure's support, hosting, and SLA guarantees."
+  },
+  {
+    question: "Why is Canvas the most popular LMS in higher education?",
+    answer: "Canvas overtook Blackboard as the #1 LMS in US higher education around 2020 and now holds approximately 33% market share across 6,000+ institutions. Its rise is attributed to a modern, intuitive interface that reduced faculty training time, a fully open REST API with 400+ endpoints that enabled deep integrations, mobile-first design, reliable cloud infrastructure with 99.9% uptime SLA, and strong LTI support that lets institutions plug in thousands of third-party tools."
+  },
+  {
+    question: "What is SpeedGrader in Canvas?",
+    answer: "SpeedGrader is Canvas's inline grading tool that lets instructors review and grade student submissions directly in the browser. It supports annotations on documents, rubric-based scoring, audio/video feedback, and anonymous grading. SpeedGrader is consistently cited as one of Canvas's most-loved features by faculty because it significantly reduces grading time compared to downloading and re-uploading files."
+  },
+  {
+    question: "Does Canvas support corporate training?",
+    answer: "Yes. Instructure offers Canvas for corporate training through its 'Canvas by Instructure' product line, which includes features for employee onboarding, compliance training, and professional development. However, Canvas's roots and strongest feature set are in academic environments. For enterprise corporate training, platforms like Docebo, Absorb, or Cornerstone may offer more specialized features like multi-tenant architectures and advanced compliance tracking."
+  },
+  {
+    question: "How does Canvas compare to Thinkific?",
+    answer: "Canvas and Thinkific serve fundamentally different markets. Canvas is an institutional LMS designed for accredited education—universities, colleges, and K-12 districts—with features like gradebooks, academic workflows, and SIS integrations. Thinkific is a learning commerce platform for experts and businesses selling courses online, with built-in payments, marketing tools, and storefront capabilities. If you're an institution delivering academic programs, Canvas is the right choice. If you're monetizing knowledge or building a customer education program, Thinkific is purpose-built for that."
+  },
+  {
+    question: "What is Canvas Studio?",
+    answer: "Canvas Studio (formerly Arc) is Instructure's video learning platform integrated with Canvas. It provides video hosting, interactive quizzes embedded within videos, screen recording, automatic captioning, and analytics on student engagement. Studio lets instructors see exactly where students paused, rewatched, or dropped off. It's a paid add-on to the base Canvas license."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Canvas LMS",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An in-depth review of Canvas LMS by Instructure—the #1 LMS in US higher education. Strengths, limitations, pricing, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Canvas LMS Review 2026: The #1 LMS in Higher Education"
+  description="An in-depth review of Canvas LMS by Instructure—the #1 LMS in US higher education. Strengths, limitations, pricing, and who it's best for."
+  platformName="Canvas LMS"
+  rating={4.2}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Canvas LMS' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Canvas LMS Review 2026: The #1 LMS in Higher Education</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.2 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs><linearGradient id="partial-star-canvas"><stop offset="20%" stop-color="#fbbf24" /><stop offset="20%" stop-color="#cbd5e1" /></linearGradient></defs>
+        <path fill="url(#partial-star-canvas)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.2 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Canvas is the dominant LMS in US higher education for good reason—it combines a genuinely modern interface with a best-in-class open API and rock-solid infrastructure. For colleges, universities, and K-12 districts, it's the safe and smart choice. The trade-offs are institutional pricing that isn't transparent, limited corporate training features compared to enterprise-focused LMS platforms, and a feature set that prioritizes academic workflows over learning commerce.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for higher education administrators, CIOs, instructional designers, and faculty committees evaluating LMS platforms. If you're comparing Canvas to Blackboard, Brightspace, Moodle, or considering whether Canvas fits a corporate training use case, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Canvas holds ~33% of the US higher education LMS market, serving 6,000+ institutions and over 30 million users worldwide—making it the single most adopted LMS in American colleges and universities.",
+    "The open REST API with 400+ endpoints is the most extensible in the LMS space, enabling deep integrations with SIS, SaaS tools, and custom applications that other LMS platforms simply can't match.",
+    "SpeedGrader and the built-in gradebook are consistently rated as best-in-class by faculty, significantly reducing grading time and enabling rubric-based, anonymous, and multimedia feedback.",
+    "Canvas is open source (AGPLv3), giving institutions the option to self-host—though most opt for Instructure's managed cloud for reliability and support.",
+    "Corporate training and learning commerce are not Canvas's strengths. It lacks native eCommerce, multi-tenant enterprise features, and the compliance automation found in corporate LMS platforms.",
+    "Pricing is entirely quote-based and negotiated at the institutional level, with no published rates. Add-ons like Canvas Studio, Canvas Catalog, and Mastery Connect increase total cost."
+  ]} />
+
+  <!-- What is Canvas LMS? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Canvas LMS?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Canvas is a cloud-based learning management system built by Instructure, a publicly traded edtech company headquartered in Salt Lake City, Utah. Launched in 2011, Canvas rapidly disrupted a market long dominated by Blackboard and Moodle by offering a modern, intuitive interface and a cloud-native architecture when competitors were still running on-premise installations.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Today Canvas serves over 30 million users across 6,000+ institutions in 100+ countries. It's the #1 LMS in US higher education with approximately 33% market share, and it continues to gain ground in K-12 and international markets. Instructure was acquired by Thoma Bravo in 2020 for $2 billion, taken private, then re-listed publicly in 2021.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform supports course management, assignments, discussions, quizzing, gradebook management, peer review, and video-based learning. Its open REST API (400+ endpoints) and LTI 1.3 Advantage support make it the most extensible LMS available, with a thriving ecosystem of integrations and third-party tools built on top of the platform.
+    </p>
+  </section>
+
+  <!-- Who is Canvas Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Canvas Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Canvas is purpose-built for institutional education. Its feature set, pricing model, and roadmap all reflect this focus:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Colleges & Universities</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Canvas's core market. Deep SIS integrations (Banner, PeopleSoft, Workday Student), academic workflow support, FERPA compliance, and the gradebook/SpeedGrader combination make it the natural choice for higher ed institutions.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">K-12 School Districts</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Canvas's K-12 offering includes parent/observer accounts, Mastery Connect for standards-based assessment, and age-appropriate interfaces. It's increasingly adopted by large school districts replacing Google Classroom for more structured LMS needs.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Institutions Prioritizing API Extensibility</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If your IT team builds custom integrations, data pipelines, or third-party tools, Canvas's open API is unmatched. The LTI ecosystem and open-source codebase give technical teams flexibility no other major LMS provides.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Faculty-Centric Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Canvas's clean UX and SpeedGrader reduce faculty resistance to LMS adoption. Institutions where faculty buy-in is critical—especially those migrating from clunkier systems—find Canvas dramatically easier to roll out.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Management & Content</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Canvas supports modules, pages, assignments, discussions, quizzes (Classic Quizzes and New Quizzes with item banks), file storage, and external URL embedding. Content can be organized into prerequisite-gated modules with completion requirements. Blueprint Courses let administrators push template changes across multiple course sections simultaneously.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">SpeedGrader & Gradebook</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      SpeedGrader provides inline document annotation, rubric-based scoring, audio/video feedback recording, anonymous grading, and moderated grading workflows. The gradebook supports weighted grade categories, grading schemes, late policies, and What-If score scenarios for students. These tools are consistently cited as Canvas's strongest features.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">API & Integrations</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Canvas's REST API exposes 400+ endpoints covering virtually every platform function. LTI 1.3 Advantage support enables deep tool integrations. Native integrations include Google Workspace, Microsoft 365, Zoom, Turnitin, publisher content (Cengage, McGraw-Hill, Pearson), and major SIS platforms. The Canvas Data 2 service exports anonymized analytics to institutional data warehouses.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Canvas Studio</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      A paid video learning add-on providing hosting, screen recording, interactive in-video quizzes, automatic captioning, and engagement analytics. Studio shows instructors where students paused, rewatched, or stopped watching—actionable data for improving video content.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Canvas Catalog</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      A paid add-on for continuing education and professional development programs. Catalog provides a public-facing course listing with self-registration, payment processing, and certificate issuance. It's Canvas's closest feature to learning commerce, though it's designed for institutional continuing education rather than independent course creators.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Mobile Apps</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native iOS and Android apps for students and a separate Teacher app for instructors. The student app supports offline content access, push notifications, and assignment submissions. The Teacher app includes SpeedGrader on mobile for grading on the go.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Modern, Intuitive Interface</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas's UX is genuinely cleaner and more intuitive than legacy competitors. Faculty adoption rates are higher because the learning curve is lower. Students consistently rate Canvas above Blackboard and Moodle in usability surveys, and the interface has continued to improve with regular three-week release cycles.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Best-in-Class API & Extensibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No other major LMS matches Canvas's API breadth. The 400+ REST endpoints, LTI 1.3 support, webhooks, and open-source codebase create an ecosystem where institutions and vendors can build virtually anything. This extensibility is why Canvas has the largest third-party tool ecosystem in higher ed.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">SpeedGrader & Assessment Tools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          SpeedGrader alone has convinced many institutions to switch to Canvas. The combination of inline annotation, rubric scoring, multimedia feedback, and anonymous grading saves faculty hours per week. New Quizzes adds item banks, stimulus-based questions, and advanced question types.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Reliability & Infrastructure</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas offers a 99.9% uptime SLA backed by AWS infrastructure. The platform handles massive concurrent loads during peak periods (finals, start of term) without degradation. For institutions that experienced Blackboard outages, Canvas's reliability is a major selling point.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Open Source Option</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas's AGPLv3 open-source license means institutions can inspect, modify, and self-host the code. While most opt for Instructure's managed cloud, the transparency builds trust and the self-hosting option provides an exit strategy that proprietary LMS platforms can't offer.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Community & Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Canvas Community is one of the most active LMS user communities, with forums, feature voting, shared resources, and the annual InstructureCon conference. The EduAppCenter lists hundreds of LTI-compatible tools, creating a rich ecosystem that smaller LMS platforms can't replicate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Canvas May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Canvas excels in institutional education but has clear gaps elsewhere:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Corporate Training & Enterprise L&D</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas lacks native multi-tenant architecture, advanced compliance automation, skills tracking, and the enterprise features that corporate LMS platforms like Docebo and Absorb provide. While Instructure offers a corporate product, it's not Canvas's strength.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Commerce & Course Sales</h3>
+        <p class="text-slate-700 leading-relaxed">
+          There's no native eCommerce, marketing funnel tools, or storefront capabilities. Canvas Catalog provides basic payment processing for continuing education, but it's not designed for independent educators or businesses monetizing courses. Thinkific, Teachable, or LearnWorlds are purpose-built for that.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Opaque Institutional Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas pricing is entirely negotiated at the institutional level with no published rates. Multi-year contracts are standard. Add-ons (Studio, Catalog, Mastery Connect, Impact) increase costs significantly. Smaller institutions may find the total cost challenging compared to open-source alternatives like Moodle.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">New Quizzes Migration Friction</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The transition from Classic Quizzes to New Quizzes has been ongoing for years and remains a pain point. Not all Classic Quiz features have been replicated, and the migration process creates extra work for faculty with large question banks.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Built-in Analytics</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas's native analytics are basic compared to platforms with embedded BI tools. Canvas Data 2 provides raw data exports, but meaningful analytics require third-party tools or institutional data teams to build dashboards and reports.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Canvas uses institutional, quote-based pricing. There are no published per-user or per-student rates. Pricing factors include institution size (FTE enrollment), deployment scope, contract length, and selected add-ons.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Product</th>
+            <th class="text-left py-3 px-4 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Canvas LMS</td>
+            <td class="py-3 px-4 text-slate-600">Core LMS with course management, gradebook, SpeedGrader, discussions, quizzes, and API access</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Canvas Studio</td>
+            <td class="py-3 px-4 text-slate-600">Video hosting, interactive quizzes, screen recording, captioning, and engagement analytics (add-on)</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Canvas Catalog</td>
+            <td class="py-3 px-4 text-slate-600">Public course listing, self-registration, payment processing, and certificates for continuing education (add-on)</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Mastery Connect</td>
+            <td class="py-3 px-4 text-slate-600">Standards-based assessment and mastery tracking for K-12 (add-on)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Free option:</strong> Canvas Free-for-Teacher allows individual instructors to create courses for up to 100 students at no cost, with limited features and no institutional support.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Institutional pricing is quote-based. Contact Instructure for pricing specific to your enrollment and requirements.
+    </p>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Canvas Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Canvas stacks up against other LMS platforms in the higher education and institutional space:
+    </p>
+
+    <ComparisonTable
+      headers={["Canvas", "Blackboard", "Brightspace", "Moodle", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Higher ed & K-12", "Higher ed & K-12", "Higher ed & K-12", "Higher ed (open source)", "Learning commerce"] },
+        { feature: "US Higher Ed Share", values: ["~33% (#1)", "~25% (declining)", "~12% (growing)", "~15%", "N/A"] },
+        { feature: "API Extensibility", values: ["400+ REST endpoints", "REST + SOAP", "Valence API", "Web services API", "REST API"] },
+        { feature: "Open Source", values: ["Yes (AGPLv3)", "No", "No", "Yes (GPLv3)", "No"] },
+        { feature: "SpeedGrader Equivalent", values: ["SpeedGrader (best-in-class)", "Inline View", "Evaluation Hub", "Assignment grading", "N/A"] },
+        { feature: "Video Platform", values: ["Canvas Studio (add-on)", "Collaborate Ultra", "Virtual Classroom", "BigBlueButton plugin", "Built-in video hosting"] },
+        { feature: "eCommerce", values: ["Catalog (limited)", "No", "No", "Via plugins", "Native storefront"] },
+        { feature: "Pricing Model", values: ["Quote-based institutional", "Quote-based institutional", "Quote-based institutional", "Free (self-host) or paid cloud", "Published tiers, free plan"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Blackboard Review", href: "/reviews/blackboard", description: "How the former market leader compares in 2026 after the Anthology merger." },
+    { title: "D2L Brightspace Review", href: "/reviews/brightspace", description: "The accessibility-first LMS gaining ground in higher education and K-12." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Purpose-built for learning commerce—a different approach than institutional LMS." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience corporate training programs." }
+  ]} />
+
+</ReviewLayout>

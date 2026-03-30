@@ -1,0 +1,381 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is 360Learning?",
+    answer: "360Learning is a collaborative learning platform that combines LMS and LXP (Learning Experience Platform) capabilities. Founded in 2013 in Paris, France, it serves 1,700+ customers including Toyota, Mitsubishi Electric, and the British Red Cross. Its core thesis is that the best training content comes from internal subject matter experts, not L&D teams or external vendors—and the platform is designed to make expert-generated content creation fast and scalable."
+  },
+  {
+    question: "How much does 360Learning cost?",
+    answer: "360Learning offers published pricing starting at $8 per registered user per month on the Team plan (up to 100 users). The Business plan is quote-based for larger organizations and includes advanced features like API access, custom integrations, and dedicated customer success management. There is no free tier, but 360Learning offers a free trial. Pricing is per registered user, not per active user, which is important to factor in for organizations with large but partially active learner populations."
+  },
+  {
+    question: "Is 360Learning an LMS or an LXP?",
+    answer: "Both. 360Learning positions itself as a collaborative learning platform that combines LMS capabilities (structured courses, compliance tracking, certifications) with LXP features (social learning, content curation, peer recommendations, user-generated content). The blended approach means it handles formal training programs and informal knowledge sharing in one platform, rather than requiring separate LMS and LXP tools."
+  },
+  {
+    question: "What makes 360Learning different from other LMS platforms?",
+    answer: "The core differentiator is collaborative learning—the idea that subject matter experts within your organization create and iterate on training content, not just L&D professionals. The authoring tool is designed for non-L&D users, with co-authoring workflows, peer feedback loops, and relevance scoring. Courses that don't get positive reactions from learners surface automatically for revision. This creates a feedback-driven content improvement cycle that traditional LMS platforms don't have."
+  },
+  {
+    question: "Does 360Learning support compliance training?",
+    answer: "Yes. 360Learning supports compliance training with automated enrollment, mandatory course tracking, certification management, and audit-ready reporting. It's not a compliance-first platform like some enterprise LMS tools, but it handles the standard compliance use cases (onboarding checklists, regulatory training, recertification workflows) that mid-market organizations need."
+  },
+  {
+    question: "How does 360Learning compare to Thinkific?",
+    answer: "They serve different primary use cases. 360Learning is an internal learning platform for organizations training their own employees, with collaborative authoring and peer learning at its core. Thinkific is a learning commerce platform for experts and businesses selling courses to external audiences. If you're training your workforce, 360Learning is relevant. If you're monetizing expertise or building customer education programs with commerce features, Thinkific is purpose-built for that."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "360Learning",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.1",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An in-depth review of 360Learning—the collaborative learning platform that turns internal experts into course creators. Strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="360Learning Review 2026: Collaborative Learning from Internal Experts"
+  description="An in-depth review of 360Learning—the collaborative learning platform that turns internal experts into course creators. Strengths, limitations, and pricing."
+  platformName="360Learning"
+  rating={4.1}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: '360Learning' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">360Learning Review 2026: Collaborative Learning from Internal Experts</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.1 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs><linearGradient id="partial-star-360"><stop offset="10%" stop-color="#fbbf24" /><stop offset="10%" stop-color="#cbd5e1" /></linearGradient></defs>
+        <path fill="url(#partial-star-360)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.1 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> 360Learning takes a genuinely different approach to corporate learning—instead of L&D teams building all content in isolation, it empowers subject matter experts across the organization to create, iterate, and improve training courses collaboratively. The authoring tool is fast enough that non-L&D users actually use it, and the feedback loop (reactions, relevance scores, automatic flagging of underperforming content) creates a self-improving content ecosystem. It's best for mid-market organizations that want to scale internal knowledge sharing without proportionally scaling their L&D team. The trade-offs are limited extended enterprise capabilities and less depth in compliance automation compared to enterprise-first platforms.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for L&D managers, HR leaders, and training directors evaluating collaborative learning platforms. If you're frustrated by how long it takes to create training content, want to tap into internal expertise more effectively, or are comparing 360Learning against Docebo, TalentLMS, or Lessonly, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Collaborative learning is the core thesis—subject matter experts create content, not just L&D professionals. The authoring tool is designed for non-technical users and supports co-authoring, peer review, and iterative improvement.",
+    "The Relevance Score system automatically surfaces underperforming courses based on learner reactions, completion rates, and feedback. Courses that learners find unhelpful get flagged for revision—creating a continuous improvement cycle.",
+    "1,700+ customers including Toyota, Mitsubishi Electric, Aircall, and the British Red Cross. The platform has strong traction in European markets and is growing in North America.",
+    "Published pricing starts at $8/user/month (Team plan, up to 100 users). Business plan is quote-based for larger organizations. Pricing is per registered user, not per active user.",
+    "AI-powered features include course generation from existing documents, automatic quiz creation, and content translation. The AI augments expert knowledge rather than replacing it.",
+    "Limited extended enterprise and customer education features compared to Docebo or Thinkific. 360Learning is primarily an internal learning platform, not a customer-facing training solution."
+  ]} />
+
+  <!-- What is 360Learning? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is 360Learning?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      360Learning is a collaborative learning platform founded in 2013 in Paris, France by Nick Hernandez and Guillaume Alary. The company has raised over $240 million in funding and serves 1,700+ organizations worldwide. Its fundamental thesis challenges the traditional L&D model: instead of a small L&D team trying to create all training content, 360Learning enables subject matter experts throughout the organization to author courses quickly using an intuitive, collaborative toolset.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform combines LMS functionality (structured learning paths, compliance tracking, certifications) with LXP social features (peer recommendations, discussion forums, reactions, collaborative authoring). This hybrid approach means organizations don't need separate LMS and LXP tools—360Learning handles formal training programs and informal knowledge sharing in one system.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      360Learning's authoring tool is its most distinctive feature. It's designed so that anyone—sales managers, product engineers, operations leads—can create a structured course in minutes, not weeks. Co-authoring workflows let L&D teams guide and quality-check expert-created content without becoming bottlenecks. The result is faster content creation and content that stays current because the people closest to the subject matter are maintaining it.
+    </p>
+  </section>
+
+  <!-- Who is 360Learning Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is 360Learning Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      360Learning works best when organizations have internal expertise worth capturing and scaling:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-Market L&D Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with 100-5,000 employees where L&D teams are small relative to training needs. 360Learning lets you scale content creation by empowering experts across the organization to author courses, multiplying your L&D capacity without additional hiring.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Sales Enablement Programs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Sales teams need training that changes constantly—new products, new competitors, new objections. 360Learning's fast authoring and feedback loops mean sales managers can create and update training content without waiting for L&D to prioritize requests.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Employee Onboarding at Scale</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Fast-growing companies where onboarding content needs to be created quickly and updated frequently. Department experts can author their own onboarding modules, ensuring new hires learn from the people who actually do the work.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Knowledge-Intensive Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Consulting firms, technology companies, and professional services where institutional knowledge is a competitive advantage. 360Learning captures and distributes expertise that would otherwise live only in individuals' heads.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Collaborative Authoring</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The authoring tool lets non-L&D users create structured courses with text, video, documents, quizzes, and interactive elements. Co-authoring enables multiple contributors to work on a course simultaneously. Review workflows let L&D teams approve content before publication. The tool is intentionally simple—360Learning claims most users can create their first course in under 17 minutes.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Relevance Score & Feedback Loops</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Every course has a Relevance Score based on learner reactions (thumbs up/down, comments, completion rates). Courses that fall below threshold scores are automatically flagged for review. Course authors receive direct feedback from learners, creating a continuous improvement loop that ensures content quality improves over time rather than degrading.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Paths & Compliance</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Structured learning paths combine multiple courses into programs with prerequisites, deadlines, and completion tracking. Mandatory enrollment automation handles compliance and onboarding workflows. Certifications with expiry dates and recertification reminders support ongoing compliance requirements.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI-Powered Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      360Learning's AI assistant helps experts create courses faster by generating course outlines from existing documents, creating quiz questions from course content, suggesting improvements to drafted content, and translating courses into multiple languages. The AI augments expert knowledge rather than replacing it.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Social Learning & Engagement</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Discussion forums, reactions, comments, and peer Q&A create social context around courses. Learners can ask questions that experts answer, creating additional learning resources. Group challenges and collaborative projects add engagement mechanics beyond passive content consumption.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integrations</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Native integrations with HRIS (BambooHR, Workday, SAP SuccessFactors), collaboration tools (Slack, Microsoft Teams, Zoom), CRM (Salesforce), and content providers. API access on the Business plan enables custom integrations. SCORM and xAPI support for third-party content import.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Expert-Driven Content Creation</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is 360Learning's genuine innovation. Making it easy enough for non-L&D users to create quality courses—and providing the review workflows to maintain standards—solves the fundamental bottleneck in most L&D organizations: not enough content creators relative to training needs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Self-Improving Content Quality</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Relevance Score and feedback system is genuinely novel. Most LMS platforms treat published content as static. 360Learning treats it as a living resource that should improve based on learner input. Underperforming courses get flagged automatically, creating accountability without manual L&D auditing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Speed of Content Creation</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The authoring tool is genuinely fast. The 17-minute claim for a first course is credible—the interface is simple enough that subject matter experts can publish useful training without extensive tool training. This speed matters when training needs are urgent.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Published, Transparent Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike many enterprise LMS platforms, 360Learning publishes its Team plan pricing ($8/user/month). This transparency reduces evaluation friction and lets organizations model costs before engaging sales.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Modern UX & Engagement</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The interface feels more like a social media platform than a traditional LMS—reactions, feeds, discussions, and notifications create engagement patterns that feel familiar to modern users. This helps with adoption, particularly in organizations where LMS usage has historically been low.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where 360Learning May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      360Learning's collaborative focus creates specific limitations:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Extended Enterprise & Customer Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          360Learning is primarily an internal learning platform. It lacks the multi-tenant architecture, white-labeled customer academies, and eCommerce capabilities that platforms like Docebo and Thinkific offer for customer education and partner training programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Compliance Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations in heavily regulated industries (financial services, pharma, healthcare) may find it lacks the deep compliance features—audit trails, regulatory workflow automation, electronic signatures—that specialized compliance LMS platforms provide.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Per-Registered-User Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Pricing is per registered user, not per active user. For organizations with large learner populations where only a portion are active in any given month, this model can be more expensive than platforms that charge per active user or offer flat-rate pricing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Requires Cultural Buy-In</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The collaborative learning model only works if subject matter experts actually participate as content creators. Organizations with cultures where experts don't see training as part of their role, or where L&D insists on controlling all content, won't realize 360Learning's core value proposition.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Academic Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          360Learning is a corporate learning platform—it lacks SIS integrations, academic gradebooks, FERPA compliance, and the institutional features that Canvas, Blackboard, and Brightspace provide for higher education and K-12 environments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      360Learning offers two pricing tiers with published pricing on the Team plan, which is unusual for the corporate LMS category. Pricing is per registered user per month.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Team ($8/user/month)</td>
+            <td class="py-3 px-4 text-slate-600">Up to 100 users. Core collaborative authoring, learning paths, Relevance Score, mobile app, and standard integrations</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Business (quote-based)</td>
+            <td class="py-3 px-4 text-slate-600">100+ users. API access, custom integrations, advanced analytics, dedicated CSM, SSO, and premium support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Note:</strong> Pricing is per registered user, not per active user. A free trial is available. No free tier.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Team plan pricing is published. Contact 360Learning for Business plan pricing based on your user count and requirements.
+    </p>
+  </section>
+
+  <!-- Comparison -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How 360Learning Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how 360Learning stacks up against other corporate learning platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["360Learning", "Docebo", "TalentLMS", "Absorb", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Collaborative internal learning", "Enterprise multi-audience", "SMB corporate training", "Enterprise internal/external", "Learning commerce"] },
+        { feature: "Core Differentiator", values: ["Expert-driven authoring", "AI + multi-audience", "Simplicity + affordability", "Enterprise compliance", "Course monetization"] },
+        { feature: "Authoring Tool", values: ["Best-in-class collaborative", "AI-powered (Creator)", "Basic built-in", "Standard", "Course builder"] },
+        { feature: "Content Feedback", values: ["Relevance Score (unique)", "Standard ratings", "Standard ratings", "Standard ratings", "Student reviews"] },
+        { feature: "Customer Training", values: ["Limited", "Strong (Extended Enterprise)", "Basic external portals", "Available", "Native storefront"] },
+        { feature: "Pricing Transparency", values: ["Published Team plan", "Quote-based only", "Published tiers", "Quote-based only", "Published tiers"] },
+        { feature: "User Minimum", values: ["None", "250 users", "None", "Varies", "None"] },
+        { feature: "AI Features", values: ["Course generation, quizzes", "Harmony AI, virtual coaching", "Basic", "Available", "Thinker AI"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience training—how it compares to collaborative platforms." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Purpose-built for learning commerce and customer education programs." },
+    { title: "LearnDash Review", href: "/reviews/learndash", description: "WordPress-based LMS for course creators and small businesses." },
+    { title: "Canvas LMS Review", href: "/reviews/canvas", description: "The #1 institutional LMS—a different category than corporate learning." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = "LMS Buyer Guides (2026) — Research, Comparisons & Deep Dives";
+const description = "Buyer guides, use-case comparisons, feature deep dives, and practical tools for evaluating learning management systems. Independent research to help you make a confident LMS decision.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Organization",
+    "name": "LMS Guide Editorial Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LMS Guide"
+  },
+  "datePublished": "2026-03-22",
+  "dateModified": "2026-03-30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lms-guide.com/guides/"
+  }
+};
+
+const breadcrumbItems = [
+  { label: "Guides", href: "/guides/" }
+];
+
+const useCaseGuides = [
+  {
+    title: "Best LMS for Customer Training (2026)",
+    description: "Top platforms for customer education, onboarding, and branded academies — compared by real buyer criteria.",
+    href: "/guides/best-lms-customer-training",
+    tag: "Use Case"
+  },
+  {
+    title: "Best LMS for SaaS Companies",
+    description: "Customer training, onboarding academies, and partner enablement for SaaS businesses.",
+    href: "/guides/best-lms-for-saas",
+    tag: "Use Case"
+  },
+  {
+    title: "Best LMS for Training Businesses",
+    description: "Academies, bootcamps, and certification programs — platforms built for training as the product.",
+    href: "/guides/best-lms-for-training-businesses",
+    tag: "Use Case"
+  },
+  {
+    title: "Best LMS for Memberships & Communities",
+    description: "Recurring revenue through community-based learning — course + community hybrid models.",
+    href: "/guides/best-lms-for-memberships",
+    tag: "Use Case"
+  }
+];
+
+const buyerGuides = [
+  {
+    title: "What Buyers Actually Compare When Choosing an LMS",
+    description: "The 9-pillar evaluation framework real buyers use — from use-case fit to AI capability.",
+    href: "/guides/what-buyers-compare",
+    tag: "Buyer Guide"
+  },
+  {
+    title: "Complete Guide to LMS Certification Programs",
+    description: "Certificates vs certifications, credential types, revenue models, and what to look for in a platform.",
+    href: "/guides/certification-programs",
+    tag: "Buyer Guide"
+  },
+  {
+    title: "The State of LMS 2026",
+    description: "Annual industry report — market size, trends, platform landscape, and predictions for 2027.",
+    href: "/guides/state-of-lms-2026",
+    tag: "Industry Report"
+  }
+];
+
+const deepDiveGuides = [
+  {
+    title: "LMS AI Features Compared",
+    description: "AI course creation, adaptive learning, and analytics across eight platforms — what's real vs. hype.",
+    href: "/guides/ai-features-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "AI Teaching Assistants Compared",
+    description: "Thinkific Thinker, Docebo Harmony, Absorb Aura, Sana Labs — the complete comparison.",
+    href: "/guides/ai-teaching-assistants",
+    tag: "Deep Dive"
+  },
+  {
+    title: "E-Commerce & Sales Features Compared",
+    description: "Payments, checkout, upsells, taxes, and affiliate programs — which platforms help you sell more.",
+    href: "/guides/ecommerce-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Branding & White-Label Options Compared",
+    description: "Custom domains, branded apps, and white-label reselling across eight LMS platforms.",
+    href: "/guides/branding-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "API & Integrations Compared",
+    description: "REST APIs, webhooks, Zapier, CRM connections, and LTI support across platforms.",
+    href: "/guides/apis-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Mobile Learning Compared",
+    description: "Native apps, offline access, responsive design, and mobile-first platforms compared.",
+    href: "/guides/mobile-learning-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Gamification & Engagement Compared",
+    description: "Badges, leaderboards, points, challenges — which platforms make learning more engaging.",
+    href: "/guides/gamification-engagement-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Reporting & Analytics Compared",
+    description: "Learner analytics, course reporting, and data exports across leading LMS platforms.",
+    href: "/guides/reporting-analytics-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Compliance & Certifications Compared",
+    description: "SCORM, xAPI, certificate tracking, and compliance reporting across platforms.",
+    href: "/guides/compliance-certifications-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Pricing Plans Compared",
+    description: "Side-by-side pricing breakdown across eight leading LMS and learning commerce platforms.",
+    href: "/guides/pricing-plans-compared",
+    tag: "Deep Dive"
+  },
+  {
+    title: "Integrations Compared",
+    description: "Native integrations, Zapier, CRM, and HRM connections across platforms.",
+    href: "/guides/integrations-compared",
+    tag: "Deep Dive"
+  }
+];
+
+const completeGuides = [
+  {
+    title: "LMS AI Features: Complete Guide",
+    description: "Everything you need to know about AI in learning platforms — from content generation to adaptive learning.",
+    href: "/guides/lms-ai-features-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS AI Teaching Assistants: Complete Guide",
+    description: "How AI teaching assistants work, what they can do, and how platforms compare.",
+    href: "/guides/lms-ai-teaching-assistants-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS APIs & Developer Tools: Complete Guide",
+    description: "REST APIs, webhooks, SDKs, and integration patterns for learning platforms.",
+    href: "/guides/lms-apis-developer-tools-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Branding & White Label: Complete Guide",
+    description: "Everything about custom domains, branded apps, and white-label learning experiences.",
+    href: "/guides/lms-branding-white-label-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Compliance & Certifications: Complete Guide",
+    description: "SCORM, xAPI, cmi5, and compliance standards explained for LMS buyers.",
+    href: "/guides/lms-compliance-certifications-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS E-Commerce: Complete Guide",
+    description: "Payment processing, course pricing models, and commerce infrastructure in learning platforms.",
+    href: "/guides/lms-ecommerce-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Gamification & Engagement: Complete Guide",
+    description: "How gamification works in learning platforms — mechanics, psychology, and what the data says.",
+    href: "/guides/lms-gamification-engagement-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Integrations: Complete Guide",
+    description: "How LMS integrations work — CRM, HRM, SSO, content libraries, and more.",
+    href: "/guides/lms-integrations-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Mobile Learning: Complete Guide",
+    description: "Mobile learning strategy, native apps vs responsive web, and platform comparison.",
+    href: "/guides/lms-mobile-learning-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Pricing: Complete Guide",
+    description: "How LMS pricing models work, what to compare, and how to negotiate.",
+    href: "/guides/lms-pricing-complete-guide",
+    tag: "Complete Guide"
+  },
+  {
+    title: "LMS Reporting & Analytics: Complete Guide",
+    description: "What to measure in a learning program and how platforms support analytics needs.",
+    href: "/guides/lms-reporting-analytics-complete-guide",
+    tag: "Complete Guide"
+  }
+];
+
+const buyerTools = [
+  {
+    title: "LMS Evaluation Checklist",
+    description: "13-category checklist with scoring template for vendor comparison — printable and shareable.",
+    href: "/guides/lms-evaluation-checklist",
+    tag: "Tool"
+  },
+  {
+    title: "LMS RFP Template",
+    description: "Ready-to-use RFP with 9 sections, scoring rubric, and demo questions for enterprise buyers.",
+    href: "/guides/lms-rfp-template",
+    tag: "Tool"
+  },
+  {
+    title: "LMS Migration Checklist",
+    description: "7-phase step-by-step guide for switching platforms with minimal disruption.",
+    href: "/guides/lms-migration-checklist",
+    tag: "Tool"
+  }
+];
+
+const tagColors: Record<string, string> = {
+  "Use Case": "text-teal",
+  "Buyer Guide": "text-teal",
+  "Industry Report": "text-orange-600",
+  "Deep Dive": "text-teal",
+  "Complete Guide": "text-indigo-600",
+  "Tool": "text-purple-600"
+};
+---
+
+<BaseLayout title={title} description={description} canonical="https://lms-guide.com/guides/" jsonLd={jsonLd}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">LMS Buyer Guides (2026)</h1>
+    <p class="text-lg text-slate-600 leading-relaxed mb-4">
+      Independent research to help you evaluate, compare, and choose the right learning management system. Use-case guides, feature deep dives, and practical buyer tools — no vendor spin.
+    </p>
+  </section>
+
+  <!-- Use Case Guides -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Best LMS by Use Case</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">The right platform depends on what you're building. These guides match platform strengths to specific use cases.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {useCaseGuides.map(guide => (
+        <a href={guide.href} class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all">
+          <span class={`text-xs font-semibold uppercase tracking-wide ${tagColors[guide.tag] || 'text-teal'}`}>{guide.tag}</span>
+          <h3 class="font-bold text-navy group-hover:text-teal-dark mt-2 mb-2">{guide.title}</h3>
+          <p class="text-sm text-slate-500">{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Buyer Guides -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Buyer Frameworks & Industry Reports</h2>
+      <p class="text-slate-600 mb-8 max-w-3xl">Start here to build your evaluation framework before you talk to vendors.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {buyerGuides.map(guide => (
+          <a href={guide.href} class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all">
+            <span class={`text-xs font-semibold uppercase tracking-wide ${tagColors[guide.tag] || 'text-teal'}`}>{guide.tag}</span>
+            <h3 class="font-bold text-navy group-hover:text-teal-dark mt-2 mb-2">{guide.title}</h3>
+            <p class="text-sm text-slate-500">{guide.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Guides -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Feature Deep Dives</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">Side-by-side feature comparisons across leading platforms — what's actually different and why it matters.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {deepDiveGuides.map(guide => (
+        <a href={guide.href} class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all">
+          <span class={`text-xs font-semibold uppercase tracking-wide ${tagColors[guide.tag] || 'text-teal'}`}>{guide.tag}</span>
+          <h3 class="font-bold text-navy group-hover:text-teal-dark mt-2 mb-2">{guide.title}</h3>
+          <p class="text-sm text-slate-500">{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Complete Guides -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Complete Topic Guides</h2>
+      <p class="text-slate-600 mb-8 max-w-3xl">Everything you need to know about a specific LMS feature area or topic — from first principles to vendor comparison.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {completeGuides.map(guide => (
+          <a href={guide.href} class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all">
+            <span class={`text-xs font-semibold uppercase tracking-wide ${tagColors[guide.tag] || 'text-teal'}`}>{guide.tag}</span>
+            <h3 class="font-bold text-navy group-hover:text-teal-dark mt-2 mb-2">{guide.title}</h3>
+            <p class="text-sm text-slate-500">{guide.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Buyer Tools -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Buyer Tools</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">Practical templates and checklists for running a rigorous LMS evaluation.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {buyerTools.map(tool => (
+        <a href={tool.href} class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all">
+          <span class={`text-xs font-semibold uppercase tracking-wide ${tagColors[tool.tag] || 'text-purple-600'}`}>{tool.tag}</span>
+          <h3 class="font-bold text-navy group-hover:text-teal-dark mt-2 mb-2">{tool.title}</h3>
+          <p class="text-sm text-slate-500">{tool.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <LeadFormModal
+      ctaTitle="Not sure where to start?"
+      ctaDescription="Tell us about your use case and team size — we'll send you a personalized LMS recommendation based on what you're actually trying to build."
+      ctaButtonText="Get My Free Recommendation"
+    />
+  </section>
+
+</BaseLayout>

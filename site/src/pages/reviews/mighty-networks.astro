@@ -1,0 +1,414 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Mighty Networks an LMS?",
+    answer: "Mighty Networks is more than a traditional LMS. It combines community building, online courses, memberships, and events in a single platform. While it offers course creation and delivery capabilities, its core differentiator is the integration of learning with community features—discussion boards, live events, direct messaging, and member networking. It's best understood as a community-first platform that happens to include robust course functionality."
+  },
+  {
+    question: "How much does Mighty Networks cost?",
+    answer: "Mighty Networks offers three tiers: The Community Plan starts at $49/month for basic community features. The Business Plan at $119/month adds courses, live streaming, and monetization tools. The Mighty Pro Plan at $360/month includes branded mobile apps, advanced analytics, and priority support. All plans have 0% transaction fees on the Business and Pro tiers when using Mighty Payments."
+  },
+  {
+    question: "What is People Magic AI in Mighty Networks?",
+    answer: "People Magic is Mighty Networks' AI suite designed to enhance community engagement and course creation. It includes an AI writing assistant for posts and course content, AI-powered member connection suggestions, automated content recommendations, and engagement analytics. The AI helps community managers identify active members, surface trending topics, and suggest ways to increase member participation."
+  },
+  {
+    question: "Does Mighty Networks have native mobile apps?",
+    answer: "Yes. Mighty Networks offers native iOS and Android apps that members can download from the App Store and Google Play. On the Business plan, your community appears within the main Mighty Networks app. On Mighty Pro, you get fully branded, white-label mobile apps with your own icon, colors, and branding—a significant differentiator for established communities and businesses."
+  },
+  {
+    question: "How does Mighty Networks compare to Thinkific?",
+    answer: "Mighty Networks and Thinkific serve different primary use cases. Mighty Networks is built for community-first learning—ideal when peer interaction, networking, and ongoing engagement are central to your offering. Thinkific is purpose-built for structured course delivery and learning commerce, with more advanced assessment tools, certificates, and dedicated learning features. If community is your moat, choose Mighty Networks. If courses are your product, Thinkific may fit better. See our <a href='/compare/thinkific-vs-mighty-networks' class='text-teal-dark hover:underline'>full Thinkific vs Mighty Networks comparison</a>."
+  },
+  {
+    question: "Can I migrate my existing community to Mighty Networks?",
+    answer: "Yes. Mighty Networks offers migration support for communities moving from Facebook Groups, Slack, Discord, Circle, and other platforms. The platform provides import tools for member lists and content, plus migration guides and best practices. For larger communities on the Mighty Pro plan, dedicated onboarding support is available to ensure a smooth transition."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Mighty Networks",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web, iOS, Android"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.9",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Mighty Networks for community-based learning, memberships, and online courses. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Mighty Networks Review 2026: Community-First Learning Platform"
+  description="An honest, in-depth review of Mighty Networks for community-based learning, memberships, and online courses. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Mighty Networks"
+  rating={3.9}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Mighty Networks' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Mighty Networks Review 2026: Community-First Learning Platform</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.9 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (partial - ~90% filled for 3.9 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-mighty">
+            <stop offset="90%" stop-color="#fbbf24" />
+            <stop offset="90%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-mighty)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.9 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Mighty Networks is the platform of choice when community is central to your offering. By combining courses, memberships, events, and networking in one place, it creates stickier, more engaged learning experiences than course-only platforms. The trade-offs are fewer advanced LMS features, limited assessment capabilities, and a pricing model that scales with your success. If you're building a learning community rather than just selling courses, it's a strong contender.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for community builders, membership site owners, coaches, and experts who want to combine learning with peer interaction. If you're considering moving off Facebook Groups, launching a membership community, or building a cohort-based course experience, this review will help you evaluate whether Mighty Networks fits your needs.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Mighty Networks is built for community-first learning—courses, memberships, and peer interaction all in one platform.",
+    "Native mobile apps (iOS/Android) are a genuine differentiator, with fully branded white-label apps on the Pro plan.",
+    "People Magic AI provides engagement insights, content recommendations, and writing assistance for community managers.",
+    "Zero transaction fees on Business and Pro plans mean you keep more revenue as you scale.",
+    "Assessment and certification features are basic compared to dedicated LMS platforms—this is not for compliance training.",
+    "The platform excels at engagement and retention but lacks the advanced course authoring tools found in pure LMS solutions."
+  ]} />
+
+  <!-- What is Mighty Networks? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Mighty Networks?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Mighty Networks is an all-in-one platform for building communities, memberships, and online courses. Founded in 2017 by Gina Bianchini (previously co-founder of Ning), the platform has grown to serve thousands of communities ranging from small coaching groups to large membership businesses generating millions in annual revenue.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike traditional LMS platforms that bolt on community features as an afterthought, Mighty Networks was designed from the ground up with community at its core. The platform enables members to connect with each other through profiles, direct messaging, discussion boards, and interest-based groups. This social layer creates network effects—your community becomes more valuable as it grows.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Mighty Networks supports multiple content types: structured courses (both self-paced and cohort-based), live events and streaming, discussion posts, polls, articles, and resource libraries. The platform is web-based with native iOS and Android apps, making it accessible across devices. People Magic AI helps community managers understand engagement patterns, identify active members, and surface content recommendations.
+    </p>
+  </section>
+
+  <!-- Who is Mighty Networks Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Mighty Networks Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Mighty Networks is purpose-built for a specific use case. Here's where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Community-First Businesses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If peer interaction, networking, and ongoing community engagement are central to your value proposition, Mighty Networks delivers. The platform is designed for communities where members learn from each other, not just from the instructor.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Membership Sites</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Creators and businesses running recurring revenue memberships find Mighty Networks' integrated approach compelling. Combine courses, community, events, and exclusive content under one membership roof with unified billing.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Cohort-Based Courses</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Instructors running live, cohort-based programs benefit from the built-in community features. Students can connect, form accountability groups, and maintain relationships beyond the course duration—all without leaving the platform.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Coaches and Consultants</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Individual practitioners and small coaching businesses use Mighty Networks to deliver group programs, host client communities, and monetize expertise through memberships and courses. The platform scales from solo practitioners to multi-coach businesses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Community Building</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Mighty Networks' community features include member profiles with bios and interests, activity feeds, discussion boards organized by topics or groups, direct messaging between members, and event calendars. Members can follow each other, creating social connections that drive engagement. The platform supports both public and private communities with flexible access controls.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Creation</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Courses can be structured as self-paced or cohort-based. Content types include video lessons, text, PDFs, images, and embeds. The course builder is straightforward but lacks advanced features like complex quizzes, assignments, or detailed progress tracking found in dedicated LMS platforms. Courses can be free, one-time purchase, or subscription-based.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Live Events and Streaming</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Built-in live streaming enables real-time video sessions directly within the platform—no Zoom link required. Events can be free or paid, one-time or recurring. The Business and Pro plans support native live streaming, while lower tiers can integrate with external tools. Events automatically appear in the community calendar and can send push notifications to mobile apps.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Monetization</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Mighty Networks supports multiple revenue models: one-time course sales, recurring memberships, tiered subscription levels, and pay-per-event. The platform includes Mighty Payments for integrated payment processing (0% fees on Business and Pro plans) or you can connect Stripe. Members can upgrade or downgrade tiers, and you can offer free trials and coupons.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">People Magic AI</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      People Magic provides AI-powered insights to community managers. Features include an AI writing assistant for posts and course content, automated member connection suggestions based on interests and activity, content recommendations to increase engagement, and analytics that identify your most active and influential members. The AI helps surface what's working and suggests actions to improve community health.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Native Mobile Apps</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Mighty Networks offers true native mobile apps for iOS and Android. On Business plans, your community lives within the main Mighty Networks app. On Mighty Pro, you get fully branded, white-label apps published under your own name in the App Store and Google Play. Push notifications keep members engaged, and offline content access enables learning anywhere.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">True Community Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike platforms where community feels bolted on, Mighty Networks makes social interaction native to the experience. Members naturally discover each other, form connections, and engage in discussions alongside course content. This creates stickier, more valuable learning experiences.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Native Mobile Experience</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The iOS and Android apps are genuinely native—not responsive web views. Push notifications, offline access, and app store presence make it easy for members to stay engaged. The white-label app option on Mighty Pro is a significant differentiator for established brands.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Zero Transaction Fees</h3>
+        <p class="text-slate-700 leading-relaxed">
+          On Business and Pro plans, you pay no transaction fees on sales made through Mighty Payments. This is increasingly rare in the industry and means you keep more revenue as you scale. The model aligns the platform's success with yours.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Live Streaming Built-In</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Native live streaming removes friction from running live sessions. No need to manage Zoom links, passwords, or separate calendars. Everything happens within your community, recordings are automatically saved, and engagement is seamless.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">People Magic AI Insights</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The AI features go beyond basic writing assistance to provide genuine community intelligence. Identifying active members, surfacing trending topics, and suggesting engagement actions helps community managers scale their impact without burning out.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">All-in-One Simplicity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          By combining community, courses, events, and memberships in one platform, Mighty Networks reduces tool sprawl. One login, one billing relationship, one place to manage everything. For small teams and solopreneurs, this operational simplicity is valuable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Mighty Networks May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Mighty Networks May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Mighty Networks falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Advanced Assessment Needs</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Quizzes are basic—mostly multiple choice with limited configuration. There are no advanced assessment types, detailed analytics on learner performance, or robust certification features. If your courses require rigorous testing or compliance tracking, look elsewhere.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">SCORM and LTI Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Mighty Networks does not support SCORM, xAPI, or LTI standards. This makes it unsuitable for organizations with existing eLearning content libraries or those needing to integrate with enterprise learning ecosystems.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Learning Requirements</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform lacks enterprise features like SSO/SAML, advanced reporting, HRIS integrations, and compliance certifications. It's not designed for corporate training programs or regulated industries.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Course-Only Businesses</h3>
+        <p class="text-slate-700 leading-relaxed">
+          If you primarily sell standalone courses without a community component, you're paying for features you won't use. Dedicated course platforms often provide better authoring tools and lower costs for pure course delivery.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Customization</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While you can customize colors and branding, the overall layout and structure are fixed. Advanced customization requires the Mighty Pro plan, and even then, options are limited compared to self-hosted or white-label LMS solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Mighty Networks offers three pricing tiers with clear feature differentiation. All plans include unlimited members, hosts, and content—the platform makes money when you make money, not by limiting your scale.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Price</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Community</td>
+            <td class="py-3 px-4 text-slate-600">$49/month</td>
+            <td class="py-3 px-4 text-slate-600">Basic communities without courses, simple discussion and event features</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Business</td>
+            <td class="py-3 px-4 text-slate-600">$119/month</td>
+            <td class="py-3 px-4 text-slate-600">Most users—courses, live streaming, memberships, 0% transaction fees, native apps</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Mighty Pro</td>
+            <td class="py-3 px-4 text-slate-600">$360/month</td>
+            <td class="py-3 px-4 text-slate-600">Established brands needing white-label apps, advanced analytics, priority support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Key Pricing Notes:</strong> 0% transaction fees on Business and Pro plans when using Mighty Payments. Community plan has 2% transaction fees. Annual billing offers approximately 2 months free. Mighty Pro includes branded mobile apps published under your name in app stores.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing as of March 2026. Check Mighty Networks' website for current pricing.
+    </p>
+  </section>
+
+  <!-- How Mighty Networks Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Mighty Networks Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Mighty Networks stacks up against other platforms in the community and learning space:
+    </p>
+
+    <ComparisonTable
+      headers={["Mighty Networks", "Thinkific", "Circle", "Kajabi", "Teachable"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Community-first learning", "Learning commerce", "Community platform", "All-in-one marketing", "Course delivery"] },
+        { feature: "Best For", values: ["Membership communities", "Course businesses", "Brand communities", "Digital product suites", "Individual educators"] },
+        { feature: "Native Courses", values: ["Yes—basic", "Yes—advanced", "Via integrations", "Yes—good", "Yes—good"] },
+        { feature: "Native Mobile Apps", values: ["Yes—iOS/Android", "No (web-based)", "Yes", "Yes", "No (web-based)"] },
+        { feature: "Transaction Fees", values: ["0% (Business+)", "0%", "0%", "0%", "0% (paid plans)"] },
+        { feature: "Live Streaming", values: ["Native", "Via integrations", "Native", "Native", "Via integrations"] },
+        { feature: "Assessment Tools", values: ["Basic quizzes", "Advanced", "Limited", "Good", "Good"] },
+        { feature: "White-Label Apps", values: ["Yes (Pro plan)", "No", "No", "No", "No"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, community goals, and business model."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Mighty Networks", href: "/compare/thinkific-vs-mighty-networks", description: "Community-first vs course-first: which approach fits your business?" },
+    { title: "Circle Review", href: "/reviews/circle", description: "Dedicated community platform with course integrations." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for course creators and learning businesses." },
+    { title: "Kajabi Review", href: "/reviews/kajabi", description: "All-in-one platform for courses, marketing, and community." }
+  ]} />
+
+</ReviewLayout>

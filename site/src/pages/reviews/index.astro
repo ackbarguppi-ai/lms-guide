@@ -20,14 +20,14 @@ const jsonLd = {
     "name": "LMS Guide"
   },
   "datePublished": "2026-03-22",
-  "dateModified": "2026-03-22",
+  "dateModified": "2026-03-25",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://lms-guide.com/reviews/"
   }
 };
 
-// Learning Commerce Platforms
+// Learning Commerce (Experts/Creators)
 const learningCommercePlatforms = [
   {
     name: "Thinkific",
@@ -42,12 +42,6 @@ const learningCommercePlatforms = [
     href: "/reviews/kajabi"
   },
   {
-    name: "Teachable",
-    description: "Streamlined course platform focused on simplicity for experts selling digital learning products.",
-    rating: 3.8,
-    href: "/reviews/teachable"
-  },
-  {
     name: "LearnWorlds",
     description: "Interactive learning environment with strong white-label and site-building capabilities.",
     rating: 4.3,
@@ -58,10 +52,46 @@ const learningCommercePlatforms = [
     description: "Simple all-in-one platform for courses, digital downloads, and community.",
     rating: 4.2,
     href: "/reviews/podia"
+  },
+  {
+    name: "Mighty Networks",
+    description: "Community-first platform that combines courses with engaged social networking features.",
+    rating: 3.9,
+    href: "/reviews/mighty-networks"
+  },
+  {
+    name: "Teachable",
+    description: "Streamlined course platform focused on simplicity for experts selling digital learning products.",
+    rating: 3.8,
+    href: "/reviews/teachable"
+  },
+  {
+    name: "Udemy",
+    description: "Global course marketplace with built-in audience but limited brand control for instructors.",
+    rating: 3.8,
+    href: "/reviews/udemy"
+  },
+  {
+    name: "Systeme.io",
+    description: "Affordable all-in-one platform with courses, funnels, email, and affiliate management.",
+    rating: 3.6,
+    href: "/reviews/systeme"
+  },
+  {
+    name: "Skillshare",
+    description: "Creative-focused course marketplace with subscription-based revenue sharing.",
+    rating: 3.5,
+    href: "/reviews/skillshare"
+  },
+  {
+    name: "Gumroad",
+    description: "Simple digital product sales platform for courses, ebooks, and downloads.",
+    rating: 3.4,
+    href: "/reviews/gumroad"
   }
 ];
 
-// Enterprise LMS Platforms
+// Enterprise LMS
 const enterpriseLMSPlatforms = [
   {
     name: "Docebo",
@@ -74,16 +104,80 @@ const enterpriseLMSPlatforms = [
     description: "Intuitive enterprise learning platform for customer, partner, and employee training.",
     rating: 4.3,
     href: "/reviews/absorb"
-  }
-];
-
-// Corporate & Open-Source LMS
-const corporateOpenSourcePlatforms = [
+  },
   {
     name: "TalentLMS",
     description: "Affordable, easy-to-use cloud LMS for small-to-midsize training programs.",
     rating: 4.2,
     href: "/reviews/talentlms"
+  },
+  {
+    name: "SAP Litmos",
+    description: "Enterprise LMS with strong compliance features and extensive integrations.",
+    rating: 4.0,
+    href: "/reviews/litmos"
+  },
+  {
+    name: "Cornerstone",
+    description: "Comprehensive talent management platform with integrated learning and development.",
+    rating: 4.1,
+    href: "/reviews/cornerstone"
+  },
+  {
+    name: "360Learning",
+    description: "Collaborative learning platform emphasizing peer-created content and social features.",
+    rating: 4.1,
+    href: "/reviews/360learning"
+  },
+  {
+    name: "iSpring",
+    description: "PowerPoint-based authoring and LMS solution for rapid course development.",
+    rating: 4.1,
+    href: "/reviews/ispring"
+  },
+  {
+    name: "Saba",
+    description: "Enterprise talent and learning management with strong succession planning features.",
+    rating: 3.9,
+    href: "/reviews/saba"
+  },
+  {
+    name: "Tovuti",
+    description: "All-in-one LMS with built-in authoring, gamification, and e-commerce capabilities.",
+    rating: 3.8,
+    href: "/reviews/tovuti"
+  },
+  {
+    name: "Workday Learning",
+    description: "Integrated learning module within the Workday HCM ecosystem.",
+    rating: 3.7,
+    href: "/reviews/workday-learning"
+  }
+];
+
+// Customer Education
+const customerEducationPlatforms = [
+  {
+    name: "Skilljar",
+    description: "Customer education platform built for SaaS companies with strong integration focus.",
+    rating: 4.2,
+    href: "/reviews/skilljar"
+  },
+  {
+    name: "Thought Industries",
+    description: "Enterprise customer learning platform for external training and certifications.",
+    rating: 4.2,
+    href: "/reviews/thought-industries"
+  }
+];
+
+// Education/K-12/Higher Ed
+const educationPlatforms = [
+  {
+    name: "Canvas",
+    description: "Modern, cloud-based LMS widely adopted by universities and K-12 institutions.",
+    rating: 4.2,
+    href: "/reviews/canvas"
   },
   {
     name: "Moodle",
@@ -92,12 +186,130 @@ const corporateOpenSourcePlatforms = [
     href: "/reviews/moodle"
   },
   {
-    name: "Skilljar",
-    description: "Customer education platform built for SaaS companies with strong integration focus.",
-    rating: 4.2,
-    href: "/reviews/skilljar"
+    name: "D2L Brightspace",
+    description: "Higher education LMS with strong accessibility and adaptive learning features.",
+    rating: 4.0,
+    href: "/reviews/brightspace"
+  },
+  {
+    name: "Open edX",
+    description: "Open-source platform powering MOOCs and large-scale online education.",
+    rating: 4.0,
+    href: "/reviews/openedx"
+  },
+  {
+    name: "Schoology",
+    description: "K-12 focused LMS with strong parent engagement and district management tools.",
+    rating: 3.8,
+    href: "/reviews/schoology"
+  },
+  {
+    name: "Google Classroom",
+    description: "Lightweight LMS integrated with Google Workspace for Education.",
+    rating: 3.7,
+    href: "/reviews/google-classroom"
+  },
+  {
+    name: "Blackboard",
+    description: "Traditional higher education LMS with extensive feature set and legacy integrations.",
+    rating: 3.6,
+    href: "/reviews/blackboard"
+  },
+  {
+    name: "Chamilo",
+    description: "Open-source LMS focused on ease of use and rapid course creation.",
+    rating: 3.5,
+    href: "/reviews/chamilo"
+  },
+  {
+    name: "Sakai",
+    description: "Open-source collaboration and learning environment for higher education.",
+    rating: 3.3,
+    href: "/reviews/sakai"
   }
 ];
+
+// WordPress LMS
+const wordpressLMSPlatforms = [
+  {
+    name: "LearnDash",
+    description: "Premium WordPress LMS plugin with advanced quizzing and drip content features.",
+    rating: 3.9,
+    href: "/reviews/learndash"
+  },
+  {
+    name: "LifterLMS",
+    description: "Free core WordPress LMS with premium add-ons for memberships and courses.",
+    rating: 3.8,
+    href: "/reviews/lifterlms"
+  }
+];
+
+// Marketplace/Content Library
+const marketplacePlatforms = [
+  {
+    name: "Coursera",
+    description: "University-backed course marketplace offering certificates and degree programs.",
+    rating: 4.0,
+    href: "/reviews/coursera"
+  },
+  {
+    name: "LinkedIn Learning",
+    description: "Professional development platform integrated with LinkedIn's networking features.",
+    rating: 3.8,
+    href: "/reviews/linkedin-learning"
+  }
+];
+
+// Mobile/Microlearning
+const mobileMicrolearningPlatforms = [
+  {
+    name: "EdApp",
+    description: "Mobile-first microlearning platform with gamification and spaced repetition.",
+    rating: 3.9,
+    href: "/reviews/edapp"
+  },
+  {
+    name: "TalentCards",
+    description: "Flashcard-based mobile learning for quick, bite-sized training delivery.",
+    rating: 3.4,
+    href: "/reviews/talent-cards"
+  }
+];
+
+// SMB/Operations
+const smbOperationsPlatforms = [
+  {
+    name: "Lessonly",
+    description: "Sales and support training platform focused on practice and role-playing.",
+    rating: 3.7,
+    href: "/reviews/lessonly"
+  },
+  {
+    name: "Trainual",
+    description: "Process documentation and training platform for small business onboarding.",
+    rating: 3.6,
+    href: "/reviews/trainual"
+  },
+  {
+    name: "Paylocity",
+    description: "HR and payroll platform with integrated learning management features.",
+    rating: 3.5,
+    href: "/reviews/paylocity"
+  }
+];
+
+// All platforms for SEO/discovery (flattened list)
+const allPlatforms = [
+  ...learningCommercePlatforms,
+  ...enterpriseLMSPlatforms,
+  ...customerEducationPlatforms,
+  ...educationPlatforms,
+  ...wordpressLMSPlatforms,
+  ...marketplacePlatforms,
+  ...mobileMicrolearningPlatforms,
+  ...smbOperationsPlatforms
+].sort((a, b) => a.name.localeCompare(b.name));
 
 const breadcrumbItems = [
   { label: "Reviews", href: "/reviews/" }
@@ -146,7 +358,7 @@ function renderStars(rating: number) {
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
     <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Learning Commerce Platforms</h2>
     <p class="text-slate-600 mb-8 max-w-3xl">
-      Platforms built for selling courses, memberships, and digital learning products — or 
+      Platforms built for experts and creators selling courses, memberships, and digital learning products — or 
       delivering branded customer education as part of your business.
     </p>
 
@@ -205,7 +417,7 @@ function renderStars(rating: number) {
         and complex training requirements.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {enterpriseLMSPlatforms.map((platform) => (
           <a 
             href={platform.href} 
@@ -252,16 +464,15 @@ function renderStars(rating: number) {
     </div>
   </section>
 
-  <!-- Corporate & Open-Source LMS -->
+  <!-- Customer Education Platforms -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Corporate & Open-Source LMS</h2>
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Customer Education Platforms</h2>
     <p class="text-slate-600 mb-8 max-w-3xl">
-      Flexible solutions for customer training, employee development, and organizations 
-      that need control over their learning infrastructure.
+      Specialized platforms designed specifically for customer onboarding, training, and retention at scale.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {corporateOpenSourcePlatforms.map((platform) => (
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+      {customerEducationPlatforms.map((platform) => (
         <a 
           href={platform.href} 
           class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
@@ -306,8 +517,292 @@ function renderStars(rating: number) {
     </div>
   </section>
 
+  <!-- Education/K-12/Higher Ed -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Education: K-12 & Higher Ed</h2>
+      <p class="text-slate-600 mb-8 max-w-3xl">
+        Academic learning management systems designed for schools, districts, colleges, and universities.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {educationPlatforms.map((platform) => (
+          <a 
+            href={platform.href} 
+            class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg">{platform.name}</h3>
+              <div class="flex items-center gap-1" aria-label={`Rating: ${platform.rating} out of 5 stars`}>
+                {renderStars(platform.rating).map((star) => (
+                  <svg 
+                    class={`w-4 h-4 ${star === 'full' ? 'text-amber-400' : star === 'half' ? 'text-amber-400' : 'text-slate-300'}`} 
+                    fill={star === 'empty' ? 'none' : 'currentColor'} 
+                    viewBox="0 0 20 20"
+                  >
+                    {star === 'half' ? (
+                      <defs>
+                        <linearGradient id={`half-${platform.name}`}>
+                          <stop offset="50%" stopColor="currentColor" />
+                          <stop offset="50%" stopColor="transparent" />
+                        </linearGradient>
+                      </defs>
+                    ) : null}
+                    <path 
+                      fill={star === 'half' ? `url(#half-${platform.name})` : undefined}
+                      stroke={star === 'empty' ? 'currentColor' : undefined}
+                      strokeWidth={star === 'empty' ? '1.5' : undefined}
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" 
+                    />
+                  </svg>
+                ))}
+                <span class="ml-1 text-sm font-semibold text-slate-700">{platform.rating}</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm flex-grow">{platform.description}</p>
+            <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+              Read review
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WordPress LMS -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">WordPress LMS Plugins</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">
+      Turn your WordPress site into a learning platform with these dedicated LMS plugins.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+      {wordpressLMSPlatforms.map((platform) => (
+        <a 
+          href={platform.href} 
+          class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg">{platform.name}</h3>
+            <div class="flex items-center gap-1" aria-label={`Rating: ${platform.rating} out of 5 stars`}>
+              {renderStars(platform.rating).map((star) => (
+                <svg 
+                  class={`w-4 h-4 ${star === 'full' ? 'text-amber-400' : star === 'half' ? 'text-amber-400' : 'text-slate-300'}`} 
+                  fill={star === 'empty' ? 'none' : 'currentColor'} 
+                  viewBox="0 0 20 20"
+                >
+                  {star === 'half' ? (
+                    <defs>
+                      <linearGradient id={`half-${platform.name}`}>
+                        <stop offset="50%" stopColor="currentColor" />
+                        <stop offset="50%" stopColor="transparent" />
+                      </linearGradient>
+                    </defs>
+                  ) : null}
+                  <path 
+                    fill={star === 'half' ? `url(#half-${platform.name})` : undefined}
+                    stroke={star === 'empty' ? 'currentColor' : undefined}
+                    strokeWidth={star === 'empty' ? '1.5' : undefined}
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" 
+                  />
+                </svg>
+              ))}
+              <span class="ml-1 text-sm font-semibold text-slate-700">{platform.rating}</span>
+            </div>
+          </div>
+          <p class="text-slate-600 text-sm flex-grow">{platform.description}</p>
+          <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+            Read review
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Marketplace & Mobile Sections Row -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Marketplace/Content Library -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Marketplace & Content Library</h2>
+          <p class="text-slate-600 mb-6">
+            Pre-built course libraries and marketplaces for professional development.
+          </p>
+
+          <div class="space-y-4">
+            {marketplacePlatforms.map((platform) => (
+              <a 
+                href={platform.href} 
+                class="group bg-white border border-slate-200 rounded-lg p-5 hover:border-teal hover:shadow-md transition-all flex items-center justify-between"
+              >
+                <div>
+                  <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-1">{platform.name}</h3>
+                  <p class="text-slate-600 text-sm">{platform.description}</p>
+                </div>
+                <div class="flex items-center gap-1 ml-4 shrink-0" aria-label={`Rating: ${platform.rating} out of 5 stars`}>
+                  {renderStars(platform.rating).map((star) => (
+                    <svg 
+                      class={`w-4 h-4 ${star === 'full' ? 'text-amber-400' : star === 'half' ? 'text-amber-400' : 'text-slate-300'}`} 
+                      fill={star === 'empty' ? 'none' : 'currentColor'} 
+                      viewBox="0 0 20 20"
+                    >
+                      {star === 'half' ? (
+                        <defs>
+                          <linearGradient id={`half-${platform.name}`}>
+                            <stop offset="50%" stopColor="currentColor" />
+                            <stop offset="50%" stopColor="transparent" />
+                          </linearGradient>
+                        </defs>
+                      ) : null}
+                      <path 
+                        fill={star === 'half' ? `url(#half-${platform.name})` : undefined}
+                        stroke={star === 'empty' ? 'currentColor' : undefined}
+                        strokeWidth={star === 'empty' ? '1.5' : undefined}
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" 
+                      />
+                    </svg>
+                  ))}
+                  <span class="ml-1 text-sm font-semibold text-slate-700">{platform.rating}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Mobile/Microlearning -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Mobile & Microlearning</h2>
+          <p class="text-slate-600 mb-6">
+            Bite-sized, mobile-first training for busy teams and just-in-time learning.
+          </p>
+
+          <div class="space-y-4">
+            {mobileMicrolearningPlatforms.map((platform) => (
+              <a 
+                href={platform.href} 
+                class="group bg-white border border-slate-200 rounded-lg p-5 hover:border-teal hover:shadow-md transition-all flex items-center justify-between"
+              >
+                <div>
+                  <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-1">{platform.name}</h3>
+                  <p class="text-slate-600 text-sm">{platform.description}</p>
+                </div>
+                <div class="flex items-center gap-1 ml-4 shrink-0" aria-label={`Rating: ${platform.rating} out of 5 stars`}>
+                  {renderStars(platform.rating).map((star) => (
+                    <svg 
+                      class={`w-4 h-4 ${star === 'full' ? 'text-amber-400' : star === 'half' ? 'text-amber-400' : 'text-slate-300'}`} 
+                      fill={star === 'empty' ? 'none' : 'currentColor'} 
+                      viewBox="0 0 20 20"
+                    >
+                      {star === 'half' ? (
+                        <defs>
+                          <linearGradient id={`half-${platform.name}`}>
+                            <stop offset="50%" stopColor="currentColor" />
+                            <stop offset="50%" stopColor="transparent" />
+                          </linearGradient>
+                        </defs>
+                      ) : null}
+                      <path 
+                        fill={star === 'half' ? `url(#half-${platform.name})` : undefined}
+                        stroke={star === 'empty' ? 'currentColor' : undefined}
+                        strokeWidth={star === 'empty' ? '1.5' : undefined}
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" 
+                      />
+                    </svg>
+                  ))}
+                  <span class="ml-1 text-sm font-semibold text-slate-700">{platform.rating}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMB/Operations -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">SMB & Operations Training</h2>
+    <p class="text-slate-600 mb-8 max-w-3xl">
+      Training platforms built for small business operations, employee onboarding, and process documentation.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {smbOperationsPlatforms.map((platform) => (
+        <a 
+          href={platform.href} 
+          class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg">{platform.name}</h3>
+            <div class="flex items-center gap-1" aria-label={`Rating: ${platform.rating} out of 5 stars`}>
+              {renderStars(platform.rating).map((star) => (
+                <svg 
+                  class={`w-4 h-4 ${star === 'full' ? 'text-amber-400' : star === 'half' ? 'text-amber-400' : 'text-slate-300'}`} 
+                  fill={star === 'empty' ? 'none' : 'currentColor'} 
+                  viewBox="0 0 20 20"
+                >
+                  {star === 'half' ? (
+                    <defs>
+                      <linearGradient id={`half-${platform.name}`}>
+                        <stop offset="50%" stopColor="currentColor" />
+                        <stop offset="50%" stopColor="transparent" />
+                      </linearGradient>
+                    </defs>
+                  ) : null}
+                  <path 
+                    fill={star === 'half' ? `url(#half-${platform.name})` : undefined}
+                    stroke={star === 'empty' ? 'currentColor' : undefined}
+                    strokeWidth={star === 'empty' ? '1.5' : undefined}
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" 
+                  />
+                </svg>
+              ))}
+              <span class="ml-1 text-sm font-semibold text-slate-700">{platform.rating}</span>
+            </div>
+          </div>
+          <p class="text-slate-600 text-sm flex-grow">{platform.description}</p>
+          <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
+            Read review
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- All Platforms Index (SEO/Discovery) -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">All 40 LMS Platforms</h2>
+      <p class="text-slate-600 mb-8">
+        Browse every platform we've reviewed, sorted alphabetically. Click any platform to read our detailed review.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        {allPlatforms.map((platform) => (
+          <a 
+            href={platform.href}
+            class="group flex items-center justify-between bg-white border border-slate-200 rounded-lg px-4 py-3 hover:border-teal hover:shadow-sm transition-all"
+          >
+            <span class="font-medium text-navy group-hover:text-teal-dark text-sm truncate mr-2">{platform.name}</span>
+            <span class="text-xs font-semibold text-slate-500 bg-slate-100 rounded-full px-2 py-0.5 shrink-0">{platform.rating}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <LeadFormModal
       ctaTitle="Not sure which platform to choose?"
       ctaDescription="Tell us about your use case — customer training, employee onboarding, or selling courses — and we'll send you a personalized LMS recommendation with the platforms that actually fit your situation."

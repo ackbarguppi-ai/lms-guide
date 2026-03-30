@@ -1,0 +1,382 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is D2L Brightspace?",
+    answer: "D2L Brightspace is a cloud-based learning management system built by D2L (Desire2Learn), a Canadian edtech company headquartered in Kitchener, Ontario. Founded in 1999, D2L has built Brightspace into a platform serving over 15 million learners across higher education, K-12, and corporate training. Brightspace is known for its strong accessibility features, adaptive learning capabilities, and competency-based education support."
+  },
+  {
+    question: "How much does Brightspace cost?",
+    answer: "Brightspace uses quote-based pricing for institutional deployments, similar to Canvas and Blackboard. There are no published per-student rates. Pricing depends on institution size, deployment type, and selected features. D2L also offers a free tier called Brightspace Community, which provides basic LMS functionality for individual educators with limited features and up to 50 learners."
+  },
+  {
+    question: "Is Brightspace better than Canvas?",
+    answer: "It depends on your priorities. Canvas wins on API extensibility (400+ endpoints), third-party ecosystem size, and overall market momentum. Brightspace wins on built-in accessibility, adaptive learning paths, competency-based education support, and K-12 features like parent portals and standards-based grading. Both are strong platforms—Canvas is the safer institutional default, while Brightspace may be the better fit for accessibility-focused institutions and K-12 districts."
+  },
+  {
+    question: "Does Brightspace support adaptive learning?",
+    answer: "Yes, adaptive learning is one of Brightspace's differentiators. The platform offers Release Conditions and Intelligent Agents that automatically adjust content delivery based on student performance, completion, and engagement. Brightspace Lumi (AI-powered) provides personalized learning recommendations, practice questions, and study guides. This goes beyond basic prerequisite gating—it creates genuinely individualized learning paths."
+  },
+  {
+    question: "Is Brightspace accessible?",
+    answer: "Brightspace is one of the most accessible LMS platforms available. It's WCAG 2.1 AA compliant, and accessibility is a core design principle rather than an afterthought. Features include a built-in accessibility checker for content, screen reader optimization, keyboard navigation throughout, high-contrast modes, and automatic captioning. D2L has won awards for accessibility and employs dedicated accessibility engineers on the platform team."
+  },
+  {
+    question: "How does Brightspace compare to Thinkific?",
+    answer: "Brightspace and Thinkific serve different markets. Brightspace is an institutional LMS for universities, colleges, and K-12 districts delivering accredited education programs, with features like academic gradebooks, SIS integrations, adaptive learning, and competency tracking. Thinkific is a learning commerce platform for experts and businesses monetizing knowledge. If you're an educational institution, Brightspace is the relevant category. If you're building a course business or customer education program, Thinkific is purpose-built for that."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "D2L Brightspace",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.0",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An in-depth review of D2L Brightspace—the accessibility-first LMS with adaptive learning capabilities for higher education and K-12."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="D2L Brightspace Review 2026: Accessibility-First LMS with Adaptive Learning"
+  description="An in-depth review of D2L Brightspace—the accessibility-first LMS with adaptive learning capabilities for higher education and K-12."
+  platformName="D2L Brightspace"
+  rating={4.0}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Brightspace' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">D2L Brightspace Review 2026: Accessibility-First LMS with Adaptive Learning</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.0 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.0 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Brightspace is a quietly excellent LMS that deserves more attention than it gets. Its accessibility features are genuinely best-in-class, adaptive learning capabilities go beyond what Canvas and Blackboard offer, and D2L's steady investment in AI (Lumi) is paying off. It holds ~12% of the US higher education market and is growing—particularly in K-12 and Canadian institutions. The trade-offs are a smaller third-party ecosystem than Canvas, less brand recognition in the US market, and an interface that, while clean, doesn't generate the same enthusiasm as Canvas among faculty.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for higher education and K-12 administrators evaluating Brightspace against Canvas, Blackboard, or Moodle. It's also relevant for institutions prioritizing accessibility compliance, adaptive learning, or competency-based education programs.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Brightspace holds ~12% of US higher education LMS market share and is growing, particularly winning institutions migrating away from Blackboard. It's the #1 LMS in Canadian higher education.",
+    "Accessibility is a genuine core competency—WCAG 2.1 AA compliant with built-in accessibility checking, screen reader optimization, and features designed with assistive technology users from the start.",
+    "Adaptive learning through Release Conditions, Intelligent Agents, and Brightspace Lumi AI goes beyond basic prerequisite gating to deliver genuinely personalized learning paths.",
+    "Strong K-12 capabilities including parent/guardian portals, standards-based grading, competency tracking, and age-appropriate interfaces make it competitive with Canvas in the K-12 market.",
+    "The third-party tool ecosystem is smaller than Canvas's. Institutions heavily dependent on LTI integrations should verify tool availability before committing.",
+    "D2L is a stable, profitable Canadian company—not private equity-owned—which provides confidence in long-term product investment and reduces acquisition/strategic-shift risk."
+  ]} />
+
+  <!-- What is Brightspace? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is D2L Brightspace?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace is a cloud-based learning management system built by D2L (Desire2Learn), a publicly traded Canadian edtech company founded in 1999 and headquartered in Kitchener, Ontario. D2L was founded by John Baker while he was a student at the University of Waterloo, and the company has maintained a consistent focus on improving educational outcomes through technology.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace serves over 15 million learners across 40+ countries in higher education, K-12, corporate training, and government sectors. In Canada, it's the dominant LMS in higher education. In the US, it holds approximately 12% market share and is growing—primarily winning institutions migrating from Blackboard.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      The platform distinguishes itself through three pillars: accessibility-first design (WCAG 2.1 AA compliance baked into the development process), adaptive learning (automated personalization based on learner performance), and competency-based education support (outcomes mapping, mastery tracking, and portfolio assessment). D2L's AI platform, Lumi, adds personalized recommendations, AI-generated practice questions, and predictive analytics.
+    </p>
+  </section>
+
+  <!-- Who is Brightspace Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Brightspace Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Brightspace excels in specific institutional contexts where its differentiators matter most:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Accessibility-Focused Institutions</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Institutions with strong accessibility mandates, diverse learner populations, or those that have faced WCAG compliance challenges with other platforms. Brightspace's accessibility is structural, not bolted on—it's reflected in every feature and release.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">K-12 School Districts</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Brightspace's K-12 offering includes parent/guardian portals, standards-based grading aligned to state and provincial standards, age-appropriate interfaces, and competency tracking. It's particularly strong in Canadian K-12 markets and growing in US districts.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Competency-Based Programs</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Institutions running competency-based education (CBE) programs find Brightspace's outcomes mapping, mastery-based progression, and portfolio assessment tools purpose-built for this model. Western Governors University's early use of D2L helped shape these capabilities.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Institutions Migrating from Blackboard</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          D2L has actively targeted institutions leaving Blackboard with migration support, competitive pricing, and feature parity that makes the transition smooth. Brightspace offers a modern alternative without the cultural intensity of a Canvas migration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Adaptive Learning & Personalization</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace's adaptive learning goes beyond basic prerequisite gating. Release Conditions trigger content, assessments, and notifications based on student performance, completion, date, or group membership. Intelligent Agents automate actions (emails, enrollments, grade adjustments) based on configurable rules. Brightspace Lumi uses AI to generate personalized practice questions, study guides, and content recommendations tailored to each learner's demonstrated knowledge gaps.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Accessibility Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      WCAG 2.1 AA compliance is verified across the platform. Built-in accessibility checker scans uploaded content and provides fix guidance. Screen reader optimization, keyboard navigation, high-contrast modes, and configurable font sizes are standard. The HTML editor includes accessibility validation. D2L maintains a Voluntary Product Accessibility Template (VPAT) and employs dedicated accessibility engineers on the core product team.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment & Competency Tracking</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace supports rubric-based grading, inline annotation (Evaluation Hub), item banks with question pools, and multiple assessment types. Competency tracking maps learning outcomes to program-level competencies, enabling mastery-based progression and portfolio assessment. Standards-based grading for K-12 aligns to provincial and state curriculum standards.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Brightspace Lumi (AI)</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      D2L's AI platform provides personalized learning recommendations, auto-generated practice questions from course content, AI-powered study guides, and predictive analytics for at-risk student identification. Lumi also assists instructors with content creation suggestions and assessment generation. The AI features are being steadily expanded with each release cycle.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Virtual Classroom & Video</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace Virtual Classroom provides built-in synchronous learning with video conferencing, screen sharing, breakout rooms, polling, and recording. It also integrates natively with Zoom, Microsoft Teams, and other conferencing tools. Video assignments allow students to submit recorded presentations with self-assessment rubrics.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics & Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace Performance+ provides institutional analytics with enrollment, engagement, and outcome dashboards. Learner analytics show individual progress, time-on-task, and predictive risk scores. Data exports and API access support institutional research teams building custom analytics. The analytics are more accessible out-of-the-box than Canvas Data 2, though less raw data is available for custom analysis.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Accessibility Leadership</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This isn't marketing—Brightspace's accessibility is genuinely ahead of the field. Built-in content checking, screen reader optimization from the development stage, and a track record of accessibility awards make it the safest choice for institutions with strong WCAG compliance requirements or serving significant populations of learners with disabilities.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Adaptive Learning Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Release Conditions and Intelligent Agents provide genuinely flexible automation that most LMS platforms can't match. Combined with Lumi's AI-powered personalization, Brightspace can create learning experiences that adapt to individual student performance in ways that go beyond simple linear course progression.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">K-12 Feature Set</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Parent/guardian portals, standards-based grading, competency tracking, and age-appropriate interfaces make Brightspace one of the strongest K-12 LMS options. It bridges the gap between Google Classroom (too simple) and Canvas (sometimes more than K-12 needs) effectively.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Company Stability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          D2L is a publicly traded, profitable Canadian company with a founder-CEO still at the helm. It hasn't been acquired by private equity (unlike Canvas/Instructure by Thoma Bravo) or merged in a mega-deal (unlike Blackboard/Anthology). This stability reduces platform risk for institutions making 5-10 year LMS commitments.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Competency-Based Education Support</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Outcomes mapping, mastery-based progression, ePortfolios, and program-level competency tracking are mature features. Institutions running CBE programs or moving toward outcomes-based assessment find Brightspace's tools purpose-built for this pedagogical approach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Brightspace May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace has real strengths but also clear limitations:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Smaller Third-Party Ecosystem</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Canvas's 400+ API endpoints and larger installed base mean more third-party tools, LTI integrations, and community resources. Brightspace supports LTI 1.3 Advantage and has a growing ecosystem, but institutions with heavy integration requirements should verify specific tool availability before committing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">US Market Brand Recognition</h3>
+        <p class="text-slate-700 leading-relaxed">
+          In the US market, Brightspace is less well-known than Canvas and Blackboard. This can create perception challenges in faculty hiring (fewer candidates with Brightspace experience) and institutional committees that default to "industry standard" choices.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Interface Not as Polished as Canvas</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Brightspace's interface is clean and functional but doesn't generate the same faculty enthusiasm as Canvas's design. Some areas still feel utilitarian rather than elegant. D2L has been improving the UI steadily, but it remains a step behind Canvas in pure UX appeal.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Learning Commerce & eCommerce</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Like Canvas and Blackboard, Brightspace is an institutional LMS, not a learning commerce platform. There's no native storefront, marketing funnel tools, or course marketplace capabilities. Experts and businesses monetizing courses should look at platforms like Thinkific.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Corporate Training Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          D2L offers corporate solutions, but Brightspace's feature set is optimized for academic environments. Enterprise-specific needs like multi-tenant architecture, advanced compliance automation, and extended enterprise capabilities are better served by Docebo, Absorb, or similar corporate-focused platforms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Brightspace uses quote-based institutional pricing. Factors include institution size, deployment scope, and selected add-ons. D2L is generally perceived as competitively priced relative to Canvas and Blackboard.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Product</th>
+            <th class="text-left py-3 px-4 font-semibold">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Brightspace Core</td>
+            <td class="py-3 px-4 text-slate-600">LMS with course management, gradebook, discussions, assessments, adaptive learning, and mobile apps</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Performance+</td>
+            <td class="py-3 px-4 text-slate-600">Advanced institutional analytics, predictive modeling, and outcome dashboards (add-on)</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Brightspace Lumi</td>
+            <td class="py-3 px-4 text-slate-600">AI-powered personalization, practice questions, study guides, and content recommendations</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Brightspace Community</td>
+            <td class="py-3 px-4 text-slate-600">Free tier for individual educators with basic LMS features and up to 50 learners</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Institutional pricing is quote-based. Contact D2L for pricing specific to your enrollment and feature requirements.
+    </p>
+  </section>
+
+  <!-- Comparison -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Brightspace Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here's how Brightspace stacks up against other institutional LMS platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Brightspace", "Canvas", "Blackboard", "Moodle", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Higher ed, K-12, accessibility", "Higher ed & K-12", "Higher ed (Anthology ecosystem)", "Higher ed (open source)", "Learning commerce"] },
+        { feature: "US Higher Ed Share", values: ["~12% (growing)", "~33% (#1)", "~25% (declining)", "~15%", "N/A"] },
+        { feature: "Accessibility", values: ["Best-in-class (WCAG 2.1 AA)", "Good", "Ally add-on (excellent)", "Plugin-dependent", "Standard"] },
+        { feature: "Adaptive Learning", values: ["Release Conditions + Lumi AI", "Basic prerequisites", "Basic prerequisites", "Plugin-dependent", "N/A"] },
+        { feature: "K-12 Features", values: ["Strong (parent portals, standards)", "Strong (Mastery Connect add-on)", "Limited", "Limited", "N/A"] },
+        { feature: "API Extensibility", values: ["Valence API (solid)", "400+ REST endpoints (best)", "REST API (limited)", "Web services", "REST API"] },
+        { feature: "Open Source", values: ["No", "Yes (AGPLv3)", "No", "Yes (GPLv3)", "No"] },
+        { feature: "Company Stability", values: ["Public, founder-led", "PE-owned (Thoma Bravo)", "Post-merger (Anthology)", "Community-governed", "Public, founder-led"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Canvas LMS Review", href: "/reviews/canvas", description: "The #1 LMS in US higher education—how it compares to Brightspace." },
+    { title: "Blackboard Review", href: "/reviews/blackboard", description: "The legacy LMS giant navigating transition under Anthology." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Purpose-built for learning commerce—a different market than institutional LMS." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for corporate multi-audience training programs." }
+  ]} />
+
+</ReviewLayout>

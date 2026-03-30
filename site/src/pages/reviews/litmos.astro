@@ -1,0 +1,396 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "What is SAP Litmos?",
+    answer: "SAP Litmos (now often referred to simply as Litmos) is a cloud-based enterprise learning management system known for quick deployment, ease of use, and extensive integration capabilities. Originally founded as Litmos in 2007, it was acquired by SAP in 2018, then divested to Francisco Partners in 2022. The platform serves organizations of all sizes with a focus on corporate training, compliance, and customer education. It's positioned as a simpler, faster-to-deploy alternative to heavyweight enterprise LMS platforms."
+  },
+  {
+    question: "How much does Litmos cost?",
+    answer: "Litmos uses tiered pricing based on active user count. The Foundation plan starts around $3/user/month for basic LMS functionality. The Premier plan (approximately $5/user/month) adds advanced features like custom roles, automation, and API access. The Platinum plan (approximately $7/user/month) includes the full feature set with branded mobile apps and advanced analytics. A built-in content library is available as an add-on. Minimum user counts apply, and enterprise pricing is custom."
+  },
+  {
+    question: "Is Litmos easy to set up?",
+    answer: "Yes—ease of deployment is Litmos's strongest selling point. Many organizations report going live within days or weeks rather than the months required by enterprise platforms like Cornerstone or Docebo. The admin interface is intuitive, and the platform requires minimal IT involvement for basic configuration. The trade-off is that Litmos offers less depth in areas like skills intelligence, advanced analytics, and multi-tenant architecture."
+  },
+  {
+    question: "Who owns Litmos now?",
+    answer: "Litmos is owned by Francisco Partners, a private equity firm that acquired the platform from SAP in 2022. Under Francisco Partners' ownership, Litmos operates as an independent company focused on product investment and growth. The move away from SAP has allowed more focused product development, though some customers initially expressed concern about the transition. The platform continues to operate under the Litmos brand."
+  },
+  {
+    question: "How does Litmos compare to Thinkific?",
+    answer: "Litmos and Thinkific serve different primary markets. Litmos is an enterprise LMS focused on employee training, compliance, and corporate learning with per-user pricing and admin-centric features. Thinkific is a platform for experts and businesses to create, market, and sell online courses with full brand control. There is some overlap in customer education—both can power customer training programs—but Litmos approaches it from an enterprise LMS perspective while Thinkific approaches it as a learning commerce platform."
+  },
+  {
+    question: "Does Litmos include a content library?",
+    answer: "Yes. Litmos offers an optional built-in content library (Litmos Training Content) with professionally produced courses covering compliance, workplace safety, business skills, and leadership. The library includes 2,000+ courses and is available as a paid add-on. For organizations that need ready-made training content without creating their own, this can accelerate time-to-value. However, the library is smaller than competitors like Cornerstone Content Anytime or Udemy Business."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Litmos",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.0",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Litmos (formerly SAP Litmos) for enterprise learning, compliance training, and customer education. Quick deployment, 150+ connectors, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Litmos Review 2026: Fast-Deploy Enterprise LMS"
+  description="An honest, in-depth review of Litmos (formerly SAP Litmos) for enterprise learning, compliance training, and customer education. Quick deployment, 150+ connectors, and who it's best for."
+  platformName="Litmos"
+  rating={4.0}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Litmos' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Litmos Review 2026: Fast-Deploy Enterprise LMS</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 4.0 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">4.0 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Litmos is a cloud-based enterprise LMS that prioritizes speed and simplicity. With 150+ pre-built connectors, an intuitive admin interface, and deployment timelines measured in days rather than months, it's built for organizations that need to launch training programs quickly without enterprise-grade implementation projects. Now independent from SAP under Francisco Partners ownership (2022), Litmos serves mid-market to enterprise organizations across compliance, employee training, and customer education. The trade-off is depth—organizations needing advanced skills intelligence, multi-tenant architecture, or complex talent management will outgrow Litmos's capabilities.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for L&D managers, training directors, and IT decision-makers evaluating Litmos against other enterprise LMS platforms. If you need a training system that deploys quickly, integrates with your existing tech stack, and handles compliance and employee development without months of implementation, this analysis covers whether Litmos fits.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Litmos's greatest strength is deployment speed—many organizations go live within days or weeks, compared to 3–6 months for enterprise platforms like Cornerstone or Docebo.",
+    "150+ pre-built connectors (Salesforce, Microsoft 365, Slack, BambooHR, Shopify, and more) make Litmos one of the most integration-friendly LMS platforms in the market.",
+    "Now independent from SAP after Francisco Partners' 2022 acquisition, Litmos has increased product investment and development velocity. The SAP brand is being phased out.",
+    "Compliance training is a core strength with automated assignment, deadline tracking, recertification workflows, and audit-ready reporting—essential for regulated industries.",
+    "The optional content library (2,000+ courses) provides ready-made training for organizations that need to launch quickly without creating custom content.",
+    "Litmos lacks the depth of larger enterprise platforms in skills intelligence, advanced analytics, performance management, and multi-tenant architecture. It's a focused LMS, not a talent suite."
+  ]} />
+
+  <!-- What is Litmos? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Litmos?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos is a cloud-based learning management system founded in 2007 in San Carlos, California. The platform's journey through multiple ownership changes tells an interesting story: founded as an independent startup, acquired by Callidus Cloud in 2016, then by SAP (via its CallidusCloud acquisition) in 2018, and finally divested to private equity firm Francisco Partners in 2022 for an estimated $400 million.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Throughout these transitions, Litmos has maintained its core identity: a fast-to-deploy, easy-to-use LMS with broad integration capabilities. The platform serves over 30 million users across 150+ countries, with customers ranging from mid-market companies to large enterprises including Mercedes-Benz, Hewlett Packard Enterprise, and YouTube.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Under Francisco Partners' ownership, Litmos has accelerated product development, investing in AI features, enhanced analytics, and expanded integrations. The independence from SAP has been largely positive—the platform is more agile and focused on its core LMS mission rather than serving as a peripheral product within SAP's massive enterprise software portfolio.
+    </p>
+  </section>
+
+  <!-- Who is Litmos Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Litmos Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Litmos occupies a specific niche in the enterprise LMS market: powerful enough for serious training programs, simple enough to deploy without a consulting engagement.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Mid-Market Organizations (200–5,000 Employees)</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies that need enterprise LMS features without enterprise LMS implementation complexity. Litmos provides compliance tracking, certification management, and analytics at a complexity level that mid-market L&D teams can manage without dedicated LMS administrators.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Fast-Deploy Requirements</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations that need training infrastructure operational in days or weeks—new compliance requirements, rapid onboarding programs, or acquisition integrations where speed matters more than feature depth. Litmos's self-serve setup and intuitive admin make rapid deployment feasible.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Integration-Heavy Environments</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with existing tech stacks that need the LMS to connect seamlessly. 150+ pre-built connectors mean Litmos can integrate with your CRM, HRIS, communication tools, and eCommerce platforms without custom development. The Salesforce integration is particularly strong.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Customer & Partner Training</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          SaaS companies and product businesses that need to train customers, partners, and resellers. Litmos supports branded training portals, eCommerce, and certification programs for external audiences. The quick-setup model makes it practical to launch customer education programs rapidly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Learning Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos supports SCORM 1.2/2004, xAPI (Tin Can), and AICC content standards. The built-in course builder allows admins to create courses from videos, documents, presentations, and web content without external authoring tools. Blended learning combines online modules with instructor-led training scheduling. Learning paths group courses into structured programs with prerequisite logic.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Compliance & Certification</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Automated compliance training assignment based on role, department, or location. Recertification workflows automatically re-assign training before expiration dates. Deadline tracking with escalation notifications ensures completion rates. Audit-ready reporting provides evidence of compliance for regulatory inspections. eSignature support captures acknowledgment of policies and procedures.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Integration Ecosystem</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      150+ pre-built connectors spanning CRM (Salesforce, HubSpot, Microsoft Dynamics), HRIS (BambooHR, ADP, Workday), collaboration (Slack, Microsoft Teams, Zoom), eCommerce (Shopify, Stripe), and identity management (Okta, OneLogin, Azure AD). The Salesforce integration is particularly deep, enabling training assignment and tracking directly within Salesforce workflows. REST API and webhooks support custom integrations.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Library</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos Training Content is an optional add-on providing 2,000+ professionally produced courses covering compliance (workplace safety, harassment prevention, data privacy), business skills (leadership, communication, project management), and industry-specific training. Courses are available in multiple languages and updated regularly. For organizations without content creation capacity, this accelerates time-to-value significantly.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos has introduced AI-powered features including content recommendations, automated course creation from existing documents, and intelligent search. AI-assisted assessment generation creates quiz questions from uploaded training materials. While these features are still maturing, they represent meaningful investment in the platform's evolution. The AI capabilities are lighter than dedicated AI-first platforms like Docebo but sufficient for most mid-market needs.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting & Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Standard reporting covers completion rates, compliance status, learner progress, and training effectiveness. Custom report builder allows ad-hoc queries and scheduled report delivery. Dashboard views provide at-a-glance visibility into key metrics. Advanced analytics (available on higher tiers) add deeper insights. The analytics are functional and practical, though not as sophisticated as platforms with dedicated BI integrations.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Speed of Deployment</h3>
+        <p class="text-slate-700 leading-relaxed">
+          This is Litmos's defining advantage. Organizations regularly go from purchase to live training in days or weeks. The intuitive admin interface, guided setup process, and pre-built templates minimize the configuration and customization typically required for enterprise LMS launches. For urgent training needs—new compliance requirements, rapid scaling—this speed is invaluable.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Integration Breadth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          150+ pre-built connectors is one of the broadest integration ecosystems in the LMS market. The depth of the Salesforce integration is particularly notable for organizations running customer-facing training. This breadth means Litmos fits into existing tech stacks without custom development work.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Admin Simplicity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The admin interface is clean and intuitive, requiring significantly less training than heavyweight enterprise platforms. L&D professionals without deep technical backgrounds can manage the platform effectively. This reduces the total cost of ownership by eliminating the need for dedicated LMS administrators.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Competitive Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Starting at approximately $3/user/month, Litmos offers enterprise LMS features at a price point accessible to mid-market organizations. Published pricing tiers (unusual for enterprise LMS) provide transparency that quote-based competitors don't. The value proposition is strong for organizations that need solid LMS functionality without premium pricing.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Independence & Investment</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The Francisco Partners acquisition freed Litmos from being a peripheral SAP product. Under focused private equity ownership, the platform has accelerated product development and roadmap execution. Organizations benefit from a more responsive, dedicated vendor compared to the SAP era.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Litmos May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos's simplicity-first approach creates genuine trade-offs:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Skills Intelligence</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations pursuing skills-based talent strategies will find Litmos lacking compared to platforms like Cornerstone or Docebo. There's no AI-powered skills taxonomy, gap analysis, or workforce planning capabilities. If skills intelligence is a strategic priority, Litmos won't meet the need.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Performance Management</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Litmos is an LMS, not a talent management suite. There are no goal-setting, review, or development planning features. Organizations wanting to connect learning to performance must integrate with separate performance management tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Basic Multi-Tenant Capabilities</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Litmos supports customer and partner training, its multi-tenant architecture isn't as sophisticated as Docebo's Extended Enterprise or Cornerstone's multi-instance capabilities. Organizations needing deeply customized, independently branded portals for multiple audiences may find Litmos's approach limiting.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Ownership Transition Risk</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Three ownership changes in six years (CallidusCloud → SAP → Francisco Partners) create legitimate platform stability questions. While Francisco Partners appears committed to long-term investment, private equity ownership inherently involves eventual exit planning. Evaluate the current roadmap, not just the current feature set.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Library Size</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The 2,000-course Litmos Training Content library, while useful, is significantly smaller than Cornerstone Content Anytime (60+ providers), Udemy Business (27,000+ courses), or LinkedIn Learning (16,000+ courses). Organizations relying heavily on off-the-shelf content may find the selection limited.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Litmos offers tiered pricing based on active user count, with published price ranges that provide more transparency than most enterprise LMS competitors.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Foundation (~$3/user/mo)</td>
+            <td class="py-3 px-4 text-slate-600">Core LMS with course management, basic compliance, and standard reporting</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Premier (~$5/user/mo)</td>
+            <td class="py-3 px-4 text-slate-600">Advanced features including custom roles, automation rules, API access, and eCommerce</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Platinum (~$7/user/mo)</td>
+            <td class="py-3 px-4 text-slate-600">Full feature set with branded mobile app, advanced analytics, and priority support</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise (Custom)</td>
+            <td class="py-3 px-4 text-slate-600">Large deployments with custom SLAs, dedicated support, and tailored configuration</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Common Add-Ons:</strong> Litmos Training Content (course library), branded mobile app (included in Platinum), advanced reporting, and SSO/SCIM provisioning.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Pricing varies by user volume and contract terms. Published prices are approximate—contact Litmos for exact quotes based on your requirements.
+    </p>
+  </section>
+
+  <!-- How Litmos Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Litmos Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Litmos stacks up against other enterprise LMS platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Litmos", "Docebo", "Absorb LMS", "Cornerstone", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Fast-deploy enterprise LMS", "Multi-audience enterprise learning", "Corporate training (internal + external)", "Unified talent management + learning", "Learning commerce & customer education"] },
+        { feature: "Best For", values: ["Mid-market, rapid deployment", "Mid-large enterprise, 250+", "Mid-market to enterprise", "Large enterprise, 1000+", "Experts & learning businesses"] },
+        { feature: "Time to Deploy", values: ["Days to weeks", "Weeks to months", "Weeks to months", "3–6+ months", "Same day"] },
+        { feature: "Integrations", values: ["150+ connectors", "400+ integrations", "100+ integrations", "Major HRIS + Edge marketplace", "Zapier + native integrations"] },
+        { feature: "Skills Intelligence", values: ["Basic", "AI-powered", "Basic", "AI-powered, 53K+ taxonomy", "Not applicable"] },
+        { feature: "Content Library", values: ["2,000+ courses (add-on)", "30K+ marketplace", "Limited built-in", "60+ providers (Content Anytime)", "Expert-created content"] },
+        { feature: "Compliance", values: ["Strong, automated", "Strong certifications", "Standard compliance", "Industry-specific, deep", "Basic certificates"] },
+        { feature: "Pricing", values: ["$3–$7/user/mo", "Quote-based, ~$9/user", "Quote-based", "Custom, premium", "Free–$199/mo"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Enterprise LMS for multi-audience training with deep AI features." },
+    { title: "Cornerstone OnDemand Review", href: "/reviews/cornerstone", description: "Enterprise talent management suite for large organizations." },
+    { title: "Absorb LMS Review", href: "/reviews/absorb", description: "Enterprise LMS for internal and external training programs." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Platform for experts building learning businesses with full brand control." }
+  ]} />
+
+</ReviewLayout>

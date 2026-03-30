@@ -1,0 +1,418 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Systeme.io a legitimate LMS?",
+    answer: "Systeme.io is more accurately described as an all-in-one marketing platform with course delivery capabilities rather than a dedicated LMS. It provides essential learning features (course hosting, student management, progress tracking) but lacks advanced LMS functionality like SCORM support, sophisticated assessments, and learning path automation. For experts prioritizing marketing and sales over complex learning features, it's sufficient. For organizations needing enterprise learning management, it falls short."
+  },
+  {
+    question: "How much does Systeme.io cost?",
+    answer: "Systeme.io is aggressively priced. The Free plan supports 2,000 contacts, 1 course, and unlimited students. Startup ($27/month) adds 5,000 contacts and 3 courses. Webinar ($47/month) adds 10,000 contacts and webinar functionality. Enterprise ($97/month) supports 15,000+ contacts and unlimited features. This pricing undercuts most competitors significantly, making it attractive for budget-conscious creators."
+  },
+  {
+    question: "What does 'all-in-one' mean for Systeme.io?",
+    answer: "Systeme.io combines email marketing, course hosting, sales funnels, blog hosting, affiliate management, and automation in a single platform. The value proposition is eliminating the need for separate tools like Mailchimp, Teachable, ClickFunnels, and WordPress. However, the trade-off is that each individual feature is less sophisticated than dedicated point solutions."
+  },
+  {
+    question: "Is Systeme.io good for beginners?",
+    answer: "Yes, Systeme.io is designed for beginners with a simple interface, minimal technical requirements, and an affordable free tier. The learning curve is gentler than specialized course platforms or marketing tool stacks. However, creators outgrow Systeme.io as their business scales—advanced automation, custom integrations, and sophisticated course features eventually require migrating to more capable platforms."
+  },
+  {
+    question: "How does Systeme.io compare to Thinkific?",
+    answer: "Systeme.io is an all-in-one marketing platform with basic course features. Thinkific is a dedicated course platform with advanced learning features and optional marketing add-ons. Systeme.io wins on price and marketing tool integration; Thinkific wins on course delivery sophistication, student experience, and learning features. Serious course creators typically outgrow Systeme.io while growing into Thinkific. See our <a href='/compare/systeme-vs-thinkific' class='text-teal-dark hover:underline'>full Systeme.io vs Thinkific comparison</a>."
+  },
+  {
+    question: "Does Systeme.io have transaction fees?",
+    answer: "No, Systeme.io does not charge transaction fees on any plan. This is a significant advantage over some competitors that take a percentage of sales. However, standard payment processor fees (Stripe: 2.9% + 30¢; PayPal: variable) still apply. The lack of platform transaction fees makes Systeme.io particularly attractive for high-volume sellers on a budget."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Systeme.io",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.6",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Systeme.io for course creators on a budget. All-in-one features, limitations, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Systeme.io Review 2026: Budget All-in-One for Course Creators"
+  description="An honest, in-depth review of Systeme.io for course creators on a budget. All-in-one features, limitations, and who it's best for."
+  platformName="Systeme.io"
+  rating={3.6}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Systeme.io' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Systeme.io Review 2026: Budget All-in-One for Course Creators</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.6 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~60% filled for 3.6 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-systeme">
+            <stop offset="60%" stop-color="#fbbf24" />
+            <stop offset="60%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-systeme)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.6 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Systeme.io is a budget-friendly all-in-one platform that lets beginners launch courses, email marketing, and sales funnels without technical complexity or significant investment. With a genuinely free tier and paid plans starting at $27/month, it's one of the most affordable ways to start an online course business. The trade-offs are limited course features, basic design customization, and marketing tools that lack the sophistication of dedicated platforms. It's a starting point, not a long-term solution for serious course creators.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for aspiring course creators on tight budgets, side hustlers testing the online education waters, and entrepreneurs who prioritize marketing automation over sophisticated learning features. If you're looking to minimize costs while validating a course idea, Systeme.io deserves consideration—just understand its limitations.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Systeme.io offers a genuinely free plan with 2,000 contacts, 1 course, and unlimited students—rare in the course platform market.",
+    "Paid plans start at $27/month, making it one of the most affordable all-in-one marketing and course platforms available.",
+    "The platform combines email marketing, course hosting, funnels, blogs, and affiliate management—replacing multiple tool subscriptions.",
+    "Course features are basic: no SCORM support, limited assessment options, and minimal learning path customization.",
+    "500K+ users have signed up, though many are beginners who may outgrow the platform as their business scales.",
+    "No transaction fees on any plan, though standard payment processor fees (Stripe/PayPal) still apply."
+  ]} />
+
+  <!-- What is Systeme.io? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Systeme.io?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Systeme.io is an all-in-one marketing platform founded in 2018 by Aurelien Amacker, a French entrepreneur and course creator who built the platform to replace the expensive tool stack he was using for his own online business. Headquartered in Dublin, Ireland, Systeme.io has grown rapidly to 500,000+ users by offering a compelling value proposition: all essential marketing tools at a fraction of competitors' prices.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform combines six core functions: sales funnels, email marketing, online courses, website building, affiliate management, and marketing automation. The positioning is clear—replace tools like ClickFunnels ($97+/month), Mailchimp ($20+/month), Teachable ($39+/month), and WordPress hosting ($10+/month) with a single, affordable platform.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Systeme.io's course functionality is intentionally simple. You can create courses with text, video, and file content; organize content into modules and lessons; set pricing and access rules; and track student progress. What you won't find are advanced LMS features—no SCORM compliance, no sophisticated assessments, no learning paths, no certificates of completion. The platform assumes your priority is selling courses, not delivering complex educational experiences.
+    </p>
+  </section>
+
+  <!-- Who is Systeme.io Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Systeme.io Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Systeme.io fits a specific user profile. It works best for:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Budget-Conscious Beginners</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          First-time course creators who want to validate their idea without significant investment. The free tier removes financial risk entirely—you can build a course, build an email list, and make sales before paying a cent for software.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Side Hustlers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Professionals building course income alongside a day job who need simplicity and affordability. Systeme.io's all-in-one approach means less time managing tools and integrations, more time creating content and marketing.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Marketing-First Creators</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Experts whose primary skill is marketing and sales rather than instructional design. If your courses are relatively straightforward and your competitive advantage is audience building and conversion, Systeme.io's marketing tools outweigh its learning limitations.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Tool Stack Simplifiers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Creators frustrated by connecting multiple tools (website + email + course platform + payment processor). Systeme.io's integrated approach eliminates technical complexity and reduces monthly software costs significantly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course Hosting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Systeme.io courses support video (hosted via Wistia or embedded from YouTube/Vimeo), text, images, and file downloads. Courses are organized into sections and lectures with a simple hierarchy. Drip content allows releasing lessons over time. Course pages are customizable with the built-in page builder, though design options are more limited than dedicated course platforms. Student progress tracking shows completed lessons.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Email Marketing</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The email marketing functionality includes list management, broadcast emails, automated sequences, and tagging. Email templates are basic but functional. Deliverability is reasonable though not best-in-class. The automation builder allows triggering emails based on course enrollment, purchase behavior, and tag assignment. For most small creators, the email features are sufficient; high-volume senders may eventually need a dedicated ESP.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Sales Funnels</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The funnel builder creates landing pages, sales pages, checkout pages, and thank-you pages. Templates are available for common scenarios (webinar funnels, product launches, lead magnets). A/B testing is included. The page builder is drag-and-drop and easier to use than WordPress but less flexible than ClickFunnels or dedicated landing page builders. One-click upsells and order bumps help increase average order value.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Affiliate Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Systeme.io includes a complete affiliate program system. You can recruit affiliates, track referrals, set commission rates, and pay affiliates—all within the platform. This is a valuable feature included even on lower-tier plans that competitors often gate behind expensive upgrades or charge additional fees for.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Automation</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Marketing automation rules trigger actions based on user behavior—tagging purchasers, sending follow-up sequences, enrolling in courses, and moving contacts between lists. The automation is functional for basic workflows but lacks the sophistication of dedicated marketing automation platforms like ActiveCampaign or Keap.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Blog and Website</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Systeme.io includes basic website and blog functionality. You can create a homepage, about page, blog posts, and custom pages. The blogging features are rudimentary compared to WordPress—no categories, limited SEO controls, basic commenting. For most course creators, the blog is sufficient for content marketing; serious content publishers will want a dedicated CMS.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unbeatable Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          A genuinely free plan and paid tiers starting at $27/month undercut virtually all competitors. For creators testing the market or operating on tight margins, this pricing removes a significant barrier to entry. The value proposition—replacing multiple $50-100/month tools with one $27/month platform—is compelling.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">All-in-One Simplicity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Managing one platform instead of connecting website, email, course hosting, and payment processing reduces technical headaches significantly. Everything works together natively without Zapier connections or API troubleshooting. For non-technical creators, this simplicity is valuable.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Transaction Fees</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Unlike some platforms that take 5-10% of sales, Systeme.io charges no transaction fees on any plan. You keep 100% of revenue minus standard payment processor fees (Stripe: 2.9% + 30¢). For high-volume sellers, this saves significant money compared to percentage-based pricing models.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Included Affiliate System</h3>
+        <p class="text-slate-700 leading-relaxed">
+          A complete affiliate management system is included even on the free plan. Recruiting affiliates to promote your courses is one of the most effective growth strategies, and Systeme.io removes the cost barrier that often prevents beginners from launching affiliate programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Beginner-Friendly Interface</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform is designed for users with minimal technical skills. Page builders use drag-and-drop interfaces, email sequences are visual, and course creation is straightforward. The learning curve is gentler than most specialized tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Transparent, Predictable Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Published pricing tiers without quote-based sales processes make budgeting simple. You know exactly what you'll pay based on contact count, with no surprise fees or required consultations to get pricing information.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Systeme.io May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Systeme.io May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Systeme.io falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Basic Course Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No SCORM support, limited quiz types, no certificates, no learning paths, no prerequisite enforcement. If your courses require sophisticated assessments, gamification, or structured learning progression, Systeme.io will frustrate you. It's designed for simple information products, not complex educational programs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Design Flexibility</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Page templates are functional but generic. Customization options are limited compared to platforms like Thinkific or Kajabi. Creating a distinctive, premium brand experience is difficult. Course and sales pages tend to look similar across Systeme.io sites.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Scaling Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Successful creators outgrow Systeme.io. Email deliverability issues emerge at scale. Marketing automation becomes limiting. Course features feel increasingly constraining. Most serious course businesses eventually migrate to more capable platforms—treating Systeme.io as a starting point rather than a long-term home.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Feature Breadth vs. Depth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Systeme.io does many things adequately but nothing exceptionally. Email marketing is basic compared to ConvertKit. Funnels are simpler than ClickFunnels. Courses are more limited than Teachable. The jack-of-all-trades approach means accepting compromises in every functional area.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Integrations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The platform has fewer third-party integrations than established competitors. If you rely on specific tools for your business workflow, check compatibility carefully. While Zapier connections are possible, native integrations are limited.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Systeme.io's pricing is among the most aggressive in the industry. The free tier is genuinely usable, and paid plans scale affordably.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Monthly Price</th>
+            <th class="text-left py-3 px-4 font-semibold">Key Limits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Free</td>
+            <td class="py-3 px-4 text-slate-600">$0</td>
+            <td class="py-3 px-4 text-slate-600">2,000 contacts, 1 course, 3 funnels, unlimited students</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Startup</td>
+            <td class="py-3 px-4 text-slate-600">$27</td>
+            <td class="py-3 px-4 text-slate-600">5,000 contacts, 3 courses, 10 funnels, custom domain</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Webinar</td>
+            <td class="py-3 px-4 text-slate-600">$47</td>
+            <td class="py-3 px-4 text-slate-600">10,000 contacts, 10 courses, webinar functionality, evergreen webinars</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise</td>
+            <td class="py-3 px-4 text-slate-600">$97</td>
+            <td class="py-3 px-4 text-slate-600">15,000+ contacts, unlimited courses, unlimited funnels, priority support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>All Plans Include:</strong> Unlimited students, no transaction fees, affiliate program, email marketing, automation rules, and blog functionality.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Annual billing offers approximately 30% savings compared to monthly. The free plan never expires and requires no credit card.
+    </p>
+  </section>
+
+  <!-- How Systeme.io Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Systeme.io Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Systeme.io stacks up against other all-in-one and course platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Systeme.io", "Thinkific", "Kajabi", "Teachable", "Kartra"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Budget all-in-one", "Course creation & sales", "Premium all-in-one", "Course hosting", "Marketing automation"] },
+        { feature: "Starting Price", values: ["Free", "$49/month", "$149/month", "Free", "$99/month"] },
+        { feature: "Transaction Fees", values: ["None", "0-10% (plan dependent)", "None", "0-10% (plan dependent)", "None"] },
+        { feature: "Course Features", values: ["Basic", "Advanced", "Good", "Good", "Basic"] },
+        { feature: "Email Marketing", values: ["Included", "Basic/Add-on", "Included", "Basic", "Included"] },
+        { feature: "Best For", values: ["Budget beginners", "Growing academies", "Established creators", "Simple course hosting", "Marketing-heavy businesses"] },
+        { feature: "Scaling Potential", values: ["Limited", "High", "High", "Moderate", "Moderate"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Considering Systeme.io for your course business?"
+    ctaDescription="Get a personalized recommendation based on your budget, course complexity, and growth plans."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Systeme.io vs Thinkific", href: "/compare/systeme-vs-thinkific", description: "Budget all-in-one vs dedicated course platform: which fits your business stage?" },
+    { title: "Kajabi Review", href: "/reviews/kajabi", description: "Premium all-in-one platform for established course creators and coaches." },
+    { title: "Teachable Review", href: "/reviews/teachable", description: "Popular course platform with focus on simple course delivery." },
+    { title: "Best Free Course Platforms", href: "/guides/free-course-platforms", description: "Compare no-cost options for launching your first online course." }
+  ]} />
+
+</ReviewLayout>

@@ -1,0 +1,397 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Schoology an LMS?",
+    answer: "Yes, Schoology is a full-featured Learning Management System designed primarily for K-12 education. Acquired by PowerSchool in 2019, it offers course management, assessment tools, standards alignment, parent communication, and extensive integration capabilities. It serves both individual schools and entire district implementations."
+  },
+  {
+    question: "Who owns Schoology?",
+    answer: "Schoology was acquired by PowerSchool in 2019 for $300 million. PowerSchool is the largest K-12 education technology provider in North America, serving over 45 million students. This acquisition integrated Schoology into PowerSchool's broader ecosystem of student information systems and administrative tools."
+  },
+  {
+    question: "How much does Schoology cost?",
+    answer: "Schoology uses district-based pricing that varies by student count and feature set. Individual teacher accounts are free, but institutional implementations require a paid license. PowerSchool typically bundles Schoology with other products, so pricing is obtained through sales consultation rather than published rates."
+  },
+  {
+    question: "What is the difference between Schoology and Google Classroom?",
+    answer: "Schoology is a comprehensive LMS with advanced features: gradebook with calculations, standards alignment, rubrics, question banks, and detailed analytics. Google Classroom is a lightweight assignment distribution tool with minimal LMS functionality. Schools wanting robust assessment and reporting typically choose Schoology; those wanting simplicity choose Classroom."
+  },
+  {
+    question: "Does Schoology integrate with PowerSchool SIS?",
+    answer: "Yes, the PowerSchool acquisition brought deep integration between Schoology and PowerSchool's Student Information System. Grade passback, rostering, and attendance data flow seamlessly between the platforms. This integration is a major selling point for districts already using PowerSchool SIS."
+  },
+  {
+    question: "Is Schoology good for higher education?",
+    answer: "Schoology serves higher education institutions, though it's primarily designed for K-12 workflows. Universities often prefer Canvas or Blackboard for their more sophisticated higher ed feature sets. Schoology can work for smaller colleges or continuing education programs, but may lack some enterprise needs of research universities."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Schoology",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.8",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest review of Schoology (by PowerSchool) for K-12 education. Who it's best for, key strengths, limitations, and pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Schoology Review 2026: K-12 LMS by PowerSchool"
+  description="An honest review of Schoology (by PowerSchool) for K-12 education. Who it's best for, key strengths, limitations, and pricing."
+  platformName="Schoology"
+  rating={3.8}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Schoology' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Schoology Review 2026: K-12 LMS by PowerSchool</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.8 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~80% filled for 3.8 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-schoology">
+            <stop offset="80%" stop-color="#fbbf24" />
+            <stop offset="80%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-schoology)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.8 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Schoology is a capable K-12 LMS with strong standards alignment, robust assessment tools, and excellent PowerSchool SIS integration. With 60,000+ schools using the platform, it has proven district-scale reliability. The trade-offs include a steeper learning curve than Google Classroom and pricing that requires sales negotiation.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for K-12 administrators, curriculum directors, and IT leaders evaluating Schoology against Canvas, Google Classroom, and other district-level LMS options. If you need standards-based grading and detailed analytics, this is for you.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Schoology serves 60,000+ schools with tools designed specifically for K-12 education workflows.",
+    "PowerSchool SIS integration enables seamless grade passback and roster synchronization.",
+    "Standards alignment features support state and Common Core tracking with detailed mastery reporting.",
+    "Parent engagement portal provides real-time access to grades, assignments, and school communications.",
+    "Assessment tools include rubrics, question banks, and analytics that exceed Google Classroom capabilities.",
+    "District-level pricing requires sales consultation—no transparent self-serve options available."
+  ]} />
+
+  <!-- What is Schoology? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Schoology?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Schoology is a cloud-based Learning Management System founded in 2009 and acquired by PowerSchool in 2019. It was designed from the ground up for K-12 education, with features that address the specific needs of teachers, students, parents, and administrators in school environments.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform provides course management, assignment distribution, grading, assessment tools, standards alignment, and communication features. Its interface resembles a social network, with a central feed showing course updates, assignments, and discussions. This familiar design helps with student and teacher adoption.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Following the PowerSchool acquisition, Schoology gained deeper integration with the most widely used Student Information System in North America. This positions Schoology as the natural LMS choice for districts already invested in the PowerSchool ecosystem, creating a unified platform for student data, grades, and learning content.
+    </p>
+  </section>
+
+  <!-- Who is Schoology Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Schoology Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Schoology serves specific education segments particularly well. Here is where it fits best:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">PowerSchool Districts</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Districts using PowerSchool SIS gain the most value from Schoology. The native integration eliminates manual grade entry, syncs rosters automatically, and provides unified reporting across academic and administrative systems.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Standards-Focused Schools</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Schools needing detailed standards alignment and mastery tracking benefit from Schoology's assessment tools. State standards, Common Core, and custom learning objectives can be tracked at the individual student level.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">District-Wide Implementations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Schoology scales to district level with administrative controls, centralized curriculum management, and system-wide analytics. Large implementations with consistent needs across schools work well.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Schools Wanting Parent Visibility</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          The parent portal provides comprehensive access to grades, assignments, attendance, and communications. Parents can monitor multiple children across different schools from a single account.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Course and Content Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Teachers build courses using folders, files, links, and embedded content. The Materials page organizes content logically, while Updates serve as announcements. Unlike Google Classroom's chronological stream, Schoology's structure better supports semester-long courses with substantial content libraries.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assessment and Grading</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Schoology's assessment engine supports multiple question types, question banks for randomization, time limits, and attempt controls. The gradebook includes weighted categories, grading scales, and standards-based grading options. Rubrics can be attached to any assignment for consistent evaluation.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Standards Alignment</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Teachers align assignments and assessments to state standards, Common Core, or custom learning objectives. The mastery view shows student progress toward specific standards across multiple assessments, enabling data-driven instruction adjustments.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Analytics and Reporting</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Schoology provides course-level analytics on student engagement, assessment performance, and standards mastery. District administrators can access system-wide reports on usage, achievement gaps, and teacher activity. These insights exceed what's available in simpler platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Communication and Collaboration</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform includes messaging, announcements, and discussion boards. Groups allow cross-course collaboration for clubs, departments, or professional learning communities. The social media-like interface encourages student engagement, though some teachers find it distracting.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">PowerSchool Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The deepest SIS-LMS integration available. Grade passback eliminates double-entry, roster sync ensures accuracy, and unified data supports comprehensive reporting. For PowerSchool districts, this alone often justifies the choice.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Standards-Based Grading</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Robust support for mastery-based assessment. Standards can be aligned to any content, with visual progress tracking for students and parents. Schools transitioning to competency-based education find these tools essential.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Assessment Sophistication</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Question banks, randomization, various question types, and detailed item analysis support serious assessment programs. The testing tools approach the capability of dedicated assessment platforms.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">District Scalability</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Proven at scale across 60,000+ schools. Administrative controls, curriculum sharing, and system-wide reporting support consistent implementation across large districts.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Parent Portal</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Comprehensive parent access to grades, assignments, attendance, and communications. The mobile app keeps parents connected to their children's academic progress in real time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Schoology May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Schoology May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Schoology has limitations that may make other platforms preferable:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Individual Teachers</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While free teacher accounts exist, Schoology is designed for institutional implementation. Solo educators or small schools find the setup overhead excessive compared to Google Classroom's immediate usability.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Higher Education</h3>
+        <p class="text-slate-700 leading-relaxed">
+          University needs often exceed Schoology's K-12 focus. Research institutions, complex scheduling, and enterprise integrations typically push colleges toward Canvas or Blackboard.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Google-First Schools</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Schools deeply invested in Google Workspace may find Google Classroom sufficient, especially if assessment needs are modest. The simplicity and cost savings can outweigh Schoology's additional features.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Opaque Pricing</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No published pricing requires sales engagement for quotes. This complicates budget planning and comparison shopping. Districts must commit time to the sales process before understanding costs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Interface Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The feature depth creates a steeper learning curve than simpler platforms. Teachers need training to use advanced features effectively, and students may find the interface overwhelming initially.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Schoology does not publish transparent pricing. Costs are negotiated based on student count, feature requirements, and bundling with other PowerSchool products. Individual teachers can use a limited free version, but institutional implementation requires a paid license.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Offering</th>
+            <th class="text-left py-3 px-4 font-semibold">Pricing</th>
+            <th class="text-left py-3 px-4 font-semibold">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Basic (Individual)</td>
+            <td class="py-3 px-4 text-slate-600">Free</td>
+            <td class="py-3 px-4 text-slate-600">Limited features for individual teacher use</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Enterprise (District)</td>
+            <td class="py-3 px-4 text-slate-600">Quote-based</td>
+            <td class="py-3 px-4 text-slate-600">Full feature set, SIS integration, district analytics</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">PowerSchool Bundle</td>
+            <td class="py-3 px-4 text-slate-600">Custom</td>
+            <td class="py-3 px-4 text-slate-600">Often bundled with SIS and other PowerSchool tools</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Contact PowerSchool sales for specific pricing based on your district size and requirements.
+    </p>
+  </section>
+
+  <!-- How Schoology Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Schoology Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Schoology stacks up against other K-12 focused platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Schoology", "Canvas", "Google Classroom", "Blackboard", "Moodle"]}      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["K-12 education", "K-12 and higher ed", "K-12 simplicity", "Higher ed", "Flexible/open-source"] },
+        { feature: "SIS Integration", values: ["PowerSchool native", "Good (multiple)", "Limited", "Good", "Via plugins"] },
+        { feature: "Assessment Tools", values: ["Advanced", "Very advanced", "Basic", "Advanced", "Advanced"] },
+        { feature: "Standards Alignment", values: ["Strong", "Strong", "None", "Moderate", "Via plugins"] },
+        { feature: "Ease of Use", values: ["Moderate", "Moderate", "Very easy", "Complex", "Complex"] },
+        { feature: "Parent Portal", values: ["Comprehensive", "Good", "Email summaries", "Moderate", "Via plugins"] },
+        { feature: "Pricing", values: ["Quote-based", "Quote-based", "Free", "Expensive", "Free (self-hosted)"] },
+        { feature: "Best For", values: ["PowerSchool districts", "Comprehensive needs", "Simplicity", "Universities", "Technical control"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating Schoology for your district?"
+    ctaDescription="Get a personalized recommendation based on your SIS, student count, and learning goals."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Canvas Review", href: "/reviews/canvas", description: "Comprehensive LMS for K-12 and higher education with advanced features." },
+    { title: "Google Classroom Review", href: "/reviews/google-classroom", description: "Free lightweight LMS for schools already using Google Workspace." },
+    { title: "PowerSchool vs Schoology", href: "/compare/powerschool-vs-schoology", description: "Understanding the relationship between these integrated platforms." },
+    { title: "Best LMS for K-12", href: "/guides/best-lms-k12", description: "Complete guide to choosing the right LMS for your school district." }
+  ]} />
+
+</ReviewLayout>

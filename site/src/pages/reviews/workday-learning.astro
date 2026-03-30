@@ -1,0 +1,413 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Workday Learning a standalone LMS?",
+    answer: "No, Workday Learning is not a standalone product. It is a module within the broader Workday Human Capital Management (HCM) suite. Organizations must be Workday HCM customers to use Workday Learning. This integration is its core strength—learning data flows seamlessly with HR, payroll, and talent management data—but it also means the platform is unavailable to organizations not using Workday for HR."
+  },
+  {
+    question: "How much does Workday Learning cost?",
+    answer: "Workday does not publish pricing publicly. As an enterprise HCM module, costs are bundled into overall Workday contracts and vary significantly based on organization size, modules purchased, and implementation complexity. Organizations should expect enterprise-level pricing typical of Workday implementations, often requiring multi-year contracts and significant implementation investment."
+  },
+  {
+    question: "What makes Workday Learning different from other LMS platforms?",
+    answer: "Workday Learning's primary differentiator is its native integration with Workday HCM. Learning assignments can trigger from HR events (new hire onboarding, promotion, compliance deadline). Completion data automatically updates employee records and influences succession planning, performance reviews, and compensation decisions. No other LMS offers this level of bi-directional HR-learning integration without complex middleware."
+  },
+  {
+    question: "Does Workday Learning support external training (customers, partners)?",
+    answer: "Workday Learning is designed primarily for internal employee training. While organizations can use it for extended enterprise scenarios, it lacks the specialized features of platforms built for customer education—no native eCommerce, limited white-labeling, and minimal marketing tools. Organizations needing robust external training should consider dedicated customer education platforms or Workday's partner ecosystem."
+  },
+  {
+    question: "How does Workday Learning compare to Thinkific?",
+    answer: "Workday Learning and Thinkific serve entirely different markets. Workday Learning is an internal employee training module for large enterprises already using Workday HCM. Thinkific is a platform for experts and businesses to create, market, and sell online courses to external audiences. They are not direct competitors. See our <a href='/compare/workday-learning-vs-thinkific' class='text-teal-dark hover:underline'>full Workday Learning vs Thinkific comparison</a>."
+  },
+  {
+    question: "Does Workday Learning support SCORM and xAPI content?",
+    answer: "Yes, Workday Learning supports SCORM 1.2 and 2004, AICC, and xAPI (Tin Can) content. It also supports native video uploads, documents, and links to external content. The platform can serve as an LRS (Learning Record Store) for xAPI statements, making it suitable for organizations with diverse content libraries and sophisticated tracking requirements."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Workday Learning",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.7",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Workday Learning for enterprise employee development. Native HR integration, limitations, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Workday Learning Review 2026: HR-Native Employee Development"
+  description="An honest, in-depth review of Workday Learning for enterprise employee development. Native HR integration, limitations, and who it's best for."
+  platformName="Workday Learning"
+  rating={3.7}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Workday Learning' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Workday Learning Review 2026: HR-Native Employee Development</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.7 out of 5 stars">
+      <!-- Star 1 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 2 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 3 (filled) -->
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 4 (partial - ~70% filled for 3.7 rating) -->
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-workday">
+            <stop offset="70%" stop-color="#fbbf24" />
+            <stop offset="70%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-workday)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <!-- Star 5 (empty) -->
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.7 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Workday Learning is a capable employee development module for organizations already committed to the Workday ecosystem. Its native HR integration eliminates data silos between learning and talent management, making it ideal for compliance training, onboarding, and skills-based career development. The trade-offs are limited functionality compared to standalone LMS platforms, no standalone availability, and a learning experience that prioritizes administrative efficiency over learner engagement.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is written for HR leaders, L&D directors, and IT decision-makers at organizations already using or considering Workday HCM. If you're evaluating learning solutions for employee development and Workday is your HR system of record, this analysis will help you understand whether Workday Learning meets your needs or if a supplemental LMS is required.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Workday Learning is exclusively available to Workday HCM customers—it cannot be purchased as a standalone LMS.",
+    "Native HR integration enables automated learning assignments based on HR events like hiring, promotions, or compliance deadlines.",
+    "Learning completion data flows bi-directionally with talent management, performance reviews, and succession planning.",
+    "Content support includes SCORM, xAPI, video, and external links, with basic authoring tools for simple courses.",
+    "The platform is designed for internal employee training, not external audiences like customers or partners.",
+    "Organizations needing advanced learning features, social learning, or customer education will likely need a supplemental LMS."
+  ]} />
+
+  <!-- What is Workday Learning? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Workday Learning?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday Learning is a learning management module embedded within Workday's Human Capital Management (HCM) suite. Launched in 2016, it represents Workday's entry into the learning technology space, designed to complement its established HR, payroll, and financial management products. As of 2026, it serves thousands of enterprise customers including Amazon, Bank of America, and Toyota.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Unlike standalone LMS platforms, Workday Learning is architected around the principle that learning should be inseparable from talent management. Employee learning records live in the same database as performance reviews, compensation data, and career development plans. This eliminates the integration challenges that plague organizations using separate HR and learning systems, but it also means Workday Learning is unavailable to organizations not using Workday HCM.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Workday Learning supports both formal training (assigned courses, compliance requirements) and informal learning (recommended content, peer sharing, social learning). The platform emphasizes skills-based learning, with functionality to assess, develop, and track employee skills that inform staffing, project assignments, and succession planning decisions.
+    </p>
+  </section>
+
+  <!-- Who is Workday Learning Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Workday Learning Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Workday Learning is designed for a specific customer profile. It fits best in these scenarios:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Workday HCM Customers</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations already using Workday for HR, payroll, and talent management. The value proposition is integration—learning data automatically connects to performance, compensation, and succession planning without custom integrations or data exports.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Compliance-Heavy Industries</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations in regulated industries (financial services, healthcare, manufacturing) requiring audit trails for mandatory training. Workday Learning's integration with HR data makes compliance tracking automatic and defensible.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Skills-Based Organizations</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Companies practicing skills-based talent management where learning directly informs staffing, project assignments, and career development. Workday's skills cloud connects learning to talent mobility in ways standalone LMS platforms cannot replicate.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Large Enterprise L&D Teams</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations with 5,000+ employees where administrative efficiency and data consolidation matter more than cutting-edge learning experience features. Workday Learning excels at managing learning at scale across complex organizational hierarchies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content Management</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday Learning supports SCORM 1.2 and 2004, AICC, and xAPI (Tin Can) content packages. Native video hosting accommodates MP4 uploads with transcription support. External content can be linked or embedded. The platform includes basic authoring tools for creating simple courses within Workday, though most organizations use third-party authoring tools for complex content. Content can be organized into curricula, programs, and learning paths.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Assignment and Automation</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Learning assignments can be triggered automatically based on HR events—new hire onboarding, promotions, transfers, or compliance deadlines. Rules-based assignment ensures the right people receive required training at the right time. This automation is Workday Learning's core strength: because it shares a database with HCM, assignment logic can reference any employee attribute (department, location, job level, tenure) without data synchronization challenges.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Skills and Career Development</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday Learning integrates with Workday Skills Cloud, allowing organizations to define required skills for roles, assess employee skill levels, and recommend learning to close gaps. Skills gained through learning automatically update employee profiles, influencing talent matching, succession planning, and career pathing recommendations. This skills-based approach connects learning to tangible career outcomes.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Social and Informal Learning</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The platform supports user-generated content, allowing employees to share videos, documents, and links. Peer recommendations and social feeds facilitate knowledge sharing. While functional, these features are less sophisticated than dedicated social learning platforms or modern LXP solutions. Organizations prioritizing collaborative learning often supplement Workday Learning with additional tools.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Reporting and Analytics</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday Learning leverages Workday's robust reporting infrastructure. Standard reports cover completion rates, compliance status, and skills progression. Custom reports can combine learning data with any HR attribute. The platform supports Workday Prism Analytics for advanced visualization and analysis. However, learning-specific analytics (engagement patterns, content effectiveness, learner satisfaction) are less developed than in standalone LMS platforms.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Mobile Experience</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday Learning is accessible through the Workday mobile app, allowing employees to complete training on smartphones and tablets. Offline content access is supported for learners without consistent connectivity. The mobile experience mirrors the desktop interface with responsive design optimized for smaller screens.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Native HR Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          No other learning platform offers this level of seamless integration with HR data. Learning assignments, completions, and skills flow automatically to talent management, performance reviews, and compensation processes. This eliminates data inconsistencies and administrative overhead that burden organizations using separate systems.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Automated Compliance Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Rules-based assignment ensures employees complete required training based on role, location, and regulatory requirements. Automatic reminders, escalations, and audit trails simplify compliance management. For regulated industries, this automation reduces risk and administrative burden significantly.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Skills-Based Talent Development</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The integration between learning and Workday Skills Cloud enables genuine skills-based talent management. Learning directly influences project staffing, succession planning, and career pathing. This connects training investment to business outcomes in ways standalone LMS platforms struggle to replicate.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unified Reporting</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Learning data is available in the same reporting environment as all other HR data. Custom reports can analyze learning outcomes by any employee attribute without data exports or middleware. This simplifies complex analyses like correlating training with performance ratings or retention.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Enterprise Scale and Security</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Workday's enterprise infrastructure supports hundreds of thousands of users with the security, availability, and compliance certifications (SOC 2, ISO 27001, GDPR) that large organizations require. Multi-tenant architecture ensures regular updates without customer-managed infrastructure.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Onboarding Integration</h3>
+        <p class="text-slate-700 leading-relaxed">
+          New hire learning is seamlessly integrated with Workday's onboarding workflows. Training requirements can be assigned automatically based on job profile, with progress tracked alongside other onboarding tasks. This creates a unified new employee experience rather than siloed HR and learning processes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where Workday Learning May Not Be the Best Fit -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Workday Learning May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Honest evaluation requires acknowledging limitations. Here is where Workday Learning falls short:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not a Standalone Solution</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Organizations not using Workday HCM cannot purchase Workday Learning. This exclusivity is its defining characteristic—both its strength for Workday customers and its limitation for everyone else. If you're not in the Workday ecosystem, this platform is unavailable.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Limited Learning Experience Features</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Compared to modern LMS and LXP platforms, Workday Learning's learner experience is basic. Gamification, social features, AI-powered recommendations, and content personalization lag behind standalone competitors. Organizations prioritizing cutting-edge learning experiences will find the platform dated.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Not Designed for External Training</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Customer education, partner training, and extended enterprise scenarios are not Workday Learning's strength. The platform lacks eCommerce, white-labeling, and marketing features essential for external learning programs. Organizations with significant external training needs will require a separate solution.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Content Authoring Limitations</h3>
+        <p class="text-slate-700 leading-relaxed">
+          While Workday Learning supports SCORM and xAPI content, its native authoring tools are rudimentary. Organizations wanting to create sophisticated interactive content will need third-party authoring tools, adding cost and complexity to content development workflows.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Implementation Complexity</h3>
+        <p class="text-slate-700 leading-relaxed">
+          As part of Workday HCM, Learning implementation is tied to broader Workday configuration. Changes to learning workflows often require Workday administrator involvement. Organizations wanting agile, self-service learning administration may find the platform constraining.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Workday does not publish standard pricing for Workday Learning. As an enterprise HCM module, costs are bundled into overall Workday agreements and vary significantly based on organization size, contract terms, and module selection.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Component</th>
+            <th class="text-left py-3 px-4 font-semibold">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Licensing</td>
+            <td class="py-3 px-4 text-slate-600">Per-employee-per-month pricing bundled with Workday HCM contract</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Implementation</td>
+            <td class="py-3 px-4 text-slate-600">Professional services fees for configuration, content migration, and integration</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Content</td>
+            <td class="py-3 px-4 text-slate-600">Additional costs for third-party content libraries (LinkedIn Learning, Skillsoft, etc.)</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Ongoing Support</td>
+            <td class="py-3 px-4 text-slate-600">Annual maintenance and support included in subscription; premium support available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-4">
+      <strong>Pricing Reality:</strong> Workday Learning is an enterprise investment. Organizations should expect pricing comparable to other enterprise HCM modules, with multi-year commitments typical. The total cost of ownership includes not just licensing but implementation services, content development or licensing, and ongoing administrator resources.
+    </p>
+
+    <p class="text-sm text-slate-500">
+      Contact Workday or a certified implementation partner for specific pricing based on your organization size and requirements.
+    </p>
+  </section>
+
+  <!-- How Workday Learning Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Workday Learning Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Workday Learning stacks up against other enterprise learning platforms:
+    </p>
+
+    <ComparisonTable
+      headers={["Workday Learning", "Cornerstone", "Docebo", "SAP SuccessFactors", "Thinkific"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Focus", values: ["Employee development", "Enterprise talent suite", "Multi-audience training", "Integrated talent management", "Course creation & sales"] },
+        { feature: "HR Integration", values: ["Native (Workday)", "Strong connectors", "API integrations", "Native (SAP)", "None"] },
+        { feature: "Best For", values: ["Workday HCM customers", "Large enterprise", "Customer education", "SAP environments", "External training"] },
+        { feature: "External Training", values: ["Limited", "Available", "Strong", "Available", "Core strength"] },
+        { feature: "Learning Experience", values: ["Functional", "Comprehensive", "Modern LXP", "Integrated", "Creator-defined"] },
+        { feature: "Standalone Option", values: ["No", "Yes", "Yes", "Yes", "Yes"] },
+        { feature: "Pricing Model", values: ["Enterprise contract", "Per-user licensing", "Quote-based", "Enterprise contract", "Published tiers"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating Workday Learning for your organization?"
+    ctaDescription="Get a personalized recommendation based on your HR systems, training requirements, and organizational priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Workday Learning vs Thinkific", href: "/compare/workday-learning-vs-thinkific", description: "Employee training module vs course creation platform: understanding the fundamental differences." },
+    { title: "Cornerstone Review", href: "/reviews/cornerstone", description: "Comprehensive talent management and learning suite for large enterprises." },
+    { title: "Docebo Review", href: "/reviews/docebo", description: "Modern enterprise LMS with strong multi-audience and AI capabilities." },
+    { title: "Best LMS for Corporate Training", href: "/guides/corporate-training-lms", description: "Compare top platforms for employee development and compliance training." }
+  ]} />
+
+</ReviewLayout>

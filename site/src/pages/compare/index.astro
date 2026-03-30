@@ -27,8 +27,8 @@ const jsonLd = {
   }
 };
 
-// Comparison sections data
-const thinkificComparisons = [
+// Comparison sections data — Thinkific comparisons distributed into categories
+const learningCommerceComparisons = [
   {
     title: "Thinkific vs Kajabi",
     description: "Learning-first course platform vs all-in-one business builder — which fits your teaching and marketing needs?",
@@ -45,38 +45,15 @@ const thinkificComparisons = [
     href: "/compare/thinkific-vs-learnworlds"
   },
   {
-    title: "Thinkific vs Docebo",
-    description: "Learning commerce vs enterprise LMS — which model fits your customer education needs?",
-    href: "/compare/thinkific-vs-docebo"
-  },
-  {
     title: "Thinkific vs Podia",
     description: "Dedicated learning platform vs simple all-in-one — comparing course delivery and community features.",
     href: "/compare/thinkific-vs-podia"
   },
   {
-    title: "Thinkific vs Absorb",
-    description: "Branded academy platform vs enterprise LMS — different approaches to customer and partner training.",
-    href: "/compare/thinkific-vs-absorb"
+    title: "Thinkific vs LearnDash",
+    description: "Hosted learning commerce vs WordPress LMS plugin — convenience vs control for course businesses.",
+    href: "/compare/thinkific-vs-learndash"
   },
-  {
-    title: "Thinkific vs Skilljar",
-    description: "Two customer education platforms compared on integrations, analytics, and enterprise readiness.",
-    href: "/compare/thinkific-vs-skilljar"
-  },
-  {
-    title: "Thinkific vs TalentLMS",
-    description: "Learning commerce vs affordable multi-purpose LMS — which fits your training goals?",
-    href: "/compare/thinkific-vs-talentlms"
-  },
-  {
-    title: "Thinkific vs Moodle",
-    description: "Hosted learning commerce vs open-source flexibility — comparing ownership models and capabilities.",
-    href: "/compare/thinkific-vs-moodle"
-  }
-];
-
-const learningCommerceComparisons = [
   {
     title: "Kajabi vs Podia",
     description: "Premium marketing power vs simple all-in-one — which bundled platform fits your budget and needs?",
@@ -120,6 +97,31 @@ const learningCommerceComparisons = [
 ];
 
 const enterpriseLMSComparisons = [
+  {
+    title: "Thinkific vs Docebo",
+    description: "Learning commerce vs enterprise LMS — which model fits your customer education needs?",
+    href: "/compare/thinkific-vs-docebo"
+  },
+  {
+    title: "Thinkific vs Absorb",
+    description: "Branded academy platform vs enterprise LMS — different approaches to customer and partner training.",
+    href: "/compare/thinkific-vs-absorb"
+  },
+  {
+    title: "Thinkific vs Skilljar",
+    description: "Two customer education platforms compared on integrations, analytics, and enterprise readiness.",
+    href: "/compare/thinkific-vs-skilljar"
+  },
+  {
+    title: "Thinkific vs TalentLMS",
+    description: "Learning commerce vs affordable multi-purpose LMS — which fits your training goals?",
+    href: "/compare/thinkific-vs-talentlms"
+  },
+  {
+    title: "Thinkific vs Moodle",
+    description: "Hosted learning commerce vs open-source flexibility — comparing ownership models and capabilities.",
+    href: "/compare/thinkific-vs-moodle"
+  },
   {
     title: "Docebo vs Absorb",
     description: "Enterprise AI powerhouse vs intuitive learning platform — comparing two leading corporate LMS solutions.",
@@ -195,33 +197,6 @@ const breadcrumbItems = [
       Whether you're building a customer education program, launching a branded academy, or comparing enterprise 
       LMS options, these guides will help you make a confident, informed choice.
     </p>
-  </section>
-
-  <!-- Thinkific Comparisons -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-navy mb-2">Thinkific Comparisons</h2>
-    <p class="text-slate-600 mb-8 max-w-3xl">
-      Thinkific is a leading learning commerce platform for customer education, branded academies, and course businesses. 
-      See how it stacks up against alternatives.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {thinkificComparisons.map((comparison) => (
-        <a 
-          href={comparison.href} 
-          class="group bg-white border border-slate-200 rounded-lg p-6 hover:border-teal hover:shadow-md transition-all flex flex-col h-full"
-        >
-          <h3 class="font-bold text-navy group-hover:text-teal-dark text-lg mb-3">{comparison.title}</h3>
-          <p class="text-slate-600 text-sm flex-grow">{comparison.description}</p>
-          <span class="text-teal text-sm font-medium mt-4 inline-flex items-center">
-            Read comparison
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </span>
-        </a>
-      ))}
-    </div>
   </section>
 
   <!-- Learning Commerce Comparisons -->

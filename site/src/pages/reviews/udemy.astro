@@ -1,0 +1,393 @@
+---
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadFormModal from '../../components/LeadFormModal.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+
+const faqItems = [
+  {
+    question: "Is Udemy free to use?",
+    answer: "Udemy is free to browse and sign up. Individual courses are purchased à la carte, typically ranging from $10–$200 at list price, though frequent sales bring most courses to $10–$20. Udemy also offers a free tier with limited courses. Udemy Business, the enterprise subscription product, is a separate paid offering with per-user licensing."
+  },
+  {
+    question: "How much do Udemy instructors earn?",
+    answer: "Udemy instructors earn 37% of revenue from organic marketplace sales (where Udemy drives the traffic). If an instructor drives the sale through their own coupon or referral link, they earn 97% of the revenue. Udemy Business instructors are paid from a revenue pool based on minutes consumed. This model has been criticized for undervaluing expert content, especially compared to platforms like Thinkific where experts keep 100% of their revenue."
+  },
+  {
+    question: "What is Udemy Business?",
+    answer: "Udemy Business is Udemy's enterprise product, offering organizations a curated subscription library of 27,000+ courses for employee upskilling. It includes features like learning paths, admin analytics, SSO integration, and API access. Pricing is per-user per-year, typically starting around $30/user/month for the Team plan (5–20 users). Enterprise plans with advanced features require custom quotes."
+  },
+  {
+    question: "How does Udemy compare to Thinkific?",
+    answer: "Udemy and Thinkific serve fundamentally different purposes. Udemy is a marketplace where instructors list courses alongside thousands of competitors, with Udemy controlling pricing and customer relationships. Thinkific lets experts build their own branded learning business with full control over pricing, branding, student data, and the customer relationship. For experts building a sustainable business, Thinkific offers ownership; Udemy offers reach. See our <a href='/compare/thinkific-vs-udemy' class='text-teal-dark hover:underline'>full Thinkific vs Udemy comparison</a>."
+  },
+  {
+    question: "Is Udemy good for corporate training?",
+    answer: "Udemy Business is a viable option for corporate upskilling, particularly for technical and business skills. Its strengths are breadth of content (27,000+ courses), affordable per-user pricing, and fast deployment. However, it lacks compliance-focused features, advanced certification management, and deep HRIS integrations that dedicated enterprise LMS platforms offer. It works best as a supplemental learning resource rather than a primary corporate training system."
+  },
+  {
+    question: "Can I get a refund on Udemy?",
+    answer: "Udemy offers a 30-day refund policy for individual course purchases. If you're unsatisfied, you can request a full refund within 30 days of purchase. This is one of the more generous refund policies in the online learning space. Udemy Business subscriptions have different cancellation terms that vary by contract."
+  }
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": "Udemy",
+      "applicationCategory": "Learning Management System",
+      "operatingSystem": "Web"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "3.8",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    },
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "description": "An honest, in-depth review of Udemy for consumer learners, instructors, and enterprise teams. Marketplace model, Udemy Business, pricing, and who it's best for."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer.replace(/<[^>]*>/g, '')
+      }
+    }))
+  }
+];
+---
+
+<ReviewLayout
+  title="Udemy Review 2026: The World's Largest Course Marketplace"
+  description="An honest, in-depth review of Udemy for consumer learners, instructors, and enterprise teams. Marketplace model, Udemy Business, pricing, and who it's best for."
+  platformName="Udemy"
+  rating={3.8}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews' }, { label: 'Udemy' }]}
+  lastUpdated="2026-03-25"
+  jsonLd={jsonLd}
+>
+
+  <h1 class="text-3xl md:text-4xl font-bold text-navy mb-4">Udemy Review 2026: The World's Largest Course Marketplace</h1>
+
+  <!-- Rating Display -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-1" aria-label="Rating: 3.8 out of 5 stars">
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" viewBox="0 0 20 20">
+        <defs>
+          <linearGradient id="partial-star-udemy">
+            <stop offset="80%" stop-color="#fbbf24" />
+            <stop offset="80%" stop-color="#cbd5e1" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#partial-star-udemy)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      <svg class="w-6 h-6 text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    </div>
+    <span class="text-lg font-semibold text-navy">3.8 / 5</span>
+  </div>
+
+  <!-- Summary Verdict -->
+  <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-8">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>The bottom line:</strong> Udemy is the world's largest online course marketplace with 75M+ learners and 220,000+ courses. It offers unmatched reach for instructors and affordable learning for consumers. However, the marketplace model means instructors sacrifice pricing control, brand ownership, and most of their revenue. Udemy Business adds a viable enterprise upskilling layer, but it's a content library—not a full LMS. Best for learners seeking affordable skills and instructors wanting exposure, not for experts building a sustainable learning business.
+    </p>
+  </div>
+
+  <!-- Who this is for -->
+  <p class="text-slate-600 mb-8 leading-relaxed">
+    This review is for individual learners evaluating Udemy for skill development, instructors considering the marketplace to reach new audiences, and L&D teams assessing Udemy Business for corporate upskilling. If you're deciding between a marketplace and an owned platform, this analysis covers the trade-offs.
+  </p>
+
+  <!-- Key Takeaways -->
+  <KeyTakeaways items={[
+    "Udemy's marketplace model provides massive reach (75M+ learners, 220K+ courses) but instructors earn only 37% of organic sales revenue and have no control over pricing or the student relationship.",
+    "Frequent deep discounts (courses regularly drop to $10–$20) drive volume but devalue premium content and make it difficult for instructors to charge what their expertise is worth.",
+    "Udemy Business offers 27,000+ curated courses for enterprise teams starting around $30/user/month, making it a cost-effective upskilling library—but it lacks the depth of a dedicated enterprise LMS.",
+    "Instructors cannot build a brand on Udemy. Students are Udemy's customers, not yours. No custom domains, no email lists, no direct student relationships.",
+    "Content quality varies dramatically across 220,000+ courses. The marketplace model means anyone can publish, and low-quality courses compete alongside expert-led content.",
+    "For experts who want to own their business, Udemy is reach without control. Platforms like Thinkific offer the inverse: control without built-in marketplace traffic."
+  ]} />
+
+  <!-- What is Udemy? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">What is Udemy?</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Udemy is an online learning marketplace founded in 2010 and headquartered in San Francisco. It went public in 2021 (NYSE: UDMY) and was subsequently taken private by private equity firm Prosus in 2024 for approximately $4 billion. The platform operates two distinct businesses: a consumer marketplace where anyone can publish and purchase courses, and Udemy Business, an enterprise subscription product for corporate learning.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The consumer marketplace hosts 220,000+ courses across virtually every topic, from Python programming to watercolor painting. Over 75,000 instructors teach on the platform, reaching 75M+ registered learners in 180+ countries and 75+ languages. Courses are primarily video-based with quizzes, assignments, and certificates of completion.
+    </p>
+    <p class="text-slate-700 leading-relaxed">
+      Udemy Business curates approximately 27,000 of the highest-rated marketplace courses into a subscription library for organizations. It adds enterprise features like learning paths, admin dashboards, SSO, and API integrations. Major customers include Nasdaq, Volkswagen, Box, and NetApp.
+    </p>
+  </section>
+
+  <!-- Who is Udemy Best For? -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Who is Udemy Best For?</h2>
+    <p class="text-slate-700 leading-relaxed mb-6">
+      Udemy serves different audiences with different value propositions. Understanding which category you fall into determines whether the platform makes sense:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Individual Learners</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Self-directed learners looking for affordable skill development. With frequent sales bringing course prices to $10–$20, Udemy is one of the most cost-effective ways to learn new skills. The breadth of topics is unmatched by any single competitor.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Instructors Seeking Exposure</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Subject matter experts who want to reach a global audience without building their own marketing engine. Udemy's built-in traffic can generate sales from day one—but the trade-off is giving up pricing control and most of your revenue.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">L&D Teams Needing a Content Library</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Organizations wanting a broad, affordable library of upskilling content for employees. Udemy Business works well as a supplemental learning resource, especially for technical skills like software development, data science, and cloud computing.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-lg p-5">
+        <h3 class="font-semibold text-navy mb-2">Not For: Experts Building a Business</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          If you want to own your brand, control your pricing, build direct student relationships, and keep your revenue, Udemy's marketplace model works against you. Experts building sustainable learning businesses need an owned platform, not a marketplace listing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Core Capabilities</h2>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Consumer Marketplace</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The core Udemy experience is a massive course catalog with search, ratings, reviews, and recommendations. Courses include video lectures, quizzes, coding exercises, assignments, and downloadable resources. Students get lifetime access to purchased courses, a 30-day refund policy, and certificates of completion. The mobile app supports offline viewing.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Instructor Tools</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Instructors get a course creation dashboard with video uploading, curriculum builder, quiz/assessment tools, and basic analytics. Udemy provides production guidelines and a revenue-sharing model. Instructors can create coupons and promotional pricing, but Udemy controls marketplace-wide promotions and frequently discounts courses without instructor consent.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Udemy Business</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      The enterprise product curates 27,000+ courses into a subscription library with admin controls, learning paths, user management, SSO/SCIM, and analytics dashboards. It integrates with collaboration tools (Slack, Microsoft Teams) and supports API access for custom integrations. Reporting tracks engagement, completion rates, and skill development across the organization.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">Content & Learning Formats</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Primarily video-based with supplementary quizzes, coding exercises (in-browser for programming courses), assignments, and downloadable resources. Udemy has added practice tests and labs for certification prep. Content quality varies widely—top instructors produce professional-grade content, while the low barrier to entry means plenty of mediocre courses exist alongside them.
+    </p>
+
+    <h3 class="text-lg font-semibold text-navy mt-6 mb-3">AI Features</h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Udemy has introduced AI-powered features including intelligent search, personalized course recommendations, and AI-assisted Q&A that can answer student questions using course content. For Udemy Business, AI skills mapping helps organizations identify skill gaps and recommend relevant learning paths. These features are evolving but still behind dedicated AI-first platforms.
+    </p>
+  </section>
+
+  <!-- Key Strengths -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Key Strengths</h2>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Unmatched Content Breadth</h3>
+        <p class="text-slate-700 leading-relaxed">
+          220,000+ courses across virtually every topic. No single competitor offers this breadth. For learners, the selection is extraordinary. For Udemy Business customers, the curated 27,000-course library covers most professional development needs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Affordability for Learners</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Frequent sales bring most courses to $10–$20. For self-directed learners, this makes Udemy one of the most cost-effective learning investments available. Udemy Business per-user pricing is also competitive relative to other enterprise content libraries.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Built-In Audience for Instructors</h3>
+        <p class="text-slate-700 leading-relaxed">
+          75M+ registered learners means instructors can generate sales from organic marketplace traffic without building their own marketing funnel. For new instructors without an existing audience, this is a significant advantage over starting from zero on an owned platform.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Global Reach</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Available in 75+ languages across 180+ countries. Udemy's international presence and localization make it accessible to learners worldwide, a scale few competitors achieve.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Fast Enterprise Deployment</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Udemy Business can be deployed quickly since there's no content to create—the library is ready-made. For organizations that need to provide learning resources immediately, this speed-to-value is a genuine advantage over platforms requiring custom content development.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Where Udemy May Not Be the Best Fit</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Udemy's marketplace model creates structural limitations that are important to understand:
+    </p>
+
+    <div class="space-y-5">
+      <div>
+        <h3 class="font-semibold text-navy mb-1">No Brand Ownership for Instructors</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Students are Udemy's customers, not yours. You can't build an email list, customize your storefront, use a custom domain, or create a branded learning experience. Your course exists within Udemy's ecosystem, competing with thousands of others for attention.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Revenue Share Disadvantages Experts</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Instructors earn only 37% of organic sales. Combined with frequent deep discounting (Udemy regularly runs site-wide sales that drop courses to $9.99), the per-student revenue can be very low. High-volume instructors in popular categories can earn well, but most instructors earn modest amounts.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Aggressive Discounting Devalues Content</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Udemy's frequent sales condition learners to never pay full price. A $200 course regularly selling for $12.99 signals that the content isn't worth the list price. For experts with premium knowledge, this race-to-the-bottom pricing undermines their market positioning.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Variable Content Quality</h3>
+        <p class="text-slate-700 leading-relaxed">
+          The low barrier to publishing means quality varies dramatically. Learners must rely heavily on ratings and reviews to filter courses, and even highly-rated courses may have outdated content. There's no editorial curation on the consumer marketplace side.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-navy mb-1">Udemy Business Is Not a Full LMS</h3>
+        <p class="text-slate-700 leading-relaxed">
+          Udemy Business is a content library with basic admin tools, not a comprehensive learning management system. It lacks compliance management, certification workflows, custom content hosting, SCORM support, and the deeper features enterprises need for regulated training or customer education.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Overview -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">Pricing Overview</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Udemy operates two pricing models: à la carte course purchases for consumers and subscription licensing for Udemy Business.
+    </p>
+
+    <div class="overflow-x-auto rounded-lg border border-slate-200 mb-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-navy text-white">
+            <th class="text-left py-3 px-4 font-semibold">Plan</th>
+            <th class="text-left py-3 px-4 font-semibold">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Individual Courses ($10–$200)</td>
+            <td class="py-3 px-4 text-slate-600">Self-directed learners buying specific courses; frequent sales bring most to $10–$20</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Personal Plan ($17–$27/mo)</td>
+            <td class="py-3 px-4 text-slate-600">Individual subscription with access to a curated subset of courses and certification prep</td>
+          </tr>
+          <tr class="bg-white border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Udemy Business Team (~$30/user/mo)</td>
+            <td class="py-3 px-4 text-slate-600">Teams of 5–20 needing a shared learning library with basic admin controls</td>
+          </tr>
+          <tr class="bg-slate-50 border-t border-slate-200">
+            <td class="py-3 px-4 font-medium text-navy">Udemy Business Enterprise (Custom)</td>
+            <td class="py-3 px-4 text-slate-600">Organizations 21+ users with SSO, advanced analytics, API access, and dedicated support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-sm text-slate-500">
+      Instructor accounts are free to create. Udemy takes a revenue share on sales (63% for organic, 3% for instructor-driven). Enterprise pricing varies by organization size.
+    </p>
+  </section>
+
+  <!-- How Udemy Compares -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-navy mb-4">How Udemy Compares</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Here is how Udemy stacks up against other platforms across the learning ecosystem:
+    </p>
+
+    <ComparisonTable
+      headers={["Udemy", "Thinkific", "Skillshare", "Coursera", "LinkedIn Learning"]}
+      highlight={0}
+      rows={[
+        { feature: "Primary Model", values: ["Course marketplace", "Owned platform for experts", "Subscription creative community", "University partnership marketplace", "Professional skills library"] },
+        { feature: "Best For", values: ["Affordable self-paced learning", "Experts building a business", "Creative skill hobbyists", "Accredited credentials", "Corporate professional development"] },
+        { feature: "Course Count", values: ["220,000+", "Varies by expert", "30,000+", "7,000+", "16,000+"] },
+        { feature: "Instructor Revenue", values: ["37% organic / 97% referral", "100% (minus payment fees)", "Royalty pool share", "Varies by program", "Flat fee per course"] },
+        { feature: "Brand Control", values: ["None", "Full (custom domain, branding)", "None", "None", "None"] },
+        { feature: "Enterprise Product", values: ["Udemy Business", "Thinkific Plus", "Skillshare for Teams", "Coursera for Business", "LinkedIn Learning Enterprise"] },
+        { feature: "Pricing", values: ["$10–$200/course; $30/user/mo", "Free–$199/mo", "$14–$32/mo subscription", "$49–$79/mo; enterprise custom", "$30/user/mo"] },
+        { feature: "Content Quality Control", values: ["Ratings-based", "Expert-controlled", "Community-curated", "University-vetted", "LinkedIn-curated"] }
+      ]}
+    />
+  </section>
+
+  <!-- CTA -->
+  <LeadFormModal
+    variant="inline"
+    ctaTitle="Evaluating whether this platform fits your needs?"
+    ctaDescription="Get a personalized recommendation based on your specific use case, team size, and priorities."
+    ctaButtonText="Get My Recommendation"
+  />
+
+  <!-- FAQ -->
+  <FAQ items={faqItems} />
+
+  <!-- Related Pages -->
+  <RelatedPages pages={[
+    { title: "Thinkific vs Udemy", href: "/compare/thinkific-vs-udemy", description: "Owned platform vs marketplace: which model fits your goals?" },
+    { title: "Skillshare Review", href: "/reviews/skillshare", description: "Subscription creative learning community reviewed for learners and instructors." },
+    { title: "Thinkific Review", href: "/reviews/thinkific", description: "Detailed review of Thinkific for experts building learning businesses." },
+    { title: "Litmos Review", href: "/reviews/litmos", description: "Enterprise LMS review for organizations needing rapid deployment." }
+  ]} />
+
+</ReviewLayout>
