@@ -5,21 +5,53 @@ const footerLinks = [
   {
     title: 'Guides',
     links: [
+      { label: 'All Guides', href: '/guides/' },
+      { label: 'State of LMS 2026', href: '/guides/state-of-lms-2026' },
       { label: 'What Buyers Compare', href: '/guides/what-buyers-compare' },
       { label: 'Best LMS for Customer Training', href: '/guides/best-lms-customer-training' },
+      { label: 'Best LMS for SaaS', href: '/guides/best-lms-for-saas' },
+      { label: 'LMS Evaluation Checklist', href: '/guides/lms-evaluation-checklist' },
+      { label: 'LMS RFP Template', href: '/guides/lms-rfp-template' },
+      { label: 'Migration Checklist', href: '/guides/lms-migration-checklist' },
     ],
   },
   {
     title: 'Reviews',
     links: [
+      { label: 'All Reviews', href: '/reviews/' },
       { label: 'Thinkific Review', href: '/reviews/thinkific' },
+      { label: 'Kajabi Review', href: '/reviews/kajabi' },
+      { label: 'Docebo Review', href: '/reviews/docebo' },
+      { label: 'LearnWorlds Review', href: '/reviews/learnworlds' },
+      { label: 'TalentLMS Review', href: '/reviews/talentlms' },
     ],
   },
   {
     title: 'Comparisons',
     links: [
-      { label: 'Thinkific vs LearnWorlds', href: '/compare/thinkific-vs-learnworlds' },
+      { label: 'All Comparisons', href: '/compare/' },
+      { label: 'Thinkific vs Kajabi', href: '/compare/thinkific-vs-kajabi' },
       { label: 'Thinkific vs Docebo', href: '/compare/thinkific-vs-docebo' },
+      { label: 'Thinkific vs LearnWorlds', href: '/compare/thinkific-vs-learnworlds' },
+      { label: 'Thinkific vs TalentLMS', href: '/compare/thinkific-vs-talentlms' },
+      { label: 'Thinkific vs Absorb', href: '/compare/thinkific-vs-absorb' },
+    ],
+  },
+  {
+    title: 'Use Cases',
+    links: [
+      { label: 'Best LMS by Use Case', href: '/guides/best-lms-customer-training' },
+      { label: 'Best for Customer Training', href: '/guides/best-lms-customer-training' },
+      { label: 'Best for SaaS', href: '/guides/best-lms-for-saas' },
+      { label: 'Best for Training Businesses', href: '/guides/best-lms-for-training-businesses' },
+      { label: 'Best for Memberships', href: '/guides/best-lms-for-memberships' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'About', href: '/about/' },
+      { label: 'Get Free Recommendation', href: '/get-recommendation/' },
     ],
   },
 ];
@@ -27,8 +59,8 @@ const footerLinks = [
 
 <footer class="bg-navy-dark text-slate-400">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div class="col-span-2 md:col-span-3 lg:col-span-1">
         <a href="/" class="text-xl font-bold text-white hover:text-teal-light">LMS Guide</a>
         <p class="mt-3 text-sm leading-relaxed">Independent, buyer-focused LMS comparisons and reviews to help you choose the right learning platform.</p>
         <p class="mt-4 text-xs text-slate-500">LMS Guide is an independent editorial resource. All reviews and recommendations reflect our honest editorial assessment.</p>
