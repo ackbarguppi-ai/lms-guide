@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadFormModal from '../../components/LeadFormModal.astro';
+import ComparisonLeadForm from '../../components/ComparisonLeadForm.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "LMS Platform Reviews (2026) — In-Depth, Objective Analysis";
@@ -364,6 +365,11 @@ function renderStars(rating: number) {
       Whether you're building a customer academy, launching an online course business, or selecting 
       an enterprise LMS, these reviews will help you understand what each platform actually delivers.
     </p>
+  </section>
+
+  <!-- Comparison Builder Lead Form -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ComparisonLeadForm />
   </section>
 
   <!-- Learning Commerce Platforms -->

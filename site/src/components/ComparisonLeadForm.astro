@@ -1,0 +1,127 @@
+---
+const platforms = [
+  "Thinkific", "Docebo", "Absorb", "TalentLMS", "Kajabi", "Teachable",
+  "LearnWorlds", "Skilljar", "Moodle", "Canvas", "LearnDash", "Podia",
+  "Cornerstone", "Litmos", "Thought Industries", "360Learning",
+  "Mighty Networks", "Coursera", "Udemy", "Skillshare", "Other"
+];
+---
+
+<section class="my-10 bg-gradient-to-br from-navy to-[#1a2744] rounded-2xl p-8 md:p-10 shadow-lg">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-6">
+      <span class="inline-block bg-teal/20 text-teal-light text-xs font-semibold px-3 py-1 rounded-full mb-3">FREE CUSTOM REPORT</span>
+      <h3 class="text-white text-2xl md:text-3xl font-bold mb-2">Get Your Custom LMS Comparison</h3>
+      <p class="text-slate-300 text-sm md:text-base">Select the platforms you're evaluating and we'll send you a personalized comparison report with recommendations tailored to your situation.</p>
+    </div>
+
+    <form class="comparison-lead-form space-y-5">
+      <div>
+        <label class="block text-sm font-semibold text-white mb-2">Which platforms are you considering? <span class="text-slate-400 font-normal">(select all that apply)</span></label>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-52 overflow-y-auto bg-[#0f1a2e] rounded-lg p-3 border border-slate-600/30">
+          {platforms.map((p) => (
+            <label class="flex items-center gap-2 text-sm text-slate-200 cursor-pointer hover:text-white py-1 px-2 rounded hover:bg-slate-700/30 transition-colors">
+              <input type="checkbox" name="platforms" value={p} class="rounded border-slate-500 bg-slate-700 text-teal accent-teal" />
+              <span>{p}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Email <span class="text-red-400">*</span></label>
+          <input type="email" name="email" required placeholder="you@company.com" class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Name</label>
+          <input type="text" name="name" placeholder="Jane Smith" class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Company</label>
+          <input type="text" name="company" placeholder="Acme Corp" class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Company Size</label>
+          <select name="company_size" class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal">
+            <option value="">Select...</option>
+            <option value="solo">Solo / Individual</option>
+            <option value="2-10">2-10 employees</option>
+            <option value="11-50">11-50 employees</option>
+            <option value="51-200">51-200 employees</option>
+            <option value="201-1000">201-1,000 employees</option>
+            <option value="1000+">1,000+ employees</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-300 mb-1">Primary Use Case</label>
+        <select name="use_case" class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-teal">
+          <option value="">Select your primary use case...</option>
+          <option value="expert">Selling courses, memberships, or coaching</option>
+          <option value="academy">Training is our primary business / branded academy</option>
+          <option value="customer-training">Customer training for our product/service</option>
+          <option value="employee-training">Internal employee training</option>
+          <option value="certification">Certification or credentialing programs</option>
+          <option value="partner-training">Partner / channel enablement</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-300 mb-1">What matters most to you?</label>
+        <textarea name="criteria" rows="2" placeholder="e.g., need AI features, branded experience, analytics, compliance..." class="w-full px-3 py-2.5 bg-[#0f1a2e] border border-slate-600/30 rounded-lg text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-teal"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-teal hover:bg-teal-light text-white font-bold py-3.5 px-6 rounded-lg transition-colors text-base shadow-lg shadow-teal/20">
+        Get My Custom Comparison Report →
+      </button>
+      <p class="text-xs text-slate-500 text-center">Free. No spam. Personalized report delivered within 24 hours.</p>
+    </form>
+
+    <div class="comparison-form-success hidden text-center py-10">
+      <svg class="w-14 h-14 text-teal mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <h4 class="text-xl font-bold text-white mb-2">We're building your custom report!</h4>
+      <p class="text-slate-300 text-sm">Check your inbox within 24 hours for a personalized LMS comparison tailored to your selections.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.comparison-lead-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        if (key === 'platforms') {
+          if (!data.platforms) data.platforms = [];
+          data.platforms.push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+      data.form_type = 'comparison_builder';
+      data.platforms = (data.platforms || []).join(', ');
+
+      try {
+        await fetch('https://lms-guide-leads.ackbarguppi.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {
+        console.log('Form data:', data);
+      }
+
+      form.classList.add('hidden');
+      form.closest('section')?.querySelector('.comparison-form-success')?.classList.remove('hidden');
+    });
+  });
+</script>
