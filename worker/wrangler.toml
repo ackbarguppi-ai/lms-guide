@@ -2,12 +2,11 @@ name = "lms-guide-leads"
 main = "index.js"
 compatibility_date = "2024-01-01"
 
-[env.production]
 kv_namespaces = [
   { binding = "LEADS", id = "113dd2a3279a4d3e96f538fecc8b0db3" }
 ]
 
-[env.production.vars]
+[vars]
 # Set these via wrangler secret put
 # TELEGRAM_BOT_TOKEN
 # TELEGRAM_CHAT_ID

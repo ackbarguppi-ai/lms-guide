@@ -10,6 +10,30 @@ export default {
       });
     }
 
+    // GET /leads — list recent leads (requires auth header)
+    if (request.method === 'GET') {
+      const url = new URL(request.url);
+      const authKey = (request.headers.get('X-API-Key') || url.searchParams.get('key') || '').trim();
+      const adminKey = (env.ADMIN_KEY || '').trim();
+      if (!adminKey || authKey !== adminKey) {
+        return jsonResponse({ error: 'Unauthorized' }, 401);
+      }
+
+      try {
+        const count = await env.LEADS.get('_count') || '0';
+        const leads = [];
+        const list = await env.LEADS.list({ prefix: 'lead_', limit: 50 });
+        for (const key of list.keys) {
+          const val = await env.LEADS.get(key.name);
+          if (val) leads.push({ id: key.name, ...JSON.parse(val) });
+        }
+        leads.sort((a, b) => (b.timestamp || '').localeCompare(a.timestamp || ''));
+        return jsonResponse({ total: parseInt(count), leads });
+      } catch (err) {
+        return jsonResponse({ error: 'Failed to read leads', detail: err.message }, 500);
+      }
+    }
+
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { status: 405, headers: corsHeaders() });
     }
