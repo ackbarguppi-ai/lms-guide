@@ -7,17 +7,65 @@ import RelatedPages from '../components/RelatedPages.astro';
 const title = "LMS Guide";
 const description = "Independent, buyer-focused LMS comparisons and reviews. Find the right learning platform for customer training, branded academies, course businesses, and enterprise education.";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "LMS Guide",
-  "url": "https://lms-guide.com",
-  "description": description,
-  "publisher": {
-    "@type": "Organization",
-    "name": "LMS Guide"
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LMS Guide",
+    "url": "https://lms-guide.com",
+    "description": description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "LMS Guide"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an LMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An LMS (Learning Management System) is software that lets you create, deliver, and track educational content and training programs. LMSs range from simple course platforms for selling online courses to enterprise systems managing thousands of learners across compliance, onboarding, and customer education programs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I choose the right LMS for my business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start by identifying your use case: Are you training employees, educating customers, or selling courses to an audience? Then evaluate platforms on fit for your use case, learner experience, commerce and monetization features (if applicable), integration with your existing tools, reporting needs, and total cost at your expected scale. Our buyer framework at lms-guide.com/guides/what-buyers-compare walks through the nine key pillars that real buyers use to make this decision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best LMS for customer training?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For customer education and external training, top platforms include Thinkific, Docebo, Absorb LMS, LearnWorlds, and Skilljar. Thinkific is a strong choice for branded academies and learning commerce. Docebo and Absorb excel for enterprise-scale customer education. The right choice depends on your team size, learner volume, branding requirements, and whether you need to monetize the training. See our full comparison at lms-guide.com/guides/best-lms-customer-training."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between a customer LMS and an employee LMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An employee LMS is designed for internal audiences — onboarding, compliance, and performance training within a company. A customer LMS (also called a customer education platform) is built for external learners: your customers, partners, or resellers. Customer LMSs typically offer branded academy features, external learner self-registration, commerce capabilities, and lower-friction onboarding than corporate HR systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does an LMS cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LMS pricing varies widely. Learning commerce platforms like Thinkific start under $100/month for basic plans. Mid-market platforms typically cost $300–$800/month. Enterprise platforms (Docebo, Absorb, Cornerstone) generally require custom quotes and often start at $800–$2,000/month depending on learner volume and features. Watch for per-user fees, transaction fees on course sales, and implementation costs that aren't always visible in list pricing."
+        }
+      }
+    ]
   }
-};
+];
 ---
 
 <BaseLayout title={title} description={description} ogType="website" jsonLd={jsonLd}>
